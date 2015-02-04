@@ -26,6 +26,12 @@ extension UIViewController {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
 
+    func setBlurBackground() {
+        if let parentViewController = self.presentingViewController? {
+            self.view.setBlurBackground(parentViewController.view)
+        }
+    }
+
     func addBackButton() {
         if let navigationController = self.navigationController {
             var buttonItem = UIBarButtonItem(
@@ -50,14 +56,6 @@ extension UIViewController {
             buttonItem.title = "Close"
             self.navigationItem.leftBarButtonItem = buttonItem
             self.navigationController?.interactivePopGestureRecognizer.delegate = self
-        }
-    }
-
-    func setBlurBackground() {
-        if let parentViewController = self.presentingViewController? {
-            var image:UIImage = parentViewController.view.convertToImage()
-            image.applyBlurWithRadius()
-            self.view.backgroundColor = UIColor(patternImage: image)
         }
     }
 }

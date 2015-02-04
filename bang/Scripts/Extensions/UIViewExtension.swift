@@ -18,8 +18,8 @@ extension UIView {
         return image
     }
 
-    func setBlurBackground(parentView: UIView) {
-        var image:UIImage = parentView.convertToImage()
+    func setBlurBackground(view: UIView) {
+        var image:UIImage = view.convertToImage()
         image.applyBlurWithRadius()
         self.backgroundColor = UIColor(patternImage: image)
     }
@@ -36,7 +36,7 @@ extension UIView {
             y: 0,
             width: self.bounds.width*0.60,
             height: self.bounds.height*0.60
-            ))
+        ))
         imageView.image = image
         imageView.contentMode = UIViewContentMode.ScaleAspectFit
         self.addSubviewOnCenter(imageView)
