@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="5Q6-js-Bk1">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+    </dependencies>
+    <scenes>
+        <!--Search View Controller-->
+        <scene sceneID="4QM-XB-tBp">
+            <objects>
+                <viewController id="5Q6-js-Bk1" customClass="SearchViewController" customModule="bang" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="sQR-is-Pvk"/>
+                        <viewControllerLayoutGuide type="bottom" id="55c-rS-p7M"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="F3H-n3-ibR">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bang" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rzE-AD-fK1">
+                                <rect key="frame" x="0.0" y="290" width="600" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="rzE-AD-fK1" secondAttribute="centerX" id="RSl-9Z-KYY"/>
+                            <constraint firstItem="rzE-AD-fK1" firstAttribute="leading" secondItem="F3H-n3-ibR" secondAttribute="leading" id="WTs-kG-59s"/>
+                            <constraint firstAttribute="trailing" secondItem="rzE-AD-fK1" secondAttribute="trailing" id="qtP-t8-HLt"/>
+                            <constraint firstAttribute="centerY" secondItem="rzE-AD-fK1" secondAttribute="centerY" id="u0I-bB-22Z"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BfF-Jm-ZEv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="288" y="347"/>
+        </scene>
+    </scenes>
+</document>

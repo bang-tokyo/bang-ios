@@ -16,6 +16,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+
+        var searchViewController = SearchViewController.build()
+        self.showViewController(searchViewController)
+
         return true
     }
 
@@ -42,5 +46,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
 
+}
+
+extension AppDelegate {
+    func showViewController(viewController: UIViewController) {
+        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        self.window!.rootViewController = viewController;
+        self.window!.makeKeyAndVisible()
+    }
 }
 
