@@ -15,6 +15,9 @@
 		B8D9B2591A82534A00B30271 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D9B2581A82534A00B30271 /* UIViewExtension.swift */; };
 		B8D9B25D1A8254C400B30271 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D9B25C1A8254C400B30271 /* UIImageExtension.swift */; };
 		B8D9B2611A8255DD00B30271 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = B8D9B2601A8255DD00B30271 /* UIImage+ImageEffects.m */; };
+		B8F1389A1A8A4B09002A820E /* UserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F138991A8A4B09002A820E /* UserDefault.swift */; };
+		B8F1389C1A8A4B84002A820E /* BLEPeripheralManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F1389B1A8A4B84002A820E /* BLEPeripheralManager.swift */; };
+		B8F1389F1A8A4D13002A820E /* RoundedCornersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F1389E1A8A4D13002A820E /* RoundedCornersView.swift */; };
 		B8FDC5131A818EDC00D4511E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FDC5121A818EDC00D4511E /* AppDelegate.swift */; };
 		B8FDC51A1A818EDC00D4511E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8FDC5191A818EDC00D4511E /* Images.xcassets */; };
 		B8FDC51D1A818EDC00D4511E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8FDC51B1A818EDC00D4511E /* LaunchScreen.xib */; };
@@ -44,6 +47,9 @@
 		B8D9B25E1A8255DC00B30271 /* bang-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "bang-Bridging-Header.h"; sourceTree = "<group>"; };
 		B8D9B25F1A8255DD00B30271 /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageEffects.h"; sourceTree = "<group>"; };
 		B8D9B2601A8255DD00B30271 /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageEffects.m"; sourceTree = "<group>"; };
+		B8F138991A8A4B09002A820E /* UserDefault.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefault.swift; sourceTree = "<group>"; };
+		B8F1389B1A8A4B84002A820E /* BLEPeripheralManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEPeripheralManager.swift; sourceTree = "<group>"; };
+		B8F1389E1A8A4D13002A820E /* RoundedCornersView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedCornersView.swift; sourceTree = "<group>"; };
 		B8FDC50D1A818EDC00D4511E /* bang.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bang.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8FDC5111A818EDC00D4511E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B8FDC5121A818EDC00D4511E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -110,10 +116,9 @@
 		B830CDD81A823E290038CAFE /* Scripts */ = {
 			isa = PBXGroup;
 			children = (
-				B8D9B2571A82529B00B30271 /* Vendors */,
 				B8D9B2531A824E2F00B30271 /* Utils */,
 				B8D9B2521A824E2300B30271 /* Models */,
-				B8D9B2541A8250F100B30271 /* Extensions */,
+				B8F138981A8A495C002A820E /* Functions */,
 				B8D9B2511A824DEA00B30271 /* Views */,
 				B830CDD71A823DE40038CAFE /* ViewControllers */,
 				B8FDC5121A818EDC00D4511E /* AppDelegate.swift */,
@@ -124,6 +129,7 @@
 		B8D9B2511A824DEA00B30271 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B8F1389D1A8A4CC5002A820E /* CustomViews */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -131,6 +137,7 @@
 		B8D9B2521A824E2300B30271 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				B8F138991A8A4B09002A820E /* UserDefault.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -138,6 +145,8 @@
 		B8D9B2531A824E2F00B30271 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				B8D9B2541A8250F100B30271 /* Extensions */,
+				B8D9B2571A82529B00B30271 /* Vendors */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -160,6 +169,22 @@
 				B8D9B2601A8255DD00B30271 /* UIImage+ImageEffects.m */,
 			);
 			path = Vendors;
+			sourceTree = "<group>";
+		};
+		B8F138981A8A495C002A820E /* Functions */ = {
+			isa = PBXGroup;
+			children = (
+				B8F1389B1A8A4B84002A820E /* BLEPeripheralManager.swift */,
+			);
+			path = Functions;
+			sourceTree = "<group>";
+		};
+		B8F1389D1A8A4CC5002A820E /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				B8F1389E1A8A4D13002A820E /* RoundedCornersView.swift */,
+			);
+			path = CustomViews;
 			sourceTree = "<group>";
 		};
 		B8FDC5041A818EDB00D4511E = {
@@ -354,11 +379,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8F1389A1A8A4B09002A820E /* UserDefault.swift in Sources */,
 				B8D9B2591A82534A00B30271 /* UIViewExtension.swift in Sources */,
 				B8D9B2561A82523400B30271 /* UIViewControllerExtension.swift in Sources */,
+				B8F1389F1A8A4D13002A820E /* RoundedCornersView.swift in Sources */,
 				B8D9B2611A8255DD00B30271 /* UIImage+ImageEffects.m in Sources */,
 				B830CDDA1A82403B0038CAFE /* SearchViewController.swift in Sources */,
 				B8FDC5131A818EDC00D4511E /* AppDelegate.swift in Sources */,
+				B8F1389C1A8A4B84002A820E /* BLEPeripheralManager.swift in Sources */,
 				B8D9B2501A824DC700B30271 /* BaseViewController.swift in Sources */,
 				B8D9B25D1A8254C400B30271 /* UIImageExtension.swift in Sources */,
 			);
@@ -480,7 +508,7 @@
 				INFOPLIST_FILE = bang/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "bang/Scripts/Vendors/bang-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "bang/Scripts/Utils/Vendors/bang-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -494,7 +522,7 @@
 				INFOPLIST_FILE = bang/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "bang/Scripts/Vendors/bang-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "bang/Scripts/Utils/Vendors/bang-Bridging-Header.h";
 			};
 			name = Release;
 		};
