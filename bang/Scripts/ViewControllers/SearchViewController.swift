@@ -15,6 +15,8 @@ class SearchViewController: BaseViewController {
         return storyboard.instantiateInitialViewController() as SearchViewController
     }
 
+    @IBOutlet weak var label: UILabel!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -36,5 +38,9 @@ class SearchViewController: BaseViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    @IBAction func swipeUp(sender: AnyObject) {
+        var rand: Int = Int(arc4random_uniform(10))
+        label.text = "\(rand)"
+    }
 
 }
