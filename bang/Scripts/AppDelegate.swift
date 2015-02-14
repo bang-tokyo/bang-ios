@@ -16,9 +16,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+        // Logs 'install' and 'app activate' App Events.
+        FBAppEvents.activateApp()
 
-        var searchViewController = SearchViewController.build()
-        self.showViewController(searchViewController)
+        var loginViewController = LoginViewController.build()
+        self.showViewController(loginViewController)
 
         return true
     }
@@ -45,6 +48,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
+    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject?) -> Bool {
+        //println("---> \(url)")
+        return FBAppCall.handleOpenURL(url, sourceApplication: sourceApplication)
+    }
 
 }
 
