@@ -24,15 +24,27 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="rzE-AD-fK1" secondAttribute="centerX" id="RSl-9Z-KYY"/>
                             <constraint firstItem="rzE-AD-fK1" firstAttribute="leading" secondItem="F3H-n3-ibR" secondAttribute="leading" id="WTs-kG-59s"/>
                             <constraint firstAttribute="trailing" secondItem="rzE-AD-fK1" secondAttribute="trailing" id="qtP-t8-HLt"/>
                             <constraint firstAttribute="centerY" secondItem="rzE-AD-fK1" secondAttribute="centerY" id="u0I-bB-22Z"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="O1N-t1-m2M" appends="YES" id="UUd-sf-eWE"/>
+                        </connections>
                     </view>
+                    <connections>
+                        <outlet property="label" destination="rzE-AD-fK1" id="dn7-Xu-60B"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BfF-Jm-ZEv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="up" id="O1N-t1-m2M">
+                    <connections>
+                        <action selector="swipeUp:" destination="5Q6-js-Bk1" id="6Mi-2R-gfM"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="288" y="347"/>
         </scene>
