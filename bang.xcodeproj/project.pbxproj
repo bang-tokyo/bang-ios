@@ -10,11 +10,15 @@
 		6A604A32C528F8BB43AD4344 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 56E4A22E13D9ADD016D461F6 /* libPods.a */; };
 		B830CDDA1A82403B0038CAFE /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B830CDD91A82403B0038CAFE /* SearchViewController.swift */; };
 		B830CDDC1A8240C30038CAFE /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B830CDDB1A8240C30038CAFE /* Search.storyboard */; };
+		B899149E1A8C1F69003E8930 /* BLECentralManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B899149D1A8C1F69003E8930 /* BLECentralManager.swift */; };
 		B8D9B2501A824DC700B30271 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D9B24F1A824DC700B30271 /* BaseViewController.swift */; };
 		B8D9B2561A82523400B30271 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D9B2551A82523400B30271 /* UIViewControllerExtension.swift */; };
 		B8D9B2591A82534A00B30271 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D9B2581A82534A00B30271 /* UIViewExtension.swift */; };
 		B8D9B25D1A8254C400B30271 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D9B25C1A8254C400B30271 /* UIImageExtension.swift */; };
 		B8D9B2611A8255DD00B30271 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = B8D9B2601A8255DD00B30271 /* UIImage+ImageEffects.m */; };
+		B8DD29871A8B13840024ABD0 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8DD29861A8B13840024ABD0 /* CoreBluetooth.framework */; };
+		B8DD298A1A8B154E0024ABD0 /* BLEConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DD29891A8B154E0024ABD0 /* BLEConfig.swift */; };
+		B8DD298C1A8B1CC10024ABD0 /* BLEEnumExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DD298B1A8B1CC10024ABD0 /* BLEEnumExtension.swift */; };
 		B8F1389A1A8A4B09002A820E /* UserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F138991A8A4B09002A820E /* UserDefault.swift */; };
 		B8F1389C1A8A4B84002A820E /* BLEPeripheralManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F1389B1A8A4B84002A820E /* BLEPeripheralManager.swift */; };
 		B8F1389F1A8A4D13002A820E /* RoundedCornersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F1389E1A8A4D13002A820E /* RoundedCornersView.swift */; };
@@ -40,6 +44,7 @@
 		9E24BFC2BD3FDB4B7751D942 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		B830CDD91A82403B0038CAFE /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		B830CDDB1A8240C30038CAFE /* Search.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
+		B899149D1A8C1F69003E8930 /* BLECentralManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLECentralManager.swift; sourceTree = "<group>"; };
 		B8D9B24F1A824DC700B30271 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		B8D9B2551A82523400B30271 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		B8D9B2581A82534A00B30271 /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
@@ -47,6 +52,9 @@
 		B8D9B25E1A8255DC00B30271 /* bang-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "bang-Bridging-Header.h"; sourceTree = "<group>"; };
 		B8D9B25F1A8255DD00B30271 /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageEffects.h"; sourceTree = "<group>"; };
 		B8D9B2601A8255DD00B30271 /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageEffects.m"; sourceTree = "<group>"; };
+		B8DD29861A8B13840024ABD0 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		B8DD29891A8B154E0024ABD0 /* BLEConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEConfig.swift; sourceTree = "<group>"; };
+		B8DD298B1A8B1CC10024ABD0 /* BLEEnumExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEEnumExtension.swift; sourceTree = "<group>"; };
 		B8F138991A8A4B09002A820E /* UserDefault.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefault.swift; sourceTree = "<group>"; };
 		B8F1389B1A8A4B84002A820E /* BLEPeripheralManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEPeripheralManager.swift; sourceTree = "<group>"; };
 		B8F1389E1A8A4D13002A820E /* RoundedCornersView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedCornersView.swift; sourceTree = "<group>"; };
@@ -65,6 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8DD29871A8B13840024ABD0 /* CoreBluetooth.framework in Frameworks */,
 				6A604A32C528F8BB43AD4344 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -91,6 +100,7 @@
 		2ABF3CDD21B556A72AAEB1C7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B8DD29861A8B13840024ABD0 /* CoreBluetooth.framework */,
 				56E4A22E13D9ADD016D461F6 /* libPods.a */,
 			);
 			name = Frameworks;
@@ -116,6 +126,7 @@
 		B830CDD81A823E290038CAFE /* Scripts */ = {
 			isa = PBXGroup;
 			children = (
+				B8DD29881A8B15190024ABD0 /* Configs */,
 				B8D9B2531A824E2F00B30271 /* Utils */,
 				B8D9B2521A824E2300B30271 /* Models */,
 				B8F138981A8A495C002A820E /* Functions */,
@@ -157,6 +168,7 @@
 				B8D9B2551A82523400B30271 /* UIViewControllerExtension.swift */,
 				B8D9B2581A82534A00B30271 /* UIViewExtension.swift */,
 				B8D9B25C1A8254C400B30271 /* UIImageExtension.swift */,
+				B8DD298B1A8B1CC10024ABD0 /* BLEEnumExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -171,10 +183,19 @@
 			path = Vendors;
 			sourceTree = "<group>";
 		};
+		B8DD29881A8B15190024ABD0 /* Configs */ = {
+			isa = PBXGroup;
+			children = (
+				B8DD29891A8B154E0024ABD0 /* BLEConfig.swift */,
+			);
+			path = Configs;
+			sourceTree = "<group>";
+		};
 		B8F138981A8A495C002A820E /* Functions */ = {
 			isa = PBXGroup;
 			children = (
 				B8F1389B1A8A4B84002A820E /* BLEPeripheralManager.swift */,
+				B899149D1A8C1F69003E8930 /* BLECentralManager.swift */,
 			);
 			path = Functions;
 			sourceTree = "<group>";
@@ -384,10 +405,13 @@
 				B8D9B2561A82523400B30271 /* UIViewControllerExtension.swift in Sources */,
 				B8F1389F1A8A4D13002A820E /* RoundedCornersView.swift in Sources */,
 				B8D9B2611A8255DD00B30271 /* UIImage+ImageEffects.m in Sources */,
+				B899149E1A8C1F69003E8930 /* BLECentralManager.swift in Sources */,
+				B8DD298A1A8B154E0024ABD0 /* BLEConfig.swift in Sources */,
 				B830CDDA1A82403B0038CAFE /* SearchViewController.swift in Sources */,
 				B8FDC5131A818EDC00D4511E /* AppDelegate.swift in Sources */,
 				B8F1389C1A8A4B84002A820E /* BLEPeripheralManager.swift in Sources */,
 				B8D9B2501A824DC700B30271 /* BaseViewController.swift in Sources */,
+				B8DD298C1A8B1CC10024ABD0 /* BLEEnumExtension.swift in Sources */,
 				B8D9B25D1A8254C400B30271 /* UIImageExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -506,6 +530,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = bang/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "bang/Scripts/Utils/Vendors/bang-Bridging-Header.h";
@@ -520,6 +545,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = bang/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "bang/Scripts/Utils/Vendors/bang-Bridging-Header.h";
