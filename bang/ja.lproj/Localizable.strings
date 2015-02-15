@@ -1,0 +1,13 @@
+/* 
+  Localizable.strings
+  bang
+
+  Created by Yoshikazu Oda on 2015/02/15.
+  Copyright (c) 2015年 Yoshikazu Oda. All rights reserved.
+*/
+
+// MARK: - Jeneral
+"confirm" = "確認";
+
+// MARK: - Facebook
+"facebookAlertTitle" = "Error about Facebook";

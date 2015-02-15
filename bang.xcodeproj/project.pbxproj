@@ -8,6 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		6A604A32C528F8BB43AD4344 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 56E4A22E13D9ADD016D461F6 /* libPods.a */; };
+		B824483E1A8EEA0C00B540A4 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B824483D1A8EEA0C00B540A4 /* FacebookSDK.framework */; };
+		B82448401A8EF07700B540A4 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B824483F1A8EF07700B540A4 /* Login.storyboard */; };
+		B82448421A8EF16C00B540A4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82448411A8EF16C00B540A4 /* LoginViewController.swift */; };
+		B82448441A8F183400B540A4 /* FacebookManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82448431A8F183400B540A4 /* FacebookManager.swift */; };
+		B82448461A8F1E4700B540A4 /* FacebookConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82448451A8F1E4700B540A4 /* FacebookConfig.swift */; };
+		B82448481A903DE400B540A4 /* NotificationConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82448471A903DE400B540A4 /* NotificationConfig.swift */; };
+		B824484A1A9043E300B540A4 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B82448491A9043E300B540A4 /* Profile.storyboard */; };
+		B824484C1A90441600B540A4 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B824484B1A90441600B540A4 /* ProfileViewController.swift */; };
+		B82448521A90CE7F00B540A4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B82448541A90CE7F00B540A4 /* Localizable.strings */; };
 		B830CDDA1A82403B0038CAFE /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B830CDD91A82403B0038CAFE /* SearchViewController.swift */; };
 		B830CDDC1A8240C30038CAFE /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B830CDDB1A8240C30038CAFE /* Search.storyboard */; };
 		B899149E1A8C1F69003E8930 /* BLECentralManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B899149D1A8C1F69003E8930 /* BLECentralManager.swift */; };
@@ -42,6 +51,16 @@
 		07720D1FE88AFACC32454227 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		56E4A22E13D9ADD016D461F6 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E24BFC2BD3FDB4B7751D942 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		B824483D1A8EEA0C00B540A4 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
+		B824483F1A8EF07700B540A4 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		B82448411A8EF16C00B540A4 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		B82448431A8F183400B540A4 /* FacebookManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookManager.swift; sourceTree = "<group>"; };
+		B82448451A8F1E4700B540A4 /* FacebookConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookConfig.swift; sourceTree = "<group>"; };
+		B82448471A903DE400B540A4 /* NotificationConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationConfig.swift; sourceTree = "<group>"; };
+		B82448491A9043E300B540A4 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		B824484B1A90441600B540A4 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		B82448531A90CE7F00B540A4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		B82448551A90CE8500B540A4 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B830CDD91A82403B0038CAFE /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		B830CDDB1A8240C30038CAFE /* Search.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		B899149D1A8C1F69003E8930 /* BLECentralManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLECentralManager.swift; sourceTree = "<group>"; };
@@ -75,6 +94,7 @@
 			files = (
 				B8DD29871A8B13840024ABD0 /* CoreBluetooth.framework in Frameworks */,
 				6A604A32C528F8BB43AD4344 /* libPods.a in Frameworks */,
+				B824483E1A8EEA0C00B540A4 /* FacebookSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				B8DD29861A8B13840024ABD0 /* CoreBluetooth.framework */,
+				B824483D1A8EEA0C00B540A4 /* FacebookSDK.framework */,
 				56E4A22E13D9ADD016D461F6 /* libPods.a */,
 			);
 			name = Frameworks;
@@ -109,6 +130,8 @@
 		B830CDD61A823C6A0038CAFE /* StoryBoards */ = {
 			isa = PBXGroup;
 			children = (
+				B824483F1A8EF07700B540A4 /* Login.storyboard */,
+				B82448491A9043E300B540A4 /* Profile.storyboard */,
 				B830CDDB1A8240C30038CAFE /* Search.storyboard */,
 			);
 			path = StoryBoards;
@@ -118,6 +141,8 @@
 			isa = PBXGroup;
 			children = (
 				B8D9B24F1A824DC700B30271 /* BaseViewController.swift */,
+				B82448411A8EF16C00B540A4 /* LoginViewController.swift */,
+				B824484B1A90441600B540A4 /* ProfileViewController.swift */,
 				B830CDD91A82403B0038CAFE /* SearchViewController.swift */,
 			);
 			path = ViewControllers;
@@ -187,6 +212,8 @@
 			isa = PBXGroup;
 			children = (
 				B8DD29891A8B154E0024ABD0 /* BLEConfig.swift */,
+				B82448451A8F1E4700B540A4 /* FacebookConfig.swift */,
+				B82448471A903DE400B540A4 /* NotificationConfig.swift */,
 			);
 			path = Configs;
 			sourceTree = "<group>";
@@ -196,6 +223,7 @@
 			children = (
 				B8F1389B1A8A4B84002A820E /* BLEPeripheralManager.swift */,
 				B899149D1A8C1F69003E8930 /* BLECentralManager.swift */,
+				B82448431A8F183400B540A4 /* FacebookManager.swift */,
 			);
 			path = Functions;
 			sourceTree = "<group>";
@@ -244,6 +272,7 @@
 			isa = PBXGroup;
 			children = (
 				B8FDC5111A818EDC00D4511E /* Info.plist */,
+				B82448541A90CE7F00B540A4 /* Localizable.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -330,6 +359,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ja,
 			);
 			mainGroup = B8FDC5041A818EDB00D4511E;
 			productRefGroup = B8FDC50E1A818EDC00D4511E /* Products */;
@@ -347,7 +377,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B82448401A8EF07700B540A4 /* Login.storyboard in Resources */,
+				B82448521A90CE7F00B540A4 /* Localizable.strings in Resources */,
 				B8FDC51D1A818EDC00D4511E /* LaunchScreen.xib in Resources */,
+				B824484A1A9043E300B540A4 /* Profile.storyboard in Resources */,
 				B830CDDC1A8240C30038CAFE /* Search.storyboard in Resources */,
 				B8FDC51A1A818EDC00D4511E /* Images.xcassets in Resources */,
 			);
@@ -400,11 +433,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B82448481A903DE400B540A4 /* NotificationConfig.swift in Sources */,
 				B8F1389A1A8A4B09002A820E /* UserDefault.swift in Sources */,
 				B8D9B2591A82534A00B30271 /* UIViewExtension.swift in Sources */,
 				B8D9B2561A82523400B30271 /* UIViewControllerExtension.swift in Sources */,
 				B8F1389F1A8A4D13002A820E /* RoundedCornersView.swift in Sources */,
 				B8D9B2611A8255DD00B30271 /* UIImage+ImageEffects.m in Sources */,
+				B824484C1A90441600B540A4 /* ProfileViewController.swift in Sources */,
 				B899149E1A8C1F69003E8930 /* BLECentralManager.swift in Sources */,
 				B8DD298A1A8B154E0024ABD0 /* BLEConfig.swift in Sources */,
 				B830CDDA1A82403B0038CAFE /* SearchViewController.swift in Sources */,
@@ -412,7 +447,10 @@
 				B8F1389C1A8A4B84002A820E /* BLEPeripheralManager.swift in Sources */,
 				B8D9B2501A824DC700B30271 /* BaseViewController.swift in Sources */,
 				B8DD298C1A8B1CC10024ABD0 /* BLEEnumExtension.swift in Sources */,
+				B82448441A8F183400B540A4 /* FacebookManager.swift in Sources */,
 				B8D9B25D1A8254C400B30271 /* UIImageExtension.swift in Sources */,
+				B82448421A8EF16C00B540A4 /* LoginViewController.swift in Sources */,
+				B82448461A8F1E4700B540A4 /* FacebookConfig.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -435,6 +473,15 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		B82448541A90CE7F00B540A4 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B82448531A90CE7F00B540A4 /* Base */,
+				B82448551A90CE8500B540A4 /* ja */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		B8FDC51B1A818EDC00D4511E /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -529,6 +576,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = bang/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -544,6 +595,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = bang/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

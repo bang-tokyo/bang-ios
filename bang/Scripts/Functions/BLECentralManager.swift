@@ -37,6 +37,7 @@ class BLECentralManager: NSObject {
     }
 }
 
+// MARK: - CBCentralManagerDelegate
 extension BLECentralManager: CBCentralManagerDelegate {
 
     // CentralManagerの状態変化した時に呼ばれる(require)
@@ -84,6 +85,7 @@ extension BLECentralManager: CBCentralManagerDelegate {
     }
 }
 
+// MARK: - CBPeripheralDelegate
 extension BLECentralManager: CBPeripheralDelegate {
 
     // PeripheralのServiceが見つかったら呼ばれる
@@ -130,6 +132,7 @@ extension BLECentralManager: CBPeripheralDelegate {
     }
 }
 
+// MARK: - Private functions
 extension BLECentralManager {
     private func startSearching() {
         centralManager.scanForPeripheralsWithServices([BLEServiceUUID], options: nil)

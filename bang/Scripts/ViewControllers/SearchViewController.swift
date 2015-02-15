@@ -28,16 +28,7 @@ class SearchViewController: BaseViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    // MARK: - IBAction
     @IBAction func swipeUp(sender: AnyObject) {
         var rand: Int = Int(arc4random_uniform(10))
         label.text = "\(rand)"
