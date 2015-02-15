@@ -14,40 +14,42 @@ class LoginViewController: BaseViewController {
         var storyboard: UIStoryboard = UIStoryboard(name: "Login", bundle: nil)
         return storyboard.instantiateInitialViewController() as LoginViewController
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        FacebookManager.sharedInstance.delegate = self
+    }
 
-        var loginView: FBLoginView = FBLoginView(readPermissions: FBReadPermissions)
-        loginView.center = self.view.center
-        self.view.addSubview(loginView)
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(animated)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-    
+    // MARK: - IBAction
     @IBAction func onClickLoginButton(sender: UIButton) {
         FacebookManager.sharedInstance.openFacebookSession()
-//        var viewController = SearchViewController.build()
-//        self.moveTo(viewController)
     }
 
 }
 
-extension LoginViewController: FBLoginViewDelegate {
-    func loginViewFetchedUserInfo(loginView: FBLoginView!, user: FBGraphUser!) {
-        println("--> \(user.name)")
+// MARK: - FacebookManagerDelegate
+extension LoginViewController: FacebookManagerDelegate {
+    func handlerFacebookSessionStateChanged(isLogined: Bool) {
+        if isLogined {
+            var viewController = ProfileViewController.build()
+            self.moveTo(viewController)
+        }
     }
+}
+
+// MARK: - Private functions
+extension LoginViewController {
 }
