@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		6A604A32C528F8BB43AD4344 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 56E4A22E13D9ADD016D461F6 /* libPods.a */; };
-		B824483E1A8EEA0C00B540A4 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B824483D1A8EEA0C00B540A4 /* FacebookSDK.framework */; };
 		B82448401A8EF07700B540A4 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B824483F1A8EF07700B540A4 /* Login.storyboard */; };
 		B82448421A8EF16C00B540A4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82448411A8EF16C00B540A4 /* LoginViewController.swift */; };
 		B82448441A8F183400B540A4 /* FacebookManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82448431A8F183400B540A4 /* FacebookManager.swift */; };
@@ -51,7 +50,6 @@
 		07720D1FE88AFACC32454227 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		56E4A22E13D9ADD016D461F6 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E24BFC2BD3FDB4B7751D942 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		B824483D1A8EEA0C00B540A4 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		B824483F1A8EF07700B540A4 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		B82448411A8EF16C00B540A4 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		B82448431A8F183400B540A4 /* FacebookManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookManager.swift; sourceTree = "<group>"; };
@@ -94,7 +92,6 @@
 			files = (
 				B8DD29871A8B13840024ABD0 /* CoreBluetooth.framework in Frameworks */,
 				6A604A32C528F8BB43AD4344 /* libPods.a in Frameworks */,
-				B824483E1A8EEA0C00B540A4 /* FacebookSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -121,7 +118,6 @@
 			isa = PBXGroup;
 			children = (
 				B8DD29861A8B13840024ABD0 /* CoreBluetooth.framework */,
-				B824483D1A8EEA0C00B540A4 /* FacebookSDK.framework */,
 				56E4A22E13D9ADD016D461F6 /* libPods.a */,
 			);
 			name = Frameworks;
