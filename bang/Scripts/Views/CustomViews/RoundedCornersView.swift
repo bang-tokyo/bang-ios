@@ -15,10 +15,10 @@ class RoundedCornersView: UIView {
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
 
-        self.makeCircle()
+        self.makeRoundedCorner()
     }
 
-    func makeCircle() {
+    func makeRoundedCorner() {
         self.layer.cornerRadius = cornerRadius
         self.clipsToBounds = true
     }

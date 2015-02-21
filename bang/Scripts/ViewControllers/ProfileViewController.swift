@@ -15,14 +15,24 @@ class ProfileViewController: BaseViewController {
         return storyboard.instantiateInitialViewController() as ProfileViewController
     }
 
-    @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var profilePictureView: FBProfilePictureView!
     @IBOutlet weak var nameLabel: UILabel!
+    var facebookManager: FacebookManager = FacebookManager.sharedInstance
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        FacebookManager.sharedInstance.delegate = self
-        nameLabel.text = FacebookManager.sharedInstance.request()
+        facebookManager.delegate = self
+        facebookManager.requestUserData({
+            [unowned self] (userData: NSDictionary) in
+            self.nameLabel.text = userData.objectForKey("name") as? String
+            self.profilePictureView.profileID = userData.objectForKey("id") as String
+        })
+    }
+
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        self.profilePictureView.makeCircle()
     }
 
     override func didReceiveMemoryWarning() {
