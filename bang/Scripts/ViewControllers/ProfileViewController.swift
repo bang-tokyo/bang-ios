@@ -22,7 +22,10 @@ class ProfileViewController: BaseViewController {
         super.viewDidLoad()
 
         FacebookManager.sharedInstance.delegate = self
-        nameLabel.text = FacebookManager.sharedInstance.request()
+        FacebookManager.sharedInstance.requestUserData({
+            [unowned self] (userData: NSDictionary) in
+            self.nameLabel.text = userData.objectForKey("name") as? String
+        })
     }
 
     override func didReceiveMemoryWarning() {

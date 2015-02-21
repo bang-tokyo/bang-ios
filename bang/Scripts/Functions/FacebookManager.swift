@@ -61,19 +61,23 @@ class FacebookManager: NSObject {
     }
 
     // MARK: - Functions of FBRequest
-    func request() -> String {
+    func requestUserData(success:((userData: NSDictionary)->Void)?) {
         // TODO: - Get UserData
-        var name = "test"
-        if FBSession.activeSession().isOpen {
-            FBRequest.requestForMe().startWithCompletionHandler({
-                (connection: FBRequestConnection!, result: AnyObject!, error: NSError!) -> Void in
-                if error == nil {
-                    var userData = result as NSDictionary
-                    name = userData.objectForKey("id") as String
-                }
-            })
+        if let facebookUserData = GlobalData.sharedInstance.facebookUserData {
+            success?(userData: facebookUserData)
+        } else {
+            if FBSession.activeSession().isOpen {
+                FBRequest.requestForMe().startWithCompletionHandler({
+                    (connection: FBRequestConnection!, result: AnyObject!, error: NSError!) -> Void in
+                    if error == nil {
+                        let userData = result as NSDictionary
+                        GlobalData.sharedInstance.facebookUserData = userData
+                        success?(userData: userData)
+                        //println("\(result)")
+                    }
+                })
+            }
         }
-        return name
     }
 }
 
