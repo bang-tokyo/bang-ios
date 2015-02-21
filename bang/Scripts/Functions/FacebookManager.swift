@@ -62,7 +62,6 @@ class FacebookManager: NSObject {
 
     // MARK: - Functions of FBRequest
     func requestUserData(success:((userData: NSDictionary)->Void)?) {
-        // TODO: - Get UserData
         if let facebookUserData = GlobalData.sharedInstance.facebookUserData {
             success?(userData: facebookUserData)
         } else {
@@ -73,7 +72,6 @@ class FacebookManager: NSObject {
                         let userData = result as NSDictionary
                         GlobalData.sharedInstance.facebookUserData = userData
                         success?(userData: userData)
-                        //println("\(result)")
                     }
                 })
             }
