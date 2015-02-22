@@ -29,6 +29,18 @@ class SearchViewController: BaseViewController {
     }
 
     // MARK: - IBAction
+    @IBAction func onClickProfileButton(sender: UIBarButtonItem) {
+        var profileViewController = ProfileViewController.build()
+        profileViewController.modalTransitionStyle = UIModalTransitionStyle.FlipHorizontal
+        self.moveTo(profileViewController)
+    }
+
+    @IBAction func onClickContactButton(sender: UIBarButtonItem) {
+        var contactViewController = ContactViewController.build()
+        contactViewController.modalTransitionStyle = UIModalTransitionStyle.FlipHorizontal
+        self.moveTo(contactViewController)
+    }
+
     @IBAction func swipeUp(sender: AnyObject) {
         var rand: Int = Int(arc4random_uniform(10))
         label.text = "\(rand)"

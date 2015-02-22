@@ -28,6 +28,8 @@
 		B8DD29871A8B13840024ABD0 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8DD29861A8B13840024ABD0 /* CoreBluetooth.framework */; };
 		B8DD298A1A8B154E0024ABD0 /* BLEConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DD29891A8B154E0024ABD0 /* BLEConfig.swift */; };
 		B8DD298C1A8B1CC10024ABD0 /* BLEEnumExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DD298B1A8B1CC10024ABD0 /* BLEEnumExtension.swift */; };
+		B8EA20FA1A99D35E00BD0164 /* Contact.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8EA20F91A99D35E00BD0164 /* Contact.storyboard */; };
+		B8EA20FC1A99D37700BD0164 /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8EA20FB1A99D37700BD0164 /* ContactViewController.swift */; };
 		B8F1389C1A8A4B84002A820E /* BLEPeripheralManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F1389B1A8A4B84002A820E /* BLEPeripheralManager.swift */; };
 		B8F1389F1A8A4D13002A820E /* RoundedCornersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F1389E1A8A4D13002A820E /* RoundedCornersView.swift */; };
 		B8FDC5131A818EDC00D4511E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FDC5121A818EDC00D4511E /* AppDelegate.swift */; };
@@ -73,6 +75,8 @@
 		B8DD29861A8B13840024ABD0 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		B8DD29891A8B154E0024ABD0 /* BLEConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEConfig.swift; sourceTree = "<group>"; };
 		B8DD298B1A8B1CC10024ABD0 /* BLEEnumExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEEnumExtension.swift; sourceTree = "<group>"; };
+		B8EA20F91A99D35E00BD0164 /* Contact.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Contact.storyboard; sourceTree = "<group>"; };
+		B8EA20FB1A99D37700BD0164 /* ContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactViewController.swift; sourceTree = "<group>"; };
 		B8F1389B1A8A4B84002A820E /* BLEPeripheralManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEPeripheralManager.swift; sourceTree = "<group>"; };
 		B8F1389E1A8A4D13002A820E /* RoundedCornersView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedCornersView.swift; sourceTree = "<group>"; };
 		B8FDC50D1A818EDC00D4511E /* bang.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bang.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -129,6 +133,7 @@
 				B824483F1A8EF07700B540A4 /* Login.storyboard */,
 				B82448491A9043E300B540A4 /* Profile.storyboard */,
 				B830CDDB1A8240C30038CAFE /* Search.storyboard */,
+				B8EA20F91A99D35E00BD0164 /* Contact.storyboard */,
 			);
 			path = StoryBoards;
 			sourceTree = "<group>";
@@ -140,6 +145,7 @@
 				B82448411A8EF16C00B540A4 /* LoginViewController.swift */,
 				B824484B1A90441600B540A4 /* ProfileViewController.swift */,
 				B830CDD91A82403B0038CAFE /* SearchViewController.swift */,
+				B8EA20FB1A99D37700BD0164 /* ContactViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -379,6 +385,7 @@
 				B824484A1A9043E300B540A4 /* Profile.storyboard in Resources */,
 				B830CDDC1A8240C30038CAFE /* Search.storyboard in Resources */,
 				B8FDC51A1A818EDC00D4511E /* Images.xcassets in Resources */,
+				B8EA20FA1A99D35E00BD0164 /* Contact.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -431,6 +438,7 @@
 			files = (
 				B82448481A903DE400B540A4 /* NotificationConfig.swift in Sources */,
 				B8D9B2591A82534A00B30271 /* UIViewExtension.swift in Sources */,
+				B8EA20FC1A99D37700BD0164 /* ContactViewController.swift in Sources */,
 				B8D9B2561A82523400B30271 /* UIViewControllerExtension.swift in Sources */,
 				B8F1389F1A8A4D13002A820E /* RoundedCornersView.swift in Sources */,
 				B8D9B2611A8255DD00B30271 /* UIImage+ImageEffects.m in Sources */,

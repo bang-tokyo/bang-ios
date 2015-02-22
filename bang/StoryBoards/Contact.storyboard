@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="KFW-bV-SGA">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+    </dependencies>
+    <scenes>
+        <!--Contact View Controller-->
+        <scene sceneID="RGT-Oy-41h">
+            <objects>
+                <viewController id="KFW-bV-SGA" customClass="ContactViewController" customModule="bang" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="o3t-eM-l5G"/>
+                        <viewControllerLayoutGuide type="bottom" id="6le-jh-XLV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="yqv-ND-ZXj">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zVf-nz-hHv">
+                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="QIO-Rz-vRT"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="Contact" id="1ti-Mv-mZU">
+                                        <barButtonItem key="leftBarButtonItem" title="Search" id="30m-A3-T3g">
+                                            <connections>
+                                                <action selector="onClickSearchButton:" destination="KFW-bV-SGA" id="9aq-Rr-8WQ"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="zVf-nz-hHv" firstAttribute="top" secondItem="o3t-eM-l5G" secondAttribute="bottom" id="I3A-I0-acY"/>
+                            <constraint firstItem="zVf-nz-hHv" firstAttribute="leading" secondItem="yqv-ND-ZXj" secondAttribute="leading" id="Sff-FP-vfE"/>
+                            <constraint firstAttribute="trailing" secondItem="zVf-nz-hHv" secondAttribute="trailing" id="fDb-Xn-CLN"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="L16-HJ-CG0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="462" y="337"/>
+        </scene>
+    </scenes>
+</document>
