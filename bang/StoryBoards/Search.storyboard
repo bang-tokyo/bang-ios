@@ -22,10 +22,33 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8ZO-mI-lVS">
+                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="YcZ-bc-KBU"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="Search" id="iEb-rk-HdT">
+                                        <barButtonItem key="leftBarButtonItem" title="Profile" id="IXx-mc-Pme">
+                                            <connections>
+                                                <action selector="onClickProfileButton:" destination="5Q6-js-Bk1" id="JBY-uv-Afb"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Contact" id="ONv-tn-l4a">
+                                            <connections>
+                                                <action selector="onClickContactButton:" destination="5Q6-js-Bk1" id="GUs-Ug-NBj"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <constraints>
+                            <constraint firstItem="8ZO-mI-lVS" firstAttribute="top" secondItem="sQR-is-Pvk" secondAttribute="bottom" id="9qn-xS-KAA"/>
+                            <constraint firstItem="8ZO-mI-lVS" firstAttribute="leading" secondItem="F3H-n3-ibR" secondAttribute="leading" id="EEd-qM-Ijm"/>
+                            <constraint firstAttribute="trailing" secondItem="8ZO-mI-lVS" secondAttribute="trailing" id="NmQ-XQ-3Af"/>
                             <constraint firstAttribute="centerX" secondItem="rzE-AD-fK1" secondAttribute="centerX" id="RSl-9Z-KYY"/>
                             <constraint firstItem="rzE-AD-fK1" firstAttribute="leading" secondItem="F3H-n3-ibR" secondAttribute="leading" id="WTs-kG-59s"/>
                             <constraint firstAttribute="trailing" secondItem="rzE-AD-fK1" secondAttribute="trailing" id="qtP-t8-HLt"/>

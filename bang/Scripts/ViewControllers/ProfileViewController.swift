@@ -41,6 +41,12 @@ class ProfileViewController: BaseViewController {
     }
 
     // MARK: - IBAction
+    @IBAction func onClickSearchButton(sender: UIBarButtonItem) {
+        var searchViewController = SearchViewController.build()
+        searchViewController.modalTransitionStyle = UIModalTransitionStyle.FlipHorizontal
+        self.moveTo(searchViewController)
+    }
+
     @IBAction func onClickLogoutButton(sender: UIButton) {
         FacebookManager.sharedInstance.closeFacebookSession()
     }
