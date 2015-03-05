@@ -1,5 +1,5 @@
 PODS:
-  - Bolts (1.1.3)
+  - Bolts (1.1.4)
   - Facebook-iOS-SDK (3.23.0):
     - Bolts (~> 1.0)
   - GoogleAnalytics-iOS-SDK (3.10):
@@ -11,7 +11,7 @@ DEPENDENCIES:
   - GoogleAnalytics-iOS-SDK (~> 3.10)
 
 SPEC CHECKSUMS:
-  Bolts: 3db0a875235e0c9042b013af13af0f00f79b102c
+  Bolts: dd9fb8433d67f5acc3b6b4d1379bbc5513d716c1
   Facebook-iOS-SDK: 3d65f685348b789e46a9aacf92bfa85b60b63755
   GoogleAnalytics-iOS-SDK: f422062075d9ccb1ea8d783fc5ba3829461e9502
 
