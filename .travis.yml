@@ -6,7 +6,6 @@ before_install:
 
 script:
   - make
-#  - xcodebuild -workspace bang.xcworkspace -scheme bang -destination 'platform=iOS Simulator,name=iPhone 6' test
 
 #after_success:
 #  - chmod 755 chatwork.sh
