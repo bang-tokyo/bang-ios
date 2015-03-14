@@ -9,6 +9,11 @@
 import Foundation
 import CoreBluetooth
 
+protocol BLECentralManagerDelegate {
+    func readyForScan()
+    func notReadyForScan()
+}
+
 class BLECentralManager: NSObject {
 
     class var sharedInstance: BLECentralManager {
@@ -17,6 +22,8 @@ class BLECentralManager: NSObject {
         }
         return Static.instance
     }
+
+    var delegate: BLECentralManagerDelegate?
 
     private var centralManager: CBCentralManager!
     private var peripheralContainer: [CBPeripheral] = []
@@ -45,8 +52,11 @@ extension BLECentralManager: CBCentralManagerDelegate {
         switch central.state {
         case .PoweredOn:
             canScanning = true
+            delegate?.readyForScan()
         default:
             println("state: \(central.state)")
+            canScanning = false
+            delegate?.notReadyForScan()
         }
     }
 

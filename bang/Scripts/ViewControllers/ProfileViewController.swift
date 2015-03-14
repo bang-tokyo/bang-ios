@@ -17,6 +17,7 @@ class ProfileViewController: BaseViewController {
 
     @IBOutlet weak var profilePictureView: FBProfilePictureView!
     @IBOutlet weak var nameLabel: UILabel!
+
     var facebookManager: FacebookManager = FacebookManager.sharedInstance
 
     override func viewDidLoad() {
@@ -52,6 +53,7 @@ class ProfileViewController: BaseViewController {
     }
 }
 
+// MARK: - FacebookManagerDelegate
 extension ProfileViewController: FacebookManagerDelegate {
     func handlerFacebookSessionStateChanged(isLogined: Bool) {
         if !isLogined {

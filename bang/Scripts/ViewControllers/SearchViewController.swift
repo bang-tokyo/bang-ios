@@ -16,11 +16,15 @@ class SearchViewController: BaseViewController {
     }
 
     @IBOutlet weak var label: UILabel!
+    @IBOutlet weak var swipteUpGesture: UISwipeGestureRecognizer!
+
+    var centralManager: BLECentralManager!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        centralManager = BLECentralManager.sharedInstance
+        centralManager.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -46,4 +50,17 @@ class SearchViewController: BaseViewController {
         label.text = "\(rand)"
     }
 
+}
+
+// MARK: - BLECentralManagerDelegate
+extension SearchViewController: BLECentralManagerDelegate {
+    func readyForScan() {
+        label.text = "検索可能"
+        swipteUpGesture.enabled = true
+    }
+
+    func notReadyForScan() {
+        label.text = "検索準備"
+        swipteUpGesture.enabled = false
+    }
 }
