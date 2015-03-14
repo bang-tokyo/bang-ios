@@ -54,7 +54,7 @@ extension BLEPeripheralManager: CBPeripheralManagerDelegate {
         if error == nil {
             startAdvertising()
         } else {
-            println("サービスの追加に失敗しました")
+            Tracker.sharedInstance.debug("サービスの追加に失敗しました")
         }
     }
 
@@ -62,7 +62,7 @@ extension BLEPeripheralManager: CBPeripheralManagerDelegate {
     func peripheralManager(peripheral: CBPeripheralManager!,
         didReceiveReadRequest request: CBATTRequest!)
     {
-        println("didReceiveReadRequest")
+        Tracker.sharedInstance.debug("didReceiveReadRequest")
         var responseDictonary: Dictionary = [
             "userId" : 11111,
             "data" : "hoge"
@@ -75,24 +75,24 @@ extension BLEPeripheralManager: CBPeripheralManagerDelegate {
     func peripheralManager(peripheral: CBPeripheralManager!,
         willRestoreState dict: [NSObject : AnyObject]!)
     {
-        println("willRestoreState")
+        Tracker.sharedInstance.debug("willRestoreState")
     }
 
     // Advertiseが開始された時呼ばれる
     func peripheralManagerDidStartAdvertising(peripheral: CBPeripheralManager!, error: NSError!) {
         if error == nil {
-            println("PeripheralがAdvertisingを開始しました")
+            Tracker.sharedInstance.debug("PeripheralがAdvertisingを開始しました")
         } else {
-            println("PeripheralがAdvertisingの開始に失敗しました\(error)")
+            Tracker.sharedInstance.debug("PeripheralがAdvertisingの開始に失敗しました\(error)")
         }
     }
 
     // BLEの状態が変わった時に呼ばれる
     func peripheralManagerDidUpdateState(peripheral: CBPeripheralManager!) {
-        println("PeripheralのStateが変更されました(現在のState:\(peripheral.state.name))")
+        Tracker.sharedInstance.debug("PeripheralのStateが変更されました(現在のState:\(peripheral.state.name))")
 
         if peripheral.state != CBPeripheralManagerState.PoweredOn {
-            println("StateがPoweredOnでないため処理を終了します")
+            Tracker.sharedInstance.debug("StateがPoweredOnでないため処理を終了します")
             return;
         }
 

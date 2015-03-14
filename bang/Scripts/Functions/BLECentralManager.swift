@@ -54,7 +54,7 @@ extension BLECentralManager: CBCentralManagerDelegate {
             canScanning = true
             delegate?.readyForScan()
         default:
-            println("state: \(central.state)")
+            Tracker.sharedInstance.debug("state: \(central.state)")
             canScanning = false
             delegate?.notReadyForScan()
         }
@@ -68,7 +68,7 @@ extension BLECentralManager: CBCentralManagerDelegate {
         RSSI: NSNumber!)
     {
         if (find(peripheralContainer, peripheral) != nil) {
-            println("we´re allready connected to \(peripheral)")
+            Tracker.sharedInstance.debug("we´re allready connected to \(peripheral)")
         } else {
             peripheralContainer.append(peripheral)
             central.connectPeripheral(peripheral, options: nil)
@@ -77,19 +77,19 @@ extension BLECentralManager: CBCentralManagerDelegate {
 
     // Peripheralへの接続が失敗すると呼ばれる
     func centralManager(central: CBCentralManager!, didFailToConnectPeripheral peripheral: CBPeripheral!, error: NSError!){
-        println("didFailToConnectPeripheral \(peripheral) error:\(error)")
+        Tracker.sharedInstance.debug("didFailToConnectPeripheral \(peripheral) error:\(error)")
         removeFromPeripheralContainer(peripheral)
     }
 
     // Peripheralとの既存の接続が切断した時
     func centralManager(central: CBCentralManager!, didDisconnectPeripheral peripheral: CBPeripheral!, error: NSError!){
-        println("didDisconnectPeripheral \(peripheral) error:\(error)")
+        Tracker.sharedInstance.debug("didDisconnectPeripheral \(peripheral) error:\(error)")
         removeFromPeripheralContainer(peripheral)
     }
 
     // Peripheralと接続ができた時に呼ばれる
     func centralManager(central: CBCentralManager!, didConnectPeripheral peripheral: CBPeripheral!) {
-        println("didConnectPeripheral " + peripheral.name)
+        Tracker.sharedInstance.debug("didConnectPeripheral " + peripheral.name)
         peripheral.delegate = self
         peripheral.discoverServices([BLEServiceUUID])
     }
@@ -101,11 +101,11 @@ extension BLECentralManager: CBPeripheralDelegate {
     // PeripheralのServiceが見つかったら呼ばれる
     func peripheral(peripheral: CBPeripheral!, didDiscoverServices error: NSError!) {
         if error != nil {
-            println("error: \(error)")
+            Tracker.sharedInstance.debug("error: \(error)")
             return
         }
         if peripheral.services.count == 0 {
-            println("didDiscoverServices no services")
+            Tracker.sharedInstance.debug("didDiscoverServices no services")
             return
         }
         for service: CBService in peripheral.services as [CBService]!  {
@@ -117,11 +117,11 @@ extension BLECentralManager: CBPeripheralDelegate {
     // PeripheralServiceからCharacteristicsが見つかったら呼ばれる
     func peripheral(peripheral: CBPeripheral!, didDiscoverCharacteristicsForService service: CBService!, error: NSError!) {
         if error != nil {
-            println("error: \(error)")
+            Tracker.sharedInstance.debug("error: \(error)")
             return
         }
         if service.characteristics.count == 0 {
-            println("didDiscoverCharacteristicsForService no characteristics")
+            Tracker.sharedInstance.debug("didDiscoverCharacteristicsForService no characteristics")
             return
         }
         for characteristic: CBCharacteristic in service.characteristics as [CBCharacteristic]! {
@@ -135,10 +135,10 @@ extension BLECentralManager: CBPeripheralDelegate {
     // データ読み出しが完了すると呼ばれる
     func peripheral(peripheral: CBPeripheral!, didWriteValueForCharacteristic characteristic: CBCharacteristic!, error: NSError!) {
         if (error != nil) {
-            println("Failed... error: \(error)")
+            Tracker.sharedInstance.debug("Failed... error: \(error)")
             return
         }
-        println("Succeeded! service uuid: \(characteristic.service.UUID),　characteristic uuid: \(characteristic.UUID), value: \(characteristic.value)")
+        Tracker.sharedInstance.debug("Succeeded! service uuid: \(characteristic.service.UUID),　characteristic uuid: \(characteristic.UUID), value: \(characteristic.value)")
     }
 }
 

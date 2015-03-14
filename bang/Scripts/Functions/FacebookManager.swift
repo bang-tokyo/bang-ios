@@ -95,7 +95,7 @@ extension FacebookManager {
                 }
                 else if FBErrorUtility.errorCategoryForError(error) == FBErrorCategory.UserCancelled {
                     // If the user cancelled login, do nothing
-                    println("user cancelled login.")
+                    Tracker.sharedInstance.debug("user cancelled login.")
                 }
                 else if FBErrorUtility.errorCategoryForError(error) == FBErrorCategory.AuthenticationReopenSession {
                     // Handle session closures that happen outside of the app
