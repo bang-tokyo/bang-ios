@@ -16,15 +16,22 @@ class SearchViewController: BaseViewController {
     }
 
     @IBOutlet weak var label: UILabel!
+    @IBOutlet weak var peripheralButton: UIButton!
     @IBOutlet weak var swipteUpGesture: UISwipeGestureRecognizer!
 
     var centralManager: BLECentralManager!
+    var peripheralManager: BLEPeripheralManager!
+    private var isAdvertising: Bool = true
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         centralManager = BLECentralManager.sharedInstance
         centralManager.delegate = self
+
+        peripheralButton.enabled = false
+        peripheralManager = BLEPeripheralManager.sharedInstance
+        peripheralManager.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -45,22 +52,50 @@ class SearchViewController: BaseViewController {
         self.moveTo(contactViewController)
     }
 
-    @IBAction func swipeUp(sender: AnyObject) {
-        var rand: Int = Int(arc4random_uniform(10))
-        label.text = "\(rand)"
+    @IBAction func onClickPeripheralButton(sender: UIButton) {
+        if (isAdvertising) {
+            peripheralManager.stopAdvertising()
+        } else {
+            peripheralManager.startAdvertising()
+        }
+        togglePeripheralButton()
     }
 
+    @IBAction func swipeUp(sender: AnyObject) {
+        label.text = "Scaning..."
+        centralManager.startScanning()
+    }
 }
 
 // MARK: - BLECentralManagerDelegate
 extension SearchViewController: BLECentralManagerDelegate {
     func readyForScan() {
-        label.text = "検索可能"
+        label.text = "Ready For Search"
         swipteUpGesture.enabled = true
     }
 
     func notReadyForScan() {
-        label.text = "検索準備"
+        label.text = "Not Ready For Search"
         swipteUpGesture.enabled = false
+    }
+}
+
+extension SearchViewController: BLEPeripheralManagerDelegate {
+    func readyForAdvertise() {
+        togglePeripheralButton()
+        peripheralButton.enabled = true
+    }
+}
+
+// MARK: - Private functions
+extension SearchViewController {
+    func togglePeripheralButton() {
+        isAdvertising = !isAdvertising
+        peripheralButton.setTitle(
+            isAdvertising
+                ? "Stop Advertising"
+                : "Start Advertising"
+            , forState: UIControlState.Normal
+        )
     }
 }

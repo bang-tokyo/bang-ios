@@ -70,6 +70,7 @@ extension BLECentralManager: CBCentralManagerDelegate {
         if (find(peripheralContainer, peripheral) != nil) {
             Tracker.sharedInstance.debug("we´re allready connected to \(peripheral)")
         } else {
+            Tracker.sharedInstance.debug("didDiscoverPeripheral \(peripheral)")
             peripheralContainer.append(peripheral)
             central.connectPeripheral(peripheral, options: nil)
         }
@@ -110,6 +111,7 @@ extension BLECentralManager: CBPeripheralDelegate {
         }
         for service: CBService in peripheral.services as [CBService]!  {
             // TODO: - ここでServiceのUUIDを判定して必要なものだけ処理するように
+            Tracker.sharedInstance.debug("didDiscoverServices " + service.description)
             peripheral.discoverCharacteristics(nil, forService: service)
         }
     }
@@ -125,20 +127,38 @@ extension BLECentralManager: CBPeripheralDelegate {
             return
         }
         for characteristic: CBCharacteristic in service.characteristics as [CBCharacteristic]! {
-            // TODO: - ここでcharacteristicのUUIDを判定して必要なものだけ処理するように
             if (characteristic.properties.rawValue & CBCharacteristicProperties.Read.rawValue > 0) {
-                peripheral.readValueForCharacteristic(characteristic)
+                Tracker.sharedInstance.debug("didDiscoverCharacteristicsForService \(characteristic.UUID)")
+                switch characteristic.UUID {
+                case BLECharacteristicUUID:
+                    peripheral.readValueForCharacteristic(characteristic)
+                default:
+                    break
+                }
             }
         }
     }
 
     // データ読み出しが完了すると呼ばれる
-    func peripheral(peripheral: CBPeripheral!, didWriteValueForCharacteristic characteristic: CBCharacteristic!, error: NSError!) {
+    func peripheral(peripheral: CBPeripheral!, didUpdateValueForCharacteristic characteristic: CBCharacteristic!, error: NSError!) {
         if (error != nil) {
             Tracker.sharedInstance.debug("Failed... error: \(error)")
             return
         }
-        Tracker.sharedInstance.debug("Succeeded! service uuid: \(characteristic.service.UUID),　characteristic uuid: \(characteristic.UUID), value: \(characteristic.value)")
+        Tracker.sharedInstance.debug("Succeeded! service uuid: \(characteristic.service.UUID),　characteristic uuid: \(characteristic.UUID)")
+        let data : NSData = characteristic.value
+        switch (characteristic.UUID) {
+        case BLECharacteristicUUID:
+            if let recieveDictonary = NSJSONSerialization.JSONObjectWithData(
+                data, options: NSJSONReadingOptions.AllowFragments, error: nil) as? NSDictionary
+            {
+                var id = recieveDictonary["id"] as Int
+                var name = recieveDictonary["name"] as String
+                Tracker.sharedInstance.debug("\(id) \(name)")
+            }
+        default:
+            break
+        }
     }
 }
 
@@ -153,6 +173,6 @@ extension BLECentralManager {
     }
 
     private func removeFromPeripheralContainer(peripheral: CBPeripheral) {
-        peripheralContainer = peripheralContainer.filter({ $0 == peripheral })
+        peripheralContainer = peripheralContainer.filter({ $0 != peripheral })
     }
 }

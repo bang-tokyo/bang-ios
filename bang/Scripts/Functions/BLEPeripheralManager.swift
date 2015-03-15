@@ -9,6 +9,10 @@
 import Foundation
 import CoreBluetooth
 
+protocol BLEPeripheralManagerDelegate {
+    func readyForAdvertise()
+}
+
 class BLEPeripheralManager: NSObject {
 
     class var sharedInstance: BLEPeripheralManager {
@@ -18,8 +22,13 @@ class BLEPeripheralManager: NSObject {
         return Static.instance
     }
 
+    var delegate: BLEPeripheralManagerDelegate?
     private var peripheralManager: CBPeripheralManager!
     private var characteristic: CBMutableCharacteristic!
+    private var responseDictonary: Dictionary<String, AnyObject> = [
+        "id" : 12345,
+        "name" : "bang user"
+    ]
 
     override init() {
         super.init()
@@ -34,12 +43,17 @@ class BLEPeripheralManager: NSObject {
         )
     }
 
+    // NOTE: - テストが終わったら削除予定
+    func startAdvertising() {
+        self._startAdvertising()
+    }
+
     func teardown() {
         self.peripheralManager = nil
     }
 
     func stopAdvertising() {
-        peripheralManager?.stopAdvertising()
+        peripheralManager.stopAdvertising()
     }
 }
 
@@ -52,7 +66,8 @@ extension BLEPeripheralManager: CBPeripheralManagerDelegate {
         error: NSError!)
     {
         if error == nil {
-            startAdvertising()
+            //startAdvertising()
+            delegate?.readyForAdvertise()
         } else {
             Tracker.sharedInstance.debug("サービスの追加に失敗しました")
         }
@@ -62,13 +77,9 @@ extension BLEPeripheralManager: CBPeripheralManagerDelegate {
     func peripheralManager(peripheral: CBPeripheralManager!,
         didReceiveReadRequest request: CBATTRequest!)
     {
-        Tracker.sharedInstance.debug("didReceiveReadRequest")
-        var responseDictonary: Dictionary = [
-            "userId" : 11111,
-            "data" : "hoge"
-        ]
-        request.value = NSKeyedArchiver.archivedDataWithRootObject(responseDictonary)
-        peripheralManager?.respondToRequest(request, withResult: CBATTError.Success)
+        Tracker.sharedInstance.debug("didReceiveReadRequest...")
+        request.value = NSJSONSerialization.dataWithJSONObject(responseDictonary, options: NSJSONWritingOptions.PrettyPrinted, error: nil)
+        peripheralManager.respondToRequest(request, withResult: CBATTError.Success)
     }
 
     // TODO: - アプリがメモリ不足などで再起動した時に呼ばれる。peripheralを復帰処理を実装。
@@ -99,7 +110,7 @@ extension BLEPeripheralManager: CBPeripheralManagerDelegate {
         // ServiceとCharacteristicsの登録
         var service = CBMutableService(type:BLEServiceUUID, primary:true)
         service.characteristics = [self.characteristic]
-        self.peripheralManager?.addService(service)
+        self.peripheralManager.addService(service)
     }
 
     /** TODO: -
@@ -114,7 +125,7 @@ extension BLEPeripheralManager: CBPeripheralManagerDelegate {
 
 // MARK: - Private functions
 extension BLEPeripheralManager {
-    private func startAdvertising() {
+    private func _startAdvertising() {
         self.peripheralManager?.startAdvertising([
             CBAdvertisementDataLocalNameKey: "",
             CBAdvertisementDataServiceUUIDsKey:[BLEServiceUUID]

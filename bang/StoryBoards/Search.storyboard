@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="5Q6-js-Bk1">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="5Q6-js-Bk1">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Search View Controller-->
@@ -42,6 +43,17 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XTN-Jh-vhU">
+                                <rect key="frame" x="66" y="520" width="468" height="30"/>
+                                <color key="backgroundColor" red="1" green="0.2615612866" blue="0.28938198869999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Peripheral Button">
+                                    <color key="titleColor" red="0.96730981689999995" green="0.96730981689999995" blue="0.96730981689999995" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="onClickPeripheralButton:" destination="5Q6-js-Bk1" eventType="touchUpInside" id="pFA-9f-laY"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
@@ -51,6 +63,9 @@
                             <constraint firstAttribute="trailing" secondItem="8ZO-mI-lVS" secondAttribute="trailing" id="NmQ-XQ-3Af"/>
                             <constraint firstAttribute="centerX" secondItem="rzE-AD-fK1" secondAttribute="centerX" id="RSl-9Z-KYY"/>
                             <constraint firstItem="rzE-AD-fK1" firstAttribute="leading" secondItem="F3H-n3-ibR" secondAttribute="leading" id="WTs-kG-59s"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="XTN-Jh-vhU" secondAttribute="trailing" constant="50" id="Yk3-fy-2XP"/>
+                            <constraint firstItem="55c-rS-p7M" firstAttribute="top" secondItem="XTN-Jh-vhU" secondAttribute="bottom" constant="50" id="Zqz-pW-Xhl"/>
+                            <constraint firstItem="XTN-Jh-vhU" firstAttribute="leading" secondItem="F3H-n3-ibR" secondAttribute="leadingMargin" constant="50" id="p00-iG-L7G"/>
                             <constraint firstAttribute="trailing" secondItem="rzE-AD-fK1" secondAttribute="trailing" id="qtP-t8-HLt"/>
                             <constraint firstAttribute="centerY" secondItem="rzE-AD-fK1" secondAttribute="centerY" id="u0I-bB-22Z"/>
                         </constraints>
@@ -60,6 +75,7 @@
                     </view>
                     <connections>
                         <outlet property="label" destination="rzE-AD-fK1" id="dn7-Xu-60B"/>
+                        <outlet property="peripheralButton" destination="XTN-Jh-vhU" id="AHi-gb-riW"/>
                         <outlet property="swipteUpGesture" destination="O1N-t1-m2M" id="sWK-Es-ERf"/>
                     </connections>
                 </viewController>
