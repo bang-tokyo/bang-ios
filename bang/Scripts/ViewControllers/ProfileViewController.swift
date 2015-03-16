@@ -23,7 +23,6 @@ class ProfileViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        facebookManager.delegate = self
         facebookManager.requestUserData({
             [unowned self] (userData: NSDictionary) in
             self.nameLabel.text = userData.objectForKey("name") as? String
@@ -50,15 +49,5 @@ class ProfileViewController: BaseViewController {
 
     @IBAction func onClickLogoutButton(sender: UIButton) {
         FacebookManager.sharedInstance.closeFacebookSession()
-    }
-}
-
-// MARK: - FacebookManagerDelegate
-extension ProfileViewController: FacebookManagerDelegate {
-    func handlerFacebookSessionStateChanged(isLogined: Bool) {
-        if !isLogined {
-            var viewController = LoginViewController.build()
-            self.moveTo(viewController)
-        }
     }
 }

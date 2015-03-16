@@ -17,7 +17,6 @@ class LoginViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        FacebookManager.sharedInstance.delegate = self
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -38,16 +37,6 @@ class LoginViewController: BaseViewController {
         FacebookManager.sharedInstance.openFacebookSession()
     }
 
-}
-
-// MARK: - FacebookManagerDelegate
-extension LoginViewController: FacebookManagerDelegate {
-    func handlerFacebookSessionStateChanged(isLogined: Bool) {
-        if isLogined {
-            var viewController = ProfileViewController.build()
-            self.moveTo(viewController)
-        }
-    }
 }
 
 // MARK: - Private functions
