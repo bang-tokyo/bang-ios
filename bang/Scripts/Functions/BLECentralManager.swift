@@ -12,6 +12,7 @@ import CoreBluetooth
 protocol BLECentralManagerDelegate {
     func readyForScan()
     func notReadyForScan()
+    func didRecieveData(recieveDictonary: NSDictionary)
 }
 
 class BLECentralManager: NSObject {
@@ -37,10 +38,15 @@ class BLECentralManager: NSObject {
 
     func startScanning() {
         if canScanning {
-            centralManager.scanForPeripheralsWithServices([BLEServiceUUID],
-                options:[CBCentralManagerScanOptionAllowDuplicatesKey: false]
-            )
+            startSearching()
         }
+    }
+
+    func stopScaninng() {
+        for peripheral: CBPeripheral in peripheralContainer {
+            // TODO: - Disconnect peripherals
+        }
+        self.stopSearching()
     }
 }
 
@@ -152,9 +158,8 @@ extension BLECentralManager: CBPeripheralDelegate {
             if let recieveDictonary = NSJSONSerialization.JSONObjectWithData(
                 data, options: NSJSONReadingOptions.AllowFragments, error: nil) as? NSDictionary
             {
-                var id = recieveDictonary["id"] as Int
-                var name = recieveDictonary["name"] as String
-                Tracker.sharedInstance.debug("\(id) \(name)")
+                // TODO: - 一定期間たつか目標数が達したらまとめて返すように修正
+                delegate?.didRecieveData(recieveDictonary)
             }
         default:
             break
@@ -165,7 +170,10 @@ extension BLECentralManager: CBPeripheralDelegate {
 // MARK: - Private functions
 extension BLECentralManager {
     private func startSearching() {
-        centralManager.scanForPeripheralsWithServices([BLEServiceUUID], options: nil)
+        //centralManager.scanForPeripheralsWithServices([BLEServiceUUID], options: nil)
+        centralManager.scanForPeripheralsWithServices([BLEServiceUUID],
+            options:[CBCentralManagerScanOptionAllowDuplicatesKey: false]
+        )
     }
 
     private func stopSearching() {

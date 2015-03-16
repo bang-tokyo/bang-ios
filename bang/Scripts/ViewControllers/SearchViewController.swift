@@ -78,6 +78,14 @@ extension SearchViewController: BLECentralManagerDelegate {
         label.text = "Not Ready For Search"
         swipteUpGesture.enabled = false
     }
+
+    func didRecieveData(recieveDictonary: NSDictionary) {
+        var id = recieveDictonary["id"] as? String
+        var name = recieveDictonary["name"] as? String
+        Tracker.sharedInstance.debug("\(id) \(name)")
+        label.text = "\(name)"
+        centralManager.stopScaninng()
+    }
 }
 
 extension SearchViewController: BLEPeripheralManagerDelegate {

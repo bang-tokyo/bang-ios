@@ -25,10 +25,7 @@ class BLEPeripheralManager: NSObject {
     var delegate: BLEPeripheralManagerDelegate?
     private var peripheralManager: CBPeripheralManager!
     private var characteristic: CBMutableCharacteristic!
-    private var responseDictonary: Dictionary<String, AnyObject> = [
-        "id" : 12345,
-        "name" : "bang user"
-    ]
+    private var responseDictonary = Dictionary<String, AnyObject>()
 
     override init() {
         super.init()
@@ -41,6 +38,12 @@ class BLEPeripheralManager: NSObject {
             value: nil,
             permissions: CBAttributePermissions.Readable
         )
+
+        FacebookManager.sharedInstance.requestUserData({
+            [unowned self] (userData: NSDictionary) in
+            self.responseDictonary["name"] = userData.objectForKey("name") as? String
+            self.responseDictonary["id"] = userData.objectForKey("id") as? String
+        })
     }
 
     // NOTE: - テストが終わったら削除予定
