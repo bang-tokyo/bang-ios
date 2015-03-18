@@ -11,7 +11,7 @@ import UIKit
 class ProfileViewController: BaseViewController {
 
     class func build() -> ProfileViewController {
-        var storyboard: UIStoryboard = UIStoryboard(name: "Profile", bundle: nil)
+        var storyboard = UIStoryboard(name: "Profile", bundle: nil)
         return storyboard.instantiateInitialViewController() as ProfileViewController
     }
 

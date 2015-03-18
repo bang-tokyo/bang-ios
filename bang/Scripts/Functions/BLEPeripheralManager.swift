@@ -17,7 +17,7 @@ class BLEPeripheralManager: NSObject {
 
     class var sharedInstance: BLEPeripheralManager {
         struct Static {
-            static let instance: BLEPeripheralManager = BLEPeripheralManager()
+            static let instance = BLEPeripheralManager()
         }
         return Static.instance
     }
@@ -33,7 +33,7 @@ class BLEPeripheralManager: NSObject {
         // TODO: - MainThreadじゃなくて専用のthreadを用意
         peripheralManager = CBPeripheralManager(delegate: self, queue: nil)
         characteristic = CBMutableCharacteristic(
-            type: BLECharacteristicUUID,
+            type: kBLECharacteristicUUID,
             properties: CBCharacteristicProperties.Read,
             value: nil,
             permissions: CBAttributePermissions.Readable
@@ -111,7 +111,7 @@ extension BLEPeripheralManager: CBPeripheralManagerDelegate {
         }
 
         // ServiceとCharacteristicsの登録
-        var service = CBMutableService(type:BLEServiceUUID, primary:true)
+        var service = CBMutableService(type:kBLEServiceUUID, primary:true)
         service.characteristics = [self.characteristic]
         self.peripheralManager.addService(service)
     }
@@ -131,7 +131,7 @@ extension BLEPeripheralManager {
     private func _startAdvertising() {
         self.peripheralManager?.startAdvertising([
             CBAdvertisementDataLocalNameKey: "",
-            CBAdvertisementDataServiceUUIDsKey:[BLEServiceUUID]
+            CBAdvertisementDataServiceUUIDsKey:[kBLEServiceUUID]
             ])
     }
 }

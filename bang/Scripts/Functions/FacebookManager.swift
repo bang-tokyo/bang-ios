@@ -16,7 +16,7 @@ class FacebookManager: NSObject {
 
     class var sharedInstance: FacebookManager {
         struct Static {
-            static let instance: FacebookManager = FacebookManager()
+            static let instance = FacebookManager()
         }
         return Static.instance
     }
@@ -29,7 +29,7 @@ class FacebookManager: NSObject {
     func openFacebookSessionIfStateCreatedTokenLoaded() -> Bool {
         if FBSession.activeSession().state == FBSessionState.CreatedTokenLoaded {
             // allowLoginUI set false. This prevents login dialog from showing
-            FBSession.openActiveSessionWithReadPermissions(FBReadPermissions, allowLoginUI: false, completionHandler: {
+            FBSession.openActiveSessionWithReadPermissions(kFBReadPermissions, allowLoginUI: false, completionHandler: {
                 (session, state, error) -> Void in
                 self.sessionStateChanged(session, state: state, error: error)
             })
@@ -42,7 +42,7 @@ class FacebookManager: NSObject {
             FBSession.activeSession().state != FBSessionState.Open &&
             FBSession.activeSession().state != FBSessionState.OpenTokenExtended
         {
-            FBSession.openActiveSessionWithReadPermissions(FBReadPermissions, allowLoginUI: true, completionHandler: {
+            FBSession.openActiveSessionWithReadPermissions(kFBReadPermissions, allowLoginUI: true, completionHandler: {
                 (session, state, error) -> Void in
                 self.sessionStateChanged(session, state: state, error: error)
             })

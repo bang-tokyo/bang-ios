@@ -12,14 +12,14 @@ import CoreBluetooth
 protocol BLECentralManagerDelegate {
     func readyForScan()
     func notReadyForScan()
-    func didRecieveData(recieveDictonary: NSDictionary)
+    func finishScaning(recieveDictonaries: [NSDictionary])
 }
 
 class BLECentralManager: NSObject {
 
     class var sharedInstance: BLECentralManager {
         struct Static {
-            static let instance: BLECentralManager = BLECentralManager()
+            static let instance = BLECentralManager()
         }
         return Static.instance
     }
@@ -27,8 +27,12 @@ class BLECentralManager: NSObject {
     var delegate: BLECentralManagerDelegate?
 
     private var centralManager: CBCentralManager!
-    private var peripheralContainer: [CBPeripheral] = []
-    private var canScanning: Bool = false
+    private var peripheralContainer = [CBPeripheral]()
+    private var recieveDictonaries = [NSDictionary]()
+    private var canScanning = false
+    private var isScanning = false
+    private var timer: NSTimer?
+    private var elapsedTime: Int = 0
 
     override init() {
         super.init()
@@ -37,16 +41,26 @@ class BLECentralManager: NSObject {
     }
 
     func startScanning() {
-        if canScanning {
+        if canScanning && !isScanning {
+            elapsedTime = 0
+            isScanning = true
             startSearching()
+            timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "checkCurrentCondition", userInfo: nil, repeats: true)
         }
     }
 
     func stopScaninng() {
-        for peripheral: CBPeripheral in peripheralContainer {
-            // TODO: - Disconnect peripherals
+        if isScanning {
+            for peripheral in peripheralContainer as [CBPeripheral] {
+                centralManager.cancelPeripheralConnection(peripheral)
+            }
+            self.stopSearching()
+            if let _timer = self.timer {
+                if _timer.valid == true { _timer.invalidate() }
+            }
+            delegate?.finishScaning(recieveDictonaries)
         }
-        self.stopSearching()
+        isScanning = false
     }
 }
 
@@ -98,7 +112,7 @@ extension BLECentralManager: CBCentralManagerDelegate {
     func centralManager(central: CBCentralManager!, didConnectPeripheral peripheral: CBPeripheral!) {
         Tracker.sharedInstance.debug("didConnectPeripheral " + peripheral.name)
         peripheral.delegate = self
-        peripheral.discoverServices([BLEServiceUUID])
+        peripheral.discoverServices([kBLEServiceUUID])
     }
 }
 
@@ -136,7 +150,7 @@ extension BLECentralManager: CBPeripheralDelegate {
             if (characteristic.properties.rawValue & CBCharacteristicProperties.Read.rawValue > 0) {
                 Tracker.sharedInstance.debug("didDiscoverCharacteristicsForService \(characteristic.UUID)")
                 switch characteristic.UUID {
-                case BLECharacteristicUUID:
+                case kBLECharacteristicUUID:
                     peripheral.readValueForCharacteristic(characteristic)
                 default:
                     break
@@ -154,12 +168,12 @@ extension BLECentralManager: CBPeripheralDelegate {
         Tracker.sharedInstance.debug("Succeeded! service uuid: \(characteristic.service.UUID),　characteristic uuid: \(characteristic.UUID)")
         let data : NSData = characteristic.value
         switch (characteristic.UUID) {
-        case BLECharacteristicUUID:
+        case kBLECharacteristicUUID:
             if let recieveDictonary = NSJSONSerialization.JSONObjectWithData(
                 data, options: NSJSONReadingOptions.AllowFragments, error: nil) as? NSDictionary
             {
-                // TODO: - 一定期間たつか目標数が達したらまとめて返すように修正
-                delegate?.didRecieveData(recieveDictonary)
+                // Peripheralから読み出した値をrecieveDictonariesに追加
+                recieveDictonaries.append(recieveDictonary)
             }
         default:
             break
@@ -170,8 +184,8 @@ extension BLECentralManager: CBPeripheralDelegate {
 // MARK: - Private functions
 extension BLECentralManager {
     private func startSearching() {
-        //centralManager.scanForPeripheralsWithServices([BLEServiceUUID], options: nil)
-        centralManager.scanForPeripheralsWithServices([BLEServiceUUID],
+        //centralManager.scanForPeripheralsWithServices([kBLEServiceUUID], options: nil)
+        centralManager.scanForPeripheralsWithServices([kBLEServiceUUID],
             options:[CBCentralManagerScanOptionAllowDuplicatesKey: false]
         )
     }
@@ -182,5 +196,12 @@ extension BLECentralManager {
 
     private func removeFromPeripheralContainer(peripheral: CBPeripheral) {
         peripheralContainer = peripheralContainer.filter({ $0 != peripheral })
+    }
+
+    internal func checkCurrentCondition() {
+        elapsedTime++
+        if isScanning && elapsedTime > kBLECentralScaningTime {
+            stopScaninng()
+        }
     }
 }

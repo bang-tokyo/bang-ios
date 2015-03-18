@@ -11,7 +11,7 @@ import UIKit
 class ContactViewController: UIViewController {
 
     class func build() -> ContactViewController {
-        var storyboard: UIStoryboard = UIStoryboard(name: "Contact", bundle: nil)
+        var storyboard = UIStoryboard(name: "Contact", bundle: nil)
         return storyboard.instantiateInitialViewController() as ContactViewController
     }
 

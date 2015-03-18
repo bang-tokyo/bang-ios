@@ -15,7 +15,7 @@ class Tracker {
 
     class var sharedInstance: Tracker {
         struct Static {
-            static let instance: Tracker = Tracker()
+            static let instance = Tracker()
         }
         return Static.instance
     }

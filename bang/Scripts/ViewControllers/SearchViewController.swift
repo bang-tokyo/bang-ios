@@ -11,7 +11,7 @@ import UIKit
 class SearchViewController: BaseViewController {
 
     class func build() -> SearchViewController {
-        var storyboard: UIStoryboard = UIStoryboard(name: "Search", bundle: nil)
+        var storyboard = UIStoryboard(name: "Search", bundle: nil)
         return storyboard.instantiateInitialViewController() as SearchViewController
     }
 
@@ -79,12 +79,17 @@ extension SearchViewController: BLECentralManagerDelegate {
         swipteUpGesture.enabled = false
     }
 
-    func didRecieveData(recieveDictonary: NSDictionary) {
-        var id = recieveDictonary["id"] as? String
-        var name = recieveDictonary["name"] as? String
-        Tracker.sharedInstance.debug("\(id) \(name)")
-        label.text = "\(name)"
-        centralManager.stopScaninng()
+    func finishScaning(recieveDictonaries: [NSDictionary]) {
+        for recieveDictonary in recieveDictonaries {
+            var recieveDictonary = recieveDictonaries[0]
+            var id = recieveDictonary["id"] as? String
+            var name = recieveDictonary["name"] as? String
+            Tracker.sharedInstance.debug("\(id) \(name)")
+            label.text = "\(name)"
+        }
+        if recieveDictonaries.isEmpty {
+            label.text = "Ready For Search"
+        }
     }
 }
 
