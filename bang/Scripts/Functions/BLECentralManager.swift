@@ -44,6 +44,7 @@ class BLECentralManager: NSObject {
         if canScanning && !isScanning {
             elapsedTime = 0
             isScanning = true
+            recieveDictonaries = [NSDictionary]()
             startSearching()
             timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "checkCurrentCondition", userInfo: nil, repeats: true)
         }
