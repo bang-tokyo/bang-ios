@@ -16,11 +16,9 @@ class SearchViewController: BaseViewController {
     }
 
     @IBOutlet weak var label: UILabel!
-    @IBOutlet weak var peripheralButton: UIButton!
     @IBOutlet weak var swipteUpGesture: UISwipeGestureRecognizer!
 
     var centralManager: BLECentralManager!
-    var peripheralManager: BLEPeripheralManager!
     private var isAdvertising: Bool = true
 
     override func viewDidLoad() {
@@ -28,10 +26,6 @@ class SearchViewController: BaseViewController {
 
         centralManager = BLECentralManager.sharedInstance
         centralManager.delegate = self
-
-        peripheralButton.enabled = false
-        peripheralManager = BLEPeripheralManager.sharedInstance
-        peripheralManager.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -50,15 +44,6 @@ class SearchViewController: BaseViewController {
         var contactViewController = ContactViewController.build()
         contactViewController.modalTransitionStyle = UIModalTransitionStyle.FlipHorizontal
         self.moveTo(contactViewController)
-    }
-
-    @IBAction func onClickPeripheralButton(sender: UIButton) {
-        if (isAdvertising) {
-            peripheralManager.stopAdvertising()
-        } else {
-            peripheralManager.startAdvertising()
-        }
-        togglePeripheralButton()
     }
 
     @IBAction func swipeUp(sender: AnyObject) {
@@ -93,22 +78,6 @@ extension SearchViewController: BLECentralManagerDelegate {
     }
 }
 
-extension SearchViewController: BLEPeripheralManagerDelegate {
-    func readyForAdvertise() {
-        togglePeripheralButton()
-        peripheralButton.enabled = true
-    }
-}
-
 // MARK: - Private functions
 extension SearchViewController {
-    func togglePeripheralButton() {
-        isAdvertising = !isAdvertising
-        peripheralButton.setTitle(
-            isAdvertising
-                ? "Stop Advertising"
-                : "Start Advertising"
-            , forState: UIControlState.Normal
-        )
-    }
 }

@@ -13,6 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var facebookManager: FacebookManager = FacebookManager.sharedInstance
+    var peripheralManager: BLEPeripheralManager = BLEPeripheralManager.sharedInstance
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
@@ -22,6 +23,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         facebookManager.delegate = self
         moveToProperViewControllerByLoginState(facebookManager.openFacebookSessionIfStateCreatedTokenLoaded())
+
+        // TODO : - BLEが有効かどうか判定有効でなければViewをかぶせるように修正
 
         return true
     }

@@ -9,10 +9,6 @@
 import Foundation
 import CoreBluetooth
 
-protocol BLEPeripheralManagerDelegate {
-    func readyForAdvertise()
-}
-
 class BLEPeripheralManager: NSObject {
 
     class var sharedInstance: BLEPeripheralManager {
@@ -22,7 +18,6 @@ class BLEPeripheralManager: NSObject {
         return Static.instance
     }
 
-    var delegate: BLEPeripheralManagerDelegate?
     private var peripheralManager: CBPeripheralManager!
     private var characteristic: CBMutableCharacteristic!
     private var responseDictonary = Dictionary<String, AnyObject>()
@@ -30,8 +25,7 @@ class BLEPeripheralManager: NSObject {
     override init() {
         super.init()
 
-        // TODO: - MainThreadじゃなくて専用のthreadを用意
-        peripheralManager = CBPeripheralManager(delegate: self, queue: nil)
+        peripheralManager = CBPeripheralManager(delegate: self, queue: QueueManager.sharedInstance.peripheralQueue())
         characteristic = CBMutableCharacteristic(
             type: kBLECharacteristicUUID,
             properties: CBCharacteristicProperties.Read,
@@ -44,11 +38,6 @@ class BLEPeripheralManager: NSObject {
             self.responseDictonary["name"] = userData.objectForKey("name") as? String
             self.responseDictonary["id"] = userData.objectForKey("id") as? String
         })
-    }
-
-    // NOTE: - テストが終わったら削除予定
-    func startAdvertising() {
-        self._startAdvertising()
     }
 
     func teardown() {
@@ -69,8 +58,7 @@ extension BLEPeripheralManager: CBPeripheralManagerDelegate {
         error: NSError!)
     {
         if error == nil {
-            //startAdvertising()
-            delegate?.readyForAdvertise()
+            startAdvertising()
         } else {
             Tracker.sharedInstance.debug("サービスの追加に失敗しました")
         }
@@ -128,10 +116,10 @@ extension BLEPeripheralManager: CBPeripheralManagerDelegate {
 
 // MARK: - Private functions
 extension BLEPeripheralManager {
-    private func _startAdvertising() {
+    private func startAdvertising() {
         self.peripheralManager?.startAdvertising([
             CBAdvertisementDataLocalNameKey: "",
             CBAdvertisementDataServiceUUIDsKey:[kBLEServiceUUID]
-            ])
+        ])
     }
 }
