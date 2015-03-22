@@ -69,8 +69,10 @@ extension SearchViewController: BLECentralManagerDelegate {
             var recieveDictonary = recieveDictonaries[0]
             var id = recieveDictonary["id"] as? String
             var name = recieveDictonary["name"] as? String
-            Tracker.sharedInstance.debug("\(id) \(name)")
-            label.text = "\(name)"
+            var longitude = recieveDictonary["longitude"] as? String
+            var latitude = recieveDictonary["latitude"] as? String
+            Tracker.sharedInstance.debug("\(id) \(name) \(longitude) \(latitude)")
+            label.text = "\(name)\n\(longitude)\n\(latitude)"
         }
         if recieveDictonaries.isEmpty {
             label.text = "Ready For Search"

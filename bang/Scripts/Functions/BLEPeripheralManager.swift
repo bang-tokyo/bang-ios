@@ -21,6 +21,7 @@ class BLEPeripheralManager: NSObject {
     private var peripheralManager: CBPeripheralManager!
     private var characteristic: CBMutableCharacteristic!
     private var responseDictonary = Dictionary<String, AnyObject>()
+    private var locationManager = LocationManager()
 
     override init() {
         super.init()
@@ -38,6 +39,9 @@ class BLEPeripheralManager: NSObject {
             self.responseDictonary["name"] = userData.objectForKey("name") as? String
             self.responseDictonary["id"] = userData.objectForKey("id") as? String
         })
+
+        locationManager.setUpStandardUpdates()
+        locationManager.startLocationUpdates()
     }
 
     func teardown() {
@@ -69,6 +73,8 @@ extension BLEPeripheralManager: CBPeripheralManagerDelegate {
         didReceiveReadRequest request: CBATTRequest!)
     {
         Tracker.sharedInstance.debug("didReceiveReadRequest...")
+        responseDictonary["longitude"] = locationManager.stringLongitude()
+        responseDictonary["latitude"] = locationManager.stringLatitude()
         request.value = NSJSONSerialization.dataWithJSONObject(responseDictonary, options: NSJSONWritingOptions.PrettyPrinted, error: nil)
         peripheralManager.respondToRequest(request, withResult: CBATTError.Success)
     }

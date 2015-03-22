@@ -69,12 +69,20 @@ class LocationManager: NSObject {
         }
     }
 
-    func longitude() -> CLLocationDegrees? {
-        return location?.coordinate.longitude
+    func stringLongitude() -> String {
+        var longitude = ""
+        if let _location = location {
+           longitude = "\(_location.coordinate.longitude)"
+        }
+        return longitude
     }
 
-    func latitude() -> CLLocationDegrees? {
-        return location?.coordinate.latitude
+    func stringLatitude() -> String {
+        var latitude = ""
+        if let _location = location {
+            latitude = "\(_location.coordinate.latitude)"
+        }
+        return latitude
     }
 }
 
