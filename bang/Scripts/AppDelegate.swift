@@ -25,14 +25,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         facebookManager.delegate = self
         moveToProperViewControllerByLoginState(facebookManager.openFacebookSessionIfStateCreatedTokenLoaded())
 
-        // TODO : - BLEが有効かどうか判定有効でなければViewをかぶせるように修正
-        // TODO : - CoreLocationが有効でなければViewをかぶせるように修正
+        // TODO : - BLEが有効かどうか判定有効でなければ設定変更を促すViewをかぶせる
+        // TODO : - CoreLocationのstatusがAuthorizedAlwaysでない時は設定変更を促すViewをかぶせる
 
         locationManager.setUpSignificantChangeUpdates()
         locationManager.delegate = self
-        if LocationManager.canUseLocationService() {
-            locationManager.startLocationUpdates()
-        }
+        locationManager.startLocationUpdates()
 
         return true
     }

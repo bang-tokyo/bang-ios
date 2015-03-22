@@ -21,6 +21,7 @@ class LocationManager: NSObject {
     private var isSignificantChangeLocationService = false
     private var hasSetUp = false
     private var isUpdatingLocation = false
+    private var successClosure: ((location: CLLocation) -> Void)?
 
     override init() {
         super.init()
@@ -38,7 +39,7 @@ class LocationManager: NSObject {
     func setUpStandardUpdates() {
         setUpBase()
         locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
-        locationManager.distanceFilter = 100
+        locationManager.distanceFilter = kLocationDistance
     }
 
     // NOTE: - 大幅変更位置情報サービス用(Location監視用)
@@ -47,7 +48,10 @@ class LocationManager: NSObject {
         isSignificantChangeLocationService = true
     }
 
-    func startLocationUpdates() {
+    func startLocationUpdates(success:((location: CLLocation) -> Void)? = nil) {
+        if let _success = success {
+            successClosure = _success
+        }
         if LocationManager.canUseLocationService() && hasSetUp && !isUpdatingLocation {
             if isSignificantChangeLocationService {
                 locationManager.startMonitoringSignificantLocationChanges()
@@ -55,6 +59,7 @@ class LocationManager: NSObject {
                 locationManager.startUpdatingLocation()
             }
             isUpdatingLocation = true
+            Tracker.sharedInstance.debug("startLocationUpdates:\(isSignificantChangeLocationService) -->")
         }
     }
 
@@ -66,23 +71,8 @@ class LocationManager: NSObject {
                 locationManager.stopUpdatingLocation()
             }
             isUpdatingLocation = false
+            Tracker.sharedInstance.debug("<-- stopLocationUpdates:\(isSignificantChangeLocationService)")
         }
-    }
-
-    func stringLongitude() -> String {
-        var longitude = ""
-        if let _location = location {
-           longitude = "\(_location.coordinate.longitude)"
-        }
-        return longitude
-    }
-
-    func stringLatitude() -> String {
-        var latitude = ""
-        if let _location = location {
-            latitude = "\(_location.coordinate.latitude)"
-        }
-        return latitude
     }
 }
 
@@ -90,19 +80,25 @@ class LocationManager: NSObject {
 extension LocationManager: CLLocationManagerDelegate {
     func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
         var newLocation = locations.last as CLLocation
-        var howReent = newLocation.timestamp.timeIntervalSinceNow
-        if abs(howReent) < 15.0 || location == nil {
-            delegate?.didUpdateLocation(newLocation)
+        var howRecent = newLocation.timestamp.timeIntervalSinceNow
+        if isAdoptableLocation(newLocation) {
             location = newLocation
+            delegate?.didUpdateLocation(newLocation)
+            successClosure?(location: newLocation)
         }
     }
 
     func locationManager(manager: CLLocationManager!, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+        Tracker.sharedInstance.debug("locationManager:didChangeAuthorizationStatus:\(status.rawValue)")
         switch status {
-        case CLAuthorizationStatus.AuthorizedAlways:
-            startLocationUpdates()
+        case .AuthorizedAlways:
+            break
+        case .NotDetermined:
+            stopLocationUpdates()
+            locationManager.requestAlwaysAuthorization()
         default:
             stopLocationUpdates()
+            // TODO: - CoreLocationのstatusがAuthorizedAlwaysでなくなった時は設定変更を促すViewをかぶせる
         }
     }
 }
@@ -111,5 +107,12 @@ extension LocationManager: CLLocationManagerDelegate {
 extension LocationManager {
     private func setUpBase() {
         hasSetUp = true
+    }
+
+    private func isAdoptableLocation(location: CLLocation) -> Bool {
+        var howRecent = location.timestamp.timeIntervalSinceNow
+        Tracker.sharedInstance.debug("isAdoptableLocation \(abs(howRecent)) \(location.horizontalAccuracy )")
+        return abs(howRecent) <= kLocationAdoptableTimeInterval
+            && location.horizontalAccuracy <= kLocationAdoptableAccuracy
     }
 }

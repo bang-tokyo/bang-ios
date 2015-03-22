@@ -41,7 +41,6 @@ class BLEPeripheralManager: NSObject {
         })
 
         locationManager.setUpStandardUpdates()
-        locationManager.startLocationUpdates()
     }
 
     func teardown() {
@@ -73,10 +72,15 @@ extension BLEPeripheralManager: CBPeripheralManagerDelegate {
         didReceiveReadRequest request: CBATTRequest!)
     {
         Tracker.sharedInstance.debug("didReceiveReadRequest...")
-        responseDictonary["longitude"] = locationManager.stringLongitude()
-        responseDictonary["latitude"] = locationManager.stringLatitude()
-        request.value = NSJSONSerialization.dataWithJSONObject(responseDictonary, options: NSJSONWritingOptions.PrettyPrinted, error: nil)
-        peripheralManager.respondToRequest(request, withResult: CBATTError.Success)
+        var _responseDictonary = self.responseDictonary
+        locationManager.startLocationUpdates(success: {
+            [unowned self] (location: CLLocation) in
+            _responseDictonary["longitude"] = "\(location.coordinate.longitude)"
+            _responseDictonary["latitude"] = "\(location.coordinate.latitude)"
+            request.value = NSJSONSerialization.dataWithJSONObject(_responseDictonary, options: NSJSONWritingOptions.PrettyPrinted, error: nil)
+            self.peripheralManager.respondToRequest(request, withResult: CBATTError.Success)
+            self.locationManager.stopLocationUpdates()
+        })
     }
 
     // TODO: - アプリがメモリ不足などで再起動した時に呼ばれる。peripheralを復帰処理を実装。
