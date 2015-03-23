@@ -11,16 +11,21 @@ import UIKit
 class SearchViewController: BaseViewController {
 
     class func build() -> SearchViewController {
-        var storyboard: UIStoryboard = UIStoryboard(name: "Search", bundle: nil)
+        var storyboard = UIStoryboard(name: "Search", bundle: nil)
         return storyboard.instantiateInitialViewController() as SearchViewController
     }
 
     @IBOutlet weak var label: UILabel!
+    @IBOutlet weak var swipteUpGesture: UISwipeGestureRecognizer!
+
+    var centralManager: BLECentralManager!
+    private var isAdvertising: Bool = true
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        centralManager = BLECentralManager.sharedInstance
+        centralManager.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -42,8 +47,37 @@ class SearchViewController: BaseViewController {
     }
 
     @IBAction func swipeUp(sender: AnyObject) {
-        var rand: Int = Int(arc4random_uniform(10))
-        label.text = "\(rand)"
+        label.text = "Scaning..."
+        centralManager.startScanning()
+    }
+}
+
+// MARK: - BLECentralManagerDelegate
+extension SearchViewController: BLECentralManagerDelegate {
+    func readyForScan() {
+        label.text = "Ready For Search"
+        swipteUpGesture.enabled = true
     }
 
+    func notReadyForScan() {
+        label.text = "Not Ready For Search"
+        swipteUpGesture.enabled = false
+    }
+
+    func finishScaning(recieveDictonaries: [NSDictionary]) {
+        for recieveDictonary in recieveDictonaries {
+            var recieveDictonary = recieveDictonaries[0]
+            var id = recieveDictonary["id"] as? String
+            var name = recieveDictonary["name"] as? String
+            Tracker.sharedInstance.debug("\(id) \(name)")
+            label.text = "\(name)"
+        }
+        if recieveDictonaries.isEmpty {
+            label.text = "Ready For Search"
+        }
+    }
+}
+
+// MARK: - Private functions
+extension SearchViewController {
 }

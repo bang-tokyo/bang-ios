@@ -12,7 +12,8 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    var facebookManager: FacebookManager = FacebookManager.sharedInstance
+    var peripheralManager: BLEPeripheralManager = BLEPeripheralManager.sharedInstance
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
@@ -20,13 +21,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Logs 'install' and 'app activate' App Events.
         FBAppEvents.activateApp()
 
-        if FacebookManager.sharedInstance.openFacebookSessionIfStateCreatedTokenLoaded() {
-            var profileViewController = ProfileViewController.build()
-            self.showViewController(profileViewController)
-        } else {
-            var loginViewController = LoginViewController.build()
-            self.showViewController(loginViewController)
-        }
+        facebookManager.delegate = self
+        moveToProperViewControllerByLoginState(facebookManager.openFacebookSessionIfStateCreatedTokenLoaded())
+
+        // TODO : - BLEが有効かどうか判定有効でなければViewをかぶせるように修正
 
         return true
     }
@@ -63,8 +61,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+extension AppDelegate: FacebookManagerDelegate {
+    func handlerFacebookSessionStateChanged(isLogined: Bool) {
+        moveToProperViewControllerByLoginState(isLogined)
+    }
+}
+
 // MARK: - Private functions
 extension AppDelegate {
+    private func moveToProperViewControllerByLoginState(isLogined: Bool) {
+        if isLogined {
+            var profileViewController = ProfileViewController.build()
+            self.showViewController(profileViewController)
+        } else {
+            var loginViewController = LoginViewController.build()
+            self.showViewController(loginViewController)
+        }
+    }
+
     private func showViewController(viewController: UIViewController) {
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         self.window!.rootViewController = viewController;

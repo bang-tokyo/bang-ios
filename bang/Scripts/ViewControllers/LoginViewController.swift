@@ -11,13 +11,12 @@ import UIKit
 class LoginViewController: BaseViewController {
 
     class func build() -> LoginViewController {
-        var storyboard: UIStoryboard = UIStoryboard(name: "Login", bundle: nil)
+        var storyboard = UIStoryboard(name: "Login", bundle: nil)
         return storyboard.instantiateInitialViewController() as LoginViewController
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        FacebookManager.sharedInstance.delegate = self
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -38,16 +37,6 @@ class LoginViewController: BaseViewController {
         FacebookManager.sharedInstance.openFacebookSession()
     }
 
-}
-
-// MARK: - FacebookManagerDelegate
-extension LoginViewController: FacebookManagerDelegate {
-    func handlerFacebookSessionStateChanged(isLogined: Bool) {
-        if isLogined {
-            var viewController = ProfileViewController.build()
-            self.moveTo(viewController)
-        }
-    }
 }
 
 // MARK: - Private functions

@@ -8,4 +8,4 @@
 
 import Foundation
 
-let FBReadPermissions: [String] = ["public_profile", "email", "user_friends"]
+let kFBReadPermissions: [String] = ["public_profile", "email", "user_friends"]

@@ -13,25 +13,31 @@ class BLEPeripheralManager: NSObject {
 
     class var sharedInstance: BLEPeripheralManager {
         struct Static {
-            static let instance: BLEPeripheralManager = BLEPeripheralManager()
+            static let instance = BLEPeripheralManager()
         }
         return Static.instance
     }
 
     private var peripheralManager: CBPeripheralManager!
     private var characteristic: CBMutableCharacteristic!
+    private var responseDictonary = Dictionary<String, AnyObject>()
 
     override init() {
         super.init()
 
-        // TODO: - MainThreadじゃなくて専用のthreadを用意
-        peripheralManager = CBPeripheralManager(delegate: self, queue: nil)
+        peripheralManager = CBPeripheralManager(delegate: self, queue: QueueManager.sharedInstance.peripheralQueue())
         characteristic = CBMutableCharacteristic(
-            type: BLECharacteristicUUID,
+            type: kBLECharacteristicUUID,
             properties: CBCharacteristicProperties.Read,
             value: nil,
             permissions: CBAttributePermissions.Readable
         )
+
+        FacebookManager.sharedInstance.requestUserData({
+            [unowned self] (userData: NSDictionary) in
+            self.responseDictonary["name"] = userData.objectForKey("name") as? String
+            self.responseDictonary["id"] = userData.objectForKey("id") as? String
+        })
     }
 
     func teardown() {
@@ -39,7 +45,7 @@ class BLEPeripheralManager: NSObject {
     }
 
     func stopAdvertising() {
-        peripheralManager?.stopAdvertising()
+        peripheralManager.stopAdvertising()
     }
 }
 
@@ -54,7 +60,7 @@ extension BLEPeripheralManager: CBPeripheralManagerDelegate {
         if error == nil {
             startAdvertising()
         } else {
-            println("サービスの追加に失敗しました")
+            Tracker.sharedInstance.debug("サービスの追加に失敗しました")
         }
     }
 
@@ -62,44 +68,40 @@ extension BLEPeripheralManager: CBPeripheralManagerDelegate {
     func peripheralManager(peripheral: CBPeripheralManager!,
         didReceiveReadRequest request: CBATTRequest!)
     {
-        println("didReceiveReadRequest")
-        var responseDictonary: Dictionary = [
-            "userId" : 11111,
-            "data" : "hoge"
-        ]
-        request.value = NSKeyedArchiver.archivedDataWithRootObject(responseDictonary)
-        peripheralManager?.respondToRequest(request, withResult: CBATTError.Success)
+        Tracker.sharedInstance.debug("didReceiveReadRequest...")
+        request.value = NSJSONSerialization.dataWithJSONObject(responseDictonary, options: NSJSONWritingOptions.PrettyPrinted, error: nil)
+        peripheralManager.respondToRequest(request, withResult: CBATTError.Success)
     }
 
     // TODO: - アプリがメモリ不足などで再起動した時に呼ばれる。peripheralを復帰処理を実装。
     func peripheralManager(peripheral: CBPeripheralManager!,
         willRestoreState dict: [NSObject : AnyObject]!)
     {
-        println("willRestoreState")
+        Tracker.sharedInstance.debug("willRestoreState")
     }
 
     // Advertiseが開始された時呼ばれる
     func peripheralManagerDidStartAdvertising(peripheral: CBPeripheralManager!, error: NSError!) {
         if error == nil {
-            println("PeripheralがAdvertisingを開始しました")
+            Tracker.sharedInstance.debug("PeripheralがAdvertisingを開始しました")
         } else {
-            println("PeripheralがAdvertisingの開始に失敗しました\(error)")
+            Tracker.sharedInstance.debug("PeripheralがAdvertisingの開始に失敗しました\(error)")
         }
     }
 
     // BLEの状態が変わった時に呼ばれる
     func peripheralManagerDidUpdateState(peripheral: CBPeripheralManager!) {
-        println("PeripheralのStateが変更されました(現在のState:\(peripheral.state.name))")
+        Tracker.sharedInstance.debug("PeripheralのStateが変更されました(現在のState:\(peripheral.state.name))")
 
         if peripheral.state != CBPeripheralManagerState.PoweredOn {
-            println("StateがPoweredOnでないため処理を終了します")
+            Tracker.sharedInstance.debug("StateがPoweredOnでないため処理を終了します")
             return;
         }
 
         // ServiceとCharacteristicsの登録
-        var service = CBMutableService(type:BLEServiceUUID, primary:true)
+        var service = CBMutableService(type:kBLEServiceUUID, primary:true)
         service.characteristics = [self.characteristic]
-        self.peripheralManager?.addService(service)
+        self.peripheralManager.addService(service)
     }
 
     /** TODO: -
@@ -117,7 +119,7 @@ extension BLEPeripheralManager {
     private func startAdvertising() {
         self.peripheralManager?.startAdvertising([
             CBAdvertisementDataLocalNameKey: "",
-            CBAdvertisementDataServiceUUIDsKey:[BLEServiceUUID]
-            ])
+            CBAdvertisementDataServiceUUIDsKey:[kBLEServiceUUID]
+        ])
     }
 }

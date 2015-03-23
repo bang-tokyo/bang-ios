@@ -12,7 +12,7 @@ class GlobalData {
     
     class var sharedInstance: GlobalData {
         struct Static {
-            static let instance: GlobalData = GlobalData()
+            static let instance = GlobalData()
         }
         return Static.instance
     }
