@@ -16,12 +16,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bang" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rzE-AD-fK1">
-                                <rect key="frame" x="0.0" y="290" width="600" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8ZO-mI-lVS">
                                 <rect key="frame" x="0.0" y="20" width="600" height="44"/>
                                 <constraints>
@@ -42,17 +36,38 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bang Info" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rzE-AD-fK1">
+                                <rect key="frame" x="0.0" y="255" width="600" height="90"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="90" id="HUE-j3-sje"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location Info" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Itj-qZ-4Cj">
+                                <rect key="frame" x="0.0" y="355" width="600" height="90"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="90" id="qvD-3Q-3SU"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.99607843139999996" green="0.26274509800000001" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="8ZO-mI-lVS" firstAttribute="top" secondItem="sQR-is-Pvk" secondAttribute="bottom" id="9qn-xS-KAA"/>
                             <constraint firstItem="8ZO-mI-lVS" firstAttribute="leading" secondItem="F3H-n3-ibR" secondAttribute="leading" id="EEd-qM-Ijm"/>
+                            <constraint firstItem="Itj-qZ-4Cj" firstAttribute="top" secondItem="rzE-AD-fK1" secondAttribute="bottom" constant="10" id="Eij-bK-pEH"/>
                             <constraint firstAttribute="trailing" secondItem="8ZO-mI-lVS" secondAttribute="trailing" id="NmQ-XQ-3Af"/>
                             <constraint firstAttribute="centerX" secondItem="rzE-AD-fK1" secondAttribute="centerX" id="RSl-9Z-KYY"/>
                             <constraint firstItem="rzE-AD-fK1" firstAttribute="leading" secondItem="F3H-n3-ibR" secondAttribute="leading" id="WTs-kG-59s"/>
+                            <constraint firstAttribute="trailing" secondItem="Itj-qZ-4Cj" secondAttribute="trailing" id="ekZ-Zh-vUB"/>
                             <constraint firstAttribute="trailing" secondItem="rzE-AD-fK1" secondAttribute="trailing" id="qtP-t8-HLt"/>
                             <constraint firstAttribute="centerY" secondItem="rzE-AD-fK1" secondAttribute="centerY" id="u0I-bB-22Z"/>
+                            <constraint firstItem="Itj-qZ-4Cj" firstAttribute="leading" secondItem="F3H-n3-ibR" secondAttribute="leading" id="ww7-na-oHf"/>
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="O1N-t1-m2M" appends="YES" id="UUd-sf-eWE"/>
@@ -60,6 +75,7 @@
                     </view>
                     <connections>
                         <outlet property="label" destination="rzE-AD-fK1" id="dn7-Xu-60B"/>
+                        <outlet property="locationInfoLabel" destination="Itj-qZ-4Cj" id="rYd-4K-b3g"/>
                         <outlet property="swipteUpGesture" destination="O1N-t1-m2M" id="sWK-Es-ERf"/>
                     </connections>
                 </viewController>

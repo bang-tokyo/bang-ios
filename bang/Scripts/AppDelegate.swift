@@ -12,8 +12,9 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var facebookManager: FacebookManager = FacebookManager.sharedInstance
-    var peripheralManager: BLEPeripheralManager = BLEPeripheralManager.sharedInstance
+    var facebookManager = FacebookManager.sharedInstance
+    var peripheralManager = BLEPeripheralManager.sharedInstance
+    var locationManager = LocationManager()
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
@@ -24,7 +25,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         facebookManager.delegate = self
         moveToProperViewControllerByLoginState(facebookManager.openFacebookSessionIfStateCreatedTokenLoaded())
 
-        // TODO : - BLEが有効かどうか判定有効でなければViewをかぶせるように修正
+        // TODO : - BLEが有効かどうか判定有効でなければ設定変更を促すViewをかぶせる
+        // TODO : - CoreLocationのstatusがAuthorizedAlwaysでない時は設定変更を促すViewをかぶせる
+
+        locationManager.setUpSignificantChangeUpdates()
+        locationManager.delegate = self
+        locationManager.startLocationUpdates()
 
         return true
     }
@@ -61,9 +67,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+// MARK: - FacebookManagerDelegate
 extension AppDelegate: FacebookManagerDelegate {
     func handlerFacebookSessionStateChanged(isLogined: Bool) {
         moveToProperViewControllerByLoginState(isLogined)
+    }
+}
+
+// MARK: - LocationManagerDelegate
+extension AppDelegate: LocationManagerDelegate {
+    func didUpdateLocation(location: CLLocation) {
+        // TODO: - APIでユーザーのローケーションを更新
+        Tracker.sharedInstance.debug("didUpdateLocation: \(location.coordinate.latitude) \(location.coordinate.longitude)")
     }
 }
 

@@ -16,9 +16,11 @@ class SearchViewController: BaseViewController {
     }
 
     @IBOutlet weak var label: UILabel!
+    @IBOutlet weak var locationInfoLabel: UILabel!
     @IBOutlet weak var swipteUpGesture: UISwipeGestureRecognizer!
 
     var centralManager: BLECentralManager!
+    private var locationManager = LocationManager()
     private var isAdvertising: Bool = true
 
     override func viewDidLoad() {
@@ -26,6 +28,15 @@ class SearchViewController: BaseViewController {
 
         centralManager = BLECentralManager.sharedInstance
         centralManager.delegate = self
+
+        locationManager.delegate = self
+        locationManager.setUpStandardUpdates()
+        locationManager.startLocationUpdates()
+    }
+
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(animated)
+        locationManager.stopLocationUpdates()
     }
 
     override func didReceiveMemoryWarning() {
@@ -69,8 +80,10 @@ extension SearchViewController: BLECentralManagerDelegate {
             var recieveDictonary = recieveDictonaries[0]
             var id = recieveDictonary["id"] as? String
             var name = recieveDictonary["name"] as? String
-            Tracker.sharedInstance.debug("\(id) \(name)")
-            label.text = "\(name)"
+            var longitude = recieveDictonary["longitude"] as? String
+            var latitude = recieveDictonary["latitude"] as? String
+            Tracker.sharedInstance.debug("\(id) \(name) \(longitude) \(latitude)")
+            label.text = "\(name)\n\(longitude)\n\(latitude)"
         }
         if recieveDictonaries.isEmpty {
             label.text = "Ready For Search"
@@ -78,6 +91,15 @@ extension SearchViewController: BLECentralManagerDelegate {
     }
 }
 
+// TODO: - テストが終わったら削除
+extension SearchViewController: LocationManagerDelegate {
+    func didUpdateLocation(location: CLLocation) {
+        Tracker.sharedInstance.debug("didUpdateLocation: \(location.coordinate.latitude) \(location.coordinate.longitude) \(location.horizontalAccuracy)")
+        locationInfoLabel.text = "\(location.coordinate.latitude)\n\(location.coordinate.longitude)\n\(location.horizontalAccuracy)"
+    }
+}
+
 // MARK: - Private functions
 extension SearchViewController {
+
 }
