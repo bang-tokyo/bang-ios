@@ -23,13 +23,13 @@
 		B830CDDC1A8240C30038CAFE /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B830CDDB1A8240C30038CAFE /* Search.storyboard */; };
 		B899149E1A8C1F69003E8930 /* BLECentralManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B899149D1A8C1F69003E8930 /* BLECentralManager.swift */; };
 		B8D9B2501A824DC700B30271 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D9B24F1A824DC700B30271 /* BaseViewController.swift */; };
-		B8D9B2561A82523400B30271 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D9B2551A82523400B30271 /* UIViewControllerExtension.swift */; };
-		B8D9B2591A82534A00B30271 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D9B2581A82534A00B30271 /* UIViewExtension.swift */; };
-		B8D9B25D1A8254C400B30271 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D9B25C1A8254C400B30271 /* UIImageExtension.swift */; };
+		B8D9B2561A82523400B30271 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D9B2551A82523400B30271 /* UIViewController+Extension.swift */; };
+		B8D9B2591A82534A00B30271 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D9B2581A82534A00B30271 /* UIView+Extension.swift */; };
+		B8D9B25D1A8254C400B30271 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D9B25C1A8254C400B30271 /* UIImage+Extension.swift */; };
 		B8D9B2611A8255DD00B30271 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = B8D9B2601A8255DD00B30271 /* UIImage+ImageEffects.m */; };
 		B8DD29871A8B13840024ABD0 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8DD29861A8B13840024ABD0 /* CoreBluetooth.framework */; };
 		B8DD298A1A8B154E0024ABD0 /* BLEConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DD29891A8B154E0024ABD0 /* BLEConfig.swift */; };
-		B8DD298C1A8B1CC10024ABD0 /* BLEEnumExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DD298B1A8B1CC10024ABD0 /* BLEEnumExtension.swift */; };
+		B8DD298C1A8B1CC10024ABD0 /* BLEEnum+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DD298B1A8B1CC10024ABD0 /* BLEEnum+Extension.swift */; };
 		B8E6D9A71ABE46B00094D582 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8E6D9A61ABE46B00094D582 /* CoreLocation.framework */; };
 		B8E6D9A91ABE55840094D582 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E6D9A81ABE55840094D582 /* LocationManager.swift */; };
 		B8E6D9AB1ABF03E70094D582 /* LocationConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E6D9AA1ABF03E70094D582 /* LocationConfig.swift */; };
@@ -73,15 +73,15 @@
 		B830CDDB1A8240C30038CAFE /* Search.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		B899149D1A8C1F69003E8930 /* BLECentralManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLECentralManager.swift; sourceTree = "<group>"; };
 		B8D9B24F1A824DC700B30271 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
-		B8D9B2551A82523400B30271 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
-		B8D9B2581A82534A00B30271 /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
-		B8D9B25C1A8254C400B30271 /* UIImageExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
+		B8D9B2551A82523400B30271 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		B8D9B2581A82534A00B30271 /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		B8D9B25C1A8254C400B30271 /* UIImage+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		B8D9B25E1A8255DC00B30271 /* bang-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "bang-Bridging-Header.h"; sourceTree = "<group>"; };
 		B8D9B25F1A8255DD00B30271 /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageEffects.h"; sourceTree = "<group>"; };
 		B8D9B2601A8255DD00B30271 /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageEffects.m"; sourceTree = "<group>"; };
 		B8DD29861A8B13840024ABD0 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		B8DD29891A8B154E0024ABD0 /* BLEConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEConfig.swift; sourceTree = "<group>"; };
-		B8DD298B1A8B1CC10024ABD0 /* BLEEnumExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEEnumExtension.swift; sourceTree = "<group>"; };
+		B8DD298B1A8B1CC10024ABD0 /* BLEEnum+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BLEEnum+Extension.swift"; sourceTree = "<group>"; };
 		B8E6D9A61ABE46B00094D582 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		B8E6D9A81ABE55840094D582 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		B8E6D9AA1ABF03E70094D582 /* LocationConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationConfig.swift; sourceTree = "<group>"; };
@@ -142,7 +142,7 @@
 		B81475F31AD8AA750099A878 /* BLE */ = {
 			isa = PBXGroup;
 			children = (
-				B8DD298B1A8B1CC10024ABD0 /* BLEEnumExtension.swift */,
+				B8DD298B1A8B1CC10024ABD0 /* BLEEnum+Extension.swift */,
 				B8F1389B1A8A4B84002A820E /* BLEPeripheralManager.swift */,
 				B899149D1A8C1F69003E8930 /* BLECentralManager.swift */,
 			);
@@ -152,8 +152,8 @@
 		B81475F41AD8AAC90099A878 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				B8D9B2581A82534A00B30271 /* UIViewExtension.swift */,
-				B8D9B25C1A8254C400B30271 /* UIImageExtension.swift */,
+				B8D9B2581A82534A00B30271 /* UIView+Extension.swift */,
+				B8D9B25C1A8254C400B30271 /* UIImage+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -161,7 +161,7 @@
 		B81475F51AD8AAD20099A878 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				B8D9B2551A82523400B30271 /* UIViewControllerExtension.swift */,
+				B8D9B2551A82523400B30271 /* UIViewController+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -462,9 +462,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				B82448481A903DE400B540A4 /* NotificationConfig.swift in Sources */,
-				B8D9B2591A82534A00B30271 /* UIViewExtension.swift in Sources */,
+				B8D9B2591A82534A00B30271 /* UIView+Extension.swift in Sources */,
 				B8EA20FC1A99D37700BD0164 /* ContactViewController.swift in Sources */,
-				B8D9B2561A82523400B30271 /* UIViewControllerExtension.swift in Sources */,
+				B8D9B2561A82523400B30271 /* UIViewController+Extension.swift in Sources */,
 				B8F1389F1A8A4D13002A820E /* RoundedCornersView.swift in Sources */,
 				B8D9B2611A8255DD00B30271 /* UIImage+ImageEffects.m in Sources */,
 				B80D21151ABC5BEC00405EAE /* QueueManager.swift in Sources */,
@@ -478,10 +478,10 @@
 				B8E6D9A91ABE55840094D582 /* LocationManager.swift in Sources */,
 				B8F1389C1A8A4B84002A820E /* BLEPeripheralManager.swift in Sources */,
 				B8D9B2501A824DC700B30271 /* BaseViewController.swift in Sources */,
-				B8DD298C1A8B1CC10024ABD0 /* BLEEnumExtension.swift in Sources */,
+				B8DD298C1A8B1CC10024ABD0 /* BLEEnum+Extension.swift in Sources */,
 				B82448441A8F183400B540A4 /* FacebookManager.swift in Sources */,
 				B8E6D9AB1ABF03E70094D582 /* LocationConfig.swift in Sources */,
-				B8D9B25D1A8254C400B30271 /* UIImageExtension.swift in Sources */,
+				B8D9B25D1A8254C400B30271 /* UIImage+Extension.swift in Sources */,
 				B82448421A8EF16C00B540A4 /* LoginViewController.swift in Sources */,
 				B82448461A8F1E4700B540A4 /* FacebookConfig.swift in Sources */,
 			);
