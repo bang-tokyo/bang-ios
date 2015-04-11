@@ -27,7 +27,7 @@ extension UIViewController {
     }
 
     func setBlurBackground() {
-        if let parentViewController = self.presentingViewController? {
+        if let parentViewController = self.presentingViewController {
             self.view.setBlurBackground(parentViewController.view)
         }
     }

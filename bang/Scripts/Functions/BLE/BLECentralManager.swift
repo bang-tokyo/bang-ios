@@ -130,7 +130,7 @@ extension BLECentralManager: CBPeripheralDelegate {
             Tracker.sharedInstance.debug("didDiscoverServices no services")
             return
         }
-        for service: CBService in peripheral.services as [CBService]!  {
+        for service: CBService in peripheral.services as! [CBService]!  {
             // TODO: - ここでServiceのUUIDを判定して必要なものだけ処理するように
             Tracker.sharedInstance.debug("didDiscoverServices " + service.description)
             peripheral.discoverCharacteristics(nil, forService: service)
@@ -147,7 +147,7 @@ extension BLECentralManager: CBPeripheralDelegate {
             Tracker.sharedInstance.debug("didDiscoverCharacteristicsForService no characteristics")
             return
         }
-        for characteristic: CBCharacteristic in service.characteristics as [CBCharacteristic]! {
+        for characteristic: CBCharacteristic in service.characteristics as! [CBCharacteristic]! {
             if (characteristic.properties.rawValue & CBCharacteristicProperties.Read.rawValue > 0) {
                 Tracker.sharedInstance.debug("didDiscoverCharacteristicsForService \(characteristic.UUID)")
                 switch characteristic.UUID {

@@ -12,7 +12,7 @@ class SearchViewController: BaseViewController {
 
     class func build() -> SearchViewController {
         var storyboard = UIStoryboard(name: "Search", bundle: nil)
-        return storyboard.instantiateInitialViewController() as SearchViewController
+        return storyboard.instantiateInitialViewController() as! SearchViewController
     }
 
     @IBOutlet weak var label: UILabel!

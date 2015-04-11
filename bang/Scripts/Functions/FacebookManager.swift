@@ -69,7 +69,7 @@ class FacebookManager: NSObject {
                 FBRequest.requestForMe().startWithCompletionHandler({
                     (connection: FBRequestConnection!, result: AnyObject!, error: NSError!) -> Void in
                     if error == nil {
-                        let userData = result as NSDictionary
+                        let userData = result as! NSDictionary
                         GlobalData.sharedInstance.facebookUserData = userData
                         success?(userData: userData)
                     }
