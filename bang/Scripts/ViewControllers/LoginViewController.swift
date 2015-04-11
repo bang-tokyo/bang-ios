@@ -12,7 +12,7 @@ class LoginViewController: BaseViewController {
 
     class func build() -> LoginViewController {
         var storyboard = UIStoryboard(name: "Login", bundle: nil)
-        return storyboard.instantiateInitialViewController() as LoginViewController
+        return storyboard.instantiateInitialViewController() as! LoginViewController
     }
 
     override func viewDidLoad() {

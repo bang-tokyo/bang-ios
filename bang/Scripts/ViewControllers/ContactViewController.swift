@@ -12,7 +12,7 @@ class ContactViewController: UIViewController {
 
     class func build() -> ContactViewController {
         var storyboard = UIStoryboard(name: "Contact", bundle: nil)
-        return storyboard.instantiateInitialViewController() as ContactViewController
+        return storyboard.instantiateInitialViewController() as! ContactViewController
     }
 
     override func viewDidLoad() {

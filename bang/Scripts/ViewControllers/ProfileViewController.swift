@@ -12,7 +12,7 @@ class ProfileViewController: BaseViewController {
 
     class func build() -> ProfileViewController {
         var storyboard = UIStoryboard(name: "Profile", bundle: nil)
-        return storyboard.instantiateInitialViewController() as ProfileViewController
+        return storyboard.instantiateInitialViewController() as! ProfileViewController
     }
 
     @IBOutlet weak var profilePictureView: FBProfilePictureView!
@@ -26,7 +26,7 @@ class ProfileViewController: BaseViewController {
         facebookManager.requestUserData({
             [unowned self] (userData: NSDictionary) in
             self.nameLabel.text = userData.objectForKey("name") as? String
-            self.profilePictureView.profileID = userData.objectForKey("id") as String
+            self.profilePictureView.profileID = userData.objectForKey("id") as! String
         })
     }
 

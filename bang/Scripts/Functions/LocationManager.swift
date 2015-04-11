@@ -79,7 +79,7 @@ class LocationManager: NSObject {
 // MARK: - CLLocationManagerDelegate
 extension LocationManager: CLLocationManagerDelegate {
     func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
-        var newLocation = locations.last as CLLocation
+        var newLocation = locations.last as! CLLocation
         var howRecent = newLocation.timestamp.timeIntervalSinceNow
         if isAdoptableLocation(newLocation) {
             location = newLocation

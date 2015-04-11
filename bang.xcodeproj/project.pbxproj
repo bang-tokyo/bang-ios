@@ -139,6 +139,33 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		B81475F31AD8AA750099A878 /* BLE */ = {
+			isa = PBXGroup;
+			children = (
+				B8DD298B1A8B1CC10024ABD0 /* BLEEnumExtension.swift */,
+				B8F1389B1A8A4B84002A820E /* BLEPeripheralManager.swift */,
+				B899149D1A8C1F69003E8930 /* BLECentralManager.swift */,
+			);
+			path = BLE;
+			sourceTree = "<group>";
+		};
+		B81475F41AD8AAC90099A878 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B8D9B2581A82534A00B30271 /* UIViewExtension.swift */,
+				B8D9B25C1A8254C400B30271 /* UIImageExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		B81475F51AD8AAD20099A878 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B8D9B2551A82523400B30271 /* UIViewControllerExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		B830CDD61A823C6A0038CAFE /* StoryBoards */ = {
 			isa = PBXGroup;
 			children = (
@@ -153,6 +180,7 @@
 		B830CDD71A823DE40038CAFE /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				B81475F51AD8AAD20099A878 /* Extensions */,
 				B8D9B24F1A824DC700B30271 /* BaseViewController.swift */,
 				B82448411A8EF16C00B540A4 /* LoginViewController.swift */,
 				B824484B1A90441600B540A4 /* ProfileViewController.swift */,
@@ -165,8 +193,8 @@
 		B830CDD81A823E290038CAFE /* Scripts */ = {
 			isa = PBXGroup;
 			children = (
+				B8D9B2571A82529B00B30271 /* Vendors */,
 				B8DD29881A8B15190024ABD0 /* Configs */,
-				B8D9B2531A824E2F00B30271 /* Utils */,
 				B8D9B2521A824E2300B30271 /* Models */,
 				B8F138981A8A495C002A820E /* Functions */,
 				B8D9B2511A824DEA00B30271 /* Views */,
@@ -179,6 +207,7 @@
 		B8D9B2511A824DEA00B30271 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B81475F41AD8AAC90099A878 /* Extensions */,
 				B8F1389D1A8A4CC5002A820E /* CustomViews */,
 			);
 			path = Views;
@@ -190,27 +219,6 @@
 				B82448561A9824AF00B540A4 /* GlobalData.swift */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		B8D9B2531A824E2F00B30271 /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-				B8D9B2541A8250F100B30271 /* Extensions */,
-				B8D9B2571A82529B00B30271 /* Vendors */,
-				B807F3351AB433D300571ACB /* Tracker.swift */,
-			);
-			path = Utils;
-			sourceTree = "<group>";
-		};
-		B8D9B2541A8250F100B30271 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				B8D9B2551A82523400B30271 /* UIViewControllerExtension.swift */,
-				B8D9B2581A82534A00B30271 /* UIViewExtension.swift */,
-				B8D9B25C1A8254C400B30271 /* UIImageExtension.swift */,
-				B8DD298B1A8B1CC10024ABD0 /* BLEEnumExtension.swift */,
-			);
-			path = Extensions;
 			sourceTree = "<group>";
 		};
 		B8D9B2571A82529B00B30271 /* Vendors */ = {
@@ -237,11 +245,11 @@
 		B8F138981A8A495C002A820E /* Functions */ = {
 			isa = PBXGroup;
 			children = (
-				B8F1389B1A8A4B84002A820E /* BLEPeripheralManager.swift */,
-				B899149D1A8C1F69003E8930 /* BLECentralManager.swift */,
+				B81475F31AD8AA750099A878 /* BLE */,
 				B82448431A8F183400B540A4 /* FacebookManager.swift */,
 				B80D21141ABC5BEC00405EAE /* QueueManager.swift */,
 				B8E6D9A81ABE55840094D582 /* LocationManager.swift */,
+				B807F3351AB433D300571ACB /* Tracker.swift */,
 			);
 			path = Functions;
 			sourceTree = "<group>";
@@ -569,7 +577,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "bang/Scripts/Utils/Vendors/bang-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "bang/Scripts/Vendors/bang-Bridging-Header.h";
 			};
 			name = Adhoc;
 		};
@@ -680,7 +688,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "bang/Scripts/Utils/Vendors/bang-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "bang/Scripts/Vendors/bang-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -700,7 +708,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "bang/Scripts/Utils/Vendors/bang-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "bang/Scripts/Vendors/bang-Bridging-Header.h";
 			};
 			name = Release;
 		};
