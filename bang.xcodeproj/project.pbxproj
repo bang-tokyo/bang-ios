@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6A604A32C528F8BB43AD4344 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 56E4A22E13D9ADD016D461F6 /* libPods.a */; };
+		40A54690F851E512A9FB79DC /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2402A515E3FAD2530DBCB7FE /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		B807F3361AB433D300571ACB /* Tracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B807F3351AB433D300571ACB /* Tracker.swift */; };
 		B80D21151ABC5BEC00405EAE /* QueueManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80D21141ABC5BEC00405EAE /* QueueManager.swift */; };
 		B82448401A8EF07700B540A4 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B824483F1A8EF07700B540A4 /* Login.storyboard */; };
@@ -55,7 +55,7 @@
 
 /* Begin PBXFileReference section */
 		07720D1FE88AFACC32454227 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		56E4A22E13D9ADD016D461F6 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		2402A515E3FAD2530DBCB7FE /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E24BFC2BD3FDB4B7751D942 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		B807F3351AB433D300571ACB /* Tracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tracker.swift; sourceTree = "<group>"; };
 		B80D21141ABC5BEC00405EAE /* QueueManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueueManager.swift; sourceTree = "<group>"; };
@@ -106,7 +106,7 @@
 			files = (
 				B8E6D9A71ABE46B00094D582 /* CoreLocation.framework in Frameworks */,
 				B8DD29871A8B13840024ABD0 /* CoreBluetooth.framework in Frameworks */,
-				6A604A32C528F8BB43AD4344 /* libPods.a in Frameworks */,
+				40A54690F851E512A9FB79DC /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -134,7 +134,7 @@
 			children = (
 				B8E6D9A61ABE46B00094D582 /* CoreLocation.framework */,
 				B8DD29861A8B13840024ABD0 /* CoreBluetooth.framework */,
-				56E4A22E13D9ADD016D461F6 /* libPods.a */,
+				2402A515E3FAD2530DBCB7FE /* Pods.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -332,6 +332,7 @@
 				B8FDC50A1A818EDC00D4511E /* Frameworks */,
 				B8FDC50B1A818EDC00D4511E /* Resources */,
 				5EE929952E2FBC37FEB12447 /* Copy Pods Resources */,
+				9ACC0192A85F5291A2DFA6A3 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -437,6 +438,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9ACC0192A85F5291A2DFA6A3 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		A19BD1C32E1DFF15FCE33D28 /* Check Pods Manifest.lock */ = {

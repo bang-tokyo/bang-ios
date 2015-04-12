@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FacebookSDK
 
 class ProfileViewController: BaseViewController {
 

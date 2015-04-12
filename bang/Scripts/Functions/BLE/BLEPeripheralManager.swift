@@ -8,6 +8,7 @@
 
 import Foundation
 import CoreBluetooth
+import CoreLocation
 
 class BLEPeripheralManager: NSObject {
 

@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import FacebookSDK
+import CoreLocation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
