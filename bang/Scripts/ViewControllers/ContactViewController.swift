@@ -19,6 +19,7 @@ class ContactViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        APIManager.sharedInstance.showUser(1)
     }
 
     override func didReceiveMemoryWarning() {
