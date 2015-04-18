@@ -10,7 +10,7 @@ import Foundation
 import CoreLocation
 
 protocol LocationManagerDelegate {
-    func didUpdateLocation(location: CLLocation)
+    func didUpdateLocation(location: CLLocation, isSignificantChangeLocationService: Bool)
 }
 
 class LocationManager: NSObject {
@@ -83,7 +83,7 @@ extension LocationManager: CLLocationManagerDelegate {
         var howRecent = newLocation.timestamp.timeIntervalSinceNow
         if isAdoptableLocation(newLocation) {
             location = newLocation
-            delegate?.didUpdateLocation(newLocation)
+            delegate?.didUpdateLocation(newLocation, isSignificantChangeLocationService: isSignificantChangeLocationService)
             successClosure?(location: newLocation)
         }
     }

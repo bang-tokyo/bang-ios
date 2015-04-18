@@ -78,7 +78,7 @@ extension AppDelegate: FacebookManagerDelegate {
 
 // MARK: - LocationManagerDelegate
 extension AppDelegate: LocationManagerDelegate {
-    func didUpdateLocation(location: CLLocation) {
+    func didUpdateLocation(location: CLLocation, isSignificantChangeLocationService: Bool) {
         // TODO: - APIでユーザーのローケーションを更新
         Tracker.sharedInstance.debug("didUpdateLocation: \(location.coordinate.latitude) \(location.coordinate.longitude)")
     }
