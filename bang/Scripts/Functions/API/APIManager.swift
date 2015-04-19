@@ -8,6 +8,7 @@
 
 import Foundation
 import Alamofire
+import Bolts
 
 final class APIManager: NSObject {
 
@@ -19,8 +20,6 @@ final class APIManager: NSObject {
     }
 
     enum APIMethod { case GET, POST, PUT, DELETE }
-    typealias Progress = (bytesWritten: Int64, totalBytesWritten: Int64, totalBytesExpectedToWrite: Int64)
-    typealias APITask = Task<Progress, [String: AnyObject], NSError>
 
     private var manager: Manager!
     private var baseURL: String!
@@ -31,12 +30,13 @@ final class APIManager: NSObject {
         baseURL = "http://api.localhost.local:3000"
     }
 
-    func request(method: APIMethod, path: String) -> APITask {
+    func request(method: APIMethod, path: String) -> BFTask {
         return request(method, path: path, parameters: nil)
     }
 
-    func request(method: APIMethod, path: String, parameters: [String: AnyObject]?) -> APITask {
+    func request(method: APIMethod, path: String, parameters: [String: AnyObject]?) -> BFTask {
         var fullPath = baseURL + path
+
         switch method {
         case .GET:
             return GET(fullPath, parameters: parameters)
@@ -48,92 +48,84 @@ final class APIManager: NSObject {
             return DELETE(fullPath, parameters: parameters)
         }
     }
-
-    func GET(path: String, parameters: [String: AnyObject]? = nil) -> APITask {
-        return APITask{ progress, fulfill, reject, configure in
-            var request = self.manager.request(.GET, path, parameters: parameters, encoding: .JSON)
-            request.responseJSON { (request, response, JSON, error) in
-                if let error = error {
-                    reject(error)
-                    return
-                }
-                if let JSON = JSON as? [String: AnyObject] {
-                    fulfill(JSON)
-                    return
-                }
-            }
-        }
-    }
-
-    func POST(path: String, parameters: [String: AnyObject]? = nil) -> APITask {
-        return APITask{ progress, fulfill, reject, configure in
-            var request = self.manager.request(.POST, path, parameters: parameters, encoding: .JSON)
-            request.responseJSON { (request, response, JSON, error) in
-                if let error = error {
-                    reject(error)
-                    return
-                }
-                if let JSON = JSON as? [String: AnyObject] {
-                    fulfill(JSON)
-                    return
-                }
-            }
-        }
-    }
-
-    func PUT(path: String, parameters: [String: AnyObject]? = nil) -> APITask {
-        return APITask{ progress, fulfill, reject, configure in
-            var request = self.manager.request(.PUT, path, parameters: parameters, encoding: .JSON)
-            request.responseJSON { (request, response, JSON, error) in
-                if let error = error {
-                    reject(error)
-                    return
-                }
-                if let JSON = JSON as? [String: AnyObject] {
-                    fulfill(JSON)
-                    return
-                }
-            }
-        }
-    }
-
-    func DELETE(path: String, parameters: [String: AnyObject]? = nil) -> APITask {
-        return APITask{ progress, fulfill, reject, configure in
-            var request = self.manager.request(.DELETE, path, parameters: parameters, encoding: .JSON)
-            request.responseJSON { (request, response, JSON, error) in
-                if let error = error {
-                    reject(error)
-                    return
-                }
-                if let JSON = JSON as? [String: AnyObject] {
-                    fulfill(JSON)
-                    return
-                }
-            }
-        }
-    }
-
-    // MARK: - Common functions for APITask
-    func generalErrorHandler(JSON: [String: AnyObject]?, errorInfo: APITask.ErrorInfo?) -> APITask {
-        return APITask{ progress, fulfill, reject, configure in
-            if let errorInfo = errorInfo {
-                // TODO : - Errorハンドリング
-                println("ERROR : \(errorInfo.error)")
-                reject(errorInfo.error!)
-                return
-            }
-            if let JSON = JSON {
-                println("JSON : \(JSON)")
-                fulfill(JSON)
-                return
-            }
-        }
-    }
 }
 
 
 // MARK: - Private functions
 extension APIManager {
+
+    private func GET(path: String, parameters: [String: AnyObject]? = nil) -> BFTask {
+        var completionSource = BFTaskCompletionSource()
+
+        var request = self.manager.request(.GET, path, parameters: parameters, encoding: .JSON)
+        request.responseJSON { (request, response, JSON, error) in
+            if let error = error {
+                completionSource.setError(error)
+                return
+            }
+            if let JSON = JSON as? [String: AnyObject] {
+                completionSource.setResult(JSON)
+                return
+            }
+        }
+
+        return completionSource.task
+    }
+
+    private func POST(path: String, parameters: [String: AnyObject]? = nil) -> BFTask {
+        var completionSource = BFTaskCompletionSource()
+
+        var request = self.manager.request(.POST, path, parameters: parameters, encoding: .JSON)
+        request.responseJSON { (request, response, JSON, error) in
+            if let error = error {
+                completionSource.setError(error)
+                return
+            }
+            if let JSON = JSON as? [String: AnyObject] {
+                completionSource.setResult(JSON)
+                return
+            }
+        }
+
+        return completionSource.task
+    }
+
+    private func PUT(path: String, parameters: [String: AnyObject]? = nil) -> BFTask {
+        var completionSource = BFTaskCompletionSource()
+
+        var request = self.manager.request(.PUT, path, parameters: parameters, encoding: .JSON)
+        request.responseJSON { (request, response, JSON, error) in
+            if let error = error {
+                completionSource.setError(error)
+                return
+            }
+            if let JSON = JSON as? [String: AnyObject] {
+                completionSource.setResult(JSON)
+                return
+            }
+        }
+
+        return completionSource.task
+    }
+
+    private func DELETE(path: String, parameters: [String: AnyObject]? = nil) -> BFTask {
+        var completionSource = BFTaskCompletionSource()
+
+        var request = self.manager.request(.DELETE, path, parameters: parameters, encoding: .JSON)
+        request.responseJSON { (request, response, JSON, error) in
+            if let error = error {
+                completionSource.setError(error)
+                return
+            }
+            if let JSON = JSON as? [String: AnyObject] {
+                completionSource.setResult(JSON)
+                return
+            }
+        }
+
+        return completionSource.task
+    }
+
     private func buildSessionConfig() -> NSURLSessionConfiguration {
         var config = NSURLSessionConfiguration.defaultSessionConfiguration()
         config.timeoutIntervalForRequest = 20.0

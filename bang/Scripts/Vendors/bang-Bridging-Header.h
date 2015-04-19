@@ -4,5 +4,5 @@
 
 #import "UIImage+ImageEffects.h"
 #import "UIImage+ImageEffects.m"
+#import <Bolts/Bolts.h>
 #import <FacebookSDK/FacebookSDK.h>
-#import <SwiftTask/SwiftTask.h>

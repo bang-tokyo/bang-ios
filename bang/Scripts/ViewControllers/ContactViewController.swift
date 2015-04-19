@@ -19,7 +19,11 @@ class ContactViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        APIManager.sharedInstance.showUser(1)
+        APIManager.sharedInstance.showUser(1).continueWithBlock{
+            (task) -> AnyObject in
+            Tracker.sharedInstance.debug("\(task.result)")
+            return task
+        }
     }
 
     override func didReceiveMemoryWarning() {

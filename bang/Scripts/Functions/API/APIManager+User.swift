@@ -7,9 +7,10 @@
 //
 
 import Foundation
+import Bolts
 
 extension APIManager {
-    func registerUser(facebookId: String, name: String, birthday: String, gender: String) -> APITask {
+    func registerUser(facebookId: String, name: String, birthday: String, gender: String) -> BFTask {
         return request(.POST, path: "/v1/users", parameters: [
             "facebookId": facebookId,
             "name": name,
@@ -18,9 +19,7 @@ extension APIManager {
         ])
     }
 
-    func showUser(id: Int) -> APITask {
-        return request(.GET, path: "/v1/users/\(id)").then{ [unowned self] (JSON, errorInfo: APITask.ErrorInfo?) -> APITask in
-            return self.generalErrorHandler(JSON, errorInfo: errorInfo)
-        }
+    func showUser(id: Int) -> BFTask {
+        return request(.GET, path: "/v1/users/\(id)").APIErrorHandler()
     }
 }

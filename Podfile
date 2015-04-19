@@ -3,5 +3,5 @@ use_frameworks!
 
 pod 'GoogleAnalytics-iOS-SDK', '~> 3.10'
 pod 'Facebook-iOS-SDK', '~> 3.23'
+pod 'Bolts', '~> 1.1.4'
 pod 'Alamofire', '~> 1.2.0'
-pod 'SwiftTask', '~> 3.0.0'

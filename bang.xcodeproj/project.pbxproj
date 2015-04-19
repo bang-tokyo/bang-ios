@@ -24,6 +24,7 @@
 		B830CDDA1A82403B0038CAFE /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B830CDD91A82403B0038CAFE /* SearchViewController.swift */; };
 		B830CDDC1A8240C30038CAFE /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B830CDDB1A8240C30038CAFE /* Search.storyboard */; };
 		B899149E1A8C1F69003E8930 /* BLECentralManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B899149D1A8C1F69003E8930 /* BLECentralManager.swift */; };
+		B8C1884B1AE3397600037552 /* BFTask+API.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C1884A1AE3397600037552 /* BFTask+API.swift */; };
 		B8D9B2501A824DC700B30271 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D9B24F1A824DC700B30271 /* BaseViewController.swift */; };
 		B8D9B2561A82523400B30271 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D9B2551A82523400B30271 /* UIViewController+Extension.swift */; };
 		B8D9B2591A82534A00B30271 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D9B2581A82534A00B30271 /* UIView+Extension.swift */; };
@@ -78,6 +79,7 @@
 		B830CDD91A82403B0038CAFE /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		B830CDDB1A8240C30038CAFE /* Search.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		B899149D1A8C1F69003E8930 /* BLECentralManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLECentralManager.swift; sourceTree = "<group>"; };
+		B8C1884A1AE3397600037552 /* BFTask+API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BFTask+API.swift"; sourceTree = "<group>"; };
 		B8D9B24F1A824DC700B30271 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		B8D9B2551A82523400B30271 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		B8D9B2581A82534A00B30271 /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 			children = (
 				B821152C1ADA55AB002CCA46 /* APIManager.swift */,
 				B8F547531ADC197B00548883 /* APIManager+User.swift */,
+				B8C1884A1AE3397600037552 /* BFTask+API.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -512,6 +515,7 @@
 				B899149E1A8C1F69003E8930 /* BLECentralManager.swift in Sources */,
 				B8DD298A1A8B154E0024ABD0 /* BLEConfig.swift in Sources */,
 				B830CDDA1A82403B0038CAFE /* SearchViewController.swift in Sources */,
+				B8C1884B1AE3397600037552 /* BFTask+API.swift in Sources */,
 				B8FDC5131A818EDC00D4511E /* AppDelegate.swift in Sources */,
 				B807F3361AB433D300571ACB /* Tracker.swift in Sources */,
 				B8E6D9A91ABE55840094D582 /* LocationManager.swift in Sources */,
