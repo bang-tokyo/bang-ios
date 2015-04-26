@@ -138,7 +138,7 @@ extension APIManager {
     private func buildHeader() -> [String: AnyObject] {
         let headers = [
             "Accept-Encoding": "gzip,deflate,sdch",
-            "X-Bang-Token": "",
+            "X-Bang-Token": MyAccount.sharedInstance.token,
             "X-Bang-App-Id": GeneralInfo.sharedInstance.identifier,
             "X-Bang-App-Version": GeneralInfo.sharedInstance.version,
             "X-Bang-App-Version-Code": "\(GeneralInfo.sharedInstance.versionCode)",

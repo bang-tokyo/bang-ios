@@ -53,5 +53,13 @@ class ProfileViewController: BaseViewController {
 
     @IBAction func onClickLogoutButton(sender: UIButton) {
         MyAccount.sharedInstance.logout()
+        moveToLoginViewController()
+    }
+}
+
+extension ProfileViewController {
+    private func moveToLoginViewController() {
+        var loginViewController = LoginViewController.build()
+        self.moveTo(loginViewController)
     }
 }
