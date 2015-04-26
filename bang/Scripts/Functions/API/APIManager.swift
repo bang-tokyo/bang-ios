@@ -27,7 +27,8 @@ final class APIManager: NSObject {
     override private init() {
         super.init()
         manager = Alamofire.Manager(configuration: buildSessionConfig())
-        baseURL = "http://api.localhost.local:3000"
+        //baseURL = "http://api.localhost.local:3000"
+        baseURL = "http://api.bang.com:3000"
     }
 
     func request(method: APIMethod, path: String) -> BFTask {
@@ -36,7 +37,7 @@ final class APIManager: NSObject {
 
     func request(method: APIMethod, path: String, parameters: [String: AnyObject]?) -> BFTask {
         var fullPath = baseURL + path
-
+        Tracker.sharedInstance.debug("API Request: \(fullPath) parameters: \(parameters)")
         switch method {
         case .GET:
             return GET(fullPath, parameters: parameters)
@@ -74,7 +75,6 @@ extension APIManager {
 
     private func POST(path: String, parameters: [String: AnyObject]? = nil) -> BFTask {
         var completionSource = BFTaskCompletionSource()
-
         var request = self.manager.request(.POST, path, parameters: parameters, encoding: .JSON)
         request.responseJSON { (request, response, JSON, error) in
             if let error = error {

@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Bolts
+import Mantle
 
 class LoginViewController: BaseViewController {
 
@@ -34,11 +36,39 @@ class LoginViewController: BaseViewController {
 
     // MARK: - IBAction
     @IBAction func onClickLoginButton(sender: UIButton) {
-        FacebookManager.sharedInstance.openFacebookSession()
+        FacebookManager.sharedInstance.authorize().continueWithBlock({
+            (task) -> AnyObject! in
+
+            if let facebookUser = APIResponse.parse(APIResponse.Facebook.User.self, task.result) {
+                return APIManager.sharedInstance.registerUser(facebookUser.id, name: facebookUser.name, birthday: facebookUser.birthday, gender: facebookUser.gender)
+            }
+
+            return BFTask(error: Error.create())
+        }).showErrorIfNeeded().continueWithBlock({
+            (task) -> AnyObject! in
+
+            if let user = APIResponse.parse(APIResponse.User.self, task.result) {
+                if let token = user.token {
+                    if let userId = user.id {
+                        MyAccount.sharedInstance.login(userId, token: token)
+                    }
+                } else {
+                    BFTask(error: Error.create())
+                }
+
+                self.moveToProfileViewController()
+            }
+
+            return task
+        })
     }
 
 }
 
 // MARK: - Private functions
 extension LoginViewController {
+    private func moveToProfileViewController() {
+        var profileViewController = ProfileViewController.build()
+        self.moveTo(profileViewController)
+    }
 }

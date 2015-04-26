@@ -22,14 +22,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
 
         // Logs 'install' and 'app activate' App Events.
-        FBAppEvents.activateApp()
 
-        facebookManager.delegate = self
-        moveToProperViewControllerByLoginState(facebookManager.openFacebookSessionIfStateCreatedTokenLoaded())
+
+        if MyAccount.sharedInstance.isAuthorize() {
+            self.showViewController(ProfileViewController.build())
+        } else {
+            self.showViewController(LoginViewController.build())
+        }
 
         // TODO : - BLEが有効かどうか判定有効でなければ設定変更を促すViewをかぶせる
         // TODO : - CoreLocationのstatusがAuthorizedAlwaysでない時は設定変更を促すViewをかぶせる
-
         locationManager.setUpSignificantChangeUpdates()
         locationManager.delegate = self
         locationManager.startLocationUpdates()
@@ -55,25 +57,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
 
         // Handle the user leaving the app while the Facebook login dialog is being shown
+        FBAppEvents.activateApp()
         FBAppCall.handleDidBecomeActive()
     }
 
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+        FBSession.activeSession().close()
     }
 
     func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject?) -> Bool {
-        //println("---> \(url)")
         return FBAppCall.handleOpenURL(url, sourceApplication: sourceApplication)
     }
 
-}
-
-// MARK: - FacebookManagerDelegate
-extension AppDelegate: FacebookManagerDelegate {
-    func handlerFacebookSessionStateChanged(isLogined: Bool) {
-        moveToProperViewControllerByLoginState(isLogined)
-    }
 }
 
 // MARK: - LocationManagerDelegate
@@ -86,16 +82,6 @@ extension AppDelegate: LocationManagerDelegate {
 
 // MARK: - Private functions
 extension AppDelegate {
-    private func moveToProperViewControllerByLoginState(isLogined: Bool) {
-        if isLogined {
-            var profileViewController = ProfileViewController.build()
-            self.showViewController(profileViewController)
-        } else {
-            var loginViewController = LoginViewController.build()
-            self.showViewController(loginViewController)
-        }
-    }
-
     private func showViewController(viewController: UIViewController) {
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         self.window!.rootViewController = viewController;

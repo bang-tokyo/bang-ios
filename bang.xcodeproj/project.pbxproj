@@ -15,33 +15,37 @@
 		B82448401A8EF07700B540A4 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B824483F1A8EF07700B540A4 /* Login.storyboard */; };
 		B82448421A8EF16C00B540A4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82448411A8EF16C00B540A4 /* LoginViewController.swift */; };
 		B82448441A8F183400B540A4 /* FacebookManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82448431A8F183400B540A4 /* FacebookManager.swift */; };
-		B82448461A8F1E4700B540A4 /* FacebookConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82448451A8F1E4700B540A4 /* FacebookConfig.swift */; };
-		B82448481A903DE400B540A4 /* NotificationConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82448471A903DE400B540A4 /* NotificationConfig.swift */; };
 		B824484A1A9043E300B540A4 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B82448491A9043E300B540A4 /* Profile.storyboard */; };
 		B824484C1A90441600B540A4 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B824484B1A90441600B540A4 /* ProfileViewController.swift */; };
 		B82448521A90CE7F00B540A4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B82448541A90CE7F00B540A4 /* Localizable.strings */; };
 		B82448571A9824AF00B540A4 /* GlobalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82448561A9824AF00B540A4 /* GlobalData.swift */; };
+		B82CA4561AEBBBF400159D99 /* BLEConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82CA4551AEBBBF400159D99 /* BLEConfig.swift */; };
+		B82CA4591AEC788200159D99 /* BFTask+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82CA4581AEC788200159D99 /* BFTask+Extension.swift */; };
+		B82CA45B1AEC7C4100159D99 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82CA45A1AEC7C4100159D99 /* Alert.swift */; };
 		B830CDDA1A82403B0038CAFE /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B830CDD91A82403B0038CAFE /* SearchViewController.swift */; };
 		B830CDDC1A8240C30038CAFE /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B830CDDB1A8240C30038CAFE /* Search.storyboard */; };
 		B899149E1A8C1F69003E8930 /* BLECentralManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B899149D1A8C1F69003E8930 /* BLECentralManager.swift */; };
+		B8B979CC1AE67FE600BC3E2C /* APIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B979CB1AE67FE600BC3E2C /* APIResponse.swift */; };
 		B8C1884B1AE3397600037552 /* BFTask+API.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C1884A1AE3397600037552 /* BFTask+API.swift */; };
+		B8C1884F1AE3C6A200037552 /* BFTask+Facebook.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C1884E1AE3C6A200037552 /* BFTask+Facebook.swift */; };
+		B8C188511AE3D70200037552 /* MyAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C188501AE3D70100037552 /* MyAccount.swift */; };
 		B8D9B2501A824DC700B30271 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D9B24F1A824DC700B30271 /* BaseViewController.swift */; };
 		B8D9B2561A82523400B30271 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D9B2551A82523400B30271 /* UIViewController+Extension.swift */; };
 		B8D9B2591A82534A00B30271 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D9B2581A82534A00B30271 /* UIView+Extension.swift */; };
 		B8D9B25D1A8254C400B30271 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D9B25C1A8254C400B30271 /* UIImage+Extension.swift */; };
 		B8D9B2611A8255DD00B30271 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = B8D9B2601A8255DD00B30271 /* UIImage+ImageEffects.m */; };
 		B8DD29871A8B13840024ABD0 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8DD29861A8B13840024ABD0 /* CoreBluetooth.framework */; };
-		B8DD298A1A8B154E0024ABD0 /* BLEConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DD29891A8B154E0024ABD0 /* BLEConfig.swift */; };
 		B8DD298C1A8B1CC10024ABD0 /* BLEEnum+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DD298B1A8B1CC10024ABD0 /* BLEEnum+Extension.swift */; };
 		B8E6D9A71ABE46B00094D582 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8E6D9A61ABE46B00094D582 /* CoreLocation.framework */; };
 		B8E6D9A91ABE55840094D582 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E6D9A81ABE55840094D582 /* LocationManager.swift */; };
-		B8E6D9AB1ABF03E70094D582 /* LocationConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E6D9AA1ABF03E70094D582 /* LocationConfig.swift */; };
 		B8EA20FA1A99D35E00BD0164 /* Contact.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8EA20F91A99D35E00BD0164 /* Contact.storyboard */; };
 		B8EA20FC1A99D37700BD0164 /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8EA20FB1A99D37700BD0164 /* ContactViewController.swift */; };
 		B8F1389C1A8A4B84002A820E /* BLEPeripheralManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F1389B1A8A4B84002A820E /* BLEPeripheralManager.swift */; };
 		B8F1389F1A8A4D13002A820E /* RoundedCornersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F1389E1A8A4D13002A820E /* RoundedCornersView.swift */; };
 		B8F547541ADC197B00548883 /* APIManager+User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F547531ADC197B00548883 /* APIManager+User.swift */; };
-		B8F547561ADEA93000548883 /* APIConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F547551ADEA93000548883 /* APIConfig.swift */; };
+		B8F9C6951AE687CB003320AB /* APIResponse+User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F9C6941AE687CB003320AB /* APIResponse+User.swift */; };
+		B8F9C6971AE6947D003320AB /* APIResponse+Facebook.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F9C6961AE6947D003320AB /* APIResponse+Facebook.swift */; };
+		B8F9C6991AEB9C8F003320AB /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F9C6981AEB9C8F003320AB /* Error.swift */; };
 		B8FDC5131A818EDC00D4511E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FDC5121A818EDC00D4511E /* AppDelegate.swift */; };
 		B8FDC51A1A818EDC00D4511E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8FDC5191A818EDC00D4511E /* Images.xcassets */; };
 		B8FDC51D1A818EDC00D4511E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8FDC51B1A818EDC00D4511E /* LaunchScreen.xib */; };
@@ -68,18 +72,22 @@
 		B821152E1ADA6B5F002CCA46 /* GeneralInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralInfo.swift; sourceTree = "<group>"; };
 		B824483F1A8EF07700B540A4 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		B82448411A8EF16C00B540A4 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		B82448431A8F183400B540A4 /* FacebookManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookManager.swift; sourceTree = "<group>"; };
-		B82448451A8F1E4700B540A4 /* FacebookConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookConfig.swift; sourceTree = "<group>"; };
-		B82448471A903DE400B540A4 /* NotificationConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationConfig.swift; sourceTree = "<group>"; };
+		B82448431A8F183400B540A4 /* FacebookManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FacebookManager.swift; path = bang/Scripts/Functions/Facebook/FacebookManager.swift; sourceTree = SOURCE_ROOT; };
 		B82448491A9043E300B540A4 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		B824484B1A90441600B540A4 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		B82448531A90CE7F00B540A4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B82448551A90CE8500B540A4 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B82448561A9824AF00B540A4 /* GlobalData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalData.swift; sourceTree = "<group>"; };
+		B82CA4551AEBBBF400159D99 /* BLEConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEConfig.swift; sourceTree = "<group>"; };
+		B82CA4581AEC788200159D99 /* BFTask+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BFTask+Extension.swift"; sourceTree = "<group>"; };
+		B82CA45A1AEC7C4100159D99 /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		B830CDD91A82403B0038CAFE /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		B830CDDB1A8240C30038CAFE /* Search.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		B899149D1A8C1F69003E8930 /* BLECentralManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLECentralManager.swift; sourceTree = "<group>"; };
+		B8B979CB1AE67FE600BC3E2C /* APIResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIResponse.swift; sourceTree = "<group>"; };
 		B8C1884A1AE3397600037552 /* BFTask+API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BFTask+API.swift"; sourceTree = "<group>"; };
+		B8C1884E1AE3C6A200037552 /* BFTask+Facebook.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BFTask+Facebook.swift"; sourceTree = "<group>"; };
+		B8C188501AE3D70100037552 /* MyAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyAccount.swift; sourceTree = "<group>"; };
 		B8D9B24F1A824DC700B30271 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		B8D9B2551A82523400B30271 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		B8D9B2581A82534A00B30271 /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
@@ -88,17 +96,17 @@
 		B8D9B25F1A8255DD00B30271 /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageEffects.h"; sourceTree = "<group>"; };
 		B8D9B2601A8255DD00B30271 /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageEffects.m"; sourceTree = "<group>"; };
 		B8DD29861A8B13840024ABD0 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
-		B8DD29891A8B154E0024ABD0 /* BLEConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEConfig.swift; sourceTree = "<group>"; };
 		B8DD298B1A8B1CC10024ABD0 /* BLEEnum+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BLEEnum+Extension.swift"; sourceTree = "<group>"; };
 		B8E6D9A61ABE46B00094D582 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		B8E6D9A81ABE55840094D582 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
-		B8E6D9AA1ABF03E70094D582 /* LocationConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationConfig.swift; sourceTree = "<group>"; };
 		B8EA20F91A99D35E00BD0164 /* Contact.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Contact.storyboard; sourceTree = "<group>"; };
 		B8EA20FB1A99D37700BD0164 /* ContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactViewController.swift; sourceTree = "<group>"; };
 		B8F1389B1A8A4B84002A820E /* BLEPeripheralManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEPeripheralManager.swift; sourceTree = "<group>"; };
 		B8F1389E1A8A4D13002A820E /* RoundedCornersView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedCornersView.swift; sourceTree = "<group>"; };
 		B8F547531ADC197B00548883 /* APIManager+User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "APIManager+User.swift"; sourceTree = "<group>"; };
-		B8F547551ADEA93000548883 /* APIConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIConfig.swift; sourceTree = "<group>"; };
+		B8F9C6941AE687CB003320AB /* APIResponse+User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "APIResponse+User.swift"; sourceTree = "<group>"; };
+		B8F9C6961AE6947D003320AB /* APIResponse+Facebook.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "APIResponse+Facebook.swift"; sourceTree = "<group>"; };
+		B8F9C6981AEB9C8F003320AB /* Error.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		B8FDC50D1A818EDC00D4511E /* bang.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bang.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8FDC5111A818EDC00D4511E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B8FDC5121A818EDC00D4511E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -155,6 +163,7 @@
 				B8DD298B1A8B1CC10024ABD0 /* BLEEnum+Extension.swift */,
 				B8F1389B1A8A4B84002A820E /* BLEPeripheralManager.swift */,
 				B899149D1A8C1F69003E8930 /* BLECentralManager.swift */,
+				B82CA4551AEBBBF400159D99 /* BLEConfig.swift */,
 			);
 			path = BLE;
 			sourceTree = "<group>";
@@ -186,6 +195,14 @@
 			path = API;
 			sourceTree = "<group>";
 		};
+		B82CA4571AEC783B00159D99 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B82CA4581AEC788200159D99 /* BFTask+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		B830CDD61A823C6A0038CAFE /* StoryBoards */ = {
 			isa = PBXGroup;
 			children = (
@@ -214,7 +231,6 @@
 			isa = PBXGroup;
 			children = (
 				B8D9B2571A82529B00B30271 /* Vendors */,
-				B8DD29881A8B15190024ABD0 /* Configs */,
 				B8D9B2521A824E2300B30271 /* Models */,
 				B8F138981A8A495C002A820E /* Functions */,
 				B8D9B2511A824DEA00B30271 /* Views */,
@@ -222,6 +238,25 @@
 				B8FDC5121A818EDC00D4511E /* AppDelegate.swift */,
 			);
 			path = Scripts;
+			sourceTree = "<group>";
+		};
+		B8C1884C1AE3A68A00037552 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				B8B979CB1AE67FE600BC3E2C /* APIResponse.swift */,
+				B8F9C6941AE687CB003320AB /* APIResponse+User.swift */,
+				B8F9C6961AE6947D003320AB /* APIResponse+Facebook.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		B8C1884D1AE3C62200037552 /* Facebook */ = {
+			isa = PBXGroup;
+			children = (
+				B82448431A8F183400B540A4 /* FacebookManager.swift */,
+				B8C1884E1AE3C6A200037552 /* BFTask+Facebook.swift */,
+			);
+			path = Facebook;
 			sourceTree = "<group>";
 		};
 		B8D9B2511A824DEA00B30271 /* Views */ = {
@@ -236,7 +271,9 @@
 		B8D9B2521A824E2300B30271 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				B8C1884C1AE3A68A00037552 /* API */,
 				B82448561A9824AF00B540A4 /* GlobalData.swift */,
+				B8C188501AE3D70100037552 /* MyAccount.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -251,28 +288,19 @@
 			path = Vendors;
 			sourceTree = "<group>";
 		};
-		B8DD29881A8B15190024ABD0 /* Configs */ = {
-			isa = PBXGroup;
-			children = (
-				B8DD29891A8B154E0024ABD0 /* BLEConfig.swift */,
-				B82448451A8F1E4700B540A4 /* FacebookConfig.swift */,
-				B82448471A903DE400B540A4 /* NotificationConfig.swift */,
-				B8E6D9AA1ABF03E70094D582 /* LocationConfig.swift */,
-				B8F547551ADEA93000548883 /* APIConfig.swift */,
-			);
-			path = Configs;
-			sourceTree = "<group>";
-		};
 		B8F138981A8A495C002A820E /* Functions */ = {
 			isa = PBXGroup;
 			children = (
+				B82CA4571AEC783B00159D99 /* Extensions */,
+				B8C1884D1AE3C62200037552 /* Facebook */,
 				B821152B1ADA5581002CCA46 /* API */,
 				B81475F31AD8AA750099A878 /* BLE */,
-				B82448431A8F183400B540A4 /* FacebookManager.swift */,
 				B80D21141ABC5BEC00405EAE /* QueueManager.swift */,
 				B8E6D9A81ABE55840094D582 /* LocationManager.swift */,
 				B807F3351AB433D300571ACB /* Tracker.swift */,
 				B821152E1ADA6B5F002CCA46 /* GeneralInfo.swift */,
+				B8F9C6981AEB9C8F003320AB /* Error.swift */,
+				B82CA45A1AEC7C4100159D99 /* Alert.swift */,
 			);
 			path = Functions;
 			sourceTree = "<group>";
@@ -501,33 +529,37 @@
 			buildActionMask = 2147483647;
 			files = (
 				B821152D1ADA55AB002CCA46 /* APIManager.swift in Sources */,
-				B82448481A903DE400B540A4 /* NotificationConfig.swift in Sources */,
 				B8D9B2591A82534A00B30271 /* UIView+Extension.swift in Sources */,
 				B8EA20FC1A99D37700BD0164 /* ContactViewController.swift in Sources */,
+				B8F9C6951AE687CB003320AB /* APIResponse+User.swift in Sources */,
+				B82CA4561AEBBBF400159D99 /* BLEConfig.swift in Sources */,
 				B8D9B2561A82523400B30271 /* UIViewController+Extension.swift in Sources */,
-				B8F547561ADEA93000548883 /* APIConfig.swift in Sources */,
+				B8C1884F1AE3C6A200037552 /* BFTask+Facebook.swift in Sources */,
 				B8F1389F1A8A4D13002A820E /* RoundedCornersView.swift in Sources */,
+				B82CA4591AEC788200159D99 /* BFTask+Extension.swift in Sources */,
 				B821152F1ADA6B5F002CCA46 /* GeneralInfo.swift in Sources */,
+				B8C188511AE3D70200037552 /* MyAccount.swift in Sources */,
 				B8D9B2611A8255DD00B30271 /* UIImage+ImageEffects.m in Sources */,
 				B80D21151ABC5BEC00405EAE /* QueueManager.swift in Sources */,
 				B824484C1A90441600B540A4 /* ProfileViewController.swift in Sources */,
 				B82448571A9824AF00B540A4 /* GlobalData.swift in Sources */,
 				B899149E1A8C1F69003E8930 /* BLECentralManager.swift in Sources */,
-				B8DD298A1A8B154E0024ABD0 /* BLEConfig.swift in Sources */,
 				B830CDDA1A82403B0038CAFE /* SearchViewController.swift in Sources */,
 				B8C1884B1AE3397600037552 /* BFTask+API.swift in Sources */,
+				B8B979CC1AE67FE600BC3E2C /* APIResponse.swift in Sources */,
 				B8FDC5131A818EDC00D4511E /* AppDelegate.swift in Sources */,
 				B807F3361AB433D300571ACB /* Tracker.swift in Sources */,
 				B8E6D9A91ABE55840094D582 /* LocationManager.swift in Sources */,
+				B8F9C6971AE6947D003320AB /* APIResponse+Facebook.swift in Sources */,
 				B8F1389C1A8A4B84002A820E /* BLEPeripheralManager.swift in Sources */,
 				B8D9B2501A824DC700B30271 /* BaseViewController.swift in Sources */,
+				B8F9C6991AEB9C8F003320AB /* Error.swift in Sources */,
 				B8DD298C1A8B1CC10024ABD0 /* BLEEnum+Extension.swift in Sources */,
 				B82448441A8F183400B540A4 /* FacebookManager.swift in Sources */,
-				B8E6D9AB1ABF03E70094D582 /* LocationConfig.swift in Sources */,
 				B8D9B25D1A8254C400B30271 /* UIImage+Extension.swift in Sources */,
 				B8F547541ADC197B00548883 /* APIManager+User.swift in Sources */,
+				B82CA45B1AEC7C4100159D99 /* Alert.swift in Sources */,
 				B82448421A8EF16C00B540A4 /* LoginViewController.swift in Sources */,
-				B82448461A8F1E4700B540A4 /* FacebookConfig.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

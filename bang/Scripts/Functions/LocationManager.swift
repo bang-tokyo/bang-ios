@@ -9,6 +9,10 @@
 import Foundation
 import CoreLocation
 
+let kLocationDistance: CLLocationDistance = 3.0
+let kLocationAdoptableTimeInterval: NSTimeInterval = 15.0
+let kLocationAdoptableAccuracy: CLLocationAccuracy = 100.0
+
 protocol LocationManagerDelegate {
     func didUpdateLocation(location: CLLocation, isSignificantChangeLocationService: Bool)
 }

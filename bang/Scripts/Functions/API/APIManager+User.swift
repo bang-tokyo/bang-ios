@@ -12,7 +12,7 @@ import Bolts
 extension APIManager {
     func registerUser(facebookId: String, name: String, birthday: String, gender: String) -> BFTask {
         return request(.POST, path: "/v1/users", parameters: [
-            "facebookId": facebookId,
+            "facebook_id": facebookId,
             "name": name,
             "birthday": birthday,
             "gender": gender
