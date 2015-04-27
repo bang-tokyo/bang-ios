@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 class SearchViewController: BaseViewController {
 
@@ -17,10 +18,12 @@ class SearchViewController: BaseViewController {
 
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var locationInfoLabel: UILabel!
+    @IBOutlet weak var locationInfoLabel2: UILabel!
     @IBOutlet weak var swipteUpGesture: UISwipeGestureRecognizer!
 
     var centralManager: BLECentralManager!
     private var locationManager = LocationManager()
+    private var locationManager2 = LocationManager()
     private var isAdvertising: Bool = true
 
     override func viewDidLoad() {
@@ -32,6 +35,10 @@ class SearchViewController: BaseViewController {
         locationManager.delegate = self
         locationManager.setUpStandardUpdates()
         locationManager.startLocationUpdates()
+
+        locationManager2.delegate = self
+        locationManager2.setUpSignificantChangeUpdates()
+        locationManager2.startLocationUpdates()
     }
 
     override func viewDidDisappear(animated: Bool) {
@@ -93,9 +100,12 @@ extension SearchViewController: BLECentralManagerDelegate {
 
 // TODO: - テストが終わったら削除
 extension SearchViewController: LocationManagerDelegate {
-    func didUpdateLocation(location: CLLocation) {
-        Tracker.sharedInstance.debug("didUpdateLocation: \(location.coordinate.latitude) \(location.coordinate.longitude) \(location.horizontalAccuracy)")
-        locationInfoLabel.text = "\(location.coordinate.latitude)\n\(location.coordinate.longitude)\n\(location.horizontalAccuracy)"
+    func didUpdateLocation(location: CLLocation, isSignificantChangeLocationService: Bool) {
+        if isSignificantChangeLocationService {
+            locationInfoLabel2.text = "\(location.coordinate.latitude)\n\(location.coordinate.longitude)\n\(location.horizontalAccuracy)"
+        } else {
+            locationInfoLabel.text = "\(location.coordinate.latitude)\n\(location.coordinate.longitude)\n\(location.horizontalAccuracy)"
+        }
     }
 }
 

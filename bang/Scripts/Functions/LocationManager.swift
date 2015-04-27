@@ -9,8 +9,12 @@
 import Foundation
 import CoreLocation
 
+let kLocationDistance: CLLocationDistance = 3.0
+let kLocationAdoptableTimeInterval: NSTimeInterval = 15.0
+let kLocationAdoptableAccuracy: CLLocationAccuracy = 100.0
+
 protocol LocationManagerDelegate {
-    func didUpdateLocation(location: CLLocation)
+    func didUpdateLocation(location: CLLocation, isSignificantChangeLocationService: Bool)
 }
 
 class LocationManager: NSObject {
@@ -83,7 +87,7 @@ extension LocationManager: CLLocationManagerDelegate {
         var howRecent = newLocation.timestamp.timeIntervalSinceNow
         if isAdoptableLocation(newLocation) {
             location = newLocation
-            delegate?.didUpdateLocation(newLocation)
+            delegate?.didUpdateLocation(newLocation, isSignificantChangeLocationService: isSignificantChangeLocationService)
             successClosure?(location: newLocation)
         }
     }

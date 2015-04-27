@@ -8,6 +8,7 @@
 
 import Foundation
 import CoreBluetooth
+import CoreLocation
 
 class BLEPeripheralManager: NSObject {
 
@@ -34,11 +35,7 @@ class BLEPeripheralManager: NSObject {
             permissions: CBAttributePermissions.Readable
         )
 
-        FacebookManager.sharedInstance.requestUserData({
-            [unowned self] (userData: NSDictionary) in
-            self.responseDictonary["name"] = userData.objectForKey("name") as? String
-            self.responseDictonary["id"] = userData.objectForKey("id") as? String
-        })
+        self.responseDictonary["id"] = MyAccount.sharedInstance.userId
 
         locationManager.setUpStandardUpdates()
     }

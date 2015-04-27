@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FacebookSDK
 
 class ProfileViewController: BaseViewController {
 
@@ -23,10 +24,13 @@ class ProfileViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        facebookManager.requestUserData({
-            [unowned self] (userData: NSDictionary) in
-            self.nameLabel.text = userData.objectForKey("name") as? String
-            self.profilePictureView.profileID = userData.objectForKey("id") as! String
+        APIManager.sharedInstance.showUser(Int(MyAccount.sharedInstance.userId)).continueWithBlock({
+            (task) -> AnyObject! in
+            if let user = APIResponse.parse(APIResponse.User.self, task.result) {
+                self.nameLabel.text = user.name
+                self.profilePictureView.profileID = "\(user.facebookId)"
+            }
+            return task
         })
     }
 
@@ -48,6 +52,14 @@ class ProfileViewController: BaseViewController {
     }
 
     @IBAction func onClickLogoutButton(sender: UIButton) {
-        FacebookManager.sharedInstance.closeFacebookSession()
+        MyAccount.sharedInstance.logout()
+        moveToLoginViewController()
+    }
+}
+
+extension ProfileViewController {
+    private func moveToLoginViewController() {
+        var loginViewController = LoginViewController.build()
+        self.moveTo(loginViewController)
     }
 }

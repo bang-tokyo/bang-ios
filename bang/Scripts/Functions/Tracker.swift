@@ -21,14 +21,14 @@ class Tracker {
     }
 
     func debug(message: String) {
-        println("\(message)")
+        println("debug : \(message)")
     }
 
     func warn(message: String) {
-        println("\(message)")
+        println("warn : \(message)")
     }
 
     func error(message: String) {
-        println("\(message)")
+        println("error : \(message)")
     }
 }
