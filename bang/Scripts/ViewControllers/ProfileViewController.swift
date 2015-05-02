@@ -28,7 +28,7 @@ class ProfileViewController: BaseViewController {
             (task) -> AnyObject! in
             if let user = APIResponse.parse(APIResponse.User.self, task.result) {
                 self.nameLabel.text = user.name
-                self.profilePictureView.profileID = "\(user.facebookId)"
+                self.profilePictureView.profileID = user.facebookId
             }
             return task
         })

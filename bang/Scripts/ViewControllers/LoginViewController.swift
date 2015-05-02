@@ -48,6 +48,9 @@ class LoginViewController: BaseViewController {
             (task) -> AnyObject! in
 
             if let user = APIResponse.parse(APIResponse.User.self, task.result) {
+
+                DataStore.sharedInstance.saveUser(user)
+
                 if let token = user.token {
                     if let userId = user.id {
                         MyAccount.sharedInstance.login(userId, token: token)

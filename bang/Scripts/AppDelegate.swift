@@ -9,6 +9,7 @@
 import UIKit
 import FacebookSDK
 import CoreLocation
+import MagicalRecord
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -22,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
 
         // Logs 'install' and 'app activate' App Events.
-
+        setupMagicalRecord()
 
         if MyAccount.sharedInstance.isAuthorize() {
             self.showViewController(ProfileViewController.build())
@@ -82,6 +83,10 @@ extension AppDelegate: LocationManagerDelegate {
 
 // MARK: - Private functions
 extension AppDelegate {
+    private func setupMagicalRecord() {
+        MagicalRecord.setupCoreDataStackWithAutoMigratingSqliteStoreNamed("bang.sqlite")
+    }
+
     private func showViewController(viewController: UIViewController) {
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         self.window!.rootViewController = viewController;

@@ -10,12 +10,20 @@ import Foundation
 
 extension APIResponse {
     class User: Base {
-        var facebookId: NSNumber!
+        var facebookId: String!
         var name: String!
+        var birthday: String!
         var genderValue: NSNumber!
         var statusValue: NSNumber!
         var salaryCategoryId: NSNumber!
         var token: String?
+
+        var gender: Gender {
+            return Gender.build(genderValue.integerValue)
+        }
+        var status: UserStatus {
+            return UserStatus.build(statusValue.integerValue)
+        }
 
         override class func JSONKeyPathsByPropertyKey() -> [NSObject : AnyObject]! {
             return [
