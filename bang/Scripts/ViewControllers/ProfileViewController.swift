@@ -13,7 +13,9 @@ class ProfileViewController: BaseViewController {
 
     class func build() -> ProfileViewController {
         var storyboard = UIStoryboard(name: "Profile", bundle: nil)
-        return storyboard.instantiateInitialViewController() as! ProfileViewController
+        var tabBarViewController = storyboard.instantiateInitialViewController() as! UITabBarController
+        var viewControllers = tabBarViewController.viewControllers as! [UIViewController]
+        return viewControllers[0] as! ProfileViewController
     }
 
     @IBOutlet weak var profilePictureView: FBProfilePictureView!
@@ -45,12 +47,6 @@ class ProfileViewController: BaseViewController {
     }
 
     // MARK: - IBAction
-    @IBAction func onClickSearchButton(sender: UIBarButtonItem) {
-        var searchViewController = SearchViewController.build()
-        searchViewController.modalTransitionStyle = UIModalTransitionStyle.FlipHorizontal
-        self.moveTo(searchViewController)
-    }
-
     @IBAction func onClickLogoutButton(sender: UIButton) {
         MyAccount.sharedInstance.logout()
         moveToLoginViewController()

@@ -15,9 +15,17 @@ import MagicalRecord
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var facebookManager = FacebookManager.sharedInstance
+    var modalWindow: UIWindow?
     var peripheralManager = BLEPeripheralManager.sharedInstance
     var locationManager = LocationManager()
+
+    class func sharedAppDelegate() -> AppDelegate? {
+        var application = UIApplication.sharedApplication()
+        if let appDelegate = application.delegate as? AppDelegate {
+            return appDelegate
+        }
+        return nil
+    }
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
@@ -26,7 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         setupMagicalRecord()
 
         if MyAccount.sharedInstance.isAuthorize() {
-            self.showViewController(ProfileViewController.build())
+            self.showViewController(TabBarViewController())
         } else {
             self.showViewController(LoginViewController.build())
         }
@@ -71,6 +79,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return FBAppCall.handleOpenURL(url, sourceApplication: sourceApplication)
     }
 
+    // MARK: - Public functions
+    func openModalWindow(viewController: UIViewController) {
+        self.modalWindow = UIWindow(frame: UIScreen.mainScreen().bounds)
+        self.modalWindow!.rootViewController = viewController
+        self.modalWindow!.makeKeyAndVisible()
+    }
+
+    func closeModalWindow() {
+        self.window!.makeKeyAndVisible()
+        self.modalWindow = nil
+    }
 }
 
 // MARK: - LocationManagerDelegate

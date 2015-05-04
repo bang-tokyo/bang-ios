@@ -36,6 +36,7 @@
 		B85A3D101AEFBCC3008AC7B8 /* bang.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B85A3D0E1AEFBCC3008AC7B8 /* bang.xcdatamodeld */; };
 		B899149E1A8C1F69003E8930 /* BLECentralManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B899149D1A8C1F69003E8930 /* BLECentralManager.swift */; };
 		B8B979CC1AE67FE600BC3E2C /* APIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B979CB1AE67FE600BC3E2C /* APIResponse.swift */; };
+		B8B9AB791AF77A8E009FEE4B /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B9AB781AF77A8E009FEE4B /* TabBarViewController.swift */; };
 		B8C1884B1AE3397600037552 /* BFTask+API.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C1884A1AE3397600037552 /* BFTask+API.swift */; };
 		B8C1884F1AE3C6A200037552 /* BFTask+Facebook.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C1884E1AE3C6A200037552 /* BFTask+Facebook.swift */; };
 		B8C188511AE3D70200037552 /* MyAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C188501AE3D70100037552 /* MyAccount.swift */; };
@@ -104,6 +105,7 @@
 		B85A3D0F1AEFBCC3008AC7B8 /* bang.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = bang.xcdatamodel; sourceTree = "<group>"; };
 		B899149D1A8C1F69003E8930 /* BLECentralManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLECentralManager.swift; sourceTree = "<group>"; };
 		B8B979CB1AE67FE600BC3E2C /* APIResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIResponse.swift; sourceTree = "<group>"; };
+		B8B9AB781AF77A8E009FEE4B /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		B8C1884A1AE3397600037552 /* BFTask+API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BFTask+API.swift"; sourceTree = "<group>"; };
 		B8C1884E1AE3C6A200037552 /* BFTask+Facebook.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BFTask+Facebook.swift"; sourceTree = "<group>"; };
 		B8C188501AE3D70100037552 /* MyAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyAccount.swift; sourceTree = "<group>"; };
@@ -242,6 +244,7 @@
 				B81475F51AD8AAD20099A878 /* Extensions */,
 				B8D9B24F1A824DC700B30271 /* BaseViewController.swift */,
 				B82448411A8EF16C00B540A4 /* LoginViewController.swift */,
+				B8B9AB781AF77A8E009FEE4B /* TabBarViewController.swift */,
 				B824484B1A90441600B540A4 /* ProfileViewController.swift */,
 				B830CDD91A82403B0038CAFE /* SearchViewController.swift */,
 				B8EA20FB1A99D37700BD0164 /* ContactViewController.swift */,
@@ -643,6 +646,7 @@
 				B821152D1ADA55AB002CCA46 /* APIManager.swift in Sources */,
 				B8D9B2591A82534A00B30271 /* UIView+Extension.swift in Sources */,
 				B85A3D101AEFBCC3008AC7B8 /* bang.xcdatamodeld in Sources */,
+				B8B9AB791AF77A8E009FEE4B /* TabBarViewController.swift in Sources */,
 				B8EA20FC1A99D37700BD0164 /* ContactViewController.swift in Sources */,
 				B8F9C6951AE687CB003320AB /* APIResponse+User.swift in Sources */,
 				B82CA4561AEBBBF400159D99 /* BLEConfig.swift in Sources */,

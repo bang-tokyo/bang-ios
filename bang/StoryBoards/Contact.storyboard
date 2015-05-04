@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="KFW-bV-SGA">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="E1U-HO-UrJ">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
     </dependencies>
     <scenes>
-        <!--Contact View Controller-->
+        <!--Item-->
         <scene sceneID="RGT-Oy-41h">
             <objects>
                 <viewController id="KFW-bV-SGA" customClass="ContactViewController" customModule="bang" customModuleProvider="target" sceneMemberID="viewController">
@@ -22,13 +22,7 @@
                                     <constraint firstAttribute="height" constant="44" id="QIO-Rz-vRT"/>
                                 </constraints>
                                 <items>
-                                    <navigationItem title="Contact" id="1ti-Mv-mZU">
-                                        <barButtonItem key="leftBarButtonItem" title="Search" id="30m-A3-T3g">
-                                            <connections>
-                                                <action selector="onClickSearchButton:" destination="KFW-bV-SGA" id="9aq-Rr-8WQ"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
+                                    <navigationItem title="Contact" id="1ti-Mv-mZU"/>
                                 </items>
                             </navigationBar>
                         </subviews>
@@ -39,8 +33,27 @@
                             <constraint firstAttribute="trailing" secondItem="zVf-nz-hHv" secondAttribute="trailing" id="fDb-Xn-CLN"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="aHg-Be-q5s"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L16-HJ-CG0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1274" y="337"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="ETO-Mc-K12">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="E1U-HO-UrJ" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="3yZ-iS-knN">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="KFW-bV-SGA" kind="relationship" relationship="viewControllers" id="GIo-g6-3Bp"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KPK-9d-K0k" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="462" y="337"/>
         </scene>

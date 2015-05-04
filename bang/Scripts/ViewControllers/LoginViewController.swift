@@ -71,7 +71,6 @@ class LoginViewController: BaseViewController {
 // MARK: - Private functions
 extension LoginViewController {
     private func moveToProfileViewController() {
-        var profileViewController = ProfileViewController.build()
-        self.moveTo(profileViewController)
+        self.moveTo(TabBarViewController())
     }
 }

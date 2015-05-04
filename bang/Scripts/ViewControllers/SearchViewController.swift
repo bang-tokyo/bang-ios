@@ -52,16 +52,8 @@ class SearchViewController: BaseViewController {
     }
 
     // MARK: - IBAction
-    @IBAction func onClickProfileButton(sender: UIBarButtonItem) {
-        var profileViewController = ProfileViewController.build()
-        profileViewController.modalTransitionStyle = UIModalTransitionStyle.FlipHorizontal
-        self.moveTo(profileViewController)
-    }
-
-    @IBAction func onClickContactButton(sender: UIBarButtonItem) {
-        var contactViewController = ContactViewController.build()
-        contactViewController.modalTransitionStyle = UIModalTransitionStyle.FlipHorizontal
-        self.moveTo(contactViewController)
+    @IBAction func onClickCloseButton(sender: UIBarButtonItem) {
+        self.closeViewController()
     }
 
     @IBAction func swipeUp(sender: AnyObject) {
