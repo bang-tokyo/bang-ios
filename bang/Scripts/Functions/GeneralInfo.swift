@@ -7,13 +7,14 @@
 //
 
 import Foundation
+import TAKUUID
 
 class GeneralInfo {
     let identifier: String
     let version: String
     let versionCode: Int
     let osVersion: String
-    //let uuid: String
+    let uuid: String
     var modelName: String { return getModelName() }
     let secondsFromGMT: Int
     let language: String
@@ -36,6 +37,7 @@ class GeneralInfo {
         let locale = NSLocale.currentLocale()
         language = locale.objectForKey(NSLocaleLanguageCode) as! String
         region = locale.objectForKey(NSLocaleCountryCode) as! String
+        uuid = TAKUUIDStorage.sharedInstance().findOrCreate()
     }
 
     // MARK: - Private functions

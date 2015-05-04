@@ -18,6 +18,7 @@ PODS:
     - Mantle/extobjc (= 1.5.4)
   - Mantle/extobjc (1.5.4)
   - SSKeychain (1.2.3)
+  - TAKUUID (1.0.2)
 
 DEPENDENCIES:
   - Alamofire
@@ -27,6 +28,7 @@ DEPENDENCIES:
   - MagicalRecord (from `https://github.com/magicalpanda/MagicalRecord.git`, tag `v2.3.0-beta.5`)
   - Mantle (~> 1.5.4)
   - SSKeychain
+  - TAKUUID
 
 EXTERNAL SOURCES:
   MagicalRecord:
@@ -46,5 +48,6 @@ SPEC CHECKSUMS:
   MagicalRecord: 5b7e807bc07c5d642af1f7d894b7fe0d3c317ca2
   Mantle: 60acd0cd363e27d945bda0a6b8e90577112d28f3
   SSKeychain: 3f42991739c6c60a9cf1bbd4dff6c0d3694bcf3d
+  TAKUUID: f852c1386a2b6bca0b678b69f9d0860f2c8ac4b0
 
 COCOAPODS: 0.36.4

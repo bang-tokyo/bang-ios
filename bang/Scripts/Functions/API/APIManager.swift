@@ -136,16 +136,17 @@ extension APIManager {
     }
 
     private func buildHeader() -> [String: AnyObject] {
+        let generalInfo = GeneralInfo.sharedInstance
         let headers = [
             "Accept-Encoding": "gzip,deflate,sdch",
             "X-Bang-Token": MyAccount.sharedInstance.token,
-            "X-Bang-App-Id": GeneralInfo.sharedInstance.identifier,
-            "X-Bang-App-Version": GeneralInfo.sharedInstance.version,
-            "X-Bang-App-Version-Code": "\(GeneralInfo.sharedInstance.versionCode)",
+            "X-Bang-App-Id": generalInfo.identifier,
+            "X-Bang-App-Version": generalInfo.version,
+            "X-Bang-App-Version-Code": "\(generalInfo.versionCode)",
             "X-Bang-Os": "ios",
-            "X-Bang-Os-Version": GeneralInfo.sharedInstance.version,
-            "X-Bang-Os-Model": GeneralInfo.sharedInstance.modelName,
-            "X-Bang-Os-Uuid": ""
+            "X-Bang-Os-Version": generalInfo.version,
+            "X-Bang-Os-Model": generalInfo.modelName,
+            "X-Bang-Os-Uuid": generalInfo.uuid
         ] as [String: AnyObject]
         return headers
     }

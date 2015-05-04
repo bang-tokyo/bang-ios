@@ -10,3 +10,4 @@
 #import <SSKeychain/SSKeychain.h>
 #import <Mantle/Mantle.h>
 #import <MagicalRecord/CoreData+MagicalRecord.h>
+#import <TAKUUID/TAKUUID.h>
