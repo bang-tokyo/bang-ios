@@ -9,7 +9,7 @@
 import Foundation
 
 final class QueueManager: NSObject {
-    
+
     static let sharedInstance = QueueManager()
 
     private struct Static {
@@ -18,15 +18,15 @@ final class QueueManager: NSObject {
         static var backgroundQueueForDataStore = dispatch_queue_create("com.bang.background.queue.data_store", DISPATCH_QUEUE_SERIAL)
         static var backgroundQueueForPeripheral = dispatch_queue_create("com.bang.background.gueue.peripheral", DISPATCH_QUEUE_SERIAL)
     }
-    
+
     func mainQueue() -> dispatch_queue_t {
         return Static.mainQueue
     }
-    
+
     func backgroundQueueForDataStore() -> dispatch_queue_t {
         return Static.backgroundQueueForDataStore
     }
-    
+
     func backgroundQueue() -> dispatch_queue_t {
         return Static.backgroundQueue
     }

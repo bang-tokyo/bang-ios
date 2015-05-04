@@ -13,7 +13,7 @@ enum UserStatus: Int {
     case Unknown = 0
     case Active = 1
     case Banned = 2
-    
+
     static func build(rawValue: Int?) -> UserStatus {
         return rawValue.flatMap { UserStatus(rawValue: $0) } ?? .Unknown
     }
