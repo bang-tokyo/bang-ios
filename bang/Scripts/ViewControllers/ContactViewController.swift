@@ -12,7 +12,9 @@ class ContactViewController: UIViewController {
 
     class func build() -> ContactViewController {
         var storyboard = UIStoryboard(name: "Contact", bundle: nil)
-        return storyboard.instantiateInitialViewController() as! ContactViewController
+        var tabBarViewController = storyboard.instantiateInitialViewController() as! UITabBarController
+        var viewControllers = tabBarViewController.viewControllers as! [UIViewController]
+        return viewControllers[0] as! ContactViewController
     }
 
     override func viewDidLoad() {
@@ -29,12 +31,5 @@ class ContactViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-
-    // MARK: - IBAction
-    @IBAction func onClickSearchButton(sender: UIBarButtonItem) {
-        var searchViewController = SearchViewController.build()
-        searchViewController.modalTransitionStyle = UIModalTransitionStyle.FlipHorizontal
-        self.moveTo(searchViewController)
     }
 }

@@ -19,17 +19,17 @@ class FacebookManager: NSObject {
         }
         return Static.instance
     }
-    
+
     func authorize() -> BFTask {
         return login().FacebookSessionErrorHandler().continueWithBlock{
             [weak self] _ -> AnyObject! in
             return self?.requestUserData()
         }
     }
-    
+
     func requestUserData() -> BFTask {
         var completionSource = BFTaskCompletionSource()
-        
+
         FBRequest.requestForMe().startWithCompletionHandler {
             (connection: FBRequestConnection!, result: AnyObject!, error: NSError!) -> Void in
             if error != nil {
@@ -38,7 +38,7 @@ class FacebookManager: NSObject {
                 completionSource.setResult(result)
             }
         }
-        
+
         return completionSource.task
     }
 
@@ -49,13 +49,13 @@ class FacebookManager: NSObject {
 
 // MARK: - Praivate functions
 extension FacebookManager {
-    
+
     private func login() -> BFTask {
         var completionSource = BFTaskCompletionSource()
-        
+
         closeFacebookSession()
         FBSession.setActiveSession(nil)
-        
+
         var handler: FBSessionStateHandler? = {
             (session : FBSession!, state : FBSessionState, error : NSError?) in
             FBSession.setActiveSession(session)
@@ -65,13 +65,13 @@ extension FacebookManager {
                 completionSource.setResult(nil)
             }
         }
-        
+
         FBSession.openActiveSessionWithReadPermissions(kFBReadPermissions, allowLoginUI: true, completionHandler: {
             (session, state, error) -> Void in
             handler?(session, state, error)
             handler = nil
         })
-        
+
         return completionSource.task
     }
 

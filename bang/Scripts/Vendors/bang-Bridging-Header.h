@@ -4,7 +4,10 @@
 
 #import "UIImage+ImageEffects.h"
 #import "UIImage+ImageEffects.m"
+
 #import <Bolts/Bolts.h>
 #import <FacebookSDK/FacebookSDK.h>
 #import <SSKeychain/SSKeychain.h>
 #import <Mantle/Mantle.h>
+#import <MagicalRecord/CoreData+MagicalRecord.h>
+#import <TAKUUID/TAKUUID.h>

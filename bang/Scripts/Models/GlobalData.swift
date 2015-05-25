@@ -9,14 +9,14 @@
 import Foundation
 
 class GlobalData {
-    
+
     class var sharedInstance: GlobalData {
         struct Static {
             static let instance = GlobalData()
         }
         return Static.instance
     }
-    
+
     let prefix = "globalData."
 
     var facebookUserData: NSDictionary? {

@@ -32,6 +32,10 @@ extension UIViewController {
         }
     }
 
+    func closeModalWindow() {
+        AppDelegate.sharedAppDelegate()?.closeModalWindow()
+    }
+
     func addBackButton() {
         if let navigationController = self.navigationController {
             var buttonItem = UIBarButtonItem(

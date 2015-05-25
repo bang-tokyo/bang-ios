@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="cR2-Yd-gUt">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Oru-AW-Df6">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
     </dependencies>
     <scenes>
-        <!--Profile View Controller-->
+        <!--Item-->
         <scene sceneID="bhW-XU-I2U">
             <objects>
                 <viewController id="cR2-Yd-gUt" customClass="ProfileViewController" customModule="bang" customModuleProvider="target" sceneMemberID="viewController">
@@ -16,8 +16,31 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M5y-3E-cYv">
+                                <rect key="frame" x="0.0" y="385" width="600" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uTz-ka-ViY" customClass="FBProfilePictureView">
+                                <rect key="frame" x="225" y="225" width="150" height="150"/>
+                                <color key="backgroundColor" red="0.96730981691919193" green="0.96730981691919193" blue="0.96730981691919193" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="MV3-qJ-qaF"/>
+                                    <constraint firstAttribute="width" constant="150" id="ZET-5c-EBO"/>
+                                </constraints>
+                            </view>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xbL-XJ-FaZ">
+                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="ETb-W1-w79"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="Profile" id="fAl-y2-XFn"/>
+                                </items>
+                            </navigationBar>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gRZ-oX-5lm">
-                                <rect key="frame" x="20" y="545" width="560" height="30"/>
+                                <rect key="frame" x="20" y="501" width="560" height="30"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SuG-XY-9dY">
                                         <rect key="frame" x="0.0" y="0.0" width="560" height="30"/>
@@ -40,35 +63,6 @@
                                     <constraint firstItem="SuG-XY-9dY" firstAttribute="top" secondItem="gRZ-oX-5lm" secondAttribute="top" id="wfc-T8-HtS"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M5y-3E-cYv">
-                                <rect key="frame" x="0.0" y="385" width="600" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uTz-ka-ViY" customClass="FBProfilePictureView">
-                                <rect key="frame" x="225" y="225" width="150" height="150"/>
-                                <color key="backgroundColor" red="0.96730981691919193" green="0.96730981691919193" blue="0.96730981691919193" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="150" id="MV3-qJ-qaF"/>
-                                    <constraint firstAttribute="width" constant="150" id="ZET-5c-EBO"/>
-                                </constraints>
-                            </view>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xbL-XJ-FaZ">
-                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="ETb-W1-w79"/>
-                                </constraints>
-                                <items>
-                                    <navigationItem title="Profile" id="fAl-y2-XFn">
-                                        <barButtonItem key="rightBarButtonItem" title="Search" id="jDS-pt-BMc">
-                                            <connections>
-                                                <action selector="onClickSearchButton:" destination="cR2-Yd-gUt" id="q6Q-C5-Fxh"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -82,15 +76,34 @@
                             <constraint firstAttribute="trailing" secondItem="M5y-3E-cYv" secondAttribute="trailing" id="SWd-GB-ZE1"/>
                             <constraint firstAttribute="trailing" secondItem="xbL-XJ-FaZ" secondAttribute="trailing" id="aSQ-po-USH"/>
                             <constraint firstAttribute="trailing" secondItem="gRZ-oX-5lm" secondAttribute="trailing" constant="20" id="bAN-nY-BDv"/>
-                            <constraint firstAttribute="bottom" secondItem="gRZ-oX-5lm" secondAttribute="bottom" constant="25" id="dwf-Ux-WDG"/>
+                            <constraint firstItem="ng4-AB-Vqc" firstAttribute="top" secondItem="gRZ-oX-5lm" secondAttribute="bottom" constant="20" id="m15-8l-8Hr"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="Gcx-lG-AgZ"/>
                     <connections>
                         <outlet property="nameLabel" destination="M5y-3E-cYv" id="Zfn-5c-ntc"/>
                         <outlet property="profilePictureView" destination="uTz-ka-ViY" id="OGF-Ax-a2z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mvd-y7-h9d" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1373" y="348"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="bs7-gO-N5a">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="Oru-AW-Df6" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="0rT-2O-DOH">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="cR2-Yd-gUt" kind="relationship" relationship="viewControllers" id="lNg-T8-y6S"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="q8I-UE-VeP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="561" y="348"/>
         </scene>

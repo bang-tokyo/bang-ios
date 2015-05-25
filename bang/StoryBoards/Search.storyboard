@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="5Q6-js-Bk1">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="5Q6-js-Bk1">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
     </dependencies>
     <scenes>
         <!--Search View Controller-->
@@ -23,14 +23,9 @@
                                 </constraints>
                                 <items>
                                     <navigationItem title="Search" id="iEb-rk-HdT">
-                                        <barButtonItem key="leftBarButtonItem" title="Profile" id="IXx-mc-Pme">
+                                        <barButtonItem key="leftBarButtonItem" title="Close" id="IXx-mc-Pme">
                                             <connections>
-                                                <action selector="onClickProfileButton:" destination="5Q6-js-Bk1" id="JBY-uv-Afb"/>
-                                            </connections>
-                                        </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" title="Contact" id="ONv-tn-l4a">
-                                            <connections>
-                                                <action selector="onClickContactButton:" destination="5Q6-js-Bk1" id="GUs-Ug-NBj"/>
+                                                <action selector="onClickCloseButton:" destination="5Q6-js-Bk1" id="uqK-Es-eO9"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
