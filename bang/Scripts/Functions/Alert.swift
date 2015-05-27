@@ -38,6 +38,11 @@ extension Alert {
 
     private func show(title: String, message: String, clicked: (()->Void)? = nil, completion: (()->Void)? = nil) {
         var alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        alertController.addAction(UIAlertAction(
+            title: NSLocalizedString("confirm", comment: ""),
+            style: UIAlertActionStyle.Default,
+            handler: nil
+        ))
         window.hidden = false
         var rootViewController = window.rootViewController
         rootViewController?.presentViewController(alertController, animated: true, completion: completion)

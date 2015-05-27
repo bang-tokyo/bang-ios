@@ -1,5 +1,5 @@
 //
-//  ContactViewController.swift
+//  ConversationViewController.swift
 //  bang
 //
 //  Created by Yoshikazu Oda on 2015/02/22.
@@ -8,13 +8,13 @@
 
 import UIKit
 
-class ContactViewController: UIViewController {
+class ConversationViewController: UIViewController {
 
-    class func build() -> ContactViewController {
-        var storyboard = UIStoryboard(name: "Contact", bundle: nil)
+    class func build() -> ConversationViewController {
+        var storyboard = UIStoryboard(name: "Conversation", bundle: nil)
         var tabBarViewController = storyboard.instantiateInitialViewController() as! UITabBarController
         var viewControllers = tabBarViewController.viewControllers as! [UIViewController]
-        return viewControllers[0] as! ContactViewController
+        return viewControllers[0] as! ConversationViewController
     }
 
     override func viewDidLoad() {

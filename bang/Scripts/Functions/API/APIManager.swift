@@ -148,6 +148,7 @@ extension APIManager {
             "X-Bang-Os-Model": generalInfo.modelName,
             "X-Bang-Os-Uuid": generalInfo.uuid
         ] as [String: AnyObject]
+        Tracker.sharedInstance.debug("headers: \(headers)")
         return headers
     }
 }

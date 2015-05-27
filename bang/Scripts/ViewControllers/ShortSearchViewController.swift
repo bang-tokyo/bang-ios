@@ -1,5 +1,5 @@
 //
-//  SearchViewController.swift
+//  ShortSearchViewController.swift
 //  bang
 //
 //  Created by Yoshikazu Oda on 2015/02/04.
@@ -9,11 +9,11 @@
 import UIKit
 import CoreLocation
 
-class SearchViewController: BaseViewController {
+class ShortSearchViewController: BaseViewController {
 
-    class func build() -> SearchViewController {
-        var storyboard = UIStoryboard(name: "Search", bundle: nil)
-        return storyboard.instantiateInitialViewController() as! SearchViewController
+    class func build() -> ShortSearchViewController {
+        var storyboard = UIStoryboard(name: "ShortSearch", bundle: nil)
+        return storyboard.instantiateInitialViewController() as! ShortSearchViewController
     }
 
     @IBOutlet weak var label: UILabel!
@@ -63,7 +63,7 @@ class SearchViewController: BaseViewController {
 }
 
 // MARK: - BLECentralManagerDelegate
-extension SearchViewController: BLECentralManagerDelegate {
+extension ShortSearchViewController: BLECentralManagerDelegate {
     func readyForScan() {
         label.text = "Ready For Search"
         swipteUpGesture.enabled = true
@@ -91,7 +91,7 @@ extension SearchViewController: BLECentralManagerDelegate {
 }
 
 // TODO: - テストが終わったら削除
-extension SearchViewController: LocationManagerDelegate {
+extension ShortSearchViewController: LocationManagerDelegate {
     func didUpdateLocation(location: CLLocation, isSignificantChangeLocationService: Bool) {
         if isSignificantChangeLocationService {
             locationInfoLabel2.text = "\(location.coordinate.latitude)\n\(location.coordinate.longitude)\n\(location.horizontalAccuracy)"
@@ -102,6 +102,6 @@ extension SearchViewController: LocationManagerDelegate {
 }
 
 // MARK: - Private functions
-extension SearchViewController {
+extension ShortSearchViewController {
 
 }

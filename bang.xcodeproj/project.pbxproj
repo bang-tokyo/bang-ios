@@ -23,8 +23,8 @@
 		B82CA4561AEBBBF400159D99 /* BLEConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82CA4551AEBBBF400159D99 /* BLEConfig.swift */; };
 		B82CA4591AEC788200159D99 /* BFTask+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82CA4581AEC788200159D99 /* BFTask+Extension.swift */; };
 		B82CA45B1AEC7C4100159D99 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82CA45A1AEC7C4100159D99 /* Alert.swift */; };
-		B830CDDA1A82403B0038CAFE /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B830CDD91A82403B0038CAFE /* SearchViewController.swift */; };
-		B830CDDC1A8240C30038CAFE /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B830CDDB1A8240C30038CAFE /* Search.storyboard */; };
+		B830CDDA1A82403B0038CAFE /* ShortSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B830CDD91A82403B0038CAFE /* ShortSearchViewController.swift */; };
+		B830CDDC1A8240C30038CAFE /* ShortSearch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B830CDDB1A8240C30038CAFE /* ShortSearch.storyboard */; };
 		B838B6DA1AF4667F00243580 /* GCD.swift in Sources */ = {isa = PBXBuildFile; fileRef = B838B6D91AF4667F00243580 /* GCD.swift */; };
 		B84A6EB41AF441FC00A7C632 /* UserDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84A6EB31AF441FC00A7C632 /* UserDto.swift */; };
 		B84A6EB61AF4422500A7C632 /* _UserDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84A6EB51AF4422500A7C632 /* _UserDto.swift */; };
@@ -49,8 +49,8 @@
 		B8DD298C1A8B1CC10024ABD0 /* BLEEnum+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DD298B1A8B1CC10024ABD0 /* BLEEnum+Extension.swift */; };
 		B8E6D9A71ABE46B00094D582 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8E6D9A61ABE46B00094D582 /* CoreLocation.framework */; };
 		B8E6D9A91ABE55840094D582 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E6D9A81ABE55840094D582 /* LocationManager.swift */; };
-		B8EA20FA1A99D35E00BD0164 /* Contact.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8EA20F91A99D35E00BD0164 /* Contact.storyboard */; };
-		B8EA20FC1A99D37700BD0164 /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8EA20FB1A99D37700BD0164 /* ContactViewController.swift */; };
+		B8EA20FA1A99D35E00BD0164 /* Conversation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8EA20F91A99D35E00BD0164 /* Conversation.storyboard */; };
+		B8EA20FC1A99D37700BD0164 /* ConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8EA20FB1A99D37700BD0164 /* ConversationViewController.swift */; };
 		B8F1389C1A8A4B84002A820E /* BLEPeripheralManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F1389B1A8A4B84002A820E /* BLEPeripheralManager.swift */; };
 		B8F1389F1A8A4D13002A820E /* RoundedCornersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F1389E1A8A4D13002A820E /* RoundedCornersView.swift */; };
 		B8F547541ADC197B00548883 /* APIManager+User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F547531ADC197B00548883 /* APIManager+User.swift */; };
@@ -92,8 +92,8 @@
 		B82CA4551AEBBBF400159D99 /* BLEConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEConfig.swift; sourceTree = "<group>"; };
 		B82CA4581AEC788200159D99 /* BFTask+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BFTask+Extension.swift"; sourceTree = "<group>"; };
 		B82CA45A1AEC7C4100159D99 /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
-		B830CDD91A82403B0038CAFE /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
-		B830CDDB1A8240C30038CAFE /* Search.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
+		B830CDD91A82403B0038CAFE /* ShortSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShortSearchViewController.swift; sourceTree = "<group>"; };
+		B830CDDB1A8240C30038CAFE /* ShortSearch.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ShortSearch.storyboard; sourceTree = "<group>"; };
 		B838B6D91AF4667F00243580 /* GCD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCD.swift; sourceTree = "<group>"; };
 		B84A6EB31AF441FC00A7C632 /* UserDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDto.swift; sourceTree = "<group>"; };
 		B84A6EB51AF4422500A7C632 /* _UserDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _UserDto.swift; sourceTree = "<group>"; };
@@ -120,8 +120,8 @@
 		B8DD298B1A8B1CC10024ABD0 /* BLEEnum+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BLEEnum+Extension.swift"; sourceTree = "<group>"; };
 		B8E6D9A61ABE46B00094D582 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		B8E6D9A81ABE55840094D582 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
-		B8EA20F91A99D35E00BD0164 /* Contact.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Contact.storyboard; sourceTree = "<group>"; };
-		B8EA20FB1A99D37700BD0164 /* ContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactViewController.swift; sourceTree = "<group>"; };
+		B8EA20F91A99D35E00BD0164 /* Conversation.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Conversation.storyboard; sourceTree = "<group>"; };
+		B8EA20FB1A99D37700BD0164 /* ConversationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversationViewController.swift; sourceTree = "<group>"; };
 		B8F1389B1A8A4B84002A820E /* BLEPeripheralManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEPeripheralManager.swift; sourceTree = "<group>"; };
 		B8F1389E1A8A4D13002A820E /* RoundedCornersView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedCornersView.swift; sourceTree = "<group>"; };
 		B8F547531ADC197B00548883 /* APIManager+User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "APIManager+User.swift"; sourceTree = "<group>"; };
@@ -232,8 +232,8 @@
 			children = (
 				B824483F1A8EF07700B540A4 /* Login.storyboard */,
 				B82448491A9043E300B540A4 /* Profile.storyboard */,
-				B830CDDB1A8240C30038CAFE /* Search.storyboard */,
-				B8EA20F91A99D35E00BD0164 /* Contact.storyboard */,
+				B830CDDB1A8240C30038CAFE /* ShortSearch.storyboard */,
+				B8EA20F91A99D35E00BD0164 /* Conversation.storyboard */,
 			);
 			path = StoryBoards;
 			sourceTree = "<group>";
@@ -246,8 +246,8 @@
 				B82448411A8EF16C00B540A4 /* LoginViewController.swift */,
 				B8B9AB781AF77A8E009FEE4B /* TabBarViewController.swift */,
 				B824484B1A90441600B540A4 /* ProfileViewController.swift */,
-				B830CDD91A82403B0038CAFE /* SearchViewController.swift */,
-				B8EA20FB1A99D37700BD0164 /* ContactViewController.swift */,
+				B830CDD91A82403B0038CAFE /* ShortSearchViewController.swift */,
+				B8EA20FB1A99D37700BD0164 /* ConversationViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -529,9 +529,9 @@
 				B82448521A90CE7F00B540A4 /* Localizable.strings in Resources */,
 				B8FDC51D1A818EDC00D4511E /* LaunchScreen.xib in Resources */,
 				B824484A1A9043E300B540A4 /* Profile.storyboard in Resources */,
-				B830CDDC1A8240C30038CAFE /* Search.storyboard in Resources */,
+				B830CDDC1A8240C30038CAFE /* ShortSearch.storyboard in Resources */,
 				B8FDC51A1A818EDC00D4511E /* Images.xcassets in Resources */,
-				B8EA20FA1A99D35E00BD0164 /* Contact.storyboard in Resources */,
+				B8EA20FA1A99D35E00BD0164 /* Conversation.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -647,7 +647,7 @@
 				B8D9B2591A82534A00B30271 /* UIView+Extension.swift in Sources */,
 				B85A3D101AEFBCC3008AC7B8 /* bang.xcdatamodeld in Sources */,
 				B8B9AB791AF77A8E009FEE4B /* TabBarViewController.swift in Sources */,
-				B8EA20FC1A99D37700BD0164 /* ContactViewController.swift in Sources */,
+				B8EA20FC1A99D37700BD0164 /* ConversationViewController.swift in Sources */,
 				B8F9C6951AE687CB003320AB /* APIResponse+User.swift in Sources */,
 				B82CA4561AEBBBF400159D99 /* BLEConfig.swift in Sources */,
 				B84A6EC11AF45A6B00A7C632 /* NSManagedObject+Extension.swift in Sources */,
@@ -665,7 +665,7 @@
 				B82448571A9824AF00B540A4 /* GlobalData.swift in Sources */,
 				B899149E1A8C1F69003E8930 /* BLECentralManager.swift in Sources */,
 				B84A6EBA1AF446CC00A7C632 /* UserStatus.swift in Sources */,
-				B830CDDA1A82403B0038CAFE /* SearchViewController.swift in Sources */,
+				B830CDDA1A82403B0038CAFE /* ShortSearchViewController.swift in Sources */,
 				B8C1884B1AE3397600037552 /* BFTask+API.swift in Sources */,
 				B8B979CC1AE67FE600BC3E2C /* APIResponse.swift in Sources */,
 				B8FDC5131A818EDC00D4511E /* AppDelegate.swift in Sources */,
