@@ -35,6 +35,10 @@ class TabBarViewController: UITabBarController {
         self.delegate = self
     }
 
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -55,7 +59,8 @@ class TabBarViewController: UITabBarController {
 extension TabBarViewController: UITabBarControllerDelegate {
     func tabBarController(tabBarController: UITabBarController, shouldSelectViewController viewController: UIViewController) -> Bool {
         if (viewController != self.searchViewController) { return true }
-        let searchViewController = ShortSearchViewController.build()
+        //let searchViewController = ShortSearchViewController.build()
+        let searchViewController = MiddleSearchViewController.build()
         self.presentViewController(searchViewController, animated: true, completion: nil)
         return false
     }

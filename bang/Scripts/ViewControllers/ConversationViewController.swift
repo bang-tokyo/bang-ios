@@ -19,13 +19,10 @@ class ConversationViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
 
-        // Do any additional setup after loading the view.
-        APIManager.sharedInstance.showUser(1).continueWithBlock{
-            (task) -> AnyObject in
-            Tracker.sharedInstance.debug("\(task.result)")
-            return task
-        }
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
     }
 
     override func didReceiveMemoryWarning() {
