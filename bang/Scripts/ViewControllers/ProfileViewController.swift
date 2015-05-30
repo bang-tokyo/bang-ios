@@ -27,14 +27,14 @@ class ProfileViewController: BaseViewController {
         super.viewDidLoad()
 
         if let user = UserDto.firstById(MyAccount.sharedInstance.userId) as? UserDto {
-            self.nameLabel.text = user.name
-            self.profilePictureView.profileID = user.facebookId
+            nameLabel.text = user.name
+            profilePictureView.profileID = user.facebookId
         } else {
             APIManager.sharedInstance.showUser(Int(MyAccount.sharedInstance.userId)).continueWithBlock({
-                (task) -> AnyObject! in
+                [weak self] (task) -> AnyObject! in
                 if let user = APIResponse.parse(APIResponse.User.self, task.result) {
-                    self.nameLabel.text = user.name
-                    self.profilePictureView.profileID = user.facebookId
+                    self?.nameLabel.text = user.name
+                    self?.profilePictureView.profileID = user.facebookId
                 }
                 return task
             })
@@ -47,7 +47,7 @@ class ProfileViewController: BaseViewController {
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        self.profilePictureView.makeCircle()
+        profilePictureView.makeCircle()
     }
 
     override func didReceiveMemoryWarning() {
@@ -65,6 +65,6 @@ class ProfileViewController: BaseViewController {
 extension ProfileViewController {
     private func moveToLoginViewController() {
         var loginViewController = LoginViewController.build()
-        self.moveTo(loginViewController)
+        moveTo(loginViewController)
     }
 }

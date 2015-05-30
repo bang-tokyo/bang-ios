@@ -17,6 +17,7 @@ class MiddleSearchViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
 
+    private var searchedUsers: [APIResponse.User] = []
     private var selectedTargetIndexPath: NSIndexPath?
     private var hasSelectedTarget = false
 
@@ -29,6 +30,8 @@ class MiddleSearchViewController: UIViewController {
         collectionView.dataSource = self
 
         bothEndsSpeceSizeOfCell = view.frame.width/2 - widthSizeOfCell/2
+
+        searchTargetUsers()
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -39,9 +42,9 @@ class MiddleSearchViewController: UIViewController {
         super.viewDidLayoutSubviews()
         if !hasSelectedTarget {
             hasSelectedTarget = true
-            selectedTargetIndexPath = NSIndexPath(forRow: 1, inSection: 0)
-            if let indexPath = selectedTargetIndexPath {
-                collectionView.scrollToItemAtIndexPath(indexPath, atScrollPosition: .CenteredHorizontally, animated: true)
+            selectedTargetIndexPath = NSIndexPath(forRow: 0, inSection: 0)
+            if selectedTargetIndexPath != nil && searchedUsers.count > 0 {
+                collectionView.scrollToItemAtIndexPath(selectedTargetIndexPath!, atScrollPosition: .CenteredHorizontally, animated: true)
             }
         }
     }
@@ -58,6 +61,18 @@ class MiddleSearchViewController: UIViewController {
 
 // MARK: - Private functions
 extension MiddleSearchViewController {
+    private func searchTargetUsers() {
+        // 検索で帰ってきたUserデータはすぐ破棄するのでCoreDataにキャッシュしない。
+        APIManager.sharedInstance.searchUser().continueWithBlock({
+            [weak self] (task) -> AnyObject! in
+            if let users = APIResponse.parseJSONArray(APIResponse.User.self, task.result) {
+                self?.searchedUsers = users
+                self?.collectionView.reloadData()
+                self?.collectionView.collectionViewLayout.invalidateLayout()
+            }
+            return task
+        })
+    }
 }
 
 // MARK: - UICollectionViewDelegate
@@ -93,12 +108,13 @@ extension MiddleSearchViewController: UICollectionViewDelegateFlowLayout {
 // MARK: - UICollectionViewDataSource
 extension MiddleSearchViewController: UICollectionViewDataSource {
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return searchedUsers.count
     }
 
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         var cell = collectionView.dequeueReusableCellWithReuseIdentifier("searchTargetCell", forIndexPath: indexPath) as! SearchTargetCollectionViewCell
-        cell.setup("\(indexPath.row)")
+        var user = searchedUsers[indexPath.row]
+        cell.setup(user)
         return cell
     }
 }
