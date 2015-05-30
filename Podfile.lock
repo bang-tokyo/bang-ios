@@ -11,9 +11,7 @@ PODS:
   - GoogleAnalytics-iOS-SDK (3.10):
     - GoogleAnalytics-iOS-SDK/Core (= 3.10)
   - GoogleAnalytics-iOS-SDK/Core (3.10)
-  - MagicalRecord (2.3.0-beta.5):
-    - MagicalRecord/Core (= 2.3.0-beta.5)
-  - MagicalRecord/Core (2.3.0-beta.5)
+  - MagicalRecord (2.3.0-beta.6)
   - Mantle (1.5.4):
     - Mantle/extobjc (= 1.5.4)
   - Mantle/extobjc (1.5.4)
@@ -25,29 +23,28 @@ DEPENDENCIES:
   - Bolts (~> 1.1.4)
   - Facebook-iOS-SDK (~> 3.23)
   - GoogleAnalytics-iOS-SDK
-  - MagicalRecord (from `https://github.com/magicalpanda/MagicalRecord.git`, tag `v2.3.0-beta.5`)
+  - MagicalRecord (from `https://github.com/shiruco/MagicalRecord.git`)
   - Mantle (~> 1.5.4)
   - SSKeychain
   - TAKUUID
 
 EXTERNAL SOURCES:
   MagicalRecord:
-    :git: https://github.com/magicalpanda/MagicalRecord.git
-    :tag: v2.3.0-beta.5
+    :git: https://github.com/shiruco/MagicalRecord.git
 
 CHECKOUT OPTIONS:
   MagicalRecord:
-    :git: https://github.com/magicalpanda/MagicalRecord.git
-    :tag: v2.3.0-beta.5
+    :commit: 929e3ab2fd406d83c767b42494543a6262e220b0
+    :git: https://github.com/shiruco/MagicalRecord.git
 
 SPEC CHECKSUMS:
   Alamofire: 1acfdf179aff68b41a48dff70c1ac7fa263e2bcb
   Bolts: aac24961496d504aa56fc267cde95162a71bac39
   Facebook-iOS-SDK: cd87f0b2f0c1d9574b44e8fa2baacc275524bac3
   GoogleAnalytics-iOS-SDK: 4f98a376c1d61e6ac4ca47951655820314856eef
-  MagicalRecord: 5b7e807bc07c5d642af1f7d894b7fe0d3c317ca2
+  MagicalRecord: 9d8fc081554fcc2b50edaa22ec088a3bab140ff9
   Mantle: 60acd0cd363e27d945bda0a6b8e90577112d28f3
   SSKeychain: 3f42991739c6c60a9cf1bbd4dff6c0d3694bcf3d
   TAKUUID: f852c1386a2b6bca0b678b69f9d0860f2c8ac4b0
 
-COCOAPODS: 0.36.4
+COCOAPODS: 0.36.0
