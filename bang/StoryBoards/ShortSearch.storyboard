@@ -4,10 +4,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
     </dependencies>
     <scenes>
-        <!--Search View Controller-->
+        <!--Short Search View Controller-->
         <scene sceneID="4QM-XB-tBp">
             <objects>
-                <viewController id="5Q6-js-Bk1" customClass="SearchViewController" customModule="bang" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="5Q6-js-Bk1" customClass="ShortSearchViewController" customModule="bang" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="sQR-is-Pvk"/>
                         <viewControllerLayoutGuide type="bottom" id="55c-rS-p7M"/>

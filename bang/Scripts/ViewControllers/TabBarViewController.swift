@@ -13,7 +13,7 @@ class TabBarViewController: UITabBarController {
     var menueWindow = UIWindow()
     var profileViewController: ProfileViewController!
     var searchViewController: UIViewController!
-    var contactViewController: ContactViewController!
+    var conversationViewController: ConversationViewController!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,18 +21,22 @@ class TabBarViewController: UITabBarController {
         // Do any additional setup after loading the view.
         profileViewController = ProfileViewController.build()
         searchViewController = UIViewController()
-        contactViewController = ContactViewController.build()
+        conversationViewController = ConversationViewController.build()
 
         super.viewDidLoad()
 
         // TODO: - Designがきまったら修正
         profileViewController.tabBarItem = UITabBarItem(tabBarSystemItem: UITabBarSystemItem.Bookmarks, tag: 0)
         searchViewController.tabBarItem = UITabBarItem(tabBarSystemItem: UITabBarSystemItem.Contacts, tag: 0)
-        contactViewController.tabBarItem = UITabBarItem(tabBarSystemItem: UITabBarSystemItem.Favorites, tag: 0)
+        conversationViewController.tabBarItem = UITabBarItem(tabBarSystemItem: UITabBarSystemItem.Favorites, tag: 0)
 
 
-        self.setViewControllers([profileViewController, searchViewController, contactViewController], animated: false)
+        self.setViewControllers([profileViewController, searchViewController, conversationViewController], animated: false)
         self.delegate = self
+    }
+
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
     }
 
     override func didReceiveMemoryWarning() {
@@ -55,7 +59,8 @@ class TabBarViewController: UITabBarController {
 extension TabBarViewController: UITabBarControllerDelegate {
     func tabBarController(tabBarController: UITabBarController, shouldSelectViewController viewController: UIViewController) -> Bool {
         if (viewController != self.searchViewController) { return true }
-        let searchViewController = SearchViewController.build()
+        //let searchViewController = ShortSearchViewController.build()
+        let searchViewController = MiddleSearchViewController.build()
         self.presentViewController(searchViewController, animated: true, completion: nil)
         return false
     }

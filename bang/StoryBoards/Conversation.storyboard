@@ -7,7 +7,7 @@
         <!--Item-->
         <scene sceneID="RGT-Oy-41h">
             <objects>
-                <viewController id="KFW-bV-SGA" customClass="ContactViewController" customModule="bang" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="KFW-bV-SGA" customClass="ConversationViewController" customModule="bang" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="o3t-eM-l5G"/>
                         <viewControllerLayoutGuide type="bottom" id="6le-jh-XLV"/>
@@ -22,7 +22,7 @@
                                     <constraint firstAttribute="height" constant="44" id="QIO-Rz-vRT"/>
                                 </constraints>
                                 <items>
-                                    <navigationItem title="Contact" id="1ti-Mv-mZU"/>
+                                    <navigationItem title="Conversation" id="1ti-Mv-mZU"/>
                                 </items>
                             </navigationBar>
                         </subviews>

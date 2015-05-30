@@ -36,6 +36,10 @@ class ProfileViewController: BaseViewController {
         })
     }
 
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         self.profilePictureView.makeCircle()
