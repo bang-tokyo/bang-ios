@@ -93,14 +93,41 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NWR-zX-5z0">
+                                <rect key="frame" x="225" y="420" width="150" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dTi-lI-Clu">
+                                        <rect key="frame" x="0.0" y="0.0" width="150" height="30"/>
+                                        <color key="backgroundColor" red="0.99607843139999996" green="0.26274509800000001" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="BANG">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="onClickBangButton:" destination="Pww-zf-802" eventType="touchUpInside" id="C0r-NB-zqC"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="dTi-lI-Clu" firstAttribute="top" secondItem="NWR-zX-5z0" secondAttribute="top" id="8SN-1Y-PDS"/>
+                                    <constraint firstItem="dTi-lI-Clu" firstAttribute="leading" secondItem="NWR-zX-5z0" secondAttribute="leading" id="D5p-Mc-97g"/>
+                                    <constraint firstAttribute="height" constant="30" id="Mbc-E5-Ggr"/>
+                                    <constraint firstAttribute="bottom" secondItem="dTi-lI-Clu" secondAttribute="bottom" id="SjY-g6-kni"/>
+                                    <constraint firstAttribute="width" constant="150" id="UWy-AH-uBD"/>
+                                    <constraint firstAttribute="trailing" secondItem="dTi-lI-Clu" secondAttribute="trailing" id="X1H-cn-hJr"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="cdb-cL-ebp" firstAttribute="leading" secondItem="5bC-h0-sUQ" secondAttribute="leading" id="1bE-kP-WDN"/>
+                            <constraint firstItem="NWR-zX-5z0" firstAttribute="top" secondItem="vPQ-wv-Bif" secondAttribute="bottom" constant="20" id="JF7-Bn-vYn"/>
                             <constraint firstAttribute="trailing" secondItem="vPQ-wv-Bif" secondAttribute="trailing" id="U9B-uA-Ujm"/>
                             <constraint firstItem="cdb-cL-ebp" firstAttribute="top" secondItem="6m0-q9-L9f" secondAttribute="bottom" id="W58-vD-Auv"/>
                             <constraint firstAttribute="centerY" secondItem="vPQ-wv-Bif" secondAttribute="centerY" id="Ylf-sB-s3P"/>
                             <constraint firstItem="vPQ-wv-Bif" firstAttribute="leading" secondItem="5bC-h0-sUQ" secondAttribute="leading" id="d7t-ee-Kh1"/>
+                            <constraint firstAttribute="centerX" secondItem="NWR-zX-5z0" secondAttribute="centerX" id="fh1-El-KhS"/>
                             <constraint firstAttribute="trailing" secondItem="cdb-cL-ebp" secondAttribute="trailing" id="jrB-gP-dH5"/>
                         </constraints>
                     </view>
@@ -108,6 +135,7 @@
                         <barButtonItem key="leftBarButtonItem" title="Close" id="Rtd-nq-ifP"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="bangButton" destination="dTi-lI-Clu" id="FbJ-jx-RB2"/>
                         <outlet property="collectionView" destination="vPQ-wv-Bif" id="rKW-dw-Eaj"/>
                     </connections>
                 </viewController>

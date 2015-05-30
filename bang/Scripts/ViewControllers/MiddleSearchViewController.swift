@@ -16,6 +16,7 @@ class MiddleSearchViewController: UIViewController {
     }
 
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var bangButton: UIButton!
 
     private var searchedUsers: [APIResponse.User] = []
     private var selectedTargetIndexPath: NSIndexPath?
@@ -31,6 +32,7 @@ class MiddleSearchViewController: UIViewController {
 
         bothEndsSpeceSizeOfCell = view.frame.width/2 - widthSizeOfCell/2
 
+        disableBangButton()
         searchTargetUsers()
     }
 
@@ -44,6 +46,7 @@ class MiddleSearchViewController: UIViewController {
             hasSelectedTarget = true
             selectedTargetIndexPath = NSIndexPath(forRow: 0, inSection: 0)
             if selectedTargetIndexPath != nil && searchedUsers.count > 0 {
+                enableBangButton()
                 collectionView.scrollToItemAtIndexPath(selectedTargetIndexPath!, atScrollPosition: .CenteredHorizontally, animated: true)
             }
         }
@@ -54,6 +57,28 @@ class MiddleSearchViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func onClickBangButton(sender: UIButton) {
+        if let indexPath = selectedTargetIndexPath {
+            var user = searchedUsers[indexPath.row]
+            APIManager.sharedInstance.requestBang(Int(user.id)).continueWithBlock({
+                [weak self] (task) -> AnyObject! in
+                self?.searchedUsers.removeAtIndex(indexPath.row)
+                self?.collectionView.reloadData()
+                self?.collectionView.collectionViewLayout.invalidateLayout()
+
+                // TODO : - Alert閉じたあと操作できなくなるので調査...
+                //Alert.showNormal("Bang", message: "Bang For \(user.name) Complete!")
+                var alrtView = UIAlertView(
+                    title: "Bang",
+                    message: "Bang For \(user.name) Complete!",
+                    delegate: nil,
+                    cancelButtonTitle: "OK"
+                ).show()
+                return task
+            })
+        }
+    }
+
     @IBAction func onClickCloseButton(sender: UIBarButtonItem) {
         self.closeViewController()
     }
@@ -61,6 +86,16 @@ class MiddleSearchViewController: UIViewController {
 
 // MARK: - Private functions
 extension MiddleSearchViewController {
+    private func enableBangButton() {
+        bangButton.hidden = false
+        bangButton.enabled = true
+    }
+
+    private func disableBangButton() {
+        bangButton.hidden = true
+        bangButton.enabled = false
+    }
+
     private func searchTargetUsers() {
         // 検索で帰ってきたUserデータはすぐ破棄するのでCoreDataにキャッシュしない。
         APIManager.sharedInstance.searchUser().continueWithBlock({
@@ -78,6 +113,7 @@ extension MiddleSearchViewController {
 // MARK: - UICollectionViewDelegate
 extension MiddleSearchViewController: UICollectionViewDelegate {
     func scrollViewWillBeginDragging(scrollView: UIScrollView) {
+        disableBangButton()
         selectedTargetIndexPath = nil
     }
 
@@ -95,6 +131,7 @@ extension MiddleSearchViewController: UICollectionViewDelegate {
         targetContentOffset.memory.x = targetX > 0 ? targetX : 0.0
 
         selectedTargetIndexPath = targetIndexPath
+        enableBangButton()
     }
 }
 
@@ -108,6 +145,11 @@ extension MiddleSearchViewController: UICollectionViewDelegateFlowLayout {
 // MARK: - UICollectionViewDataSource
 extension MiddleSearchViewController: UICollectionViewDataSource {
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if searchedUsers.count > 0 {
+            enableBangButton()
+        } else {
+            disableBangButton()
+        }
         return searchedUsers.count
     }
 
