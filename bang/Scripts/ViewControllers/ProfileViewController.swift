@@ -26,14 +26,19 @@ class ProfileViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        APIManager.sharedInstance.showUser(Int(MyAccount.sharedInstance.userId)).continueWithBlock({
-            (task) -> AnyObject! in
-            if let user = APIResponse.parse(APIResponse.User.self, task.result) {
-                self.nameLabel.text = user.name
-                self.profilePictureView.profileID = user.facebookId
-            }
-            return task
-        })
+        if let user = UserDto.firstById(MyAccount.sharedInstance.userId) as? UserDto {
+            self.nameLabel.text = user.name
+            self.profilePictureView.profileID = user.facebookId
+        } else {
+            APIManager.sharedInstance.showUser(Int(MyAccount.sharedInstance.userId)).continueWithBlock({
+                (task) -> AnyObject! in
+                if let user = APIResponse.parse(APIResponse.User.self, task.result) {
+                    self.nameLabel.text = user.name
+                    self.profilePictureView.profileID = user.facebookId
+                }
+                return task
+            })
+        }
     }
 
     override func viewWillAppear(animated: Bool) {
