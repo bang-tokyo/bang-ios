@@ -37,6 +37,9 @@
 		B84A6EBE1AF4578900A7C632 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84A6EBD1AF4578900A7C632 /* DataStore.swift */; };
 		B84A6EC11AF45A6B00A7C632 /* NSManagedObject+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84A6EC01AF45A6B00A7C632 /* NSManagedObject+Extension.swift */; };
 		B84BF5EB1B19E68500067C4A /* APIManager+Bang.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84BF5EA1B19E68500067C4A /* APIManager+Bang.swift */; };
+		B84BF5ED1B1C1C1E00067C4A /* RequestedBangViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84BF5EC1B1C1C1D00067C4A /* RequestedBangViewController.swift */; };
+		B84BF5EF1B1C1C3A00067C4A /* RequestedBang.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B84BF5EE1B1C1C3A00067C4A /* RequestedBang.storyboard */; };
+		B84BF5F11B1C1D9700067C4A /* RequestedBangTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84BF5F01B1C1D9700067C4A /* RequestedBangTableViewCell.swift */; };
 		B85A3D101AEFBCC3008AC7B8 /* bang.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B85A3D0E1AEFBCC3008AC7B8 /* bang.xcdatamodeld */; };
 		B899149E1A8C1F69003E8930 /* BLECentralManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B899149D1A8C1F69003E8930 /* BLECentralManager.swift */; };
 		B8B979CC1AE67FE600BC3E2C /* APIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B979CB1AE67FE600BC3E2C /* APIResponse.swift */; };
@@ -110,6 +113,9 @@
 		B84A6EBD1AF4578900A7C632 /* DataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
 		B84A6EC01AF45A6B00A7C632 /* NSManagedObject+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObject+Extension.swift"; sourceTree = "<group>"; };
 		B84BF5EA1B19E68500067C4A /* APIManager+Bang.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "APIManager+Bang.swift"; sourceTree = "<group>"; };
+		B84BF5EC1B1C1C1D00067C4A /* RequestedBangViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestedBangViewController.swift; sourceTree = "<group>"; };
+		B84BF5EE1B1C1C3A00067C4A /* RequestedBang.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RequestedBang.storyboard; sourceTree = "<group>"; };
+		B84BF5F01B1C1D9700067C4A /* RequestedBangTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestedBangTableViewCell.swift; sourceTree = "<group>"; };
 		B85A3D0F1AEFBCC3008AC7B8 /* bang.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = bang.xcdatamodel; sourceTree = "<group>"; };
 		B899149D1A8C1F69003E8930 /* BLECentralManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLECentralManager.swift; sourceTree = "<group>"; };
 		B8B979CB1AE67FE600BC3E2C /* APIResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIResponse.swift; sourceTree = "<group>"; };
@@ -244,6 +250,7 @@
 				B8EA20F91A99D35E00BD0164 /* Conversation.storyboard */,
 				B830CDDB1A8240C30038CAFE /* ShortSearch.storyboard */,
 				B8187BC41B1603CF00E23716 /* MiddleSearch.storyboard */,
+				B84BF5EE1B1C1C3A00067C4A /* RequestedBang.storyboard */,
 			);
 			path = StoryBoards;
 			sourceTree = "<group>";
@@ -251,14 +258,11 @@
 		B830CDD71A823DE40038CAFE /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				B81475F51AD8AAD20099A878 /* Extensions */,
 				B8D9B24F1A824DC700B30271 /* BaseViewController.swift */,
-				B82448411A8EF16C00B540A4 /* LoginViewController.swift */,
-				B8B9AB781AF77A8E009FEE4B /* TabBarViewController.swift */,
-				B824484B1A90441600B540A4 /* ProfileViewController.swift */,
-				B8EA20FB1A99D37700BD0164 /* ConversationViewController.swift */,
-				B830CDD91A82403B0038CAFE /* ShortSearchViewController.swift */,
-				B8187BC81B16044900E23716 /* MiddleSearchViewController.swift */,
+				B81475F51AD8AAD20099A878 /* Extensions */,
+				B84BF5F51B1C4B8E00067C4A /* Login */,
+				B84BF5F31B1C4B0200067C4A /* Main */,
+				B84BF5F41B1C4B2B00067C4A /* Search */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -301,6 +305,34 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		B84BF5F31B1C4B0200067C4A /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				B8B9AB781AF77A8E009FEE4B /* TabBarViewController.swift */,
+				B824484B1A90441600B540A4 /* ProfileViewController.swift */,
+				B8EA20FB1A99D37700BD0164 /* ConversationViewController.swift */,
+				B84BF5EC1B1C1C1D00067C4A /* RequestedBangViewController.swift */,
+			);
+			name = Main;
+			sourceTree = "<group>";
+		};
+		B84BF5F41B1C4B2B00067C4A /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				B830CDD91A82403B0038CAFE /* ShortSearchViewController.swift */,
+				B8187BC81B16044900E23716 /* MiddleSearchViewController.swift */,
+			);
+			name = Search;
+			sourceTree = "<group>";
+		};
+		B84BF5F51B1C4B8E00067C4A /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				B82448411A8EF16C00B540A4 /* LoginViewController.swift */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
 		B85A3D0D1AEFBC95008AC7B8 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
@@ -336,6 +368,7 @@
 				B81475F41AD8AAC90099A878 /* Extensions */,
 				B8F1389D1A8A4CC5002A820E /* CustomViews */,
 				B8187BCA1B1748C800E23716 /* SearchTargetCollectionViewCell.swift */,
+				B84BF5F01B1C1D9700067C4A /* RequestedBangTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -541,6 +574,7 @@
 				B82448521A90CE7F00B540A4 /* Localizable.strings in Resources */,
 				B8FDC51D1A818EDC00D4511E /* LaunchScreen.xib in Resources */,
 				B8187BC51B1603CF00E23716 /* MiddleSearch.storyboard in Resources */,
+				B84BF5EF1B1C1C3A00067C4A /* RequestedBang.storyboard in Resources */,
 				B824484A1A9043E300B540A4 /* Profile.storyboard in Resources */,
 				B830CDDC1A8240C30038CAFE /* ShortSearch.storyboard in Resources */,
 				B8FDC51A1A818EDC00D4511E /* Images.xcassets in Resources */,
@@ -674,6 +708,7 @@
 				B821152F1ADA6B5F002CCA46 /* GeneralInfo.swift in Sources */,
 				B84A6EBE1AF4578900A7C632 /* DataStore.swift in Sources */,
 				B8C188511AE3D70200037552 /* MyAccount.swift in Sources */,
+				B84BF5ED1B1C1C1E00067C4A /* RequestedBangViewController.swift in Sources */,
 				B8D9B2611A8255DD00B30271 /* UIImage+ImageEffects.m in Sources */,
 				B80D21151ABC5BEC00405EAE /* QueueManager.swift in Sources */,
 				B824484C1A90441600B540A4 /* ProfileViewController.swift in Sources */,
@@ -682,6 +717,7 @@
 				B84A6EBA1AF446CC00A7C632 /* UserStatus.swift in Sources */,
 				B830CDDA1A82403B0038CAFE /* ShortSearchViewController.swift in Sources */,
 				B8C1884B1AE3397600037552 /* BFTask+API.swift in Sources */,
+				B84BF5F11B1C1D9700067C4A /* RequestedBangTableViewCell.swift in Sources */,
 				B8B979CC1AE67FE600BC3E2C /* APIResponse.swift in Sources */,
 				B8FDC5131A818EDC00D4511E /* AppDelegate.swift in Sources */,
 				B838B6DA1AF4667F00243580 /* GCD.swift in Sources */,

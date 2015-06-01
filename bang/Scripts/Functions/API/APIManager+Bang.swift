@@ -17,4 +17,8 @@ extension APIManager {
     func replyBang(id: Int) -> BFTask {
         return request(.GET, path: "/v1/bang/reply/\(id)").APIErrorHandler()
     }
+
+    func requestedList() -> BFTask {
+        return request(.GET, path: "/v1/bang/requests").APIErrorHandler()
+    }
 }

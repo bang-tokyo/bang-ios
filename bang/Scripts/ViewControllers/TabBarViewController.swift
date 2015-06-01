@@ -14,6 +14,7 @@ class TabBarViewController: UITabBarController {
     var profileViewController: ProfileViewController!
     var searchViewController: UIViewController!
     var conversationViewController: ConversationViewController!
+    var requestedBangViewController: RequestedBangViewController!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,16 +23,18 @@ class TabBarViewController: UITabBarController {
         profileViewController = ProfileViewController.build()
         searchViewController = UIViewController()
         conversationViewController = ConversationViewController.build()
+        requestedBangViewController = RequestedBangViewController.build()
 
         super.viewDidLoad()
 
         // TODO: - Designがきまったら修正
-        profileViewController.tabBarItem = UITabBarItem(tabBarSystemItem: UITabBarSystemItem.Bookmarks, tag: 0)
-        searchViewController.tabBarItem = UITabBarItem(tabBarSystemItem: UITabBarSystemItem.Contacts, tag: 0)
-        conversationViewController.tabBarItem = UITabBarItem(tabBarSystemItem: UITabBarSystemItem.Favorites, tag: 0)
+        profileViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .Bookmarks, tag: 0)
+        searchViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .Contacts, tag: 0)
+        conversationViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .Favorites, tag: 0)
+        requestedBangViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .History, tag: 0)
 
 
-        self.setViewControllers([profileViewController, searchViewController, conversationViewController], animated: false)
+        self.setViewControllers([conversationViewController, requestedBangViewController, searchViewController, profileViewController], animated: false)
         self.delegate = self
     }
 
