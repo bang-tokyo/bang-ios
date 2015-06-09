@@ -23,7 +23,8 @@ class SearchTargetCollectionViewCell: UICollectionViewCell {
         profilePictureView.makeCircle()
     }
 
-    func setup(labelText: String) {
-        label.text = labelText
+    func setup(user: APIResponse.User) {
+        label.text = user.name
+        profilePictureView.profileID = user.facebookId
     }
 }

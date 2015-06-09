@@ -47,7 +47,7 @@ class _UserDto: NSManagedObject {
     // func validateBirthday(value: AutoreleasingUnsafePointer<AnyObject>, error: NSErrorPointer) {}
 
     @NSManaged
-    var createdAt: NSNumber?
+    var createdAt: NSDate?
 
     // func validateCreatedAt(value: AutoreleasingUnsafePointer<AnyObject>, error: NSErrorPointer) {}
 
@@ -72,7 +72,7 @@ class _UserDto: NSManagedObject {
     // func validateName(value: AutoreleasingUnsafePointer<AnyObject>, error: NSErrorPointer) {}
 
     @NSManaged
-    var savedAt: NSNumber?
+    var savedAt: NSDate?
 
     // func validateSavedAt(value: AutoreleasingUnsafePointer<AnyObject>, error: NSErrorPointer) {}
 
@@ -82,7 +82,7 @@ class _UserDto: NSManagedObject {
     // func validateStatusValue(value: AutoreleasingUnsafePointer<AnyObject>, error: NSErrorPointer) {}
 
     @NSManaged
-    var updatedAt: NSNumber?
+    var updatedAt: NSDate?
 
     // func validateUpdatedAt(value: AutoreleasingUnsafePointer<AnyObject>, error: NSErrorPointer) {}
 

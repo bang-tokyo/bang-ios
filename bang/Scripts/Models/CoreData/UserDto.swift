@@ -15,7 +15,7 @@ class UserDto: _UserDto {
 
     override func willSave() {
         super.willSave()
-        setPrimitiveValue(Date.now(), forKey: "savedAt")
+        setPrimitiveValue(NSDate(), forKey: "savedAt")
     }
 
     override func awakeFromFetch() {

@@ -36,6 +36,7 @@
 		B84A6EBC1AF44D2600A7C632 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84A6EBB1AF44D2600A7C632 /* Date.swift */; };
 		B84A6EBE1AF4578900A7C632 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84A6EBD1AF4578900A7C632 /* DataStore.swift */; };
 		B84A6EC11AF45A6B00A7C632 /* NSManagedObject+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84A6EC01AF45A6B00A7C632 /* NSManagedObject+Extension.swift */; };
+		B84BF5EB1B19E68500067C4A /* APIManager+Bang.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84BF5EA1B19E68500067C4A /* APIManager+Bang.swift */; };
 		B85A3D101AEFBCC3008AC7B8 /* bang.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B85A3D0E1AEFBCC3008AC7B8 /* bang.xcdatamodeld */; };
 		B899149E1A8C1F69003E8930 /* BLECentralManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B899149D1A8C1F69003E8930 /* BLECentralManager.swift */; };
 		B8B979CC1AE67FE600BC3E2C /* APIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B979CB1AE67FE600BC3E2C /* APIResponse.swift */; };
@@ -108,6 +109,7 @@
 		B84A6EBB1AF44D2600A7C632 /* Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		B84A6EBD1AF4578900A7C632 /* DataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
 		B84A6EC01AF45A6B00A7C632 /* NSManagedObject+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObject+Extension.swift"; sourceTree = "<group>"; };
+		B84BF5EA1B19E68500067C4A /* APIManager+Bang.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "APIManager+Bang.swift"; sourceTree = "<group>"; };
 		B85A3D0F1AEFBCC3008AC7B8 /* bang.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = bang.xcdatamodel; sourceTree = "<group>"; };
 		B899149D1A8C1F69003E8930 /* BLECentralManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLECentralManager.swift; sourceTree = "<group>"; };
 		B8B979CB1AE67FE600BC3E2C /* APIResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIResponse.swift; sourceTree = "<group>"; };
@@ -220,6 +222,7 @@
 			children = (
 				B821152C1ADA55AB002CCA46 /* APIManager.swift */,
 				B8F547531ADC197B00548883 /* APIManager+User.swift */,
+				B84BF5EA1B19E68500067C4A /* APIManager+Bang.swift */,
 				B8C1884A1AE3397600037552 /* BFTask+API.swift */,
 			);
 			path = API;
@@ -695,6 +698,7 @@
 				B8F547541ADC197B00548883 /* APIManager+User.swift in Sources */,
 				B84A6EBC1AF44D2600A7C632 /* Date.swift in Sources */,
 				B82CA45B1AEC7C4100159D99 /* Alert.swift in Sources */,
+				B84BF5EB1B19E68500067C4A /* APIManager+Bang.swift in Sources */,
 				B82448421A8EF16C00B540A4 /* LoginViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

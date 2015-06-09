@@ -11,6 +11,10 @@ import Foundation
 class Alert: NSObject {
     private var _window: UIWindow! = nil
 
+    class func showNormal(title: String, message: String) {
+        sharedInstance.show(title, message: message)
+    }
+
     class func showError(message: String, clicked:(()->Void)? = nil) {
         sharedInstance.show("error", message: message, clicked: clicked)
     }
@@ -40,7 +44,7 @@ extension Alert {
         var alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
         alertController.addAction(UIAlertAction(
             title: NSLocalizedString("confirm", comment: ""),
-            style: UIAlertActionStyle.Default,
+            style: .Default,
             handler: nil
         ))
         window.hidden = false

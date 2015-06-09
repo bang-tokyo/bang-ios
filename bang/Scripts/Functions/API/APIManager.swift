@@ -64,10 +64,8 @@ extension APIManager {
                 completionSource.setError(error)
                 return
             }
-            if let JSON = JSON as? [String: AnyObject] {
-                completionSource.setResult(JSON)
-                return
-            }
+            completionSource.setResult(JSON)
+            return
         }
 
         return completionSource.task
@@ -81,10 +79,8 @@ extension APIManager {
                 completionSource.setError(error)
                 return
             }
-            if let JSON = JSON as? [String: AnyObject] {
-                completionSource.setResult(JSON)
-                return
-            }
+            completionSource.setResult(JSON)
+            return
         }
 
         return completionSource.task
@@ -99,10 +95,8 @@ extension APIManager {
                 completionSource.setError(error)
                 return
             }
-            if let JSON = JSON as? [String: AnyObject] {
-                completionSource.setResult(JSON)
-                return
-            }
+            completionSource.setResult(JSON)
+            return
         }
 
         return completionSource.task
@@ -117,10 +111,8 @@ extension APIManager {
                 completionSource.setError(error)
                 return
             }
-            if let JSON = JSON as? [String: AnyObject] {
-                completionSource.setResult(JSON)
-                return
-            }
+            completionSource.setResult(JSON)
+            return
         }
 
         return completionSource.task

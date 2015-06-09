@@ -22,4 +22,8 @@ extension APIManager {
     func showUser(id: Int) -> BFTask {
         return request(.GET, path: "/v1/users/\(id)").APIErrorHandler()
     }
+
+    func searchUser() -> BFTask {
+        return request(.GET, path: "/v1/users/").APIErrorHandler()
+    }
 }
