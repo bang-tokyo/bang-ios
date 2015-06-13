@@ -65,6 +65,9 @@
                                                                 <constraint firstAttribute="width" secondItem="ns5-2E-jhc" secondAttribute="height" multiplier="1:1" id="SxN-if-Dka"/>
                                                             </constraints>
                                                         </view>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="test" translatesAutoresizingMaskIntoConstraints="NO" id="Gjq-Ha-mct">
+                                                            <rect key="frame" x="8" y="1" width="160" height="160"/>
+                                                        </imageView>
                                                     </subviews>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <constraints>
@@ -79,7 +82,6 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
-                                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="1C9-QL-zBj" secondAttribute="bottom" constant="10" id="7bh-sV-4qY"/>
                                             <constraint firstAttribute="trailing" secondItem="1C9-QL-zBj" secondAttribute="trailing" constant="10" id="85K-R3-Obr"/>
@@ -145,4 +147,7 @@
             <point key="canvasLocation" x="1299" y="412"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="test" width="210" height="210"/>
+    </resources>
 </document>

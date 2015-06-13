@@ -23,6 +23,7 @@ class MiddleSearchViewController: UIViewController {
     private var hasSelectedTarget = false
 
     private let widthSizeOfCell: CGFloat = 200 // Cellのサイズが200x200
+	private let cellMargin:CGFloat = -100 // cell間のマージン
     private var bothEndsSpeceSizeOfCell: CGFloat = 0 // CollectionViewの両端に空けたスペースのサイズ
 
     override func viewDidLoad() {
@@ -124,15 +125,18 @@ extension MiddleSearchViewController: UICollectionViewDelegate {
     func scrollViewWillEndDragging(scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
 		
         // スワイプした到着点の画面の中心にきたCellを選択すべきCellとする
-        var targetPoint = CGPoint(x: collectionView.frame.width/2 + targetContentOffset.memory.x, y: collectionView.frame.height/2)
+        var targetPoint = CGPoint(x: collectionView.frame.width/2 + targetContentOffset.memory.x + cellMargin, y: collectionView.frame.height/2)
         var targetIndexPath = collectionView.indexPathForItemAtPoint(targetPoint)
-		
-		println(targetIndexPath)
 
+		println(widthSizeOfCell - cellMargin)
         // 選択すべきCellの中心座標をスワイプの到着地点として再定義することでTargetCellの中心でスワイプを止める
-        var targetX = widthSizeOfCell * CGFloat(targetIndexPath!.row)
+        var targetX = (widthSizeOfCell + cellMargin) * CGFloat(targetIndexPath!.row)
         targetContentOffset.memory.x = targetX > 0 ? targetX : 0.0
 		
+		println(">>>>>>>>>>")
+		println(targetPoint)
+		println(targetIndexPath)
+		println(targetIndexPath!.row)
 		println(targetX)
 		
         selectedTargetIndexPath = targetIndexPath
@@ -157,11 +161,9 @@ extension MiddleSearchViewController: UICollectionViewDelegate {
 			if (scalableRange - diffX) > 0 {
 				//倍率を算出
 				var scale = (scalableRange - diffX) / scalableRange
-				
 				if let c = cell as? SearchTargetCollectionViewCell {
-					if(scale < 0.5) {
-						scale = 0.5
-					}
+					scale = (scale < 0.5) ? 0.5 : scale
+					c.containerView.alpha = scale * 1.25
 					c.containerView.transform = CGAffineTransformMakeScale(scale, scale)
 				}
 			}
@@ -173,9 +175,17 @@ extension MiddleSearchViewController: UICollectionViewDelegate {
 
 // MARK: - UICollectionViewDelegateFlowLayout
 extension MiddleSearchViewController: UICollectionViewDelegateFlowLayout {
+	
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
         return UIEdgeInsetsMake(0, bothEndsSpeceSizeOfCell, 0, bothEndsSpeceSizeOfCell);
     }
+	func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
+		return cellMargin
+	}
+
+//	func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAtIndex section: Int) -> CGFloat {
+//		return 100.0
+//	}
 }
 
 // MARK: - UICollectionViewDataSource
@@ -194,6 +204,7 @@ extension MiddleSearchViewController: UICollectionViewDataSource {
         var cell = collectionView.dequeueReusableCellWithReuseIdentifier("searchTargetCell", forIndexPath: indexPath) as! SearchTargetCollectionViewCell
         //var user = searchedUsers[indexPath.row]
         //cell.setup(user)
+		
 		cell.containerView.transform = CGAffineTransformMakeScale(0.5, 0.5)
         return cell
     }
