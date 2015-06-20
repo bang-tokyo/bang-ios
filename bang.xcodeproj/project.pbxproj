@@ -46,6 +46,7 @@
 		B84BF6001B2428E800067C4A /* _UserBangDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84BF5FF1B2428E800067C4A /* _UserBangDto.swift */; };
 		B84BF6031B24856900067C4A /* RequestedBangDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84BF6021B24856900067C4A /* RequestedBangDataHandler.swift */; };
 		B84BF6061B350CE000067C4A /* DefaultFetchedResultsControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84BF6051B350CE000067C4A /* DefaultFetchedResultsControllerDelegate.swift */; };
+		B84BF6081B35951B00067C4A /* GlobalFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84BF6071B35951B00067C4A /* GlobalFunctions.swift */; };
 		B85A3D101AEFBCC3008AC7B8 /* bang.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B85A3D0E1AEFBCC3008AC7B8 /* bang.xcdatamodeld */; };
 		B899149E1A8C1F69003E8930 /* BLECentralManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B899149D1A8C1F69003E8930 /* BLECentralManager.swift */; };
 		B8B979CC1AE67FE600BC3E2C /* APIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B979CB1AE67FE600BC3E2C /* APIResponse.swift */; };
@@ -128,6 +129,7 @@
 		B84BF5FF1B2428E800067C4A /* _UserBangDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _UserBangDto.swift; sourceTree = "<group>"; };
 		B84BF6021B24856900067C4A /* RequestedBangDataHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestedBangDataHandler.swift; sourceTree = "<group>"; };
 		B84BF6051B350CE000067C4A /* DefaultFetchedResultsControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultFetchedResultsControllerDelegate.swift; sourceTree = "<group>"; };
+		B84BF6071B35951B00067C4A /* GlobalFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalFunctions.swift; sourceTree = "<group>"; };
 		B85A3D0F1AEFBCC3008AC7B8 /* bang.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = bang.xcdatamodel; sourceTree = "<group>"; };
 		B899149D1A8C1F69003E8930 /* BLECentralManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLECentralManager.swift; sourceTree = "<group>"; };
 		B8B979CB1AE67FE600BC3E2C /* APIResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIResponse.swift; sourceTree = "<group>"; };
@@ -446,6 +448,7 @@
 				B8F9C6981AEB9C8F003320AB /* Error.swift */,
 				B82CA45A1AEC7C4100159D99 /* Alert.swift */,
 				B84A6EBB1AF44D2600A7C632 /* Date.swift */,
+				B84BF6071B35951B00067C4A /* GlobalFunctions.swift */,
 			);
 			path = Functions;
 			sourceTree = "<group>";
@@ -767,6 +770,7 @@
 				B8D9B2501A824DC700B30271 /* BaseViewController.swift in Sources */,
 				B84BF6001B2428E800067C4A /* _UserBangDto.swift in Sources */,
 				B8F9C6991AEB9C8F003320AB /* Error.swift in Sources */,
+				B84BF6081B35951B00067C4A /* GlobalFunctions.swift in Sources */,
 				B8DD298C1A8B1CC10024ABD0 /* BLEEnum+Extension.swift in Sources */,
 				B84BF5FA1B24254E00067C4A /* APIResponse+UserBang.swift in Sources */,
 				B82448441A8F183400B540A4 /* FacebookManager.swift in Sources */,

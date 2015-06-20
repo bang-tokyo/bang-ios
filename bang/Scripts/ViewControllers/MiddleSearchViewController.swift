@@ -66,14 +66,7 @@ class MiddleSearchViewController: UIViewController {
                 self?.collectionView.reloadData()
                 self?.collectionView.collectionViewLayout.invalidateLayout()
 
-                // TODO : - Alert閉じたあと操作できなくなるので調査...
-                //Alert.showNormal("Bang", message: "Bang For \(user.name) Complete!")
-                var alrtView: Void = UIAlertView(
-                    title: "Bang",
-                    message: "Bang For \(user.name) Complete!",
-                    delegate: nil,
-                    cancelButtonTitle: "OK"
-                ).show()
+                Alert.showNormal("Bang", message: "Bang For \(user.name) Complete!")
                 return task
             })
         }
