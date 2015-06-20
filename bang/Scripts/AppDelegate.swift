@@ -104,6 +104,7 @@ extension AppDelegate: LocationManagerDelegate {
 extension AppDelegate {
     private func setupMagicalRecord() {
         MagicalRecord.setupCoreDataStackWithAutoMigratingSqliteStoreNamed("bang.sqlite")
+        MagicalRecord.setLoggingLevel(.Verbose)
     }
 
     private func showViewController(viewController: UIViewController) {

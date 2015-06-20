@@ -23,7 +23,7 @@
                                     <navigationItem title="RequestedBang" id="7lr-Ld-urv"/>
                                 </items>
                             </navigationBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="100" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="4Qn-Ei-h6o">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="100" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="4Qn-Ei-h6o">
                                 <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -33,7 +33,7 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wPG-gQ-jY7" id="pcF-1p-oGP">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aUF-WX-I89" customClass="FBProfilePictureView">
+                                                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aUF-WX-I89" customClass="FBProfilePictureView">
                                                     <rect key="frame" x="10" y="3" width="93" height="93"/>
                                                     <color key="backgroundColor" red="0.96730981689999995" green="0.96730981689999995" blue="0.96730981689999995" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
@@ -70,7 +70,7 @@
                                                         <action selector="onClickAcceptButton:" destination="wPG-gQ-jY7" eventType="touchUpInside" id="r1A-WY-7I0"/>
                                                     </connections>
                                                 </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NAME" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.70000000000000018" translatesAutoresizingMaskIntoConstraints="NO" id="DFg-lg-mSb">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="NAME" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.70000000000000018" translatesAutoresizingMaskIntoConstraints="NO" id="DFg-lg-mSb">
                                                     <rect key="frame" x="113" y="41" width="337" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>

@@ -27,7 +27,6 @@ extension APIResponse {
 
         override class func JSONKeyPathsByPropertyKey() -> [NSObject : AnyObject]! {
             return [
-                "facebookId": "facebook_id",
                 "genderValue": "gender",
                 "statusValue": "status"
             ]

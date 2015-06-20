@@ -25,10 +25,14 @@ class RequestedBangTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+    func configure(userBangDto: UserBangDto) {
+        profilePictureView.profileID = userBangDto.fromUser?.facebookId
+        nameLabel.text = userBangDto.fromUser?.name
+    }
+
     @IBAction func onClickAcceptButton(sender: UIButton) {
     }
 
     @IBAction func onClickDenyButton(sender: UIButton) {
     }
-
 }

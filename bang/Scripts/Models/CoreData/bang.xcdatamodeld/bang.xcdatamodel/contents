@@ -11,7 +11,17 @@
         <attribute name="statusValue" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="updatedAt" optional="YES" attributeType="Date" syncable="YES"/>
     </entity>
+    <entity name="UserBang" representedClassName="UserBangDto" syncable="YES">
+        <attribute name="createdAt" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="fromUserId" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="itemId" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="statusValue" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="updatedAt" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="fromUser" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="User" syncable="YES"/>
+    </entity>
     <elements>
         <element name="User" positionX="-63" positionY="-18" width="128" height="180"/>
+        <element name="UserBang" positionX="-63" positionY="54" width="128" height="150"/>
     </elements>
 </model>

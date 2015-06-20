@@ -23,7 +23,15 @@ final class DataStore: NSObject {
     func saveUser(user: APIResponse.User) -> BFTask {
         return save {
             (context, willUpdate) -> Void in
-            let user = self.saveUser(user, context: context)
+            self.saveUser(user, context: context)
+            return
+        }
+    }
+
+    func saveUserBangList(userBangList: [APIResponse.UserBang]) -> BFTask {
+        return save {
+            (context, willUpdate) -> Void in
+            self.saveUserBangList(userBangList, context: context)
             return
         }
     }
@@ -51,5 +59,18 @@ extension DataStore {
         let userDto: UserDto = UserDto.firstOrInitializeById(user.id, context: context)
         userDto.fill(user)
         return userDto
+    }
+
+    private func saveUserBang(userBang: APIResponse.UserBang, context: NSManagedObjectContext) -> UserBangDto {
+        let fromUser: UserDto = saveUser(userBang.fromUser, context: context)
+
+        let userBangDto: UserBangDto = UserBangDto.firstOrInitializeById(userBang.id, context: context)
+        userBangDto.fill(userBang)
+        userBangDto.fromUser = fromUser
+        return userBangDto
+    }
+
+    private func saveUserBangList(userBangList: [APIResponse.UserBang], context: NSManagedObjectContext) -> [UserBangDto] {
+        return userBangList.map { self.saveUserBang($0, context: context) }
     }
 }
