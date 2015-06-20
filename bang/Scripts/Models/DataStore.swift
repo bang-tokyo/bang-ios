@@ -28,6 +28,14 @@ final class DataStore: NSObject {
         }
     }
 
+    func saveUserBang(userBang: APIResponse.UserBang) -> BFTask {
+        return save {
+            (context, willUpdate) -> Void in
+            self.saveUserBang(userBang, context: context)
+            return
+        }
+    }
+
     func saveUserBangList(userBangList: [APIResponse.UserBang]) -> BFTask {
         return save {
             (context, willUpdate) -> Void in

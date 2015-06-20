@@ -14,8 +14,15 @@ extension APIManager {
         return request(.GET, path: "/v1/bang/request/\(id)").APIErrorHandler()
     }
 
-    func replyBang(id: Int) -> BFTask {
-        return request(.GET, path: "/v1/bang/reply/\(id)").APIErrorHandler()
+    func replyBang(id: Int, status: BangStatus) -> BFTask {
+        switch status {
+        case .Accept:
+            return request(.GET, path: "/v1/bang/reply/\(id)/accept").APIErrorHandler()
+        case .Deny:
+            return request(.GET, path: "/v1/bang/reply/\(id)/deny").APIErrorHandler()
+        default:
+            return request(.GET, path: "/v1/bang/reply/\(id)/default").APIErrorHandler()
+        }
     }
 
     func requestedList() -> BFTask {

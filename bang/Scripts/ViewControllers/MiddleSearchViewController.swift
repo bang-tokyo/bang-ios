@@ -60,7 +60,7 @@ class MiddleSearchViewController: UIViewController {
     @IBAction func onClickBangButton(sender: UIButton) {
         if let indexPath = selectedTargetIndexPath {
             var user = searchedUsers[indexPath.row]
-            APIManager.sharedInstance.requestBang(Int(user.id)).continueWithBlock({
+            APIManager.sharedInstance.requestBang(user.id.integerValue).continueWithBlock({
                 [weak self] (task) -> AnyObject! in
                 self?.searchedUsers.removeAtIndex(indexPath.row)
                 self?.collectionView.reloadData()
@@ -68,7 +68,7 @@ class MiddleSearchViewController: UIViewController {
 
                 // TODO : - Alert閉じたあと操作できなくなるので調査...
                 //Alert.showNormal("Bang", message: "Bang For \(user.name) Complete!")
-                var alrtView = UIAlertView(
+                var alrtView: Void = UIAlertView(
                     title: "Bang",
                     message: "Bang For \(user.name) Complete!",
                     delegate: nil,
