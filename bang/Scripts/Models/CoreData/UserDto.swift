@@ -1,6 +1,23 @@
 @objc(UserDto)
 class UserDto: _UserDto {
 
+    // MARK: - Class functions
+    override func willSave() {
+        super.willSave()
+        setPrimitiveValue(NSDate(), forKey: "savedAt")
+    }
+
+    override func awakeFromFetch() {
+        super.awakeFromFetch()
+        gender = Gender.build(genderValue?.integerValue)
+        status = UserStatus.build(statusValue?.integerValue)
+    }
+
+    override var description: String {
+        return "id:\(id), facebookId:\(facebookId), name:\(name), birthday:\(birthday), gender:\(gender), status:\(status), updatedAt:\(updatedAt), createdAt:\(createdAt)"
+    }
+
+    // MARK: - Instance valuables and functions
     var gender: Gender = .Transgender {
         didSet {
             genderValue = gender.rawValue
@@ -11,17 +28,6 @@ class UserDto: _UserDto {
         didSet {
             statusValue = status.rawValue
         }
-    }
-
-    override func willSave() {
-        super.willSave()
-        setPrimitiveValue(NSDate(), forKey: "savedAt")
-    }
-
-    override func awakeFromFetch() {
-        super.awakeFromFetch()
-        gender = Gender.build(genderValue?.integerValue)
-        status = UserStatus.build(statusValue?.integerValue)
     }
 
     func fill(user: APIResponse.User) {

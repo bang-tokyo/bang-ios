@@ -60,20 +60,13 @@ class MiddleSearchViewController: UIViewController {
     @IBAction func onClickBangButton(sender: UIButton) {
         if let indexPath = selectedTargetIndexPath {
             var user = searchedUsers[indexPath.row]
-            APIManager.sharedInstance.requestBang(Int(user.id)).continueWithBlock({
+            APIManager.sharedInstance.requestBang(user.id.integerValue).continueWithBlock({
                 [weak self] (task) -> AnyObject! in
                 self?.searchedUsers.removeAtIndex(indexPath.row)
                 self?.collectionView.reloadData()
                 self?.collectionView.collectionViewLayout.invalidateLayout()
 
-                // TODO : - Alert閉じたあと操作できなくなるので調査...
-                //Alert.showNormal("Bang", message: "Bang For \(user.name) Complete!")
-                var alrtView = UIAlertView(
-                    title: "Bang",
-                    message: "Bang For \(user.name) Complete!",
-                    delegate: nil,
-                    cancelButtonTitle: "OK"
-                ).show()
+                Alert.showNormal("Bang", message: "Bang For \(user.name) Complete!")
                 return task
             })
         }
@@ -97,8 +90,9 @@ extension MiddleSearchViewController {
     }
 
     private func searchTargetUsers() {
+        ProgressHUD.show()
         // 検索で帰ってきたUserデータはすぐ破棄するのでCoreDataにキャッシュしない。
-        APIManager.sharedInstance.searchUser().continueWithBlock({
+        APIManager.sharedInstance.searchUser().hideProgressHUD().continueWithBlock({
             [weak self] (task) -> AnyObject! in
             if let users = APIResponse.parseJSONArray(APIResponse.User.self, task.result) {
                 self?.searchedUsers = users

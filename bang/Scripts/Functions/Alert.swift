@@ -12,11 +12,23 @@ class Alert: NSObject {
     private var _window: UIWindow! = nil
 
     class func showNormal(title: String, message: String) {
-        sharedInstance.show(title, message: message)
+        sharedInstance.show(title, message: message, labels: [localizedString("confirm")])
+    }
+
+    class func showYesNo(title: String, message: String, clicked:(()->Void)? = nil) {
+        sharedInstance.show("error",
+            message: message,
+            labels: [localizedString("yes"), localizedString("no")],
+            clicked: clicked
+        )
     }
 
     class func showError(message: String, clicked:(()->Void)? = nil) {
-        sharedInstance.show("error", message: message, clicked: clicked)
+        sharedInstance.show("error",
+            message: message,
+            labels: [localizedString("confirm")],
+            clicked: clicked
+        )
     }
 }
 
@@ -40,13 +52,18 @@ extension Alert {
         return _window
     }
 
-    private func show(title: String, message: String, clicked: (()->Void)? = nil, completion: (()->Void)? = nil) {
+    private func show(title: String, message: String, labels: [String], clicked: (()->Void)? = nil, completion: (()->Void)? = nil) {
         var alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
-        alertController.addAction(UIAlertAction(
-            title: NSLocalizedString("confirm", comment: ""),
-            style: .Default,
-            handler: nil
-        ))
+        for (index, label) in enumerate(labels) {
+            let style = index == 0 ? UIAlertActionStyle.Default : UIAlertActionStyle.Cancel
+            alertController.addAction(UIAlertAction(title: label, style: style, handler: {
+                (alertAction) -> Void in
+                if index == 0 {
+                    if let handler = clicked { handler() }
+                }
+                self.window.hidden = true
+            }))
+        }
         window.hidden = false
         var rootViewController = window.rootViewController
         rootViewController?.presentViewController(alertController, animated: true, completion: completion)

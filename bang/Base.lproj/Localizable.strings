@@ -7,6 +7,8 @@
 */
 
 // MARK: - Jeneral
+"yes" = "Yes";
+"no" = "No";
 "confirm" = "OK";
 
 // MARK: - Facebook

@@ -77,10 +77,10 @@ extension FacebookManager {
 
 //    private func showAlertAboutError(text: String) {
 //        UIAlertView(
-//            title: NSLocalizedString("facebookAlertTitle", comment: ""),
+//            title: localizedString("facebookAlertTitle"),
 //            message: text,
 //            delegate: nil,
-//            cancelButtonTitle: NSLocalizedString("confirm", comment: "")
+//            cancelButtonTitle: localizedString("confirm")
 //        ).show()
 //    }
 }
