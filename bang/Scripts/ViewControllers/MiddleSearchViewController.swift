@@ -90,8 +90,9 @@ extension MiddleSearchViewController {
     }
 
     private func searchTargetUsers() {
+        ProgressHUD.show()
         // 検索で帰ってきたUserデータはすぐ破棄するのでCoreDataにキャッシュしない。
-        APIManager.sharedInstance.searchUser().continueWithBlock({
+        APIManager.sharedInstance.searchUser().hideProgressHUD().continueWithBlock({
             [weak self] (task) -> AnyObject! in
             if let users = APIResponse.parseJSONArray(APIResponse.User.self, task.result) {
                 self?.searchedUsers = users

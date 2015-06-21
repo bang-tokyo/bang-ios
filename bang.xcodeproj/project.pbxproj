@@ -47,6 +47,7 @@
 		B84BF6031B24856900067C4A /* RequestedBangDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84BF6021B24856900067C4A /* RequestedBangDataHandler.swift */; };
 		B84BF6061B350CE000067C4A /* DefaultFetchedResultsControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84BF6051B350CE000067C4A /* DefaultFetchedResultsControllerDelegate.swift */; };
 		B84BF6081B35951B00067C4A /* GlobalFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84BF6071B35951B00067C4A /* GlobalFunctions.swift */; };
+		B84BF60A1B364AA100067C4A /* ProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84BF6091B364AA100067C4A /* ProgressHUD.swift */; };
 		B85A3D101AEFBCC3008AC7B8 /* bang.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B85A3D0E1AEFBCC3008AC7B8 /* bang.xcdatamodeld */; };
 		B899149E1A8C1F69003E8930 /* BLECentralManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B899149D1A8C1F69003E8930 /* BLECentralManager.swift */; };
 		B8B979CC1AE67FE600BC3E2C /* APIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B979CB1AE67FE600BC3E2C /* APIResponse.swift */; };
@@ -130,6 +131,7 @@
 		B84BF6021B24856900067C4A /* RequestedBangDataHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestedBangDataHandler.swift; sourceTree = "<group>"; };
 		B84BF6051B350CE000067C4A /* DefaultFetchedResultsControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultFetchedResultsControllerDelegate.swift; sourceTree = "<group>"; };
 		B84BF6071B35951B00067C4A /* GlobalFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalFunctions.swift; sourceTree = "<group>"; };
+		B84BF6091B364AA100067C4A /* ProgressHUD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressHUD.swift; sourceTree = "<group>"; };
 		B85A3D0F1AEFBCC3008AC7B8 /* bang.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = bang.xcdatamodel; sourceTree = "<group>"; };
 		B899149D1A8C1F69003E8930 /* BLECentralManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLECentralManager.swift; sourceTree = "<group>"; };
 		B8B979CB1AE67FE600BC3E2C /* APIResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIResponse.swift; sourceTree = "<group>"; };
@@ -449,6 +451,7 @@
 				B82CA45A1AEC7C4100159D99 /* Alert.swift */,
 				B84A6EBB1AF44D2600A7C632 /* Date.swift */,
 				B84BF6071B35951B00067C4A /* GlobalFunctions.swift */,
+				B84BF6091B364AA100067C4A /* ProgressHUD.swift */,
 			);
 			path = Functions;
 			sourceTree = "<group>";
@@ -764,6 +767,7 @@
 				B838B6DA1AF4667F00243580 /* GCD.swift in Sources */,
 				B807F3361AB433D300571ACB /* Tracker.swift in Sources */,
 				B84A6EB81AF4432B00A7C632 /* Gender.swift in Sources */,
+				B84BF60A1B364AA100067C4A /* ProgressHUD.swift in Sources */,
 				B8E6D9A91ABE55840094D582 /* LocationManager.swift in Sources */,
 				B8F9C6971AE6947D003320AB /* APIResponse+Facebook.swift in Sources */,
 				B8F1389C1A8A4B84002A820E /* BLEPeripheralManager.swift in Sources */,
