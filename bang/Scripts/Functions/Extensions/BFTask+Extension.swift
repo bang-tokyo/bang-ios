@@ -21,4 +21,12 @@ extension BFTask {
             return task
         })
     }
+
+    func hideProgressHUD() -> BFTask {
+        return continueWithBlock({
+            (task) -> AnyObject! in
+            ProgressHUD.hide()
+            return task
+        })
+    }
 }
