@@ -125,19 +125,13 @@ extension MiddleSearchViewController: UICollectionViewDelegate {
     func scrollViewWillEndDragging(scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
 		
         // スワイプした到着点の画面の中心にきたCellを選択すべきCellとする
-        var targetPoint = CGPoint(x: collectionView.frame.width/2 + targetContentOffset.memory.x + cellMargin, y: collectionView.frame.height/2)
+        var targetPoint = CGPoint(x: collectionView.frame.width/2 + targetContentOffset.memory.x + cellMargin / 2 , y: collectionView.frame.height/2)
         var targetIndexPath = collectionView.indexPathForItemAtPoint(targetPoint)
 
 		println(widthSizeOfCell - cellMargin)
         // 選択すべきCellの中心座標をスワイプの到着地点として再定義することでTargetCellの中心でスワイプを止める
         var targetX = (widthSizeOfCell + cellMargin) * CGFloat(targetIndexPath!.row)
         targetContentOffset.memory.x = targetX > 0 ? targetX : 0.0
-		
-		println(">>>>>>>>>>")
-		println(targetPoint)
-		println(targetIndexPath)
-		println(targetIndexPath!.row)
-		println(targetX)
 		
         selectedTargetIndexPath = targetIndexPath
         enableBangButton()
@@ -164,6 +158,14 @@ extension MiddleSearchViewController: UICollectionViewDelegate {
 				if let c = cell as? SearchTargetCollectionViewCell {
 					scale = (scale < 0.5) ? 0.5 : scale
 					c.containerView.alpha = scale * 1.25
+					
+					//深度の設定
+					if scale >= 0.6 {
+						c.superview?.bringSubviewToFront(c)
+					}else{
+						c.superview?.sendSubviewToBack(c)
+					}
+					
 					c.containerView.transform = CGAffineTransformMakeScale(scale, scale)
 				}
 			}
