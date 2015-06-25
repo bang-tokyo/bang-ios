@@ -33,13 +33,6 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wPG-gQ-jY7" id="pcF-1p-oGP">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aUF-WX-I89" customClass="FBProfilePictureView">
-                                                    <rect key="frame" x="10" y="3" width="93" height="93"/>
-                                                    <color key="backgroundColor" red="0.96730981689999995" green="0.96730981689999995" blue="0.96730981689999995" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" secondItem="aUF-WX-I89" secondAttribute="height" multiplier="1:1" id="dIg-t3-sAT"/>
-                                                    </constraints>
-                                                </view>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Zw-Ji-SqL">
                                                     <rect key="frame" x="530" y="36" width="60" height="27"/>
                                                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -70,12 +63,20 @@
                                                         <action selector="onClickAcceptButton:" destination="wPG-gQ-jY7" eventType="touchUpInside" id="r1A-WY-7I0"/>
                                                     </connections>
                                                 </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="NAME" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.70000000000000018" translatesAutoresizingMaskIntoConstraints="NO" id="DFg-lg-mSb">
-                                                    <rect key="frame" x="113" y="41" width="337" height="18"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NAME" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.70000000000000018" translatesAutoresizingMaskIntoConstraints="NO" id="DFg-lg-mSb">
+                                                    <rect key="frame" x="114" y="41" width="336" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aUF-WX-I89" customClass="FBProfilePictureView">
+                                                    <rect key="frame" x="10" y="3" width="94" height="94"/>
+                                                    <color key="backgroundColor" red="0.96730981689999995" green="0.96730981689999995" blue="0.96730981689999995" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="aUF-WX-I89" secondAttribute="height" multiplier="1:1" id="dIg-t3-sAT"/>
+                                                        <constraint firstAttribute="height" constant="94" id="fns-eh-Cxg"/>
+                                                    </constraints>
+                                                </view>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="5Zw-Ji-SqL" secondAttribute="trailing" constant="10" id="0Ri-1n-IwA"/>
@@ -84,9 +85,8 @@
                                                 <constraint firstItem="5Zw-Ji-SqL" firstAttribute="leading" secondItem="HXJ-kU-vrt" secondAttribute="trailing" constant="10" id="Eka-re-7qc"/>
                                                 <constraint firstItem="aUF-WX-I89" firstAttribute="leading" secondItem="pcF-1p-oGP" secondAttribute="leading" constant="10" id="F7t-27-Zuv"/>
                                                 <constraint firstAttribute="centerY" secondItem="DFg-lg-mSb" secondAttribute="centerY" id="Wv6-oh-2mD"/>
-                                                <constraint firstAttribute="bottom" secondItem="aUF-WX-I89" secondAttribute="bottom" constant="3" id="Y8j-Wf-mps"/>
-                                                <constraint firstItem="aUF-WX-I89" firstAttribute="top" secondItem="pcF-1p-oGP" secondAttribute="top" constant="3" id="bVF-1m-5nJ"/>
                                                 <constraint firstItem="HXJ-kU-vrt" firstAttribute="leading" secondItem="DFg-lg-mSb" secondAttribute="trailing" constant="10" id="lCT-s7-lWf"/>
+                                                <constraint firstAttribute="centerY" secondItem="aUF-WX-I89" secondAttribute="centerY" id="z9u-oo-EBr"/>
                                                 <constraint firstItem="DFg-lg-mSb" firstAttribute="leading" secondItem="aUF-WX-I89" secondAttribute="trailing" constant="10" id="zhU-Ft-xIY"/>
                                             </constraints>
                                         </tableViewCellContentView>

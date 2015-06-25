@@ -43,6 +43,14 @@ final class DataStore: NSObject {
             return
         }
     }
+
+    func saveConversationList(conversationList: [APIResponse.Conversation]) -> BFTask {
+        return save {
+            (context, willUpdate) -> Void in
+            self.saveConversationList(conversationList, context: context)
+            return
+        }
+    }
 }
 
 // MARK: - Praivate functions
@@ -80,5 +88,31 @@ extension DataStore {
 
     private func saveUserBangList(userBangList: [APIResponse.UserBang], context: NSManagedObjectContext) -> [UserBangDto] {
         return userBangList.map { self.saveUserBang($0, context: context) }
+    }
+
+    private func saveConversationUser(conversationUser: APIResponse.ConversationUser, context: NSManagedObjectContext) -> ConversationUserDto {
+        let user: UserDto = saveUser(conversationUser.user, context: context)
+
+        let conversationUserDto: ConversationUserDto = ConversationUserDto.firstOrInitializeById(conversationUser.id, context: context)
+        conversationUserDto.fill(conversationUser)
+        conversationUserDto.user = user
+        return conversationUserDto
+    }
+
+    private func saveConversationUserList(conversationUserList: [APIResponse.ConversationUser], context: NSManagedObjectContext) -> [ConversationUserDto] {
+        return conversationUserList.map { self.saveConversationUser($0, context: context) }
+    }
+
+    private func saveConversation(conversation: APIResponse.Conversation, context: NSManagedObjectContext) -> ConversationDto {
+        let conversationUsers: [ConversationUserDto] = saveConversationUserList(conversation.conversationUsers, context: context)
+
+        let conversationDto: ConversationDto = ConversationDto.firstOrInitializeById(conversation.id, context: context)
+        conversationDto.fill(conversation)
+        conversationDto.conversationUsers = NSOrderedSet(array: conversationUsers)
+        return conversationDto
+    }
+
+    private func saveConversationList(conversationList: [APIResponse.Conversation], context: NSManagedObjectContext) -> [ConversationDto] {
+        return conversationList.map { self.saveConversation($0, context: context) }
     }
 }

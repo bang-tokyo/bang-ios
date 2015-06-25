@@ -15,6 +15,11 @@ enum UserDtoAttributes: String {
     case updatedAt = "updatedAt"
 }
 
+enum UserDtoRelationships: String {
+    case conversationUser = "conversationUser"
+    case userBang = "userBang"
+}
+
 @objc
 class _UserDto: NSManagedObject {
 
@@ -88,5 +93,66 @@ class _UserDto: NSManagedObject {
 
     // MARK: - Relationships
 
+    @NSManaged
+    var conversationUser: NSSet
+
+    @NSManaged
+    var userBang: NSSet
+
 }
 
+extension _UserDto {
+
+    func addConversationUser(objects: NSSet) {
+        let mutable = self.conversationUser.mutableCopy() as! NSMutableSet
+        mutable.unionSet(objects as Set<NSObject>)
+        self.conversationUser = mutable.copy() as! NSSet
+    }
+
+    func removeConversationUser(objects: NSSet) {
+        let mutable = self.conversationUser.mutableCopy() as! NSMutableSet
+        mutable.minusSet(objects as Set<NSObject>)
+        self.conversationUser = mutable.copy() as! NSSet
+    }
+
+    func addConversationUserObject(value: ConversationUserDto!) {
+        let mutable = self.conversationUser.mutableCopy() as! NSMutableSet
+        mutable.addObject(value)
+        self.conversationUser = mutable.copy() as! NSSet
+    }
+
+    func removeConversationUserObject(value: ConversationUserDto!) {
+        let mutable = self.conversationUser.mutableCopy() as! NSMutableSet
+        mutable.removeObject(value)
+        self.conversationUser = mutable.copy() as! NSSet
+    }
+
+}
+
+extension _UserDto {
+
+    func addUserBang(objects: NSSet) {
+        let mutable = self.userBang.mutableCopy() as! NSMutableSet
+        mutable.unionSet(objects as Set<NSObject>)
+        self.userBang = mutable.copy() as! NSSet
+    }
+
+    func removeUserBang(objects: NSSet) {
+        let mutable = self.userBang.mutableCopy() as! NSMutableSet
+        mutable.minusSet(objects as Set<NSObject>)
+        self.userBang = mutable.copy() as! NSSet
+    }
+
+    func addUserBangObject(value: UserBangDto!) {
+        let mutable = self.userBang.mutableCopy() as! NSMutableSet
+        mutable.addObject(value)
+        self.userBang = mutable.copy() as! NSSet
+    }
+
+    func removeUserBangObject(value: UserBangDto!) {
+        let mutable = self.userBang.mutableCopy() as! NSMutableSet
+        mutable.removeObject(value)
+        self.userBang = mutable.copy() as! NSSet
+    }
+
+}
