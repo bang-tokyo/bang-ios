@@ -9,7 +9,7 @@
 import UIKit
 import FacebookSDK
 
-class ProfileViewController: BaseViewController {
+class ProfileViewController: UIViewController {
 
     class func build() -> ProfileViewController {
         var storyboard = UIStoryboard(name: "Profile", bundle: nil)
@@ -62,6 +62,7 @@ class ProfileViewController: BaseViewController {
     }
 }
 
+// MARK: - Private functions
 extension ProfileViewController {
     private func moveToLoginViewController() {
         var loginViewController = LoginViewController.build()
