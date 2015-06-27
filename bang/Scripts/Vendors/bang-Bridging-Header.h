@@ -11,3 +11,4 @@
 #import <Mantle/Mantle.h>
 #import <TAKUUID/TAKUUID.h>
 #import <SVProgressHUD/SVProgressHUD.h>
+#import <HPGrowingTextView/HPGrowingTextView.h>

@@ -61,6 +61,8 @@
 		B84BF62A1B3C3FF100067C4A /* ConversationDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B84BF6291B3C3FF100067C4A /* ConversationDetail.storyboard */; };
 		B84BF62F1B3C42FF00067C4A /* ConversationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84BF62E1B3C42FF00067C4A /* ConversationDetailViewController.swift */; };
 		B84BF6321B3CCD5300067C4A /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84BF6311B3CCD5300067C4A /* NotificationManager.swift */; };
+		B84BF6361B3EEC2200067C4A /* KeyboardDisplayDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84BF6351B3EEC2200067C4A /* KeyboardDisplayDetector.swift */; };
+		B84BF6381B3EF24000067C4A /* NSNotificationCenter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84BF6371B3EF24000067C4A /* NSNotificationCenter+Extension.swift */; };
 		B85A3D101AEFBCC3008AC7B8 /* bang.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B85A3D0E1AEFBCC3008AC7B8 /* bang.xcdatamodeld */; };
 		B899149E1A8C1F69003E8930 /* BLECentralManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B899149D1A8C1F69003E8930 /* BLECentralManager.swift */; };
 		B8B979CC1AE67FE600BC3E2C /* APIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B979CB1AE67FE600BC3E2C /* APIResponse.swift */; };
@@ -157,6 +159,8 @@
 		B84BF6291B3C3FF100067C4A /* ConversationDetail.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ConversationDetail.storyboard; sourceTree = "<group>"; };
 		B84BF62E1B3C42FF00067C4A /* ConversationDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversationDetailViewController.swift; sourceTree = "<group>"; };
 		B84BF6311B3CCD5300067C4A /* NotificationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		B84BF6351B3EEC2200067C4A /* KeyboardDisplayDetector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardDisplayDetector.swift; sourceTree = "<group>"; };
+		B84BF6371B3EF24000067C4A /* NSNotificationCenter+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSNotificationCenter+Extension.swift"; sourceTree = "<group>"; };
 		B85A3D0F1AEFBCC3008AC7B8 /* bang.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = bang.xcdatamodel; sourceTree = "<group>"; };
 		B899149D1A8C1F69003E8930 /* BLECentralManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLECentralManager.swift; sourceTree = "<group>"; };
 		B8B979CB1AE67FE600BC3E2C /* APIResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIResponse.swift; sourceTree = "<group>"; };
@@ -279,6 +283,7 @@
 			isa = PBXGroup;
 			children = (
 				B82CA4581AEC788200159D99 /* BFTask+Extension.swift */,
+				B84BF6371B3EF24000067C4A /* NSNotificationCenter+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -544,6 +549,7 @@
 				B84A6EBB1AF44D2600A7C632 /* Date.swift */,
 				B84BF6071B35951B00067C4A /* GlobalFunctions.swift */,
 				B84BF6091B364AA100067C4A /* ProgressHUD.swift */,
+				B84BF6351B3EEC2200067C4A /* KeyboardDisplayDetector.swift */,
 			);
 			path = Functions;
 			sourceTree = "<group>";
@@ -838,9 +844,11 @@
 				B8C1884F1AE3C6A200037552 /* BFTask+Facebook.swift in Sources */,
 				B84A6EB41AF441FC00A7C632 /* UserDto.swift in Sources */,
 				B8187BC91B16044900E23716 /* MiddleSearchViewController.swift in Sources */,
+				B84BF6381B3EF24000067C4A /* NSNotificationCenter+Extension.swift in Sources */,
 				B8F1389F1A8A4D13002A820E /* RoundedCornersView.swift in Sources */,
 				B84BF6251B39A26E00067C4A /* APIManager+Conversation.swift in Sources */,
 				B82CA4591AEC788200159D99 /* BFTask+Extension.swift in Sources */,
+				B84BF6361B3EEC2200067C4A /* KeyboardDisplayDetector.swift in Sources */,
 				B8187BCB1B1748C800E23716 /* SearchTargetCollectionViewCell.swift in Sources */,
 				B821152F1ADA6B5F002CCA46 /* GeneralInfo.swift in Sources */,
 				B84A6EBE1AF4578900A7C632 /* DataStore.swift in Sources */,
