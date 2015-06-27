@@ -59,18 +59,18 @@ class MiddleSearchViewController: UIViewController {
     }
 
     @IBAction func onClickBangButton(sender: UIButton) {
-//        if let indexPath = selectedTargetIndexPath {
-//            var user = searchedUsers[indexPath.row]
-//            APIManager.sharedInstance.requestBang(user.id.integerValue).continueWithBlock({
-//                [weak self] (task) -> AnyObject! in
-//                self?.searchedUsers.removeAtIndex(indexPath.row)
-//                self?.collectionView.reloadData()
-//                self?.collectionView.collectionViewLayout.invalidateLayout()
-//
-//                Alert.showNormal("Bang", message: "Bang For \(user.name) Complete!")
-//                return task
-//            })
-//        }
+        if let indexPath = selectedTargetIndexPath {
+            var user = searchedUsers[indexPath.row]
+            APIManager.sharedInstance.requestBang(user.id.integerValue).continueWithBlock({
+                [weak self] (task) -> AnyObject! in
+                self?.searchedUsers.removeAtIndex(indexPath.row)
+                self?.collectionView.reloadData()
+                self?.collectionView.collectionViewLayout.invalidateLayout()
+
+                Alert.showNormal("Bang", message: "Bang For \(user.name) Complete!")
+                return task
+            })
+        }
     }
 
 	@IBAction func onTouchBangBtn(sender: UIButton) {
@@ -194,8 +194,8 @@ extension MiddleSearchViewController: UICollectionViewDataSource {
         } else {
             disableBangButton()
         }
-        //return searchedUsers.count
-		return 10
+        return searchedUsers.count
+		//return 10
     }
 
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
