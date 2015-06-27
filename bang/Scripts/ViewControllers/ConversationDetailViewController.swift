@@ -116,7 +116,6 @@ extension ConversationDetailViewController: HPGrowingTextViewDelegate {
             () -> Void in
             self.view.layoutIfNeeded()
         })
-
     }
 
     func growingTextViewDidChange(growingTextView: HPGrowingTextView!) {
