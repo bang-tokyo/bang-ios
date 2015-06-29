@@ -17,12 +17,19 @@ class ConversationViewController: UIViewController {
         return viewControllers[0] as! ConversationViewController
     }
 
+    @IBOutlet weak var tableView: UITableView!
+
+    private var dataHandler: ConversationDataHandler!
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        dataHandler = ConversationDataHandler()
+        dataHandler.setup(tableView)
     }
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        dataHandler.fetchData()
     }
 
     override func didReceiveMemoryWarning() {

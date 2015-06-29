@@ -48,6 +48,16 @@
 		B84BF6061B350CE000067C4A /* DefaultFetchedResultsControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84BF6051B350CE000067C4A /* DefaultFetchedResultsControllerDelegate.swift */; };
 		B84BF6081B35951B00067C4A /* GlobalFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84BF6071B35951B00067C4A /* GlobalFunctions.swift */; };
 		B84BF60A1B364AA100067C4A /* ProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84BF6091B364AA100067C4A /* ProgressHUD.swift */; };
+		B84BF60D1B366F5B00067C4A /* ConversationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84BF60C1B366F5B00067C4A /* ConversationTableViewCell.swift */; };
+		B84BF60F1B36727100067C4A /* ConversationDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84BF60E1B36727100067C4A /* ConversationDataHandler.swift */; };
+		B84BF6111B36F06200067C4A /* ConversationDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84BF6101B36F06100067C4A /* ConversationDto.swift */; };
+		B84BF6151B36F08000067C4A /* _ConversationDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84BF6141B36F08000067C4A /* _ConversationDto.swift */; };
+		B84BF6191B38533B00067C4A /* APIResponse+Conversation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84BF6181B38533B00067C4A /* APIResponse+Conversation.swift */; };
+		B84BF61D1B3853C300067C4A /* ConversationKind.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84BF61C1B3853C300067C4A /* ConversationKind.swift */; };
+		B84BF61F1B3856B500067C4A /* ConversationUserDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84BF61E1B3856B500067C4A /* ConversationUserDto.swift */; };
+		B84BF6211B3856C000067C4A /* _ConversationUserDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84BF6201B3856C000067C4A /* _ConversationUserDto.swift */; };
+		B84BF6231B3857B300067C4A /* APIResponse+ConversationUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84BF6221B3857B300067C4A /* APIResponse+ConversationUser.swift */; };
+		B84BF6251B39A26E00067C4A /* APIManager+Conversation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84BF6241B39A26E00067C4A /* APIManager+Conversation.swift */; };
 		B85A3D101AEFBCC3008AC7B8 /* bang.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B85A3D0E1AEFBCC3008AC7B8 /* bang.xcdatamodeld */; };
 		B899149E1A8C1F69003E8930 /* BLECentralManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B899149D1A8C1F69003E8930 /* BLECentralManager.swift */; };
 		B8B979CC1AE67FE600BC3E2C /* APIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B979CB1AE67FE600BC3E2C /* APIResponse.swift */; };
@@ -132,6 +142,16 @@
 		B84BF6051B350CE000067C4A /* DefaultFetchedResultsControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultFetchedResultsControllerDelegate.swift; sourceTree = "<group>"; };
 		B84BF6071B35951B00067C4A /* GlobalFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalFunctions.swift; sourceTree = "<group>"; };
 		B84BF6091B364AA100067C4A /* ProgressHUD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressHUD.swift; sourceTree = "<group>"; };
+		B84BF60C1B366F5B00067C4A /* ConversationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversationTableViewCell.swift; sourceTree = "<group>"; };
+		B84BF60E1B36727100067C4A /* ConversationDataHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversationDataHandler.swift; sourceTree = "<group>"; };
+		B84BF6101B36F06100067C4A /* ConversationDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversationDto.swift; sourceTree = "<group>"; };
+		B84BF6141B36F08000067C4A /* _ConversationDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _ConversationDto.swift; sourceTree = "<group>"; };
+		B84BF6181B38533B00067C4A /* APIResponse+Conversation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "APIResponse+Conversation.swift"; sourceTree = "<group>"; };
+		B84BF61C1B3853C300067C4A /* ConversationKind.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversationKind.swift; sourceTree = "<group>"; };
+		B84BF61E1B3856B500067C4A /* ConversationUserDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversationUserDto.swift; sourceTree = "<group>"; };
+		B84BF6201B3856C000067C4A /* _ConversationUserDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _ConversationUserDto.swift; sourceTree = "<group>"; };
+		B84BF6221B3857B300067C4A /* APIResponse+ConversationUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "APIResponse+ConversationUser.swift"; sourceTree = "<group>"; };
+		B84BF6241B39A26E00067C4A /* APIManager+Conversation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "APIManager+Conversation.swift"; sourceTree = "<group>"; };
 		B85A3D0F1AEFBCC3008AC7B8 /* bang.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = bang.xcdatamodel; sourceTree = "<group>"; };
 		B899149D1A8C1F69003E8930 /* BLECentralManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLECentralManager.swift; sourceTree = "<group>"; };
 		B8B979CB1AE67FE600BC3E2C /* APIResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIResponse.swift; sourceTree = "<group>"; };
@@ -245,6 +265,7 @@
 				B821152C1ADA55AB002CCA46 /* APIManager.swift */,
 				B8F547531ADC197B00548883 /* APIManager+User.swift */,
 				B84BF5EA1B19E68500067C4A /* APIManager+Bang.swift */,
+				B84BF6241B39A26E00067C4A /* APIManager+Conversation.swift */,
 				B8C1884A1AE3397600037552 /* BFTask+API.swift */,
 			);
 			path = API;
@@ -264,9 +285,9 @@
 				B824483F1A8EF07700B540A4 /* Login.storyboard */,
 				B82448491A9043E300B540A4 /* Profile.storyboard */,
 				B8EA20F91A99D35E00BD0164 /* Conversation.storyboard */,
+				B84BF5EE1B1C1C3A00067C4A /* RequestedBang.storyboard */,
 				B830CDDB1A8240C30038CAFE /* ShortSearch.storyboard */,
 				B8187BC41B1603CF00E23716 /* MiddleSearch.storyboard */,
-				B84BF5EE1B1C1C3A00067C4A /* RequestedBang.storyboard */,
 			);
 			path = StoryBoards;
 			sourceTree = "<group>";
@@ -310,6 +331,8 @@
 			children = (
 				B84A6EB51AF4422500A7C632 /* _UserDto.swift */,
 				B84BF5FF1B2428E800067C4A /* _UserBangDto.swift */,
+				B84BF6141B36F08000067C4A /* _ConversationDto.swift */,
+				B84BF6201B3856C000067C4A /* _ConversationUserDto.swift */,
 			);
 			path = BaseClasses;
 			sourceTree = "<group>";
@@ -327,7 +350,7 @@
 			children = (
 				B8B9AB781AF77A8E009FEE4B /* TabBarViewController.swift */,
 				B824484B1A90441600B540A4 /* ProfileViewController.swift */,
-				B8EA20FB1A99D37700BD0164 /* ConversationViewController.swift */,
+				B84BF60B1B36549F00067C4A /* ConversationViewController */,
 				B84BF6011B24851100067C4A /* RequestedBangViewController */,
 			);
 			name = Main;
@@ -367,12 +390,23 @@
 			path = FetchedResultsControllerDelegate;
 			sourceTree = "<group>";
 		};
+		B84BF60B1B36549F00067C4A /* ConversationViewController */ = {
+			isa = PBXGroup;
+			children = (
+				B8EA20FB1A99D37700BD0164 /* ConversationViewController.swift */,
+				B84BF60E1B36727100067C4A /* ConversationDataHandler.swift */,
+			);
+			name = ConversationViewController;
+			sourceTree = "<group>";
+		};
 		B85A3D0D1AEFBC95008AC7B8 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
 				B85A3D0E1AEFBCC3008AC7B8 /* bang.xcdatamodeld */,
 				B84A6EB31AF441FC00A7C632 /* UserDto.swift */,
 				B84BF5FD1B2428D200067C4A /* UserBangDto.swift */,
+				B84BF6101B36F06100067C4A /* ConversationDto.swift */,
+				B84BF61E1B3856B500067C4A /* ConversationUserDto.swift */,
 				B84A6EB21AF43C5300A7C632 /* BaseClasses */,
 			);
 			path = CoreData;
@@ -384,6 +418,8 @@
 				B8B979CB1AE67FE600BC3E2C /* APIResponse.swift */,
 				B8F9C6941AE687CB003320AB /* APIResponse+User.swift */,
 				B84BF5F91B24254E00067C4A /* APIResponse+UserBang.swift */,
+				B84BF6181B38533B00067C4A /* APIResponse+Conversation.swift */,
+				B84BF6221B3857B300067C4A /* APIResponse+ConversationUser.swift */,
 				B8F9C6961AE6947D003320AB /* APIResponse+Facebook.swift */,
 			);
 			path = API;
@@ -405,6 +441,7 @@
 				B8F1389D1A8A4CC5002A820E /* CustomViews */,
 				B8187BCA1B1748C800E23716 /* SearchTargetCollectionViewCell.swift */,
 				B84BF5F01B1C1D9700067C4A /* RequestedBangTableViewCell.swift */,
+				B84BF60C1B366F5B00067C4A /* ConversationTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -420,6 +457,7 @@
 				B84A6EB71AF4432B00A7C632 /* Gender.swift */,
 				B84A6EB91AF446CC00A7C632 /* UserStatus.swift */,
 				B84BF5FB1B24272000067C4A /* BangStatus.swift */,
+				B84BF61C1B3853C300067C4A /* ConversationKind.swift */,
 				B84A6EBD1AF4578900A7C632 /* DataStore.swift */,
 			);
 			path = Models;
@@ -740,22 +778,27 @@
 				B8F9C6951AE687CB003320AB /* APIResponse+User.swift in Sources */,
 				B82CA4561AEBBBF400159D99 /* BLEConfig.swift in Sources */,
 				B84A6EC11AF45A6B00A7C632 /* NSManagedObject+Extension.swift in Sources */,
+				B84BF6191B38533B00067C4A /* APIResponse+Conversation.swift in Sources */,
 				B8D9B2561A82523400B30271 /* UIViewController+Extension.swift in Sources */,
 				B8C1884F1AE3C6A200037552 /* BFTask+Facebook.swift in Sources */,
 				B84A6EB41AF441FC00A7C632 /* UserDto.swift in Sources */,
 				B8187BC91B16044900E23716 /* MiddleSearchViewController.swift in Sources */,
 				B8F1389F1A8A4D13002A820E /* RoundedCornersView.swift in Sources */,
+				B84BF6251B39A26E00067C4A /* APIManager+Conversation.swift in Sources */,
 				B82CA4591AEC788200159D99 /* BFTask+Extension.swift in Sources */,
 				B8187BCB1B1748C800E23716 /* SearchTargetCollectionViewCell.swift in Sources */,
 				B821152F1ADA6B5F002CCA46 /* GeneralInfo.swift in Sources */,
 				B84A6EBE1AF4578900A7C632 /* DataStore.swift in Sources */,
 				B8C188511AE3D70200037552 /* MyAccount.swift in Sources */,
 				B84BF5ED1B1C1C1E00067C4A /* RequestedBangViewController.swift in Sources */,
+				B84BF6231B3857B300067C4A /* APIResponse+ConversationUser.swift in Sources */,
 				B8D9B2611A8255DD00B30271 /* UIImage+ImageEffects.m in Sources */,
 				B80D21151ABC5BEC00405EAE /* QueueManager.swift in Sources */,
+				B84BF60D1B366F5B00067C4A /* ConversationTableViewCell.swift in Sources */,
 				B824484C1A90441600B540A4 /* ProfileViewController.swift in Sources */,
 				B82448571A9824AF00B540A4 /* GlobalData.swift in Sources */,
 				B899149E1A8C1F69003E8930 /* BLECentralManager.swift in Sources */,
+				B84BF61F1B3856B500067C4A /* ConversationUserDto.swift in Sources */,
 				B84A6EBA1AF446CC00A7C632 /* UserStatus.swift in Sources */,
 				B830CDDA1A82403B0038CAFE /* ShortSearchViewController.swift in Sources */,
 				B8C1884B1AE3397600037552 /* BFTask+API.swift in Sources */,
@@ -766,6 +809,7 @@
 				B8FDC5131A818EDC00D4511E /* AppDelegate.swift in Sources */,
 				B838B6DA1AF4667F00243580 /* GCD.swift in Sources */,
 				B807F3361AB433D300571ACB /* Tracker.swift in Sources */,
+				B84BF6151B36F08000067C4A /* _ConversationDto.swift in Sources */,
 				B84A6EB81AF4432B00A7C632 /* Gender.swift in Sources */,
 				B84BF60A1B364AA100067C4A /* ProgressHUD.swift in Sources */,
 				B8E6D9A91ABE55840094D582 /* LocationManager.swift in Sources */,
@@ -773,15 +817,19 @@
 				B8F1389C1A8A4B84002A820E /* BLEPeripheralManager.swift in Sources */,
 				B8D9B2501A824DC700B30271 /* BaseViewController.swift in Sources */,
 				B84BF6001B2428E800067C4A /* _UserBangDto.swift in Sources */,
+				B84BF61D1B3853C300067C4A /* ConversationKind.swift in Sources */,
 				B8F9C6991AEB9C8F003320AB /* Error.swift in Sources */,
 				B84BF6081B35951B00067C4A /* GlobalFunctions.swift in Sources */,
 				B8DD298C1A8B1CC10024ABD0 /* BLEEnum+Extension.swift in Sources */,
 				B84BF5FA1B24254E00067C4A /* APIResponse+UserBang.swift in Sources */,
 				B82448441A8F183400B540A4 /* FacebookManager.swift in Sources */,
+				B84BF6111B36F06200067C4A /* ConversationDto.swift in Sources */,
+				B84BF6211B3856C000067C4A /* _ConversationUserDto.swift in Sources */,
 				B8D9B25D1A8254C400B30271 /* UIImage+Extension.swift in Sources */,
 				B8F547541ADC197B00548883 /* APIManager+User.swift in Sources */,
 				B84A6EBC1AF44D2600A7C632 /* Date.swift in Sources */,
 				B82CA45B1AEC7C4100159D99 /* Alert.swift in Sources */,
+				B84BF60F1B36727100067C4A /* ConversationDataHandler.swift in Sources */,
 				B84BF5EB1B19E68500067C4A /* APIManager+Bang.swift in Sources */,
 				B82448421A8EF16C00B540A4 /* LoginViewController.swift in Sources */,
 			);
