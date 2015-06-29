@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="E1U-HO-UrJ">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--Item-->
@@ -25,15 +26,62 @@
                                     <navigationItem title="Conversation" id="1ti-Mv-mZU"/>
                                 </items>
                             </navigationBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="100" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="cW8-vv-GIX">
+                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="conversationCell" rowHeight="100" id="vHN-hB-R0W" customClass="ConversationTableViewCell" customModule="bang" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vHN-hB-R0W" id="sWS-Ch-rGl">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GcT-4L-IPg" customClass="FBProfilePictureView">
+                                                    <rect key="frame" x="10" y="3" width="94" height="94"/>
+                                                    <color key="backgroundColor" red="0.96730981689999995" green="0.96730981689999995" blue="0.96730981689999995" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="94" id="maQ-7y-SQk"/>
+                                                    </constraints>
+                                                </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NAME" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MdW-9n-nbQ">
+                                                    <rect key="frame" x="114" y="39" width="476" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="centerY" secondItem="GcT-4L-IPg" secondAttribute="centerY" id="7Fd-vv-n2F"/>
+                                                <constraint firstItem="MdW-9n-nbQ" firstAttribute="leading" secondItem="GcT-4L-IPg" secondAttribute="trailing" constant="10" id="UM7-oU-PUs"/>
+                                                <constraint firstItem="GcT-4L-IPg" firstAttribute="leading" secondItem="sWS-Ch-rGl" secondAttribute="leading" constant="10" id="Vsg-Y3-liz"/>
+                                                <constraint firstAttribute="trailing" secondItem="MdW-9n-nbQ" secondAttribute="trailing" constant="10" id="Zbu-do-w3h"/>
+                                                <constraint firstAttribute="centerY" secondItem="MdW-9n-nbQ" secondAttribute="centerY" id="fgu-HN-yh4"/>
+                                                <constraint firstItem="GcT-4L-IPg" firstAttribute="width" secondItem="GcT-4L-IPg" secondAttribute="height" multiplier="1:1" id="jUV-BC-n3y"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="nameLabel" destination="MdW-9n-nbQ" id="azl-Km-FZI"/>
+                                            <outlet property="profilePictureView" destination="GcT-4L-IPg" id="68P-mC-aUt"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="cW8-vv-GIX" firstAttribute="leading" secondItem="yqv-ND-ZXj" secondAttribute="leading" id="Aiq-9T-Vc0"/>
+                            <constraint firstAttribute="trailing" secondItem="cW8-vv-GIX" secondAttribute="trailing" id="FpH-vA-5ok"/>
                             <constraint firstItem="zVf-nz-hHv" firstAttribute="top" secondItem="o3t-eM-l5G" secondAttribute="bottom" id="I3A-I0-acY"/>
                             <constraint firstItem="zVf-nz-hHv" firstAttribute="leading" secondItem="yqv-ND-ZXj" secondAttribute="leading" id="Sff-FP-vfE"/>
                             <constraint firstAttribute="trailing" secondItem="zVf-nz-hHv" secondAttribute="trailing" id="fDb-Xn-CLN"/>
+                            <constraint firstItem="6le-jh-XLV" firstAttribute="top" secondItem="cW8-vv-GIX" secondAttribute="bottom" id="gSx-fk-xyq"/>
+                            <constraint firstItem="cW8-vv-GIX" firstAttribute="top" secondItem="zVf-nz-hHv" secondAttribute="bottom" id="sd6-e8-NeG"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="aHg-Be-q5s"/>
+                    <connections>
+                        <outlet property="tableView" destination="cW8-vv-GIX" id="AsX-M8-HAn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L16-HJ-CG0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
