@@ -43,6 +43,7 @@ class MiddleSearchViewController: UIViewController {
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+		
         if !hasSelectedTarget {
             hasSelectedTarget = true
             selectedTargetIndexPath = NSIndexPath(forRow: 0, inSection: 0)
@@ -75,9 +76,8 @@ class MiddleSearchViewController: UIViewController {
 
 	@IBAction func onTouchBangBtn(sender: UIButton) {
 		println("touched")
-		
-		
 	}
+	
     @IBAction func onClickCloseButton(sender: UIBarButtonItem) {
         self.closeViewController()
     }
@@ -169,8 +169,6 @@ extension MiddleSearchViewController: UICollectionViewDelegate {
 					c.containerView.transform = CGAffineTransformMakeScale(scale, scale)
 				}
 			}
-			
-			
 		}
 	}
 }
@@ -195,15 +193,20 @@ extension MiddleSearchViewController: UICollectionViewDataSource {
             disableBangButton()
         }
         return searchedUsers.count
-		//return 10
     }
 
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         var cell = collectionView.dequeueReusableCellWithReuseIdentifier("searchTargetCell", forIndexPath: indexPath) as! SearchTargetCollectionViewCell
-        //var user = searchedUsers[indexPath.row]
-        //cell.setup(user)
+        var user = searchedUsers[indexPath.row]
+        cell.setup(user)
 		
-		cell.containerView.transform = CGAffineTransformMakeScale(0.5, 0.5)
+		//TODO: 後日移動
+		if indexPath.row > 0 {
+			cell.containerView.transform = CGAffineTransformMakeScale(0.5, 0.5)
+		}else{
+			cell.superview?.bringSubviewToFront(cell)
+		}
+		
         return cell
     }
 }
