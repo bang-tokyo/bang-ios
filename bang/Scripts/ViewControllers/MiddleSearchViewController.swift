@@ -23,7 +23,7 @@ class MiddleSearchViewController: UIViewController {
     private var hasSelectedTarget = false
 
     private let widthSizeOfCell: CGFloat = 200 // Cellのサイズが200x200
-	private let cellMargin:CGFloat = -100 // cell間のマージン
+    private let cellMargin:CGFloat = -100 // cell間のマージン
     private var bothEndsSpeceSizeOfCell: CGFloat = 0 // CollectionViewの両端に空けたスペースのサイズ
 
     override func viewDidLoad() {
@@ -74,9 +74,9 @@ class MiddleSearchViewController: UIViewController {
         }
     }
 
-	@IBAction func onTouchBangBtn(sender: UIButton) {
-		println("touched")
-	}
+    @IBAction func onTouchBangBtn(sender: UIButton) {
+        println("touched")
+    }
 	
     @IBAction func onClickCloseButton(sender: UIBarButtonItem) {
         self.closeViewController()
@@ -128,7 +128,6 @@ extension MiddleSearchViewController: UICollectionViewDelegate {
         var targetPoint = CGPoint(x: collectionView.frame.width/2 + targetContentOffset.memory.x + cellMargin / 2 , y: collectionView.frame.height/2)
         var targetIndexPath = collectionView.indexPathForItemAtPoint(targetPoint)
 
-		println(widthSizeOfCell - cellMargin)
         // 選択すべきCellの中心座標をスワイプの到着地点として再定義することでTargetCellの中心でスワイプを止める
         var targetX = (widthSizeOfCell + cellMargin) * CGFloat(targetIndexPath!.row)
         targetContentOffset.memory.x = targetX > 0 ? targetX : 0.0
@@ -137,40 +136,40 @@ extension MiddleSearchViewController: UICollectionViewDelegate {
         enableBangButton()
     }
 	
-	private func updateCellScale() {
+    private func updateCellScale() {
+
+        //画面中心点
+        let centerX = view.frame.width/2
 		
-		//画面中心点
-		let centerX = view.frame.width/2
+        //スケール範囲
+        let scalableRange = 100 + widthSizeOfCell / 2
 		
-		//スケール範囲
-		let scalableRange = 100 + widthSizeOfCell / 2
-		
-		for cell in collectionView.visibleCells() as! [UICollectionViewCell] {
-			//現在のcellのx座標(cellの中心)
-			let posX = cell.frame.origin.x + widthSizeOfCell / 2 - collectionView.contentOffset.x
+        for cell in collectionView.visibleCells() as! [UICollectionViewCell] {
+            //現在のcellのx座標(cellの中心)
+            let posX = cell.frame.origin.x + widthSizeOfCell / 2 - collectionView.contentOffset.x
 			
-			//中心点との距離
-			let diffX = abs(centerX - posX)
+            //中心点との距離
+            let diffX = abs(centerX - posX)
 			
-			if (scalableRange - diffX) > 0 {
-				//倍率を算出
-				var scale = (scalableRange - diffX) / scalableRange
-				if let c = cell as? SearchTargetCollectionViewCell {
-					scale = (scale < 0.5) ? 0.5 : scale
-					c.containerView.alpha = scale * 1.25
+            if (scalableRange - diffX) > 0 {
+                //倍率を算出
+                var scale = (scalableRange - diffX) / scalableRange
+                if let c = cell as? SearchTargetCollectionViewCell {
+                    scale = (scale < 0.5) ? 0.5 : scale
+                    c.containerView.alpha = scale * 1.25
 					
-					//深度の設定
-					if scale >= 0.6 {
-						c.superview?.bringSubviewToFront(c)
-					}else{
-						c.superview?.sendSubviewToBack(c)
-					}
+                    //深度の設定
+                    if scale >= 0.6 {
+                        c.superview?.bringSubviewToFront(c)
+                    }else{
+                        c.superview?.sendSubviewToBack(c)
+                    }
 					
-					c.containerView.transform = CGAffineTransformMakeScale(scale, scale)
-				}
-			}
-		}
-	}
+                    c.containerView.transform = CGAffineTransformMakeScale(scale, scale)
+                }
+            }
+        }
+    }
 }
 
 // MARK: - UICollectionViewDelegateFlowLayout
@@ -201,12 +200,11 @@ extension MiddleSearchViewController: UICollectionViewDataSource {
         cell.setup(user)
 		
 		//TODO: 後日移動
-		if indexPath.row > 0 {
-			cell.containerView.transform = CGAffineTransformMakeScale(0.5, 0.5)
+        if indexPath.row > 0 {
+            cell.containerView.transform = CGAffineTransformMakeScale(0.5, 0.5)
 		}else{
-			cell.superview?.bringSubviewToFront(cell)
-		}
-		
+            cell.superview?.bringSubviewToFront(cell)
+        }
         return cell
     }
 }
