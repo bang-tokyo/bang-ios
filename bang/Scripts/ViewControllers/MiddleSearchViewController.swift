@@ -43,7 +43,6 @@ class MiddleSearchViewController: UIViewController {
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-		
         if !hasSelectedTarget {
             hasSelectedTarget = true
             selectedTargetIndexPath = NSIndexPath(forRow: 0, inSection: 0)
@@ -118,9 +117,9 @@ extension MiddleSearchViewController: UICollectionViewDelegate {
         selectedTargetIndexPath = nil
     }
 	
-	func scrollViewDidScroll(scrollView: UIScrollView) {
-		updateCellScale()
-	}
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        updateCellScale()
+    }
 
     func scrollViewWillEndDragging(scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
 		
@@ -131,7 +130,7 @@ extension MiddleSearchViewController: UICollectionViewDelegate {
         // 選択すべきCellの中心座標をスワイプの到着地点として再定義することでTargetCellの中心でスワイプを止める
         var targetX = (widthSizeOfCell + cellMargin) * CGFloat(targetIndexPath!.row)
         targetContentOffset.memory.x = targetX > 0 ? targetX : 0.0
-		
+
         selectedTargetIndexPath = targetIndexPath
         enableBangButton()
     }
@@ -178,9 +177,9 @@ extension MiddleSearchViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
         return UIEdgeInsetsMake(0, bothEndsSpeceSizeOfCell, 0, bothEndsSpeceSizeOfCell);
     }
-	func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
-		return cellMargin
-	}
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
+        return cellMargin
+    }
 }
 
 // MARK: - UICollectionViewDataSource
@@ -199,10 +198,10 @@ extension MiddleSearchViewController: UICollectionViewDataSource {
         var user = searchedUsers[indexPath.row]
         cell.setup(user)
 		
-		//TODO: 後日移動
+        //TODO: 後日移動
         if indexPath.row > 0 {
             cell.containerView.transform = CGAffineTransformMakeScale(0.5, 0.5)
-		}else{
+        }else{
             cell.superview?.bringSubviewToFront(cell)
         }
         return cell
