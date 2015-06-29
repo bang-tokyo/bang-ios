@@ -32,7 +32,7 @@ class MiddleSearchViewController: UIViewController {
         collectionView.dataSource = self
 
         bothEndsSpeceSizeOfCell = view.frame.width/2 - widthSizeOfCell/2
-		
+
         disableBangButton()
         searchTargetUsers()
     }
@@ -80,7 +80,6 @@ class MiddleSearchViewController: UIViewController {
     @IBAction func onClickCloseButton(sender: UIBarButtonItem) {
         self.closeViewController()
     }
-	
 }
 
 // MARK: - Private functions
@@ -122,7 +121,6 @@ extension MiddleSearchViewController: UICollectionViewDelegate {
     }
 
     func scrollViewWillEndDragging(scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
-		
         // スワイプした到着点の画面の中心にきたCellを選択すべきCellとする
         var targetPoint = CGPoint(x: collectionView.frame.width/2 + targetContentOffset.memory.x + cellMargin / 2 , y: collectionView.frame.height/2)
         var targetIndexPath = collectionView.indexPathForItemAtPoint(targetPoint)
@@ -173,7 +171,6 @@ extension MiddleSearchViewController: UICollectionViewDelegate {
 
 // MARK: - UICollectionViewDelegateFlowLayout
 extension MiddleSearchViewController: UICollectionViewDelegateFlowLayout {
-	
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
         return UIEdgeInsetsMake(0, bothEndsSpeceSizeOfCell, 0, bothEndsSpeceSizeOfCell);
     }
