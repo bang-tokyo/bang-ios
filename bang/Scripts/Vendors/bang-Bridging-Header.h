@@ -9,6 +9,6 @@
 #import <FacebookSDK/FacebookSDK.h>
 #import <SSKeychain/SSKeychain.h>
 #import <Mantle/Mantle.h>
-#import <MagicalRecord/CoreData+MagicalRecord.h>
 #import <TAKUUID/TAKUUID.h>
 #import <SVProgressHUD/SVProgressHUD.h>
+#import <HPGrowingTextView/HPGrowingTextView.h>
