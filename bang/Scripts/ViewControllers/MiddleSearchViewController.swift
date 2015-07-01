@@ -58,7 +58,7 @@ class MiddleSearchViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    @IBAction func onClickBangButton(sender: UIButton) {
+    @IBAction func onTouchUpInsideBangBtn(sender: UIButton) {
         if let indexPath = selectedTargetIndexPath {
             var user = searchedUsers[indexPath.row]
             APIManager.sharedInstance.requestBang(user.id.integerValue).continueWithBlock({
@@ -69,11 +69,11 @@ class MiddleSearchViewController: UIViewController {
 
                 Alert.showNormal("Bang", message: "Bang For \(user.name) Complete!")
                 return task
-            })
+                })
         }
     }
 
-    @IBAction func onTouchBangBtn(sender: UIButton) {
+    @IBAction func onTouchDownBangBtn(sender: UIButton) {
         println("touched")
     }
 	

@@ -105,8 +105,8 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="onClickBangButton:" destination="Pww-zf-802" eventType="touchUpInside" id="C0r-NB-zqC"/>
-                                            <action selector="onTouchBangBtn:" destination="Pww-zf-802" eventType="touchDown" id="bAd-fH-4iT"/>
+                                            <action selector="onTouchDownBangBtn:" destination="Pww-zf-802" eventType="touchDown" id="acR-MH-nOc"/>
+                                            <action selector="onTouchUpInsideBangBtn:" destination="Pww-zf-802" eventType="touchUpInside" id="sTU-Ve-2DM"/>
                                         </connections>
                                     </button>
                                 </subviews>
