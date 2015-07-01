@@ -38,9 +38,21 @@ class ConversationDataHandler: NSObject {
     }
 }
 
+// MARK: - Private functions
+extension ConversationDataHandler {
+    private func getConversationDto(indexPath: NSIndexPath) -> ConversationDto {
+        return fetchedResultsController.objectAtIndexPath(indexPath) as! ConversationDto
+    }
+}
+
 // MARK: - UITableViewDelegate
 extension ConversationDataHandler: UITableViewDelegate {
-
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        var conversationDto = getConversationDto(indexPath)
+        if let conversationId = conversationDto.id {
+            NotificationManager.notifyConversationDetailWillShow(conversationId.integerValue)
+        }
+    }
 }
 
 // MARK: - UITableViewDataSource

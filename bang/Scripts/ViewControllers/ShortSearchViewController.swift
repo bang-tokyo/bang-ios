@@ -9,7 +9,7 @@
 import UIKit
 import CoreLocation
 
-class ShortSearchViewController: BaseViewController {
+class ShortSearchViewController: UIViewController {
 
     class func build() -> ShortSearchViewController {
         var storyboard = UIStoryboard(name: "ShortSearch", bundle: nil)

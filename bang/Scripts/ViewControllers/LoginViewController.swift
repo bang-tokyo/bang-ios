@@ -10,7 +10,7 @@ import UIKit
 import Bolts
 import Mantle
 
-class LoginViewController: BaseViewController {
+class LoginViewController: UIViewController {
 
     class func build() -> LoginViewController {
         var storyboard = UIStoryboard(name: "Login", bundle: nil)
