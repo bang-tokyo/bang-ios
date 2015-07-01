@@ -23,6 +23,7 @@ class MiddleSearchViewController: UIViewController {
     private var hasSelectedTarget = false
 
     private let widthSizeOfCell: CGFloat = 200 // Cellのサイズが200x200
+    private let cellMargin:CGFloat = -100 // cell間のマージン
     private var bothEndsSpeceSizeOfCell: CGFloat = 0 // CollectionViewの両端に空けたスペースのサイズ
 
     override func viewDidLoad() {
@@ -57,7 +58,7 @@ class MiddleSearchViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    @IBAction func onClickBangButton(sender: UIButton) {
+    @IBAction func onTouchUpInsideBangBtn(sender: UIButton) {
         if let indexPath = selectedTargetIndexPath {
             var user = searchedUsers[indexPath.row]
             APIManager.sharedInstance.requestBang(user.id.integerValue).continueWithBlock({
@@ -68,10 +69,14 @@ class MiddleSearchViewController: UIViewController {
 
                 Alert.showNormal("Bang", message: "Bang For \(user.name) Complete!")
                 return task
-            })
+                })
         }
     }
 
+    @IBAction func onTouchDownBangBtn(sender: UIButton) {
+        println("touched")
+    }
+	
     @IBAction func onClickCloseButton(sender: UIBarButtonItem) {
         self.closeViewController()
     }
@@ -110,22 +115,57 @@ extension MiddleSearchViewController: UICollectionViewDelegate {
         disableBangButton()
         selectedTargetIndexPath = nil
     }
+	
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        updateCellScale()
+    }
 
     func scrollViewWillEndDragging(scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         // スワイプした到着点の画面の中心にきたCellを選択すべきCellとする
-        var targetPoint = CGPoint(x: collectionView.frame.width/2 + targetContentOffset.memory.x, y: collectionView.frame.height/2)
+        var targetPoint = CGPoint(x: collectionView.frame.width/2 + targetContentOffset.memory.x + cellMargin / 2 , y: collectionView.frame.height/2)
         var targetIndexPath = collectionView.indexPathForItemAtPoint(targetPoint)
 
-        // 以下の方法で該当のCellを撮ろうとすると速くスクロールした時に生成されていないCellが
-        // 該当してしまう(targetCellがnil)ため上手く座標をとれないため一旦Cellのサイズ決め打ち
-        //var targetCell = collectionView.cellForItemAtIndexPath(targetIndexPath!)
-
         // 選択すべきCellの中心座標をスワイプの到着地点として再定義することでTargetCellの中心でスワイプを止める
-        var targetX = widthSizeOfCell * CGFloat(targetIndexPath!.row) - widthSizeOfCell / 2 + bothEndsSpeceSizeOfCell
+        var targetX = (widthSizeOfCell + cellMargin) * CGFloat(targetIndexPath!.row)
         targetContentOffset.memory.x = targetX > 0 ? targetX : 0.0
 
         selectedTargetIndexPath = targetIndexPath
         enableBangButton()
+    }
+	
+    private func updateCellScale() {
+
+        //画面中心点
+        let centerX = view.frame.width/2
+		
+        //スケール範囲
+        let scalableRange = 100 + widthSizeOfCell / 2
+		
+        for cell in collectionView.visibleCells() as! [UICollectionViewCell] {
+            //現在のcellのx座標(cellの中心)
+            let posX = cell.frame.origin.x + widthSizeOfCell / 2 - collectionView.contentOffset.x
+			
+            //中心点との距離
+            let diffX = abs(centerX - posX)
+			
+            if (scalableRange - diffX) > 0 {
+                //倍率を算出
+                var scale = (scalableRange - diffX) / scalableRange
+                if let c = cell as? SearchTargetCollectionViewCell {
+                    scale = (scale < 0.5) ? 0.5 : scale
+                    c.containerView.alpha = scale * 1.25
+					
+                    //深度の設定
+                    if scale >= 0.6 {
+                        c.superview?.bringSubviewToFront(c)
+                    }else{
+                        c.superview?.sendSubviewToBack(c)
+                    }
+					
+                    c.containerView.transform = CGAffineTransformMakeScale(scale, scale)
+                }
+            }
+        }
     }
 }
 
@@ -133,6 +173,9 @@ extension MiddleSearchViewController: UICollectionViewDelegate {
 extension MiddleSearchViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
         return UIEdgeInsetsMake(0, bothEndsSpeceSizeOfCell, 0, bothEndsSpeceSizeOfCell);
+    }
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
+        return cellMargin
     }
 }
 
@@ -151,6 +194,13 @@ extension MiddleSearchViewController: UICollectionViewDataSource {
         var cell = collectionView.dequeueReusableCellWithReuseIdentifier("searchTargetCell", forIndexPath: indexPath) as! SearchTargetCollectionViewCell
         var user = searchedUsers[indexPath.row]
         cell.setup(user)
+		
+        //TODO: 後日移動
+        if indexPath.row > 0 {
+            cell.containerView.transform = CGAffineTransformMakeScale(0.5, 0.5)
+        }else{
+            cell.superview?.bringSubviewToFront(cell)
+        }
         return cell
     }
 }

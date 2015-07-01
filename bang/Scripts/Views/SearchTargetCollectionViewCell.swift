@@ -13,6 +13,7 @@ class SearchTargetCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak private var profilePictureView: FBProfilePictureView!
     @IBOutlet weak private var label: UILabel!
+    @IBOutlet weak var containerView: UIView!
 
     override func awakeFromNib() {
         super.awakeFromNib()
