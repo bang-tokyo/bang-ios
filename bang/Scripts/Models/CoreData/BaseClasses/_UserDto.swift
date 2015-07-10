@@ -17,6 +17,7 @@ enum UserDtoAttributes: String {
 
 enum UserDtoRelationships: String {
     case conversationUser = "conversationUser"
+    case messageUser = "messageUser"
     case userBang = "userBang"
 }
 
@@ -95,6 +96,11 @@ class _UserDto: NSManagedObject {
 
     @NSManaged
     var conversationUser: NSSet
+
+    @NSManaged
+    var messageUser: MessageDto?
+
+    // func validateMessageUser(value: AutoreleasingUnsafePointer<AnyObject>, error: NSErrorPointer) {}
 
     @NSManaged
     var userBang: NSSet

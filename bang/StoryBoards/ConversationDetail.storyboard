@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Cec-wE-g7Z">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Cec-wE-g7Z">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--Conversation Detail View Controller-->
@@ -16,6 +17,74 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="75j-00-loV">
+                                <rect key="frame" x="0.0" y="64" width="600" height="486"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="messageOtherCell" rowHeight="44" id="1Vd-o8-DFj" customClass="ConversationMessageTableViewCell" customModule="bang" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1Vd-o8-DFj" id="D6k-e2-8Fi">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I59-IR-Epz" customClass="FBProfilePictureView">
+                                                    <rect key="frame" x="5" y="5" width="30" height="30"/>
+                                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="30" id="nBd-0E-i2d"/>
+                                                        <constraint firstAttribute="width" secondItem="I59-IR-Epz" secondAttribute="height" multiplier="1:1" id="qxT-qD-2RY"/>
+                                                    </constraints>
+                                                </view>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZUV-CY-9JV" customClass="AttributedTextView" customModule="bang" customModuleProvider="target">
+                                                    <rect key="frame" x="40" y="5" width="30" height="34"/>
+                                                    <color key="backgroundColor" red="0.96730981689999995" green="0.96730981689999995" blue="0.96730981689999995" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="30" id="45f-Hn-Z7c"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="ZUV-CY-9JV" firstAttribute="top" secondItem="I59-IR-Epz" secondAttribute="top" id="4Sf-un-GuL"/>
+                                                <constraint firstItem="I59-IR-Epz" firstAttribute="leading" secondItem="D6k-e2-8Fi" secondAttribute="leading" constant="5" id="HZ0-pA-nff"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ZUV-CY-9JV" secondAttribute="trailing" constant="30" id="KVj-4f-4dF"/>
+                                                <constraint firstItem="ZUV-CY-9JV" firstAttribute="leading" secondItem="I59-IR-Epz" secondAttribute="trailing" constant="5" id="O2j-xV-ZqG"/>
+                                                <constraint firstItem="I59-IR-Epz" firstAttribute="top" secondItem="D6k-e2-8Fi" secondAttribute="top" constant="5" id="SBc-9y-65e"/>
+                                                <constraint firstAttribute="bottom" secondItem="ZUV-CY-9JV" secondAttribute="bottom" constant="5" id="fty-eF-1vn"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="messageTextView" destination="ZUV-CY-9JV" id="Afp-1x-cZW"/>
+                                            <outlet property="profilePictureView" destination="I59-IR-Epz" id="pJG-W5-QLD"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="messageMineCell" rowHeight="44" id="2qU-20-eg2" customClass="ConversationMessageTableViewCell" customModule="bang" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2qU-20-eg2" id="vdt-cn-4nn">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="haZ-v6-tA1" customClass="AttributedTextView" customModule="bang">
+                                                    <rect key="frame" x="495" y="5" width="100" height="34"/>
+                                                    <color key="backgroundColor" red="0.96730981689999995" green="0.96730981689999995" blue="0.96730981689999995" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" priority="100" constant="100" id="lXO-N1-XIV"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="haZ-v6-tA1" secondAttribute="trailing" constant="5" id="660-bh-VcS"/>
+                                                <constraint firstItem="haZ-v6-tA1" firstAttribute="top" secondItem="vdt-cn-4nn" secondAttribute="top" constant="5" id="CBH-C8-nCc"/>
+                                                <constraint firstAttribute="bottom" secondItem="haZ-v6-tA1" secondAttribute="bottom" constant="5" id="RTb-EK-H63"/>
+                                                <constraint firstItem="haZ-v6-tA1" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="vdt-cn-4nn" secondAttribute="leading" constant="30" id="yJ6-t7-kuU"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="messageTextView" destination="haZ-v6-tA1" id="Qdv-r2-yRg"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <sections/>
+                            </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X1j-Xk-GnX">
                                 <rect key="frame" x="0.0" y="550" width="600" height="50"/>
                                 <subviews>
@@ -51,10 +120,6 @@
                                     <constraint firstAttribute="bottom" secondItem="3id-ZM-C5c" secondAttribute="bottom" constant="10" id="yHS-FP-3us"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="75j-00-loV">
-                                <rect key="frame" x="0.0" y="64" width="600" height="486"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
@@ -77,6 +142,7 @@
                         <outlet property="growingTextView" destination="3id-ZM-C5c" id="PtV-pB-zkP"/>
                         <outlet property="growingTextViewHeightConstraint" destination="XVi-6U-jnx" id="hl0-GH-so8"/>
                         <outlet property="sendButton" destination="l4M-Uq-5Tw" id="ccl-ZC-rLM"/>
+                        <outlet property="tableView" destination="75j-00-loV" id="PrG-n7-aeK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oMK-iv-AYw" userLabel="First Responder" sceneMemberID="firstResponder"/>
