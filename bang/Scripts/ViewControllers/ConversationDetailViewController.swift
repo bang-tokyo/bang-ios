@@ -64,6 +64,11 @@ class ConversationDetailViewController: UIViewController {
         })
     }
 
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        goTail()
+    }
+
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
 
@@ -87,11 +92,25 @@ class ConversationDetailViewController: UIViewController {
             }
             return task
         })
+        .continueWithBlock({
+            [weak self] (task) -> AnyObject! in
+            GCD.runOnMainThread(0.3) {
+                if let strongSelf = self {
+                    strongSelf.resetGrowingTextView()
+                    strongSelf.goTail()
+                }
+            }
+            return task
+        })
     }
 }
 
 // MARK: - Private functions
 extension ConversationDetailViewController {
+    private func goTail() {
+        tableView.setContentOffset(CGPointMake(0, tableView.contentSize.height - tableView.frame.size.height), animated: true)
+    }
+
     private func messageString() -> String {
         return growingTextView.text.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
     }
