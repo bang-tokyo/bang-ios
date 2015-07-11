@@ -8,27 +8,22 @@
 
 import UIKit
 import FacebookSDK
-import SECoreTextView
+import TTTAttributedLabel
 
-let kMessageLineHeight: CGFloat = 5.0
-let kMessageFont = UIFont.boldSystemFontOfSize(15)
 let kMessageLayoutVersion: Int = 100000000
 
 class ConversationMessageTableViewCell: UITableViewCell {
+    private struct Const {
+        static let MinePadding: CGFloat = 5 * 2
+        static let OtherPadding: CGFloat = 5 * 2 + 30
+        static let VarticalMargin: CGFloat = 5 * 2 + 1
+        static let MinHeight: CGFloat = 37.0
+    }
 
     var messageDto: MessageDto? = nil
 
     @IBOutlet weak var profilePictureView: FBProfilePictureView! // NOTE: - 自分のメッセージにはprofilePictureViewがないので注意
-    @IBOutlet weak var messageTextView: AttributedTextView!
-
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // TODO: - Designきまったら要修正
-        //messageTextView.lineHeight = kMessageLineHeight
-        messageTextView.delegate = self
-        messageTextView.font = kMessageFont
-    }
+    @IBOutlet weak var messageLabel: AttributedLabel!
 
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
@@ -38,46 +33,43 @@ class ConversationMessageTableViewCell: UITableViewCell {
 
     func configure(messageDto: MessageDto) {
         self.messageDto = messageDto
-        messageTextView.text = messageDto.message
+        let padding = ConversationMessageTableViewCell.padding(messageDto)
+        messageLabel.configure(messageDto.message, Style.MessageLabel, frame.size.width - padding)
         if (profilePictureView != nil) {
             let user = messageDto.user
             profilePictureView.profileID = user?.facebookId
         }
     }
 
-    class func messageSizeCertainly(messageDto: MessageDto) -> CGSize {
-        return _messageSize(messageDto)
+    class func messageHeightCertainly(messageDto: MessageDto) -> CGFloat {
+        return _messageHeight(messageDto)
     }
 
-    class func messageSize(messageDto: MessageDto) ->CGSize {
+    class func messageHeight(messageDto: MessageDto) ->CGFloat {
         if (messageDto.layoutVersion!.integerValue == kMessageLayoutVersion
-            && messageDto.layoutWidth!.floatValue > 0
             && messageDto.layoutHeight!.floatValue > 0
         ) {
-            return CGSizeMake(CGFloat(messageDto.layoutWidth!.floatValue), CGFloat(messageDto.layoutHeight!.floatValue))
+            return CGFloat(messageDto.layoutHeight!.floatValue)
         }
-        return _messageSize(messageDto)
+        return _messageHeight(messageDto)
     }
 }
 
 // MARK: - Private functions
 extension ConversationMessageTableViewCell {
-    private class func _messageSize(messageDto: MessageDto) -> CGSize {
-        var screenWidth = UIScreen.mainScreen().bounds.width
-        var horizontalMargin: CGFloat = messageDto.isMine() ? 5 * 2 : 5 * 2 + 30
-        var varticalMargin: CGFloat = 5 * 2
-
-        var attributedString = NSAttributedString(string: messageDto.message!)
-        var messageFrameRect = SETextView.frameRectWithAttributtedString(attributedString, constraintSize: CGSizeMake(screenWidth - horizontalMargin, 1000), lineSpacing: kMessageLineHeight, font: kMessageFont)
-
-        return CGSizeMake(messageFrameRect.size.width, messageFrameRect.size.height + varticalMargin)
+    private class func padding(messageDto: MessageDto) -> CGFloat {
+        return messageDto.isMine() ? Const.MinePadding : Const.OtherPadding
     }
-}
 
-// MARK: - SETextViewDelegate
-extension ConversationMessageTableViewCell: SETextViewDelegate {
-    func textView(textView: SETextView!, clickedOnLink link: SELinkText!, atIndex charIndex: UInt) -> Bool {
-        // TODO: - リンクくらいハンドリングするよな...
-        return true
+    private class func _messageHeight(messageDto: MessageDto) -> CGFloat {
+        let screenWidth = UIScreen.mainScreen().bounds.width
+        let width = screenWidth - ConversationMessageTableViewCell.padding(messageDto)
+
+        var messageLabel = AttributedLabel(frame: CGRectMake(0, 0, width, 0))
+        messageLabel.numberOfLines = 0
+        messageLabel.lineBreakMode = .ByWordWrapping
+        messageLabel.configure(messageDto.message, Style.MessageLabel, width)
+        messageLabel.sizeToFit()
+        return max(messageLabel.bounds.height+Const.VarticalMargin, Const.MinHeight)
     }
 }

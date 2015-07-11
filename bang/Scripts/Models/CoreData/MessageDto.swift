@@ -24,6 +24,6 @@ class MessageDto: _MessageDto {
 extension MessageDto {
     class func fetchAll(conversationId: Int, delegate: NSFetchedResultsControllerDelegate) -> NSFetchedResultsController? {
         let predicate = NSPredicate(format: "conversationId = %d && statusValue = 0", conversationId)
-        return MR_fetchAllSortedBy(MessageDtoAttributes.updatedAt.rawValue, ascending: false, withPredicate: predicate, groupBy: nil, delegate: delegate)
+        return MR_fetchAllSortedBy(MessageDtoAttributes.updatedAt.rawValue, ascending: true, withPredicate: predicate, groupBy: nil, delegate: delegate)
     }
 }

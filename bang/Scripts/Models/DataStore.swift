@@ -139,9 +139,8 @@ extension DataStore {
         let messageDto: MessageDto = MessageDto.firstOrInitializeById(message.id, context: context)
         messageDto.fill(message)
         messageDto.user = user
-        let messageSize = ConversationMessageTableViewCell.messageSizeCertainly(messageDto)
-        messageDto.layoutWidth = messageSize.width
-        messageDto.layoutHeight = messageSize.height
+        let layoutHeight = ConversationMessageTableViewCell.messageHeightCertainly(messageDto)
+        messageDto.layoutHeight = layoutHeight
         messageDto.layoutVersion = kMessageLayoutVersion
         return messageDto
     }

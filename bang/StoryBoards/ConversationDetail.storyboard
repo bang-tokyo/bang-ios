@@ -14,11 +14,11 @@
                         <viewControllerLayoutGuide type="bottom" id="laE-x2-sUG"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="hc5-4i-8zv">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="75j-00-loV">
-                                <rect key="frame" x="0.0" y="64" width="600" height="486"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="75j-00-loV">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="486"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="messageOtherCell" rowHeight="44" id="1Vd-o8-DFj" customClass="ConversationMessageTableViewCell" customModule="bang" customModuleProvider="target">
@@ -35,25 +35,24 @@
                                                         <constraint firstAttribute="width" secondItem="I59-IR-Epz" secondAttribute="height" multiplier="1:1" id="qxT-qD-2RY"/>
                                                     </constraints>
                                                 </view>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZUV-CY-9JV" customClass="AttributedTextView" customModule="bang" customModuleProvider="target">
-                                                    <rect key="frame" x="40" y="5" width="30" height="34"/>
-                                                    <color key="backgroundColor" red="0.96730981689999995" green="0.96730981689999995" blue="0.96730981689999995" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="30" id="45f-Hn-Z7c"/>
-                                                    </constraints>
-                                                </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MyE-qU-aNp" customClass="AttributedLabel" customModule="bang" customModuleProvider="target">
+                                                    <rect key="frame" x="43" y="5" width="42" height="34"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="ZUV-CY-9JV" firstAttribute="top" secondItem="I59-IR-Epz" secondAttribute="top" id="4Sf-un-GuL"/>
                                                 <constraint firstItem="I59-IR-Epz" firstAttribute="leading" secondItem="D6k-e2-8Fi" secondAttribute="leading" constant="5" id="HZ0-pA-nff"/>
-                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ZUV-CY-9JV" secondAttribute="trailing" constant="30" id="KVj-4f-4dF"/>
-                                                <constraint firstItem="ZUV-CY-9JV" firstAttribute="leading" secondItem="I59-IR-Epz" secondAttribute="trailing" constant="5" id="O2j-xV-ZqG"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="MyE-qU-aNp" secondAttribute="trailing" constant="30" id="KOH-Ox-R3W"/>
                                                 <constraint firstItem="I59-IR-Epz" firstAttribute="top" secondItem="D6k-e2-8Fi" secondAttribute="top" constant="5" id="SBc-9y-65e"/>
-                                                <constraint firstAttribute="bottom" secondItem="ZUV-CY-9JV" secondAttribute="bottom" constant="5" id="fty-eF-1vn"/>
+                                                <constraint firstItem="MyE-qU-aNp" firstAttribute="leading" secondItem="I59-IR-Epz" secondAttribute="trailing" constant="8" id="Yc5-yV-orB"/>
+                                                <constraint firstAttribute="bottom" secondItem="MyE-qU-aNp" secondAttribute="bottom" priority="300" constant="5" id="hX0-M4-1pa"/>
+                                                <constraint firstItem="MyE-qU-aNp" firstAttribute="top" secondItem="D6k-e2-8Fi" secondAttribute="top" constant="5" id="n5r-kL-f8q"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="messageTextView" destination="ZUV-CY-9JV" id="Afp-1x-cZW"/>
+                                            <outlet property="messageLabel" destination="MyE-qU-aNp" id="Q7Z-id-fdA"/>
                                             <outlet property="profilePictureView" destination="I59-IR-Epz" id="pJG-W5-QLD"/>
                                         </connections>
                                     </tableViewCell>
@@ -63,30 +62,37 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2qU-20-eg2" id="vdt-cn-4nn">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="haZ-v6-tA1" customClass="AttributedTextView" customModule="bang">
-                                                    <rect key="frame" x="495" y="5" width="100" height="34"/>
-                                                    <color key="backgroundColor" red="0.96730981689999995" green="0.96730981689999995" blue="0.96730981689999995" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" priority="100" constant="100" id="lXO-N1-XIV"/>
-                                                    </constraints>
-                                                </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SaO-7a-5Dc" customClass="AttributedLabel" customModule="bang" customModuleProvider="target">
+                                                    <rect key="frame" x="548" y="5" width="42" height="34"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                                            <real key="value" value="0.0"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="highlightedShadowRadius">
+                                                            <real key="value" value="0.0"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="haZ-v6-tA1" secondAttribute="trailing" constant="5" id="660-bh-VcS"/>
-                                                <constraint firstItem="haZ-v6-tA1" firstAttribute="top" secondItem="vdt-cn-4nn" secondAttribute="top" constant="5" id="CBH-C8-nCc"/>
-                                                <constraint firstAttribute="bottom" secondItem="haZ-v6-tA1" secondAttribute="bottom" constant="5" id="RTb-EK-H63"/>
-                                                <constraint firstItem="haZ-v6-tA1" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="vdt-cn-4nn" secondAttribute="leading" constant="30" id="yJ6-t7-kuU"/>
+                                                <constraint firstAttribute="trailing" secondItem="SaO-7a-5Dc" secondAttribute="trailing" constant="10" id="7Vi-af-o36"/>
+                                                <constraint firstAttribute="bottom" secondItem="SaO-7a-5Dc" secondAttribute="bottom" priority="300" constant="5" id="cmX-kU-3fm"/>
+                                                <constraint firstItem="SaO-7a-5Dc" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="vdt-cn-4nn" secondAttribute="leading" constant="30" id="coM-31-HLf"/>
+                                                <constraint firstItem="SaO-7a-5Dc" firstAttribute="top" secondItem="vdt-cn-4nn" secondAttribute="top" constant="5" id="v8c-BW-zX5"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="messageTextView" destination="haZ-v6-tA1" id="Qdv-r2-yRg"/>
+                                            <outlet property="messageLabel" destination="SaO-7a-5Dc" id="aRR-jy-S1z"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <sections/>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X1j-Xk-GnX">
-                                <rect key="frame" x="0.0" y="550" width="600" height="50"/>
+                                <rect key="frame" x="0.0" y="486" width="600" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l4M-Uq-5Tw">
                                         <rect key="frame" x="548" y="10" width="40" height="30"/>
@@ -136,6 +142,7 @@
                             <outletCollection property="gestureRecognizers" destination="JPF-dl-YMS" appends="YES" id="I0I-0i-ttY"/>
                         </connections>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" id="3fN-Rc-1mj"/>
                     <connections>
                         <outlet property="footerBottomConstraint" destination="tfH-7g-54G" id="IH6-Mb-MYE"/>

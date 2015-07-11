@@ -51,8 +51,8 @@ extension ConversationDetailDataHandler {
 extension ConversationDetailDataHandler: UITableViewDelegate {
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         let messageDto = getMessageDto(indexPath)
-        let messageSize = ConversationMessageTableViewCell.messageSizeCertainly(messageDto)
-        return messageSize.height
+        let layoutHeight = ConversationMessageTableViewCell.messageHeight(messageDto)
+        return layoutHeight
     }
 }
 

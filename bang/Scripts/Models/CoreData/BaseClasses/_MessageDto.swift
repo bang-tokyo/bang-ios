@@ -9,7 +9,6 @@ enum MessageDtoAttributes: String {
     case id = "id"
     case layoutHeight = "layoutHeight"
     case layoutVersion = "layoutVersion"
-    case layoutWidth = "layoutWidth"
     case message = "message"
     case statusValue = "statusValue"
     case updatedAt = "updatedAt"
@@ -70,11 +69,6 @@ class _MessageDto: NSManagedObject {
     var layoutVersion: NSNumber?
 
     // func validateLayoutVersion(value: AutoreleasingUnsafePointer<AnyObject>, error: NSErrorPointer) {}
-
-    @NSManaged
-    var layoutWidth: NSNumber?
-
-    // func validateLayoutWidth(value: AutoreleasingUnsafePointer<AnyObject>, error: NSErrorPointer) {}
 
     @NSManaged
     var message: String?
