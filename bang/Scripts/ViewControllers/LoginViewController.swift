@@ -59,7 +59,7 @@ class LoginViewController: UIViewController {
                     BFTask(error: Error.create())
                 }
 
-                self.moveToProfileViewController()
+                self.moveToMainViewController()
             }
 
             return task
@@ -70,7 +70,7 @@ class LoginViewController: UIViewController {
 
 // MARK: - Private functions
 extension LoginViewController {
-    private func moveToProfileViewController() {
+    private func moveToMainViewController() {
         self.moveTo(TabBarViewController())
     }
 }

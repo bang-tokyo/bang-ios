@@ -1,5 +1,5 @@
 //
-//  ProfileViewController.swift
+//  MyPageViewController.swift
 //  bang
 //
 //  Created by Yoshikazu Oda on 2015/02/15.
@@ -9,13 +9,13 @@
 import UIKit
 import FacebookSDK
 
-class ProfileViewController: UIViewController {
+class MyPageViewController: UIViewController {
 
-    class func build() -> ProfileViewController {
-        var storyboard = UIStoryboard(name: "Profile", bundle: nil)
+    class func build() -> MyPageViewController {
+        var storyboard = UIStoryboard(name: "MyPage", bundle: nil)
         var tabBarViewController = storyboard.instantiateInitialViewController() as! UITabBarController
         var viewControllers = tabBarViewController.viewControllers as! [UIViewController]
-        return viewControllers[0] as! ProfileViewController
+        return viewControllers[0] as! MyPageViewController
     }
 
     @IBOutlet weak var profilePictureView: FBProfilePictureView!
@@ -63,7 +63,7 @@ class ProfileViewController: UIViewController {
 }
 
 // MARK: - Private functions
-extension ProfileViewController {
+extension MyPageViewController {
     private func moveToLoginViewController() {
         var loginViewController = LoginViewController.build()
         moveTo(loginViewController)

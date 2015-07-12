@@ -11,7 +11,7 @@ import UIKit
 class TabBarViewController: UITabBarController {
 
     var menueWindow = UIWindow()
-    var profileViewController: ProfileViewController!
+    var myPageViewController: MyPageViewController!
     var searchViewController: UIViewController!
     var conversationViewController: ConversationViewController!
     var requestedBangViewController: RequestedBangViewController!
@@ -20,7 +20,7 @@ class TabBarViewController: UITabBarController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        profileViewController = ProfileViewController.build()
+        myPageViewController = MyPageViewController.build()
         searchViewController = UIViewController()
         conversationViewController = ConversationViewController.build()
         requestedBangViewController = RequestedBangViewController.build()
@@ -28,13 +28,13 @@ class TabBarViewController: UITabBarController {
         super.viewDidLoad()
 
         // TODO: - Designがきまったら修正
-        profileViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .Bookmarks, tag: 0)
+        myPageViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .Bookmarks, tag: 0)
         searchViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .Contacts, tag: 0)
         conversationViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .Favorites, tag: 0)
         requestedBangViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .History, tag: 0)
 
 
-        self.setViewControllers([conversationViewController, requestedBangViewController, searchViewController, profileViewController], animated: false)
+        self.setViewControllers([conversationViewController, requestedBangViewController, searchViewController, myPageViewController], animated: false)
         self.delegate = self
     }
 
