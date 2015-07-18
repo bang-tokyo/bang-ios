@@ -11,19 +11,23 @@ import UIKit
 class TabBarViewController: UITabBarController {
 
     var menueWindow = UIWindow()
-    var myPageViewController: MyPageViewController!
+    var myPageNavigationController: UINavigationController!
+    var conversationNavigationController: UINavigationController!
+    var requestedBangNavigationController: UINavigationController!
     var searchViewController: UIViewController!
-    var conversationViewController: ConversationViewController!
-    var requestedBangViewController: RequestedBangViewController!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        myPageViewController = MyPageViewController.build()
+        var (myPageNavigationController, myPageViewController) = MyPageViewController.build()
+        var (conversationNavigationController, conversationViewController) = ConversationViewController.build()
+        var (requestedBangNavigationController, requestedBangViewController) = RequestedBangViewController.build()
         searchViewController = UIViewController()
-        conversationViewController = ConversationViewController.build()
-        requestedBangViewController = RequestedBangViewController.build()
+
+        self.myPageNavigationController = myPageNavigationController
+        self.conversationNavigationController = conversationNavigationController
+        self.requestedBangNavigationController = requestedBangNavigationController
 
         super.viewDidLoad()
 
@@ -33,8 +37,13 @@ class TabBarViewController: UITabBarController {
         conversationViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .Favorites, tag: 0)
         requestedBangViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .History, tag: 0)
 
+        self.setViewControllers([
+            conversationNavigationController,
+            requestedBangNavigationController,
+            searchViewController,
+            myPageNavigationController
+        ], animated: false)
 
-        self.setViewControllers([conversationViewController, requestedBangViewController, searchViewController, myPageViewController], animated: false)
         self.delegate = self
     }
 
@@ -46,17 +55,6 @@ class TabBarViewController: UITabBarController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
 extension TabBarViewController: UITabBarControllerDelegate {

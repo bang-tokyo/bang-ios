@@ -39,7 +39,6 @@ class ConversationDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        addCloseButton()
 
         dataHandler = ConversationDetailDataHandler()
         dataHandler.setup(conversationId, tableView: tableView)

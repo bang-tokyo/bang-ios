@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="1dN-DN-S35">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <scenes>
+        <!--Profile-->
+        <scene sceneID="TOs-aG-LyK">
+            <objects>
+                <viewController id="RfP-Gm-UrU" customClass="ProfileViewController" customModule="bang" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="klC-wb-IO5"/>
+                        <viewControllerLayoutGuide type="bottom" id="n6p-gV-Xo8"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="K5n-82-IGX">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Profile" id="CHv-wl-vog">
+                        <barButtonItem key="rightBarButtonItem" title="編集" id="mvU-9X-1Zy">
+                            <connections>
+                                <action selector="onTouchUpInsideEditbutton:" destination="RfP-Gm-UrU" id="jMu-GD-hoL"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="editButton" destination="mvU-9X-1Zy" id="Quk-Gk-51V"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CuY-uI-Nhy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2235" y="165"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="zGD-ey-aTE">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1dN-DN-S35" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="GeH-2f-IXM">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="RfP-Gm-UrU" kind="relationship" relationship="rootViewController" id="0RV-fT-b0U"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DLz-Ty-O7O" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1508" y="165"/>
+        </scene>
+    </scenes>
+</document>

@@ -30,6 +30,10 @@ class UserDto: _UserDto {
         }
     }
 
+    func isMine() -> Bool {
+        return MyAccount.sharedInstance.userId == id
+    }
+
     func fill(user: APIResponse.User) {
         id = user.id
         facebookId = user.facebookId

@@ -11,22 +11,26 @@ import FacebookSDK
 
 class MyPageViewController: UIViewController {
 
-    class func build() -> MyPageViewController {
+    class func build() -> (UINavigationController, MyPageViewController) {
         var storyboard = UIStoryboard(name: "MyPage", bundle: nil)
         var tabBarViewController = storyboard.instantiateInitialViewController() as! UITabBarController
         var viewControllers = tabBarViewController.viewControllers as! [UIViewController]
-        return viewControllers[0] as! MyPageViewController
+        var navigationController = viewControllers[0] as! UINavigationController
+        var viewController = navigationController.topViewController as! MyPageViewController
+        return (navigationController, viewController)
     }
 
     @IBOutlet weak var profilePictureView: FBProfilePictureView!
     @IBOutlet weak var nameLabel: UILabel!
 
+    var userDto: UserDto?
     var facebookManager: FacebookManager = FacebookManager.sharedInstance
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         if let user = UserDto.firstById(MyAccount.sharedInstance.userId) as? UserDto {
+            userDto = user
             nameLabel.text = user.name
             profilePictureView.profileID = user.facebookId
         } else {
@@ -35,6 +39,7 @@ class MyPageViewController: UIViewController {
                 if let user = APIResponse.parse(APIResponse.User.self, task.result) {
                     self?.nameLabel.text = user.name
                     self?.profilePictureView.profileID = user.facebookId
+                    return DataStore.sharedInstance.saveUser(user)
                 }
                 return task
             })
@@ -56,7 +61,16 @@ class MyPageViewController: UIViewController {
     }
 
     // MARK: - IBAction
-    @IBAction func onClickLogoutButton(sender: UIButton) {
+    @IBAction func onTouchUpInsideProfileBotton(sender: UIButton) {
+        if let userDto = self.userDto {
+            var (navigationController, viewController) = ProfileViewController.build(userDto)
+            viewController.hidesBottomBarWhenPushed = true
+            self.navigationController?.pushViewController(viewController, animated: true)
+        }
+    }
+
+    @IBAction func onTouchUpInsidetButton(sender: UIButton) {
+        DataStore.sharedInstance.deleteAll()
         MyAccount.sharedInstance.logout()
         moveToLoginViewController()
     }
