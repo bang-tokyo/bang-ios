@@ -10,11 +10,13 @@ import UIKit
 
 class RequestedBangViewController: UIViewController {
 
-    class func build() -> RequestedBangViewController {
+    class func build() -> (UINavigationController, RequestedBangViewController) {
         var storyboard = UIStoryboard(name: "RequestedBang", bundle: nil)
         var tabBarViewController = storyboard.instantiateInitialViewController() as! UITabBarController
         var viewControllers = tabBarViewController.viewControllers as! [UIViewController]
-        return viewControllers[0] as! RequestedBangViewController
+        var navigationController = viewControllers[0] as! UINavigationController
+        var viewController = navigationController.topViewController as! RequestedBangViewController
+        return (navigationController, viewController)
     }
 
     @IBOutlet weak var tableView: UITableView!

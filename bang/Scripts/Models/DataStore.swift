@@ -67,6 +67,13 @@ final class DataStore: NSObject {
             return
         }
     }
+
+    func deleteAll() -> BFTask {
+        return save {
+            (context, willUpdate) -> Void in
+            self.truncateAll(context)
+        }
+    }
 }
 
 // MARK: - Praivate functions
@@ -147,5 +154,17 @@ extension DataStore {
 
     private func saveMessageList(messageList: [APIResponse.Message], context: NSManagedObjectContext) -> [MessageDto] {
         return messageList.map { self.saveMessage($0, context: context) }
+    }
+
+
+
+    // NOTE: - キャッシュが全部消えるので気をつけてね。
+    private func truncateAll(context: NSManagedObjectContext) {
+        MessageDto.MR_truncateAllInContext(context)
+        ConversationUserDto.MR_truncateAllInContext(context)
+        ConversationDto.MR_truncateAllInContext(context)
+
+        UserBangDto.MR_truncateAllInContext(context)
+        UserDto.MR_truncateAllInContext(context)
     }
 }
