@@ -12,6 +12,12 @@ import Bolts
 
 final class APIManager: NSObject {
 
+    private struct Const {
+        static let BaseURLForDevelopment: String = "http://api.bang.com:3000"
+        static let BaseURLForAdHoc: String = "http://api.bang.tokyo:8080"
+        static let BaseURL: String = "http://api.bang.tokyo:8080"
+    }
+
     class var sharedInstance: APIManager {
         struct Static {
             static let instance = APIManager()
@@ -27,8 +33,13 @@ final class APIManager: NSObject {
     override private init() {
         super.init()
         manager = Alamofire.Manager(configuration: buildSessionConfig())
-        //baseURL = "http://api.localhost.local:3000"
-        baseURL = "http://api.bang.com:3000"
+        #if DEBUG
+            baseURL = Const.BaseURLForDevelopment
+        #elseif ADHOC
+            baseURL = Const.BaseURLForAdHoc
+        #else
+            baseURL = Const.BaseURL
+        #endif
     }
 
     func request(method: APIMethod, path: String) -> BFTask {

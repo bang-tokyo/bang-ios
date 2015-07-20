@@ -1022,6 +1022,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1032,6 +1033,8 @@
 			baseConfigurationReference = 9E24BFC2BD3FDB4B7751D942 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				BANG_BUNDLE_IDENTIFIER = "com.yoshinbo.app.$(PRODUCT_NAME:rfc1034identifier).adhoc";
+				BANG_DISPLAY_NAME = Bang.adhoc;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1041,7 +1044,9 @@
 				INFOPLIST_FILE = bang/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -D ADHOC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "bang/Scripts/Vendors/bang-Bridging-Header.h";
 			};
 			name = Adhoc;
@@ -1146,6 +1151,8 @@
 			baseConfigurationReference = 07720D1FE88AFACC32454227 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				BANG_BUNDLE_IDENTIFIER = "com.yoshinbo.app.$(PRODUCT_NAME:rfc1034identifier).debug";
+				BANG_DISPLAY_NAME = Bang.debug;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1155,7 +1162,9 @@
 				INFOPLIST_FILE = bang/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -D DEBUG";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "bang/Scripts/Vendors/bang-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -1166,6 +1175,8 @@
 			baseConfigurationReference = 9E24BFC2BD3FDB4B7751D942 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				BANG_BUNDLE_IDENTIFIER = "com.yoshinbo.app.$(PRODUCT_NAME:rfc1034identifier)";
+				BANG_DISPLAY_NAME = Bang;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
