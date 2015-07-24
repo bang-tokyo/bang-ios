@@ -51,6 +51,29 @@ final class DataStore: NSObject {
             return
         }
     }
+
+    func saveMessage(message: APIResponse.Message) -> BFTask {
+        return save {
+            (context, willUpdate) -> Void in
+            self.saveMessage(message, context: context)
+            return
+        }
+    }
+
+    func saveMessageList(messageList: [APIResponse.Message]) -> BFTask {
+        return save {
+            (context, willUpdate) -> Void in
+            self.saveMessageList(messageList, context: context)
+            return
+        }
+    }
+
+    func deleteAll() -> BFTask {
+        return save {
+            (context, willUpdate) -> Void in
+            self.truncateAll(context)
+        }
+    }
 }
 
 // MARK: - Praivate functions
@@ -114,5 +137,34 @@ extension DataStore {
 
     private func saveConversationList(conversationList: [APIResponse.Conversation], context: NSManagedObjectContext) -> [ConversationDto] {
         return conversationList.map { self.saveConversation($0, context: context) }
+    }
+
+    private func saveMessage(message: APIResponse.Message, context: NSManagedObjectContext) -> MessageDto {
+        // NOTE : - ConversationでUserデータも一緒にとってくるのでここではすでにUserの情報はキャッシュしているものとする。
+        let user = UserDto.firstById(message.userId, context: context) as! UserDto
+
+        let messageDto: MessageDto = MessageDto.firstOrInitializeById(message.id, context: context)
+        messageDto.fill(message)
+        messageDto.user = user
+        let layoutHeight = ConversationMessageTableViewCell.messageHeightCertainly(messageDto)
+        messageDto.layoutHeight = layoutHeight
+        messageDto.layoutVersion = kMessageLayoutVersion
+        return messageDto
+    }
+
+    private func saveMessageList(messageList: [APIResponse.Message], context: NSManagedObjectContext) -> [MessageDto] {
+        return messageList.map { self.saveMessage($0, context: context) }
+    }
+
+
+
+    // NOTE: - キャッシュが全部消えるので気をつけてね。
+    private func truncateAll(context: NSManagedObjectContext) {
+        MessageDto.MR_truncateAllInContext(context)
+        ConversationUserDto.MR_truncateAllInContext(context)
+        ConversationDto.MR_truncateAllInContext(context)
+
+        UserBangDto.MR_truncateAllInContext(context)
+        UserDto.MR_truncateAllInContext(context)
     }
 }

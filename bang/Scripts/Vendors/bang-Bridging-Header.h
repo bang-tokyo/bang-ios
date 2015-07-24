@@ -12,4 +12,5 @@
 #import <TAKUUID/TAKUUID.h>
 #import <SVProgressHUD/SVProgressHUD.h>
 #import <HPGrowingTextView/HPGrowingTextView.h>
-
+#import <TTTAttributedLabel/TTTAttributedLabel.h>
+#import <TestFairy/TestFairy.h>

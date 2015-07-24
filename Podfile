@@ -12,3 +12,6 @@ pod 'MagicalRecord', git: 'https://github.com/shiruco/MagicalRecord.git'
 pod 'TAKUUID'
 pod 'SVProgressHUD'
 pod 'HPGrowingTextView'
+pod 'TTTAttributedLabel'
+
+pod 'TestFairy'

@@ -2,52 +2,32 @@
 //  ProfileViewController.swift
 //  bang
 //
-//  Created by Yoshikazu Oda on 2015/02/15.
+//  Created by Yoshikazu Oda on 2015/07/12.
 //  Copyright (c) 2015年 Yoshikazu Oda. All rights reserved.
 //
 
 import UIKit
-import FacebookSDK
 
 class ProfileViewController: UIViewController {
 
-    class func build() -> ProfileViewController {
+    class func build(userDto: UserDto) -> (UINavigationController, ProfileViewController) {
         var storyboard = UIStoryboard(name: "Profile", bundle: nil)
-        var tabBarViewController = storyboard.instantiateInitialViewController() as! UITabBarController
-        var viewControllers = tabBarViewController.viewControllers as! [UIViewController]
-        return viewControllers[0] as! ProfileViewController
+        var navigationViewController = storyboard.instantiateInitialViewController() as! UINavigationController
+        var profileViewController = navigationViewController.topViewController as! ProfileViewController
+        profileViewController.userDto = userDto
+        return (navigationViewController, profileViewController)
     }
 
-    @IBOutlet weak var profilePictureView: FBProfilePictureView!
-    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var editButton: UIBarButtonItem!
 
-    var facebookManager: FacebookManager = FacebookManager.sharedInstance
+    var userDto: UserDto!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if let user = UserDto.firstById(MyAccount.sharedInstance.userId) as? UserDto {
-            nameLabel.text = user.name
-            profilePictureView.profileID = user.facebookId
-        } else {
-            APIManager.sharedInstance.showUser(Int(MyAccount.sharedInstance.userId)).continueWithBlock({
-                [weak self] (task) -> AnyObject! in
-                if let user = APIResponse.parse(APIResponse.User.self, task.result) {
-                    self?.nameLabel.text = user.name
-                    self?.profilePictureView.profileID = user.facebookId
-                }
-                return task
-            })
+        if !userDto.isMine() {
+            navigationItem.setRightBarButtonItem(nil, animated: true)
         }
-    }
-
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-    }
-
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        profilePictureView.makeCircle()
     }
 
     override func didReceiveMemoryWarning() {
@@ -55,17 +35,10 @@ class ProfileViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    // MARK: - IBAction
-    @IBAction func onClickLogoutButton(sender: UIButton) {
-        MyAccount.sharedInstance.logout()
-        moveToLoginViewController()
-    }
-}
-
-// MARK: - Private functions
-extension ProfileViewController {
-    private func moveToLoginViewController() {
-        var loginViewController = LoginViewController.build()
-        moveTo(loginViewController)
+    @IBAction func onTouchUpInsideEditbutton(sender: UIBarButtonItem) {
+        if userDto.isMine() {
+            var (navigationController, viewController) = ProfileEditViewController.build(userDto)
+            self.navigationController?.pushViewController(viewController, animated: true)
+        }
     }
 }

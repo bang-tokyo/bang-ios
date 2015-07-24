@@ -10,11 +10,13 @@ import UIKit
 
 class ConversationViewController: UIViewController {
 
-    class func build() -> ConversationViewController {
+    class func build() -> (UINavigationController, ConversationViewController) {
         var storyboard = UIStoryboard(name: "Conversation", bundle: nil)
         var tabBarViewController = storyboard.instantiateInitialViewController() as! UITabBarController
         var viewControllers = tabBarViewController.viewControllers as! [UIViewController]
-        return viewControllers[0] as! ConversationViewController
+        var navigationController = viewControllers[0] as! UINavigationController
+        var viewController = navigationController.topViewController as! ConversationViewController
+        return (navigationController, viewController)
     }
 
     @IBOutlet weak var tableView: UITableView!
@@ -47,9 +49,9 @@ class ConversationViewController: UIViewController {
     func showDetail(notification: NSNotification) {
         if let parameters = notification.userInfo {
             let conversationId = parameters["conversationId"] as! Int
-            var (navigationViewController, conversationDetailViewController) = ConversationDetailViewController.build(conversationId)
-            navigationViewController.modalTransitionStyle = .FlipHorizontal
-            presentViewController(navigationViewController, animated: true, completion: nil)
+            var (navigationController, viewController) = ConversationDetailViewController.build(conversationId)
+            viewController.hidesBottomBarWhenPushed = true
+            self.navigationController?.pushViewController(viewController, animated: true)
         }
     }
 }

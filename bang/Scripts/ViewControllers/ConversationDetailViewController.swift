@@ -25,6 +25,7 @@ class ConversationDetailViewController: UIViewController {
         static let MaxMessageLength: Int = 100
     }
 
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var growingTextView: HPGrowingTextView!
     @IBOutlet weak var growingTextViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var footerBottomConstraint: NSLayoutConstraint!
@@ -32,12 +33,15 @@ class ConversationDetailViewController: UIViewController {
 
     var conversationId: Int!
 
+    private var dataHandler: ConversationDetailDataHandler!
     private var detector: KeyboardDisplayDetector!
 
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        addCloseButton()
+
+        dataHandler = ConversationDetailDataHandler()
+        dataHandler.setup(conversationId, tableView: tableView)
 
         setUpgrowingTextView()
         sendButton.enabled = false
@@ -45,6 +49,7 @@ class ConversationDetailViewController: UIViewController {
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        dataHandler.fetchData()
 
         detector = KeyboardDisplayDetector(view: view, callback: {
             [weak self] (value, detectType) -> () in
@@ -56,6 +61,11 @@ class ConversationDetailViewController: UIViewController {
                 self?.footerBottomConstraint.constant = Const.DefaultBottomPadding
             }
         })
+    }
+
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        goTail()
     }
 
     override func viewWillDisappear(animated: Bool) {
@@ -73,15 +83,41 @@ class ConversationDetailViewController: UIViewController {
     }
 
     @IBAction func onClickCloseButton(sender: UIButton) {
-        println("-> \(messageString())")
-        growingTextView.resignFirstResponder()
+        APIManager.sharedInstance.sendMessage(conversationId, message: messageString()).showErrorIfNeeded()
+        .continueWithBlock({
+            [weak self] (task) -> AnyObject! in
+            if let strongSelf = self, message = APIResponse.parse(APIResponse.Message.self, task.result) {
+                return DataStore.sharedInstance.saveMessage(message)
+            }
+            return task
+        })
+        .continueWithBlock({
+            [weak self] (task) -> AnyObject! in
+            GCD.runOnMainThread(0.3) {
+                if let strongSelf = self {
+                    strongSelf.resetGrowingTextView()
+                    strongSelf.goTail()
+                }
+            }
+            return task
+        })
     }
 }
 
 // MARK: - Private functions
 extension ConversationDetailViewController {
+    private func goTail() {
+        tableView.setContentOffset(CGPointMake(0, tableView.contentSize.height - tableView.frame.size.height), animated: true)
+    }
+
     private func messageString() -> String {
         return growingTextView.text.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+    }
+
+    private func resetGrowingTextView() {
+        growingTextView.text = ""
+        sendButton.enabled = false
+        growingTextView.resignFirstResponder()
     }
 }
 
