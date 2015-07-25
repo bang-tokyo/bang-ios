@@ -1,15 +1,15 @@
 //
-//  SearchTargetCollectionViewCell.swift
+//  SearchTargetGroupCollectionViewCell.swift
 //  bang
 //
-//  Created by Yoshikazu Oda on 2015/05/28.
-//  Copyright (c) 2015年 Yoshikazu Oda. All rights reserved.
+//  Created by Tomoyuki Takata on 2015/05/28.
+//  Copyright (c) 2015年 Tomoyuki Takata. All rights reserved.
 //
 
 import UIKit
 import FacebookSDK
 
-class SearchTargetCollectionViewCell: UICollectionViewCell {
+class SearchTargetGroupCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak private var profilePictureView: FBProfilePictureView!
     @IBOutlet weak private var label: UILabel!
@@ -24,8 +24,8 @@ class SearchTargetCollectionViewCell: UICollectionViewCell {
         profilePictureView.makeCircle()
     }
 
-    func setup(user: APIResponse.User) {
-        label.text = user.name
-        profilePictureView.profileID = user.facebookId
+    func setup(user: APIResponse.Group) {
+        //label.text = user.name
+        //profilePictureView.profileID = user.facebookId
     }
 }

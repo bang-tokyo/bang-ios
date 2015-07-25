@@ -1,5 +1,5 @@
 //
-//  MiddleSearchViewController.swift
+//  UserMiddleSearchViewController.swift
 //  bang
 //
 //  Created by Yoshikazu Oda on 2015/05/27.
@@ -8,11 +8,11 @@
 
 import UIKit
 
-class MiddleSearchViewController: UIViewController {
+class UserMiddleSearchViewController: UIViewController {
 
-    class func build() -> MiddleSearchViewController {
-        var storyboard = UIStoryboard(name: "MiddleSearch", bundle: nil)
-        return storyboard.instantiateInitialViewController() as! MiddleSearchViewController
+    class func build() -> UserMiddleSearchViewController {
+        var storyboard = UIStoryboard(name: "UserMiddleSearch", bundle: nil)
+        return storyboard.instantiateInitialViewController() as! UserMiddleSearchViewController
     }
 
     @IBOutlet weak var collectionView: UICollectionView!
@@ -80,10 +80,15 @@ class MiddleSearchViewController: UIViewController {
     @IBAction func onClickCloseButton(sender: UIBarButtonItem) {
         self.closeViewController()
     }
+
+    @IBAction func onSegmentValueChanged(sender: UISegmentedControl) {
+        let groupMiddleSearchViewController = GroupMiddleSearchViewController.build()
+        self.presentViewController(groupMiddleSearchViewController, animated: false, completion: nil)
+    }
 }
 
 // MARK: - Private functions
-extension MiddleSearchViewController {
+extension UserMiddleSearchViewController {
     private func enableBangButton() {
         bangButton.hidden = false
         bangButton.enabled = true
@@ -110,7 +115,7 @@ extension MiddleSearchViewController {
 }
 
 // MARK: - UICollectionViewDelegate
-extension MiddleSearchViewController: UICollectionViewDelegate {
+extension UserMiddleSearchViewController: UICollectionViewDelegate {
     func scrollViewWillBeginDragging(scrollView: UIScrollView) {
         disableBangButton()
         selectedTargetIndexPath = nil
@@ -151,7 +156,7 @@ extension MiddleSearchViewController: UICollectionViewDelegate {
             if (scalableRange - diffX) > 0 {
                 //倍率を算出
                 var scale = (scalableRange - diffX) / scalableRange
-                if let c = cell as? SearchTargetCollectionViewCell {
+                if let c = cell as? SearchTargetUserCollectionViewCell {
                     scale = (scale < 0.5) ? 0.5 : scale
                     c.containerView.alpha = scale * 1.25
 					
@@ -170,7 +175,7 @@ extension MiddleSearchViewController: UICollectionViewDelegate {
 }
 
 // MARK: - UICollectionViewDelegateFlowLayout
-extension MiddleSearchViewController: UICollectionViewDelegateFlowLayout {
+extension UserMiddleSearchViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
         return UIEdgeInsetsMake(0, bothEndsSpeceSizeOfCell, 0, bothEndsSpeceSizeOfCell);
     }
@@ -180,7 +185,7 @@ extension MiddleSearchViewController: UICollectionViewDelegateFlowLayout {
 }
 
 // MARK: - UICollectionViewDataSource
-extension MiddleSearchViewController: UICollectionViewDataSource {
+extension UserMiddleSearchViewController: UICollectionViewDataSource {
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if searchedUsers.count > 0 {
             enableBangButton()
@@ -191,7 +196,7 @@ extension MiddleSearchViewController: UICollectionViewDataSource {
     }
 
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        var cell = collectionView.dequeueReusableCellWithReuseIdentifier("searchTargetCell", forIndexPath: indexPath) as! SearchTargetCollectionViewCell
+        var cell = collectionView.dequeueReusableCellWithReuseIdentifier("searchTargetCell", forIndexPath: indexPath) as! SearchTargetUserCollectionViewCell
         var user = searchedUsers[indexPath.row]
         cell.setup(user)
 		

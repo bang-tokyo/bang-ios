@@ -61,7 +61,7 @@ extension TabBarViewController: UITabBarControllerDelegate {
     func tabBarController(tabBarController: UITabBarController, shouldSelectViewController viewController: UIViewController) -> Bool {
         if (viewController != self.searchViewController) { return true }
         //let searchViewController = ShortSearchViewController.build()
-        let searchViewController = MiddleSearchViewController.build()
+        let searchViewController = UserMiddleSearchViewController.build()
         self.presentViewController(searchViewController, animated: true, completion: nil)
         return false
     }
