@@ -10,6 +10,7 @@ import UIKit
 import FacebookSDK
 import CoreLocation
 import MagicalRecord
+import TestFairy
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -44,6 +45,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         locationManager.setUpSignificantChangeUpdates()
         locationManager.delegate = self
         locationManager.startLocationUpdates()
+
+        // TODO : - For TestFairyテストユーザーの操作動画とかみたい時だけに必要みたい。実際はいらないかも。
+        TestFairy.begin("2230ae3df6cdd204adfa8a9717fd8ecf4945b852")
 
         return true
     }
