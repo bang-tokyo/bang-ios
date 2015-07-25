@@ -83,6 +83,7 @@
 		B8C1884B1AE3397600037552 /* BFTask+API.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C1884A1AE3397600037552 /* BFTask+API.swift */; };
 		B8C1884F1AE3C6A200037552 /* BFTask+Facebook.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C1884E1AE3C6A200037552 /* BFTask+Facebook.swift */; };
 		B8C188511AE3D70200037552 /* MyAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C188501AE3D70100037552 /* MyAccount.swift */; };
+		B8CC948C1B63C48800AF7B5D /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B8CC948B1B63C48800AF7B5D /* Settings.bundle */; };
 		B8D9B2561A82523400B30271 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D9B2551A82523400B30271 /* UIViewController+Extension.swift */; };
 		B8D9B2591A82534A00B30271 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D9B2581A82534A00B30271 /* UIView+Extension.swift */; };
 		B8D9B25D1A8254C400B30271 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D9B25C1A8254C400B30271 /* UIImage+Extension.swift */; };
@@ -194,6 +195,7 @@
 		B8C1884A1AE3397600037552 /* BFTask+API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BFTask+API.swift"; sourceTree = "<group>"; };
 		B8C1884E1AE3C6A200037552 /* BFTask+Facebook.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BFTask+Facebook.swift"; sourceTree = "<group>"; };
 		B8C188501AE3D70100037552 /* MyAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyAccount.swift; sourceTree = "<group>"; };
+		B8CC948B1B63C48800AF7B5D /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		B8D9B2551A82523400B30271 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		B8D9B2581A82534A00B30271 /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		B8D9B25C1A8254C400B30271 /* UIImage+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
@@ -604,6 +606,7 @@
 		B8FDC5041A818EDB00D4511E = {
 			isa = PBXGroup;
 			children = (
+				B8CC948B1B63C48800AF7B5D /* Settings.bundle */,
 				B8FDC50F1A818EDC00D4511E /* bang */,
 				B8FDC5251A818EDC00D4511E /* bangTests */,
 				B8FDC50E1A818EDC00D4511E /* Products */,
@@ -672,6 +675,7 @@
 				B8FDC50B1A818EDC00D4511E /* Resources */,
 				5EE929952E2FBC37FEB12447 /* Copy Pods Resources */,
 				9ACC0192A85F5291A2DFA6A3 /* Embed Pods Frameworks */,
+				B8CC948A1B63C43600AF7B5D /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -749,6 +753,7 @@
 			files = (
 				B82448401A8EF07700B540A4 /* Login.storyboard in Resources */,
 				B8631B4D1B5299440063039A /* Profile.storyboard in Resources */,
+				B8CC948C1B63C48800AF7B5D /* Settings.bundle in Resources */,
 				B82448521A90CE7F00B540A4 /* Localizable.strings in Resources */,
 				B8FDC51D1A818EDC00D4511E /* LaunchScreen.xib in Resources */,
 				B8187BC51B1603CF00E23716 /* MiddleSearch.storyboard in Resources */,
@@ -861,6 +866,19 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
+		};
+		B8CC948A1B63C43600AF7B5D /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = ./scripts/set_version_to_setting_bundle.sh;
 		};
 /* End PBXShellScriptBuildPhase section */
 
