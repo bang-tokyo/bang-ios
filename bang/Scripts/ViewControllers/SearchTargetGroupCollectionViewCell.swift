@@ -24,8 +24,8 @@ class SearchTargetGroupCollectionViewCell: UICollectionViewCell {
         profilePictureView.makeCircle()
     }
 
-    func setup(user: APIResponse.Group) {
-        //label.text = user.name
+    func setup(group: APIResponse.Group) {
+        label.text = group.name
         //profilePictureView.profileID = user.facebookId
     }
 }

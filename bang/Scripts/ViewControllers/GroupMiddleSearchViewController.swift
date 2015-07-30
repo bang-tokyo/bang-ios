@@ -83,7 +83,8 @@ class GroupMiddleSearchViewController: UIViewController {
 
     @IBAction func onSegmentValueChanged(sender: UISegmentedControl) {
         let userMiddleSearchViewController = UserMiddleSearchViewController.build()
-        self.presentViewController(userMiddleSearchViewController, animated: false, completion: nil)
+        //self.presentViewController(userMiddleSearchViewController, animated: false, completion: nil)
+        self.dismissViewControllerAnimated(false, completion: nil)
     }
 }
 
@@ -99,13 +100,34 @@ extension GroupMiddleSearchViewController {
         bangButton.enabled = false
     }
 
+    private func getDisplayGroups(groups: Array<APIResponse.Group>) -> Array<APIResponse.Group> {
+        //自分が所属するグループは表示しない
+        //TODO: ロジックが冗長なので要修正
+        var dispGroups: [APIResponse.Group] = []
+        for group: APIResponse.Group in groups {
+            var dispFlg: Bool = true
+
+            for user: APIResponse.GroupUser in group.groupUsers {
+                println(user.userId)
+                if user.userId == 4 {
+                    dispFlg = false
+                }
+            }
+            if dispFlg {
+                dispGroups.append(group)
+            }
+        }
+
+        return dispGroups
+    }
+
     private func searchTargetUsers() {
         ProgressHUD.show()
         // 検索で帰ってきたUserデータはすぐ破棄するのでCoreDataにキャッシュしない。
         APIManager.sharedInstance.searchGroup().hideProgressHUD().continueWithBlock({
             [weak self] (task) -> AnyObject! in
             if let groups = APIResponse.parseJSONArray(APIResponse.Group.self, task.result) {
-                self?.searchedGroups = groups
+                self?.searchedGroups = self!.getDisplayGroups(groups)
                 self?.collectionView.reloadData()
                 self?.collectionView.collectionViewLayout.invalidateLayout()
             }
