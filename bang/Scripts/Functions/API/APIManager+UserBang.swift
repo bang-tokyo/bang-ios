@@ -1,5 +1,5 @@
 //
-//  APIManager+Bang.swift
+//  APIManager+UserBang.swift
 //  bang
 //
 //  Created by Yoshikazu Oda on 2015/05/30.
@@ -10,11 +10,11 @@ import Foundation
 import Bolts
 
 extension APIManager {
-    func requestBang(id: Int) -> BFTask {
+    func requestUserBang(id: Int) -> BFTask {
         return request(.GET, path: "/v1/bang/request/\(id)").APIErrorHandler()
     }
 
-    func replyBang(id: Int, status: BangStatus) -> BFTask {
+    func replyUserBang(id: Int, status: BangStatus) -> BFTask {
         switch status {
         case .Accept:
             return request(.GET, path: "/v1/bang/reply/\(id)/accept").APIErrorHandler()

@@ -61,7 +61,7 @@ class UserMiddleSearchViewController: UIViewController {
     @IBAction func onTouchUpInsideBangBtn(sender: UIButton) {
         if let indexPath = selectedTargetIndexPath {
             var user = searchedUsers[indexPath.row]
-            APIManager.sharedInstance.requestBang(user.id.integerValue).continueWithBlock({
+            APIManager.sharedInstance.requestUserBang(user.id.integerValue).continueWithBlock({
                 [weak self] (task) -> AnyObject! in
                 self?.searchedUsers.removeAtIndex(indexPath.row)
                 self?.collectionView.reloadData()
@@ -82,8 +82,19 @@ class UserMiddleSearchViewController: UIViewController {
     }
 
     @IBAction func onSegmentValueChanged(sender: UISegmentedControl) {
-        let groupMiddleSearchViewController = GroupMiddleSearchViewController.build()
-        self.presentViewController(groupMiddleSearchViewController, animated: false, completion: nil)
+        println("user")
+        println(sender.selectedSegmentIndex)
+        switch sender.selectedSegmentIndex {
+            case 0:
+                let userMiddleSearchViewController = UserMiddleSearchViewController.build()
+                self.presentViewController(userMiddleSearchViewController, animated: false, completion: nil)
+            case 1:
+                let groupMiddleSearchViewController = GroupMiddleSearchViewController.build()
+                self.presentViewController(groupMiddleSearchViewController, animated: false, completion: nil)
+            default:
+                let userMiddleSearchViewController = UserMiddleSearchViewController.build()
+                self.dismissViewControllerAnimated(false, completion: nil)
+        }
     }
 }
 

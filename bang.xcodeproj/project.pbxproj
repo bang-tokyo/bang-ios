@@ -15,6 +15,8 @@
 		A9925ACB1B634E35006B7E34 /* APIResponse+Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9925ACA1B634E34006B7E34 /* APIResponse+Group.swift */; };
 		A9925ACD1B634F37006B7E34 /* SearchTargetGroupCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9925ACC1B634F37006B7E34 /* SearchTargetGroupCollectionViewCell.swift */; };
 		A9925ACF1B638525006B7E34 /* APIResponse+GroupUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9925ACE1B638525006B7E34 /* APIResponse+GroupUser.swift */; };
+		A9925AD11B6A8EC7006B7E34 /* APIResponse+GroupBang.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9925AD01B6A8EC7006B7E34 /* APIResponse+GroupBang.swift */; };
+		A9925AD31B6A8F59006B7E34 /* APIManager+GroupBang.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9925AD21B6A8F59006B7E34 /* APIManager+GroupBang.swift */; };
 		B807F3361AB433D300571ACB /* Tracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B807F3351AB433D300571ACB /* Tracker.swift */; };
 		B80D21151ABC5BEC00405EAE /* QueueManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80D21141ABC5BEC00405EAE /* QueueManager.swift */; };
 		B8187BC51B1603CF00E23716 /* UserMiddleSearch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8187BC41B1603CF00E23716 /* UserMiddleSearch.storyboard */; };
@@ -43,7 +45,7 @@
 		B84A6EBC1AF44D2600A7C632 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84A6EBB1AF44D2600A7C632 /* Date.swift */; };
 		B84A6EBE1AF4578900A7C632 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84A6EBD1AF4578900A7C632 /* DataStore.swift */; };
 		B84A6EC11AF45A6B00A7C632 /* NSManagedObject+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84A6EC01AF45A6B00A7C632 /* NSManagedObject+Extension.swift */; };
-		B84BF5EB1B19E68500067C4A /* APIManager+Bang.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84BF5EA1B19E68500067C4A /* APIManager+Bang.swift */; };
+		B84BF5EB1B19E68500067C4A /* APIManager+UserBang.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84BF5EA1B19E68500067C4A /* APIManager+UserBang.swift */; };
 		B84BF5ED1B1C1C1E00067C4A /* RequestedBangViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84BF5EC1B1C1C1D00067C4A /* RequestedBangViewController.swift */; };
 		B84BF5EF1B1C1C3A00067C4A /* RequestedBang.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B84BF5EE1B1C1C3A00067C4A /* RequestedBang.storyboard */; };
 		B84BF5F11B1C1D9700067C4A /* RequestedBangTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84BF5F01B1C1D9700067C4A /* RequestedBangTableViewCell.swift */; };
@@ -131,6 +133,8 @@
 		A9925ACA1B634E34006B7E34 /* APIResponse+Group.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "APIResponse+Group.swift"; sourceTree = "<group>"; };
 		A9925ACC1B634F37006B7E34 /* SearchTargetGroupCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchTargetGroupCollectionViewCell.swift; path = ../ViewControllers/SearchTargetGroupCollectionViewCell.swift; sourceTree = "<group>"; };
 		A9925ACE1B638525006B7E34 /* APIResponse+GroupUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "APIResponse+GroupUser.swift"; sourceTree = "<group>"; };
+		A9925AD01B6A8EC7006B7E34 /* APIResponse+GroupBang.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "APIResponse+GroupBang.swift"; sourceTree = "<group>"; };
+		A9925AD21B6A8F59006B7E34 /* APIManager+GroupBang.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "APIManager+GroupBang.swift"; sourceTree = "<group>"; };
 		B807F3351AB433D300571ACB /* Tracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tracker.swift; sourceTree = "<group>"; };
 		B80D21141ABC5BEC00405EAE /* QueueManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueueManager.swift; sourceTree = "<group>"; };
 		B8187BC41B1603CF00E23716 /* UserMiddleSearch.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UserMiddleSearch.storyboard; sourceTree = "<group>"; };
@@ -160,7 +164,7 @@
 		B84A6EBB1AF44D2600A7C632 /* Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		B84A6EBD1AF4578900A7C632 /* DataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
 		B84A6EC01AF45A6B00A7C632 /* NSManagedObject+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObject+Extension.swift"; sourceTree = "<group>"; };
-		B84BF5EA1B19E68500067C4A /* APIManager+Bang.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "APIManager+Bang.swift"; sourceTree = "<group>"; };
+		B84BF5EA1B19E68500067C4A /* APIManager+UserBang.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "APIManager+UserBang.swift"; sourceTree = "<group>"; };
 		B84BF5EC1B1C1C1D00067C4A /* RequestedBangViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestedBangViewController.swift; sourceTree = "<group>"; };
 		B84BF5EE1B1C1C3A00067C4A /* RequestedBang.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RequestedBang.storyboard; sourceTree = "<group>"; };
 		B84BF5F01B1C1D9700067C4A /* RequestedBangTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestedBangTableViewCell.swift; sourceTree = "<group>"; };
@@ -310,10 +314,11 @@
 		B821152B1ADA5581002CCA46 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				A9925AD21B6A8F59006B7E34 /* APIManager+GroupBang.swift */,
 				A9925AC81B634DA6006B7E34 /* APIManager+Group.swift */,
 				B821152C1ADA55AB002CCA46 /* APIManager.swift */,
 				B8F547531ADC197B00548883 /* APIManager+User.swift */,
-				B84BF5EA1B19E68500067C4A /* APIManager+Bang.swift */,
+				B84BF5EA1B19E68500067C4A /* APIManager+UserBang.swift */,
 				B84BF6241B39A26E00067C4A /* APIManager+Conversation.swift */,
 				B8C1884A1AE3397600037552 /* BFTask+API.swift */,
 			);
@@ -524,6 +529,7 @@
 			isa = PBXGroup;
 			children = (
 				A9925ACE1B638525006B7E34 /* APIResponse+GroupUser.swift */,
+				A9925AD01B6A8EC7006B7E34 /* APIResponse+GroupBang.swift */,
 				A9925ACA1B634E34006B7E34 /* APIResponse+Group.swift */,
 				B8B979CB1AE67FE600BC3E2C /* APIResponse.swift */,
 				B8F9C6941AE687CB003320AB /* APIResponse+User.swift */,
@@ -892,6 +898,7 @@
 				A9925AC71B6343AA006B7E34 /* GroupMiddleSearchViewController.swift in Sources */,
 				B821152D1ADA55AB002CCA46 /* APIManager.swift in Sources */,
 				B84BF6061B350CE000067C4A /* DefaultFetchedResultsControllerDelegate.swift in Sources */,
+				A9925AD11B6A8EC7006B7E34 /* APIResponse+GroupBang.swift in Sources */,
 				B8D9B2591A82534A00B30271 /* UIView+Extension.swift in Sources */,
 				B8631B471B50BF270063039A /* Style.swift in Sources */,
 				B85A3D101AEFBCC3008AC7B8 /* bang.xcdatamodeld in Sources */,
@@ -935,6 +942,7 @@
 				B830CDDA1A82403B0038CAFE /* ShortSearchViewController.swift in Sources */,
 				B8C1884B1AE3397600037552 /* BFTask+API.swift in Sources */,
 				B84BF5F11B1C1D9700067C4A /* RequestedBangTableViewCell.swift in Sources */,
+				A9925AD31B6A8F59006B7E34 /* APIManager+GroupBang.swift in Sources */,
 				B8B979CC1AE67FE600BC3E2C /* APIResponse.swift in Sources */,
 				B84BF6031B24856900067C4A /* RequestedBangDataHandler.swift in Sources */,
 				B84BF5FC1B24272000067C4A /* BangStatus.swift in Sources */,
@@ -970,7 +978,7 @@
 				B84A6EBC1AF44D2600A7C632 /* Date.swift in Sources */,
 				B82CA45B1AEC7C4100159D99 /* Alert.swift in Sources */,
 				B84BF60F1B36727100067C4A /* ConversationDataHandler.swift in Sources */,
-				B84BF5EB1B19E68500067C4A /* APIManager+Bang.swift in Sources */,
+				B84BF5EB1B19E68500067C4A /* APIManager+UserBang.swift in Sources */,
 				B82448421A8EF16C00B540A4 /* LoginViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

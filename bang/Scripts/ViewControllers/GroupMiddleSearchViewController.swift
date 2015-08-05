@@ -22,6 +22,8 @@ class GroupMiddleSearchViewController: UIViewController {
     private var selectedTargetIndexPath: NSIndexPath?
     private var hasSelectedTarget = false
 
+    private var currentGroupId: Int = 3 //TODO: gourp選択機能をつくる
+
     private let widthSizeOfCell: CGFloat = 200 // Cellのサイズが200x200
     private let cellMargin:CGFloat = -100 // cell間のマージン
     private var bothEndsSpeceSizeOfCell: CGFloat = 0 // CollectionViewの両端に空けたスペースのサイズ
@@ -34,7 +36,7 @@ class GroupMiddleSearchViewController: UIViewController {
         bothEndsSpeceSizeOfCell = view.frame.width/2 - widthSizeOfCell/2
 
         disableBangButton()
-        searchTargetUsers()
+        searchTargetGroups()
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -60,14 +62,14 @@ class GroupMiddleSearchViewController: UIViewController {
 
     @IBAction func onTouchUpInsideBangBtn(sender: UIButton) {
         if let indexPath = selectedTargetIndexPath {
-            var user = searchedGroups[indexPath.row]
-            APIManager.sharedInstance.requestBang(user.id.integerValue).continueWithBlock({
+            var group = searchedGroups[indexPath.row]
+            APIManager.sharedInstance.requestGroupBang(group.id.integerValue, fromGroupId: currentGroupId).continueWithBlock({
                 [weak self] (task) -> AnyObject! in
                 self?.searchedGroups.removeAtIndex(indexPath.row)
                 self?.collectionView.reloadData()
                 self?.collectionView.collectionViewLayout.invalidateLayout()
 
-                Alert.showNormal("Bang", message: "Bang For \(user.name) Complete!")
+                Alert.showNormal("Bang", message: "Bang For \(group.name) Complete!")
                 return task
                 })
         }
@@ -82,9 +84,19 @@ class GroupMiddleSearchViewController: UIViewController {
     }
 
     @IBAction func onSegmentValueChanged(sender: UISegmentedControl) {
-        let userMiddleSearchViewController = UserMiddleSearchViewController.build()
-        //self.presentViewController(userMiddleSearchViewController, animated: false, completion: nil)
-        self.dismissViewControllerAnimated(false, completion: nil)
+        println("group")
+        println(sender.selectedSegmentIndex)
+        switch sender.selectedSegmentIndex {
+        case 0:
+            let userMiddleSearchViewController = UserMiddleSearchViewController.build()
+            self.presentViewController(userMiddleSearchViewController, animated: false, completion: nil)
+        case 1:
+            let groupMiddleSearchViewController = GroupMiddleSearchViewController.build()
+            self.presentViewController(groupMiddleSearchViewController, animated: false, completion: nil)
+        default:
+            let userMiddleSearchViewController = UserMiddleSearchViewController.build()
+            self.dismissViewControllerAnimated(false, completion: nil)
+        }
     }
 }
 
@@ -100,34 +112,13 @@ extension GroupMiddleSearchViewController {
         bangButton.enabled = false
     }
 
-    private func getDisplayGroups(groups: Array<APIResponse.Group>) -> Array<APIResponse.Group> {
-        //自分が所属するグループは表示しない
-        //TODO: ロジックが冗長なので要修正
-        var dispGroups: [APIResponse.Group] = []
-        for group: APIResponse.Group in groups {
-            var dispFlg: Bool = true
-
-            for user: APIResponse.GroupUser in group.groupUsers {
-                println(user.userId)
-                if user.userId == 4 {
-                    dispFlg = false
-                }
-            }
-            if dispFlg {
-                dispGroups.append(group)
-            }
-        }
-
-        return dispGroups
-    }
-
-    private func searchTargetUsers() {
+    private func searchTargetGroups() {
         ProgressHUD.show()
         // 検索で帰ってきたUserデータはすぐ破棄するのでCoreDataにキャッシュしない。
         APIManager.sharedInstance.searchGroup().hideProgressHUD().continueWithBlock({
             [weak self] (task) -> AnyObject! in
             if let groups = APIResponse.parseJSONArray(APIResponse.Group.self, task.result) {
-                self?.searchedGroups = self!.getDisplayGroups(groups)
+                self?.searchedGroups = groups
                 self?.collectionView.reloadData()
                 self?.collectionView.collectionViewLayout.invalidateLayout()
             }
