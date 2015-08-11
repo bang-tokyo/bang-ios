@@ -17,6 +17,14 @@
 		A9925ACF1B638525006B7E34 /* APIResponse+GroupUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9925ACE1B638525006B7E34 /* APIResponse+GroupUser.swift */; };
 		A9925AD11B6A8EC7006B7E34 /* APIResponse+GroupBang.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9925AD01B6A8EC7006B7E34 /* APIResponse+GroupBang.swift */; };
 		A9925AD31B6A8F59006B7E34 /* APIManager+GroupBang.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9925AD21B6A8F59006B7E34 /* APIManager+GroupBang.swift */; };
+		A9925ADB1B761852006B7E34 /* GroupBangDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9925AD81B761852006B7E34 /* GroupBangDto.swift */; };
+		A9925ADC1B761852006B7E34 /* GroupDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9925AD91B761852006B7E34 /* GroupDto.swift */; };
+		A9925ADD1B761852006B7E34 /* GroupUserDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9925ADA1B761852006B7E34 /* GroupUserDto.swift */; };
+		A9925ADF1B762341006B7E34 /* GroupStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9925ADE1B762341006B7E34 /* GroupStatus.swift */; };
+		A9925AE31B78F510006B7E34 /* _GroupBangDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9925AE01B78F510006B7E34 /* _GroupBangDto.swift */; };
+		A9925AE41B78F510006B7E34 /* _GroupDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9925AE11B78F510006B7E34 /* _GroupDto.swift */; };
+		A9925AE51B78F510006B7E34 /* _GroupUserDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9925AE21B78F510006B7E34 /* _GroupUserDto.swift */; };
+		A9925AE71B78F58D006B7E34 /* MiddleSearchDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9925AE61B78F58D006B7E34 /* MiddleSearchDataHandler.swift */; };
 		B807F3361AB433D300571ACB /* Tracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B807F3351AB433D300571ACB /* Tracker.swift */; };
 		B80D21151ABC5BEC00405EAE /* QueueManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80D21141ABC5BEC00405EAE /* QueueManager.swift */; };
 		B8187BC51B1603CF00E23716 /* UserMiddleSearch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8187BC41B1603CF00E23716 /* UserMiddleSearch.storyboard */; };
@@ -135,6 +143,14 @@
 		A9925ACE1B638525006B7E34 /* APIResponse+GroupUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "APIResponse+GroupUser.swift"; sourceTree = "<group>"; };
 		A9925AD01B6A8EC7006B7E34 /* APIResponse+GroupBang.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "APIResponse+GroupBang.swift"; sourceTree = "<group>"; };
 		A9925AD21B6A8F59006B7E34 /* APIManager+GroupBang.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "APIManager+GroupBang.swift"; sourceTree = "<group>"; };
+		A9925AD81B761852006B7E34 /* GroupBangDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupBangDto.swift; sourceTree = "<group>"; };
+		A9925AD91B761852006B7E34 /* GroupDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupDto.swift; sourceTree = "<group>"; };
+		A9925ADA1B761852006B7E34 /* GroupUserDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupUserDto.swift; sourceTree = "<group>"; };
+		A9925ADE1B762341006B7E34 /* GroupStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupStatus.swift; sourceTree = "<group>"; };
+		A9925AE01B78F510006B7E34 /* _GroupBangDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _GroupBangDto.swift; sourceTree = "<group>"; };
+		A9925AE11B78F510006B7E34 /* _GroupDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _GroupDto.swift; sourceTree = "<group>"; };
+		A9925AE21B78F510006B7E34 /* _GroupUserDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _GroupUserDto.swift; sourceTree = "<group>"; };
+		A9925AE61B78F58D006B7E34 /* MiddleSearchDataHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiddleSearchDataHandler.swift; sourceTree = "<group>"; };
 		B807F3351AB433D300571ACB /* Tracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tracker.swift; sourceTree = "<group>"; };
 		B80D21141ABC5BEC00405EAE /* QueueManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueueManager.swift; sourceTree = "<group>"; };
 		B8187BC41B1603CF00E23716 /* UserMiddleSearch.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UserMiddleSearch.storyboard; sourceTree = "<group>"; };
@@ -382,6 +398,9 @@
 		B84A6EB21AF43C5300A7C632 /* BaseClasses */ = {
 			isa = PBXGroup;
 			children = (
+				A9925AE01B78F510006B7E34 /* _GroupBangDto.swift */,
+				A9925AE11B78F510006B7E34 /* _GroupDto.swift */,
+				A9925AE21B78F510006B7E34 /* _GroupUserDto.swift */,
 				B84A6EB51AF4422500A7C632 /* _UserDto.swift */,
 				B84BF5FF1B2428E800067C4A /* _UserBangDto.swift */,
 				B84BF6141B36F08000067C4A /* _ConversationDto.swift */,
@@ -416,6 +435,7 @@
 				A9925AC61B6343AA006B7E34 /* GroupMiddleSearchViewController.swift */,
 				B830CDD91A82403B0038CAFE /* ShortSearchViewController.swift */,
 				B8187BC81B16044900E23716 /* UserMiddleSearchViewController.swift */,
+				A9925AE61B78F58D006B7E34 /* MiddleSearchDataHandler.swift */,
 			);
 			name = Search;
 			sourceTree = "<group>";
@@ -514,6 +534,9 @@
 		B85A3D0D1AEFBC95008AC7B8 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				A9925AD81B761852006B7E34 /* GroupBangDto.swift */,
+				A9925AD91B761852006B7E34 /* GroupDto.swift */,
+				A9925ADA1B761852006B7E34 /* GroupUserDto.swift */,
 				B85A3D0E1AEFBCC3008AC7B8 /* bang.xcdatamodeld */,
 				B84A6EB31AF441FC00A7C632 /* UserDto.swift */,
 				B84BF5FD1B2428D200067C4A /* UserBangDto.swift */,
@@ -578,6 +601,7 @@
 				B84BF5FB1B24272000067C4A /* BangStatus.swift */,
 				B84BF61C1B3853C300067C4A /* ConversationKind.swift */,
 				B84A6EBD1AF4578900A7C632 /* DataStore.swift */,
+				A9925ADE1B762341006B7E34 /* GroupStatus.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -900,6 +924,7 @@
 				B84BF6061B350CE000067C4A /* DefaultFetchedResultsControllerDelegate.swift in Sources */,
 				A9925AD11B6A8EC7006B7E34 /* APIResponse+GroupBang.swift in Sources */,
 				B8D9B2591A82534A00B30271 /* UIView+Extension.swift in Sources */,
+				A9925AE51B78F510006B7E34 /* _GroupUserDto.swift in Sources */,
 				B8631B471B50BF270063039A /* Style.swift in Sources */,
 				B85A3D101AEFBCC3008AC7B8 /* bang.xcdatamodeld in Sources */,
 				B84BF5FE1B2428D200067C4A /* UserBangDto.swift in Sources */,
@@ -931,6 +956,7 @@
 				B8D9B2611A8255DD00B30271 /* UIImage+ImageEffects.m in Sources */,
 				B80D21151ABC5BEC00405EAE /* QueueManager.swift in Sources */,
 				B84BF60D1B366F5B00067C4A /* ConversationTableViewCell.swift in Sources */,
+				A9925AE41B78F510006B7E34 /* _GroupDto.swift in Sources */,
 				B824484C1A90441600B540A4 /* MyPageViewController.swift in Sources */,
 				B82448571A9824AF00B540A4 /* GlobalData.swift in Sources */,
 				B8631B511B52998E0063039A /* ProfileViewController.swift in Sources */,
@@ -941,8 +967,11 @@
 				B84A6EBA1AF446CC00A7C632 /* UserStatus.swift in Sources */,
 				B830CDDA1A82403B0038CAFE /* ShortSearchViewController.swift in Sources */,
 				B8C1884B1AE3397600037552 /* BFTask+API.swift in Sources */,
+				A9925ADF1B762341006B7E34 /* GroupStatus.swift in Sources */,
 				B84BF5F11B1C1D9700067C4A /* RequestedBangTableViewCell.swift in Sources */,
+				A9925ADB1B761852006B7E34 /* GroupBangDto.swift in Sources */,
 				A9925AD31B6A8F59006B7E34 /* APIManager+GroupBang.swift in Sources */,
+				A9925AE71B78F58D006B7E34 /* MiddleSearchDataHandler.swift in Sources */,
 				B8B979CC1AE67FE600BC3E2C /* APIResponse.swift in Sources */,
 				B84BF6031B24856900067C4A /* RequestedBangDataHandler.swift in Sources */,
 				B84BF5FC1B24272000067C4A /* BangStatus.swift in Sources */,
@@ -954,6 +983,7 @@
 				B84BF63E1B3FA6C100067C4A /* APIResponse+Message.swift in Sources */,
 				B84A6EB81AF4432B00A7C632 /* Gender.swift in Sources */,
 				B84BF62F1B3C42FF00067C4A /* ConversationDetailViewController.swift in Sources */,
+				A9925ADC1B761852006B7E34 /* GroupDto.swift in Sources */,
 				B84BF60A1B364AA100067C4A /* ProgressHUD.swift in Sources */,
 				B8E6D9A91ABE55840094D582 /* LocationManager.swift in Sources */,
 				B8F9C6971AE6947D003320AB /* APIResponse+Facebook.swift in Sources */,
@@ -975,8 +1005,10 @@
 				B84BF6211B3856C000067C4A /* _ConversationUserDto.swift in Sources */,
 				B8D9B25D1A8254C400B30271 /* UIImage+Extension.swift in Sources */,
 				B8F547541ADC197B00548883 /* APIManager+User.swift in Sources */,
+				A9925ADD1B761852006B7E34 /* GroupUserDto.swift in Sources */,
 				B84A6EBC1AF44D2600A7C632 /* Date.swift in Sources */,
 				B82CA45B1AEC7C4100159D99 /* Alert.swift in Sources */,
+				A9925AE31B78F510006B7E34 /* _GroupBangDto.swift in Sources */,
 				B84BF60F1B36727100067C4A /* ConversationDataHandler.swift in Sources */,
 				B84BF5EB1B19E68500067C4A /* APIManager+UserBang.swift in Sources */,
 				B82448421A8EF16C00B540A4 /* LoginViewController.swift in Sources */,

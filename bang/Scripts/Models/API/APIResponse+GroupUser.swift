@@ -12,6 +12,6 @@ extension APIResponse {
     class GroupUser: Base {
         var groupId: NSNumber!
         var userId: NSNumber!
-        var status: NSNumber!
+        var statusValue: NSNumber!
     }
 }

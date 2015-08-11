@@ -14,8 +14,12 @@ extension APIResponse {
         var name: String!
         var memo: String!
         var regionId: NSNumber!
-        var status: NSNumber!
+        var statusValue: NSNumber!
         var groupUsers: [GroupUser]!
+
+        var status: UserStatus {
+            return UserStatus.build(statusValue.integerValue)
+        }
 
         class func groupUsersJSONTransformer() -> NSValueTransformer {
             return NSValueTransformer.mtl_JSONArrayTransformerWithModelClass(GroupUser.self)
