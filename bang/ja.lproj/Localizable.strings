@@ -13,3 +13,8 @@
 
 // MARK: - Facebook
 "facebookAlertTitle" = "Error about Facebook";
+
+// MARK: - MyPage
+"setting" = "アプリ設定";
+"help" = "ヘルプ";
+"logout" = "ログアウト";
