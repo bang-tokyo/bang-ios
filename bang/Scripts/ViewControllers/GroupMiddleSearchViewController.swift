@@ -84,8 +84,6 @@ class GroupMiddleSearchViewController: UIViewController {
     }
 
     @IBAction func onSegmentValueChanged(sender: UISegmentedControl) {
-        println("group")
-        println(sender.selectedSegmentIndex)
         switch sender.selectedSegmentIndex {
         case 0:
             let userMiddleSearchViewController = UserMiddleSearchViewController.build()

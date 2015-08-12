@@ -82,8 +82,6 @@ class UserMiddleSearchViewController: UIViewController {
     }
 
     @IBAction func onSegmentValueChanged(sender: UISegmentedControl) {
-        println("user")
-        println(sender.selectedSegmentIndex)
         switch sender.selectedSegmentIndex {
             case 0:
                 let userMiddleSearchViewController = UserMiddleSearchViewController.build()
