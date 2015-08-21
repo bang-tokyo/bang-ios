@@ -10,7 +10,7 @@ import UIKit
 
 protocol ProfileEditViewControllerDelegate {
     func openBloodTypeViewController()
-    func openReagionViewController()
+    func openRegionViewController()
 }
 
 class ProfileEditViewController: UIViewController {
@@ -50,6 +50,6 @@ extension ProfileEditViewController: ProfileEditViewControllerDelegate {
     func openBloodTypeViewController() {
     }
 
-    func openReagionViewController() {
+    func openRegionViewController() {
     }
 }

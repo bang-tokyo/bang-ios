@@ -16,7 +16,7 @@ class ProfileEditDataHandler: NSObject {
             ( type: "ProfileEditTextCell", id: "SelfIntroduction" ),
             ( type: "ProfileEditTextCell", id: "SelfIntroductionLong" ),
             ( type: "ProfileEditChoicesCell", id: "BloodType" ),
-            ( type: "ProfileEditChoicesCell", id: "Reagion" )
+            ( type: "ProfileEditChoicesCell", id: "Region" )
         ]
         static let CellHeightTypeOf = (
             ProfileEditImagesCell: UIScreen.mainScreen().bounds.width,
@@ -50,8 +50,8 @@ extension ProfileEditDataHandler: UITableViewDelegate {
         switch Const.Cells[index].id {
         case "BloodType":
             delegate.openBloodTypeViewController()
-        case "Reagion":
-            delegate.openReagionViewController()
+        case "Region":
+            delegate.openRegionViewController()
         default:
             return
         }
@@ -96,9 +96,9 @@ extension ProfileEditDataHandler: UITableViewDataSource {
             var cell = tableView.dequeueReusableCellWithIdentifier("ProfileEditChoicesCell") as! ProfileEditChoicesTableViewCell
             cell.configure(localizedString("bloodType"), value: "O型")
             return cell
-        case "Reagion":
+        case "Region":
             var cell = tableView.dequeueReusableCellWithIdentifier("ProfileEditChoicesCell") as! ProfileEditChoicesTableViewCell
-            cell.configure(localizedString("reagion"), value: "東京都")
+            cell.configure(localizedString("region"), value: "東京都")
             return cell
         default:
             // 来ないはずだけどUITableViewCellかえさなきゃいけないので仮に返しておく
