@@ -12,6 +12,7 @@ PODS:
     - GoogleAnalytics-iOS-SDK/Core (= 3.10)
   - GoogleAnalytics-iOS-SDK/Core (3.10)
   - HPGrowingTextView (1.1)
+  - LXReorderableCollectionViewFlowLayout (0.1.1)
   - MagicalRecord (2.3.0-beta.6)
   - Mantle (1.5.4):
     - Mantle/extobjc (= 1.5.4)
@@ -28,6 +29,7 @@ DEPENDENCIES:
   - Facebook-iOS-SDK (~> 3.23)
   - GoogleAnalytics-iOS-SDK
   - HPGrowingTextView
+  - LXReorderableCollectionViewFlowLayout
   - MagicalRecord (from `https://github.com/shiruco/MagicalRecord.git`)
   - Mantle (~> 1.5.4)
   - SSKeychain
@@ -51,6 +53,7 @@ SPEC CHECKSUMS:
   Facebook-iOS-SDK: cd87f0b2f0c1d9574b44e8fa2baacc275524bac3
   GoogleAnalytics-iOS-SDK: 4f98a376c1d61e6ac4ca47951655820314856eef
   HPGrowingTextView: 88a716d97fb853bcb08a4a08e4727da17efc9b19
+  LXReorderableCollectionViewFlowLayout: c89e0f693744c5cb96718822a8455a7de99d90ea
   MagicalRecord: 9d8fc081554fcc2b50edaa22ec088a3bab140ff9
   Mantle: 60acd0cd363e27d945bda0a6b8e90577112d28f3
   SSKeychain: 3f42991739c6c60a9cf1bbd4dff6c0d3694bcf3d

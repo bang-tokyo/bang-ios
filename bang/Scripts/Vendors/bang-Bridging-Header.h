@@ -14,3 +14,4 @@
 #import <HPGrowingTextView/HPGrowingTextView.h>
 #import <TTTAttributedLabel/TTTAttributedLabel.h>
 #import <TestFairy/TestFairy.h>
+#import <LXReorderableCollectionViewFlowLayout/LXReorderableCollectionViewFlowLayout.h>

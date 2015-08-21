@@ -18,3 +18,9 @@
 "setting" = "setting";
 "help" = "help";
 "logout" = "logout";
+
+// MARK: - ProfilePage
+"selfIntroduction" = "Self introduction";
+"selfIntroductionLong" = "Self introduction detail";
+"bloodType" = "Blood type";
+"reagion" = "Reagion";

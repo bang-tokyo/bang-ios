@@ -8,6 +8,11 @@
 
 import UIKit
 
+protocol ProfileEditViewControllerDelegate {
+    func openBloodTypeViewController()
+    func openReagionViewController()
+}
+
 class ProfileEditViewController: UIViewController {
 
     class func build(userDto: UserDto) -> (UINavigationController, ProfileEditViewController) {
@@ -18,10 +23,16 @@ class ProfileEditViewController: UIViewController {
         return (navigationViewController, profileSettingViewController)
     }
 
+    @IBOutlet weak var tableView: UITableView!
+
     var userDto: UserDto!
+    private var dataHandler: ProfileEditDataHandler!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        dataHandler = ProfileEditDataHandler()
+        dataHandler.setup(tableView, userDto: userDto)
+        dataHandler.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -30,7 +41,15 @@ class ProfileEditViewController: UIViewController {
     }
 
     @IBAction func onTouchUpInsideDoneButton(sender: UIBarButtonItem) {
-        println("--> OK")
         navigationController?.popViewControllerAnimated(true)
+    }
+}
+
+
+extension ProfileEditViewController: ProfileEditViewControllerDelegate {
+    func openBloodTypeViewController() {
+    }
+
+    func openReagionViewController() {
     }
 }
