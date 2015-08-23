@@ -24,7 +24,6 @@
 		A9925AE31B78F510006B7E34 /* _GroupBangDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9925AE01B78F510006B7E34 /* _GroupBangDto.swift */; };
 		A9925AE41B78F510006B7E34 /* _GroupDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9925AE11B78F510006B7E34 /* _GroupDto.swift */; };
 		A9925AE51B78F510006B7E34 /* _GroupUserDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9925AE21B78F510006B7E34 /* _GroupUserDto.swift */; };
-		A9925AE71B78F58D006B7E34 /* MiddleSearchDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9925AE61B78F58D006B7E34 /* MiddleSearchDataHandler.swift */; };
 		B807F3361AB433D300571ACB /* Tracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B807F3351AB433D300571ACB /* Tracker.swift */; };
 		B80D21151ABC5BEC00405EAE /* QueueManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80D21141ABC5BEC00405EAE /* QueueManager.swift */; };
 		B8187BC51B1603CF00E23716 /* UserMiddleSearch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8187BC41B1603CF00E23716 /* UserMiddleSearch.storyboard */; };
@@ -150,7 +149,6 @@
 		A9925AE01B78F510006B7E34 /* _GroupBangDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _GroupBangDto.swift; sourceTree = "<group>"; };
 		A9925AE11B78F510006B7E34 /* _GroupDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _GroupDto.swift; sourceTree = "<group>"; };
 		A9925AE21B78F510006B7E34 /* _GroupUserDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _GroupUserDto.swift; sourceTree = "<group>"; };
-		A9925AE61B78F58D006B7E34 /* MiddleSearchDataHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiddleSearchDataHandler.swift; sourceTree = "<group>"; };
 		B807F3351AB433D300571ACB /* Tracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tracker.swift; sourceTree = "<group>"; };
 		B80D21141ABC5BEC00405EAE /* QueueManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueueManager.swift; sourceTree = "<group>"; };
 		B8187BC41B1603CF00E23716 /* UserMiddleSearch.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UserMiddleSearch.storyboard; sourceTree = "<group>"; };
@@ -435,7 +433,6 @@
 				A9925AC61B6343AA006B7E34 /* GroupMiddleSearchViewController.swift */,
 				B830CDD91A82403B0038CAFE /* ShortSearchViewController.swift */,
 				B8187BC81B16044900E23716 /* UserMiddleSearchViewController.swift */,
-				A9925AE61B78F58D006B7E34 /* MiddleSearchDataHandler.swift */,
 			);
 			name = Search;
 			sourceTree = "<group>";
@@ -971,7 +968,6 @@
 				B84BF5F11B1C1D9700067C4A /* RequestedBangTableViewCell.swift in Sources */,
 				A9925ADB1B761852006B7E34 /* GroupBangDto.swift in Sources */,
 				A9925AD31B6A8F59006B7E34 /* APIManager+GroupBang.swift in Sources */,
-				A9925AE71B78F58D006B7E34 /* MiddleSearchDataHandler.swift in Sources */,
 				B8B979CC1AE67FE600BC3E2C /* APIResponse.swift in Sources */,
 				B84BF6031B24856900067C4A /* RequestedBangDataHandler.swift in Sources */,
 				B84BF5FC1B24272000067C4A /* BangStatus.swift in Sources */,

@@ -17,7 +17,7 @@ extension APIManager {
             ]).APIErrorHandler()
     }
 
-    func replyGroupBang(groupId: Int, fromGroupId: Int, status: BangStatus) -> BFTask {
+    func replyGroupBang(groupBangId: Int, status: BangStatus) -> BFTask {
 
         var setStatus:String!
 
@@ -31,8 +31,7 @@ extension APIManager {
         }
 
         return request(.POST, path: "/v1/group_bang/reply", parameters: [
-                "group_id": groupId,
-                "from_group_id": fromGroupId,
+                "group_bang_id": groupBangId,
                 "status": setStatus
             ]).APIErrorHandler()
     }
