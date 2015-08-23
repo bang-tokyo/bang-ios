@@ -24,3 +24,8 @@
 "selfIntroductionLong" = "詳細な自己紹介";
 "bloodType" = "血液型";
 "region" = "都道府県";
+
+"AType" = "A型";
+"BType" = "B型";
+"OType" = "O型";
+"ABType" = "AB型";

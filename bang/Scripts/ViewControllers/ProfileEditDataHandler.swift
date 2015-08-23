@@ -38,6 +38,14 @@ class ProfileEditDataHandler: NSObject {
         self.userDto = userDto
     }
 
+    func updateBloodTypeState(bloodType: BloodType) {
+        if let index = cellsIndexOf("BloodType") {
+            if let cell = tableView.cellForRowAtIndexPath(NSIndexPath(forRow: index, inSection: 0)) as? ProfileEditChoicesTableViewCell {
+                cell.updateState(bloodType.rawValue, name: bloodType.name())
+            }
+        }
+    }
+
     func updateRegionState(regionDto: RegionDto) {
         if let index = cellsIndexOf("Region") {
             if let cell = tableView.cellForRowAtIndexPath(NSIndexPath(forRow: index, inSection: 0)) as? ProfileEditChoicesTableViewCell {

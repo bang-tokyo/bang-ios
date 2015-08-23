@@ -91,6 +91,11 @@
 		B8631B4F1B5299560063039A /* ProfileEdit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8631B4E1B5299560063039A /* ProfileEdit.storyboard */; };
 		B8631B511B52998E0063039A /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8631B501B52998E0063039A /* ProfileViewController.swift */; };
 		B8631B531B529C0A0063039A /* ProfileEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8631B521B529C0A0063039A /* ProfileEditViewController.swift */; };
+		B898BC6B1B8A019F0019B1D6 /* BloodTypeSelector.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B898BC6A1B8A019F0019B1D6 /* BloodTypeSelector.storyboard */; };
+		B898BC6D1B8A02580019B1D6 /* BloodType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B898BC6C1B8A02580019B1D6 /* BloodType.swift */; };
+		B898BC701B8A0A5B0019B1D6 /* BloodTypeSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B898BC6F1B8A0A5B0019B1D6 /* BloodTypeSelectorViewController.swift */; };
+		B898BC721B8A0A810019B1D6 /* BloodTypeSelectorDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B898BC711B8A0A810019B1D6 /* BloodTypeSelectorDataHandler.swift */; };
+		B898BC761B8A0C560019B1D6 /* BloodTypeSelectorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B898BC751B8A0C560019B1D6 /* BloodTypeSelectorTableViewCell.swift */; };
 		B899149E1A8C1F69003E8930 /* BLECentralManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B899149D1A8C1F69003E8930 /* BLECentralManager.swift */; };
 		B8B979CC1AE67FE600BC3E2C /* APIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B979CB1AE67FE600BC3E2C /* APIResponse.swift */; };
 		B8B9AB791AF77A8E009FEE4B /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B9AB781AF77A8E009FEE4B /* TabBarViewController.swift */; };
@@ -220,6 +225,11 @@
 		B8631B4E1B5299560063039A /* ProfileEdit.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ProfileEdit.storyboard; sourceTree = "<group>"; };
 		B8631B501B52998E0063039A /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		B8631B521B529C0A0063039A /* ProfileEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileEditViewController.swift; sourceTree = "<group>"; };
+		B898BC6A1B8A019F0019B1D6 /* BloodTypeSelector.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = BloodTypeSelector.storyboard; sourceTree = "<group>"; };
+		B898BC6C1B8A02580019B1D6 /* BloodType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BloodType.swift; sourceTree = "<group>"; };
+		B898BC6F1B8A0A5B0019B1D6 /* BloodTypeSelectorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BloodTypeSelectorViewController.swift; sourceTree = "<group>"; };
+		B898BC711B8A0A810019B1D6 /* BloodTypeSelectorDataHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BloodTypeSelectorDataHandler.swift; sourceTree = "<group>"; };
+		B898BC751B8A0C560019B1D6 /* BloodTypeSelectorTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BloodTypeSelectorTableViewCell.swift; sourceTree = "<group>"; };
 		B899149D1A8C1F69003E8930 /* BLECentralManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLECentralManager.swift; sourceTree = "<group>"; };
 		B8B979CB1AE67FE600BC3E2C /* APIResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIResponse.swift; sourceTree = "<group>"; };
 		B8B9AB781AF77A8E009FEE4B /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
@@ -516,6 +526,7 @@
 				B8631B4C1B5299440063039A /* Profile.storyboard */,
 				B8631B4E1B5299560063039A /* ProfileEdit.storyboard */,
 				B810A0121B895F5100EE7575 /* RegionSelector.storyboard */,
+				B898BC6A1B8A019F0019B1D6 /* BloodTypeSelector.storyboard */,
 			);
 			name = Sub;
 			sourceTree = "<group>";
@@ -527,6 +538,7 @@
 				B8631B501B52998E0063039A /* ProfileViewController.swift */,
 				B85F59E61B77196F00D7E8AE /* ProfileEditViewController */,
 				B810A00D1B895E7E00EE7575 /* RegionSelectorViewController */,
+				B898BC6E1B8A0A270019B1D6 /* BloodTypeSelectorViewController */,
 			);
 			name = Sub;
 			sourceTree = "<group>";
@@ -584,6 +596,15 @@
 			name = ProfileEditViewController;
 			sourceTree = "<group>";
 		};
+		B898BC6E1B8A0A270019B1D6 /* BloodTypeSelectorViewController */ = {
+			isa = PBXGroup;
+			children = (
+				B898BC6F1B8A0A5B0019B1D6 /* BloodTypeSelectorViewController.swift */,
+				B898BC711B8A0A810019B1D6 /* BloodTypeSelectorDataHandler.swift */,
+			);
+			name = BloodTypeSelectorViewController;
+			sourceTree = "<group>";
+		};
 		B8C1884C1AE3A68A00037552 /* API */ = {
 			isa = PBXGroup;
 			children = (
@@ -636,6 +657,7 @@
 				B84BF60C1B366F5B00067C4A /* ConversationTableViewCell.swift */,
 				B8461C5A1B4D693B00133C2E /* ConversationMessageTableViewCell.swift */,
 				B810A0151B8961BE00EE7575 /* RegionSelectorTableViewCell.swift */,
+				B898BC751B8A0C560019B1D6 /* BloodTypeSelectorTableViewCell.swift */,
 				B8CC947F1B63346800AF7B5D /* MyPage */,
 				B85F59DF1B7715F900D7E8AE /* ProfileEdit */,
 			);
@@ -651,6 +673,7 @@
 				B82448561A9824AF00B540A4 /* GlobalData.swift */,
 				B8C188501AE3D70100037552 /* MyAccount.swift */,
 				B84A6EB71AF4432B00A7C632 /* Gender.swift */,
+				B898BC6C1B8A02580019B1D6 /* BloodType.swift */,
 				B84A6EB91AF446CC00A7C632 /* UserStatus.swift */,
 				B84BF5FB1B24272000067C4A /* BangStatus.swift */,
 				B84BF61C1B3853C300067C4A /* ConversationKind.swift */,
@@ -855,6 +878,7 @@
 				B8CC948C1B63C48800AF7B5D /* Settings.bundle in Resources */,
 				B82448521A90CE7F00B540A4 /* Localizable.strings in Resources */,
 				B8FDC51D1A818EDC00D4511E /* LaunchScreen.xib in Resources */,
+				B898BC6B1B8A019F0019B1D6 /* BloodTypeSelector.storyboard in Resources */,
 				B810A0131B895F5100EE7575 /* RegionSelector.storyboard in Resources */,
 				B8187BC51B1603CF00E23716 /* MiddleSearch.storyboard in Resources */,
 				B84BF5EF1B1C1C3A00067C4A /* RequestedBang.storyboard in Resources */,
@@ -1011,6 +1035,7 @@
 				B8F1389F1A8A4D13002A820E /* RoundedCornersView.swift in Sources */,
 				B810A0111B895F0B00EE7575 /* RegionSelectorViewController.swift in Sources */,
 				B8CC94831B63350100AF7B5D /* MyPageMenuTableViewCell.swift in Sources */,
+				B898BC721B8A0A810019B1D6 /* BloodTypeSelectorDataHandler.swift in Sources */,
 				B84BF6251B39A26E00067C4A /* APIManager+Conversation.swift in Sources */,
 				B82CA4591AEC788200159D99 /* BFTask+Extension.swift in Sources */,
 				B84BF6401B3FF76300067C4A /* ConversationDetailDataHandler.swift in Sources */,
@@ -1047,6 +1072,7 @@
 				B8FDC5131A818EDC00D4511E /* AppDelegate.swift in Sources */,
 				B838B6DA1AF4667F00243580 /* GCD.swift in Sources */,
 				B807F3361AB433D300571ACB /* Tracker.swift in Sources */,
+				B898BC6D1B8A02580019B1D6 /* BloodType.swift in Sources */,
 				B84BF6151B36F08000067C4A /* _ConversationDto.swift in Sources */,
 				B84BF63E1B3FA6C100067C4A /* APIResponse+Message.swift in Sources */,
 				B8CC94811B6334D400AF7B5D /* MyPageProfileTableViewCell.swift in Sources */,
@@ -1059,6 +1085,8 @@
 				B8F1389C1A8A4B84002A820E /* BLEPeripheralManager.swift in Sources */,
 				B8631B531B529C0A0063039A /* ProfileEditViewController.swift in Sources */,
 				B84BF63C1B3FA5A800067C4A /* _MessageDto.swift in Sources */,
+				B898BC761B8A0C560019B1D6 /* BloodTypeSelectorTableViewCell.swift in Sources */,
+				B898BC701B8A0A5B0019B1D6 /* BloodTypeSelectorViewController.swift in Sources */,
 				B8631B491B50C1FD0063039A /* UIFont+Extension.swift in Sources */,
 				B84BF6001B2428E800067C4A /* _UserBangDto.swift in Sources */,
 				B84BF61D1B3853C300067C4A /* ConversationKind.swift in Sources */,

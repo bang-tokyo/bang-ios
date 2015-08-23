@@ -24,3 +24,8 @@
 "selfIntroductionLong" = "Self introduction detail";
 "bloodType" = "Blood type";
 "region" = "Region";
+
+"AType" = "Blood Type A";
+"BType" = "Blood Type B";
+"OType" = "Blood Type O";
+"ABType" = "Blood Type AB";

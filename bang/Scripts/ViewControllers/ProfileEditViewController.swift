@@ -10,6 +10,7 @@ import UIKit
 
 protocol ProfileEditViewControllerDelegate {
     func openBloodTypeSelectorViewController()
+    func closeBloodTypeSelectorViewController(bloodType: BloodType)
     func openRegionSelectorViewController()
     func closeRegionSelectorViewController(regionDto: RegionDto)
 }
@@ -28,6 +29,7 @@ class ProfileEditViewController: UIViewController {
 
     var userDto: UserDto!
     private var dataHandler: ProfileEditDataHandler!
+    private var bloodTypeSelectorViewController: BloodTypeSelectorViewController? = nil
     private var regionSelectorViewController: RegionSelectorViewController? = nil
 
     override func viewDidLoad() {
@@ -50,6 +52,19 @@ class ProfileEditViewController: UIViewController {
 
 extension ProfileEditViewController: ProfileEditViewControllerDelegate {
     func openBloodTypeSelectorViewController() {
+        if bloodTypeSelectorViewController == nil {
+            var (navigationController, viewController) = BloodTypeSelectorViewController.build()
+            viewController.delegate = self
+            bloodTypeSelectorViewController = viewController
+        }
+        self.navigationController?.pushViewController(bloodTypeSelectorViewController!, animated: true)
+    }
+
+    func closeBloodTypeSelectorViewController(bloodType: BloodType) {
+        if self.navigationController?.topViewController == bloodTypeSelectorViewController {
+            self.navigationController?.popViewControllerAnimated(true)
+        }
+        dataHandler.updateBloodTypeState(bloodType)
     }
 
     func openRegionSelectorViewController() {
