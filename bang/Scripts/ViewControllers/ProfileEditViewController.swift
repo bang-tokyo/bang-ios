@@ -9,8 +9,9 @@
 import UIKit
 
 protocol ProfileEditViewControllerDelegate {
-    func openBloodTypeViewController()
-    func openRegionViewController()
+    func openBloodTypeSelectorViewController()
+    func openRegionSelectorViewController()
+    func closeRegionSelectorViewController(regionDto: RegionDto)
 }
 
 class ProfileEditViewController: UIViewController {
@@ -27,6 +28,7 @@ class ProfileEditViewController: UIViewController {
 
     var userDto: UserDto!
     private var dataHandler: ProfileEditDataHandler!
+    private var regionSelectorViewController: RegionSelectorViewController? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,9 +49,22 @@ class ProfileEditViewController: UIViewController {
 
 
 extension ProfileEditViewController: ProfileEditViewControllerDelegate {
-    func openBloodTypeViewController() {
+    func openBloodTypeSelectorViewController() {
     }
 
-    func openRegionViewController() {
+    func openRegionSelectorViewController() {
+        if regionSelectorViewController == nil {
+            var (navigationController, viewController) = RegionSelectorViewController.build()
+            viewController.delegate = self
+            regionSelectorViewController = viewController
+        }
+        self.navigationController?.pushViewController(regionSelectorViewController!, animated: true)
+    }
+
+    func closeRegionSelectorViewController(regionDto: RegionDto) {
+        if self.navigationController?.topViewController == regionSelectorViewController {
+            self.navigationController?.popViewControllerAnimated(true)
+        }
+        dataHandler.updateRegionState(regionDto)
     }
 }

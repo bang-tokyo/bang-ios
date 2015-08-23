@@ -29,6 +29,11 @@
         <attribute name="userId" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="messageUser" inverseEntity="User" syncable="YES"/>
     </entity>
+    <entity name="Region" representedClassName="RegionDto" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="statusValue" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+    </entity>
     <entity name="User" representedClassName="UserDto" syncable="YES">
         <attribute name="birthday" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="createdAt" optional="YES" attributeType="Date" syncable="YES"/>
@@ -58,5 +63,6 @@
         <element name="Message" positionX="-9" positionY="126" width="128" height="195"/>
         <element name="User" positionX="-63" positionY="-18" width="128" height="225"/>
         <element name="UserBang" positionX="-63" positionY="54" width="128" height="150"/>
+        <element name="Region" positionX="-36" positionY="135" width="128" height="90"/>
     </elements>
 </model>

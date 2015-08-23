@@ -38,8 +38,28 @@ class ProfileEditDataHandler: NSObject {
         self.userDto = userDto
     }
 
+    func updateRegionState(regionDto: RegionDto) {
+        if let index = cellsIndexOf("Region") {
+            if let cell = tableView.cellForRowAtIndexPath(NSIndexPath(forRow: index, inSection: 0)) as? ProfileEditChoicesTableViewCell {
+                cell.updateState(regionDto.id!.integerValue, name: regionDto.name!)
+            }
+        }
+    }
+
     func loadData() {
         tableView.reloadData()
+    }
+}
+
+extension ProfileEditDataHandler {
+    private func cellsIndexOf(id: String) -> Int? {
+        var index: Int? = nil
+        for (var i = 0; i < Const.Cells.count; i++) {
+            if Const.Cells[i].id == id {
+                index = i
+            }
+        }
+        return index
     }
 }
 
@@ -49,9 +69,9 @@ extension ProfileEditDataHandler: UITableViewDelegate {
         let index = indexPath.row
         switch Const.Cells[index].id {
         case "BloodType":
-            delegate.openBloodTypeViewController()
+            delegate.openBloodTypeSelectorViewController()
         case "Region":
-            delegate.openRegionViewController()
+            delegate.openRegionSelectorViewController()
         default:
             return
         }
@@ -94,11 +114,11 @@ extension ProfileEditDataHandler: UITableViewDataSource {
             return cell
         case "BloodType":
             var cell = tableView.dequeueReusableCellWithIdentifier("ProfileEditChoicesCell") as! ProfileEditChoicesTableViewCell
-            cell.configure(localizedString("bloodType"), value: "O型")
+            cell.configure(localizedString("bloodType"), id: 1, name: "O型")
             return cell
         case "Region":
             var cell = tableView.dequeueReusableCellWithIdentifier("ProfileEditChoicesCell") as! ProfileEditChoicesTableViewCell
-            cell.configure(localizedString("region"), value: "東京都")
+            cell.configure(localizedString("region"), id: 1, name: "東京都")
             return cell
         default:
             // 来ないはずだけどUITableViewCellかえさなきゃいけないので仮に返しておく

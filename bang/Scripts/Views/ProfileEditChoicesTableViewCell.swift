@@ -13,6 +13,9 @@ class ProfileEditChoicesTableViewCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var valueLabel: UILabel!
 
+    var id: Int!
+    var name: String!
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -24,8 +27,14 @@ class ProfileEditChoicesTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
-    func configure(title: String, value: String) {
+    func configure(title: String, id: Int, name: String) {
         titleLabel.text = title
-        valueLabel.text = value
+        updateState(id, name: name)
+    }
+
+    func updateState(id: Int, name: String) {
+        valueLabel.text = name
+        self.id = id
+        self.name = name
     }
 }
