@@ -98,6 +98,10 @@
 		B8C1884B1AE3397600037552 /* BFTask+API.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C1884A1AE3397600037552 /* BFTask+API.swift */; };
 		B8C1884F1AE3C6A200037552 /* BFTask+Facebook.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C1884E1AE3C6A200037552 /* BFTask+Facebook.swift */; };
 		B8C188511AE3D70200037552 /* MyAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C188501AE3D70100037552 /* MyAccount.swift */; };
+		B8CC948C1B63C48800AF7B5D /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B8CC948B1B63C48800AF7B5D /* Settings.bundle */; };
+		B8CC94811B6334D400AF7B5D /* MyPageProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8CC94801B6334D400AF7B5D /* MyPageProfileTableViewCell.swift */; };
+		B8CC94831B63350100AF7B5D /* MyPageMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8CC94821B63350100AF7B5D /* MyPageMenuTableViewCell.swift */; };
+		B8CC94861B6338B400AF7B5D /* MyPageDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8CC94851B6338B400AF7B5D /* MyPageDataHandler.swift */; };
 		B8D9B2561A82523400B30271 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D9B2551A82523400B30271 /* UIViewController+Extension.swift */; };
 		B8D9B2591A82534A00B30271 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D9B2581A82534A00B30271 /* UIView+Extension.swift */; };
 		B8D9B25D1A8254C400B30271 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D9B25C1A8254C400B30271 /* UIImage+Extension.swift */; };
@@ -224,6 +228,10 @@
 		B8C1884A1AE3397600037552 /* BFTask+API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BFTask+API.swift"; sourceTree = "<group>"; };
 		B8C1884E1AE3C6A200037552 /* BFTask+Facebook.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BFTask+Facebook.swift"; sourceTree = "<group>"; };
 		B8C188501AE3D70100037552 /* MyAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyAccount.swift; sourceTree = "<group>"; };
+		B8CC948B1B63C48800AF7B5D /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		B8CC94801B6334D400AF7B5D /* MyPageProfileTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPageProfileTableViewCell.swift; sourceTree = "<group>"; };
+		B8CC94821B63350100AF7B5D /* MyPageMenuTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPageMenuTableViewCell.swift; sourceTree = "<group>"; };
+		B8CC94851B6338B400AF7B5D /* MyPageDataHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPageDataHandler.swift; sourceTree = "<group>"; };
 		B8D9B2551A82523400B30271 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		B8D9B2581A82534A00B30271 /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		B8D9B25C1A8254C400B30271 /* UIImage+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
@@ -420,7 +428,7 @@
 			isa = PBXGroup;
 			children = (
 				B8B9AB781AF77A8E009FEE4B /* TabBarViewController.swift */,
-				B824484B1A90441600B540A4 /* MyPageViewController.swift */,
+				B8CC94841B63389800AF7B5D /* MyPageViewController */,
 				B84BF60B1B36549F00067C4A /* ConversationViewController */,
 				B84BF6011B24851100067C4A /* RequestedBangViewController */,
 			);
@@ -571,6 +579,24 @@
 			path = Facebook;
 			sourceTree = "<group>";
 		};
+		B8CC947F1B63346800AF7B5D /* MyPage */ = {
+			isa = PBXGroup;
+			children = (
+				B8CC94801B6334D400AF7B5D /* MyPageProfileTableViewCell.swift */,
+				B8CC94821B63350100AF7B5D /* MyPageMenuTableViewCell.swift */,
+			);
+			name = MyPage;
+			sourceTree = "<group>";
+		};
+		B8CC94841B63389800AF7B5D /* MyPageViewController */ = {
+			isa = PBXGroup;
+			children = (
+				B824484B1A90441600B540A4 /* MyPageViewController.swift */,
+				B8CC94851B6338B400AF7B5D /* MyPageDataHandler.swift */,
+			);
+			name = MyPageViewController;
+			sourceTree = "<group>";
+		};
 		B8D9B2511A824DEA00B30271 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -581,6 +607,7 @@
 				B84BF5F01B1C1D9700067C4A /* RequestedBangTableViewCell.swift */,
 				B84BF60C1B366F5B00067C4A /* ConversationTableViewCell.swift */,
 				B8461C5A1B4D693B00133C2E /* ConversationMessageTableViewCell.swift */,
+				B8CC947F1B63346800AF7B5D /* MyPage */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -649,6 +676,7 @@
 		B8FDC5041A818EDB00D4511E = {
 			isa = PBXGroup;
 			children = (
+				B8CC948B1B63C48800AF7B5D /* Settings.bundle */,
 				B8FDC50F1A818EDC00D4511E /* bang */,
 				B8FDC5251A818EDC00D4511E /* bangTests */,
 				B8FDC50E1A818EDC00D4511E /* Products */,
@@ -717,6 +745,7 @@
 				B8FDC50B1A818EDC00D4511E /* Resources */,
 				5EE929952E2FBC37FEB12447 /* Copy Pods Resources */,
 				9ACC0192A85F5291A2DFA6A3 /* Embed Pods Frameworks */,
+				B8CC948A1B63C43600AF7B5D /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -795,6 +824,7 @@
 				B82448401A8EF07700B540A4 /* Login.storyboard in Resources */,
 				B8631B4D1B5299440063039A /* Profile.storyboard in Resources */,
 				A9925AC51B634355006B7E34 /* GroupMiddleSearch.storyboard in Resources */,
+				B8CC948C1B63C48800AF7B5D /* Settings.bundle in Resources */,
 				B82448521A90CE7F00B540A4 /* Localizable.strings in Resources */,
 				B8FDC51D1A818EDC00D4511E /* LaunchScreen.xib in Resources */,
 				B8187BC51B1603CF00E23716 /* UserMiddleSearch.storyboard in Resources */,
@@ -908,6 +938,19 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		B8CC948A1B63C43600AF7B5D /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = ./scripts/set_version_to_setting_bundle.sh;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -938,6 +981,7 @@
 				B8187BC91B16044900E23716 /* UserMiddleSearchViewController.swift in Sources */,
 				B84BF6381B3EF24000067C4A /* NSNotificationCenter+Extension.swift in Sources */,
 				B8F1389F1A8A4D13002A820E /* RoundedCornersView.swift in Sources */,
+				B8CC94831B63350100AF7B5D /* MyPageMenuTableViewCell.swift in Sources */,
 				B84BF6251B39A26E00067C4A /* APIManager+Conversation.swift in Sources */,
 				B82CA4591AEC788200159D99 /* BFTask+Extension.swift in Sources */,
 				B84BF6401B3FF76300067C4A /* ConversationDetailDataHandler.swift in Sources */,
@@ -977,6 +1021,7 @@
 				B807F3361AB433D300571ACB /* Tracker.swift in Sources */,
 				B84BF6151B36F08000067C4A /* _ConversationDto.swift in Sources */,
 				B84BF63E1B3FA6C100067C4A /* APIResponse+Message.swift in Sources */,
+				B8CC94811B6334D400AF7B5D /* MyPageProfileTableViewCell.swift in Sources */,
 				B84A6EB81AF4432B00A7C632 /* Gender.swift in Sources */,
 				B84BF62F1B3C42FF00067C4A /* ConversationDetailViewController.swift in Sources */,
 				A9925ADC1B761852006B7E34 /* GroupDto.swift in Sources */,
@@ -1007,6 +1052,7 @@
 				A9925AE31B78F510006B7E34 /* _GroupBangDto.swift in Sources */,
 				B84BF60F1B36727100067C4A /* ConversationDataHandler.swift in Sources */,
 				B84BF5EB1B19E68500067C4A /* APIManager+UserBang.swift in Sources */,
+				B8CC94861B6338B400AF7B5D /* MyPageDataHandler.swift in Sources */,
 				B82448421A8EF16C00B540A4 /* LoginViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

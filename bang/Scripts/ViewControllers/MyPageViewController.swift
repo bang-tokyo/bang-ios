@@ -9,6 +9,11 @@
 import UIKit
 import FacebookSDK
 
+protocol MyPageViewControllerDelegate {
+    func openProfileViewController()
+    func logout()
+}
+
 class MyPageViewController: UIViewController {
 
     class func build() -> (UINavigationController, MyPageViewController) {
@@ -20,25 +25,23 @@ class MyPageViewController: UIViewController {
         return (navigationController, viewController)
     }
 
-    @IBOutlet weak var profilePictureView: FBProfilePictureView!
-    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var tableView: UITableView!
 
     var userDto: UserDto?
-    var facebookManager: FacebookManager = FacebookManager.sharedInstance
+    private var dataHandler: MyPageDataHandler!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        dataHandler = MyPageDataHandler()
+        dataHandler.delegate = self
         if let user = UserDto.firstById(MyAccount.sharedInstance.userId) as? UserDto {
             userDto = user
-            nameLabel.text = user.name
-            profilePictureView.profileID = user.facebookId
+            dataHandler.setup(tableView, userDto: user)
         } else {
+            // TODO: - ここにこないはずだけど一応とっておく。あとで整理
             APIManager.sharedInstance.showUser(Int(MyAccount.sharedInstance.userId)).continueWithBlock({
                 [weak self] (task) -> AnyObject! in
                 if let user = APIResponse.parse(APIResponse.User.self, task.result) {
-                    self?.nameLabel.text = user.name
-                    self?.profilePictureView.profileID = user.facebookId
                     return DataStore.sharedInstance.saveUser(user)
                 }
                 return task
@@ -50,29 +53,9 @@ class MyPageViewController: UIViewController {
         super.viewWillAppear(animated)
     }
 
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        profilePictureView.makeCircle()
-    }
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-
-    // MARK: - IBAction
-    @IBAction func onTouchUpInsideProfileBotton(sender: UIButton) {
-        if let userDto = self.userDto {
-            var (navigationController, viewController) = ProfileViewController.build(userDto)
-            viewController.hidesBottomBarWhenPushed = true
-            self.navigationController?.pushViewController(viewController, animated: true)
-        }
-    }
-
-    @IBAction func onTouchUpInsidetButton(sender: UIButton) {
-        DataStore.sharedInstance.deleteAll()
-        MyAccount.sharedInstance.logout()
-        moveToLoginViewController()
     }
 }
 
@@ -81,5 +64,21 @@ extension MyPageViewController {
     private func moveToLoginViewController() {
         var loginViewController = LoginViewController.build()
         moveTo(loginViewController)
+    }
+}
+
+extension MyPageViewController: MyPageViewControllerDelegate {
+    func openProfileViewController() {
+        if let userDto = self.userDto {
+            var (navigationController, viewController) = ProfileViewController.build(userDto)
+            viewController.hidesBottomBarWhenPushed = true
+            self.navigationController?.pushViewController(viewController, animated: true)
+        }
+    }
+
+    func logout() {
+        DataStore.sharedInstance.deleteAll()
+        MyAccount.sharedInstance.logout()
+        moveToLoginViewController()
     }
 }
