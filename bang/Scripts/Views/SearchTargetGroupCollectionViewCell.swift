@@ -1,5 +1,5 @@
 //
-//  SearchTargetCollectionViewCell.swift
+//  SearchTargetUserCollectionViewCell.swift
 //  bang
 //
 //  Created by Yoshikazu Oda on 2015/05/28.
@@ -9,7 +9,7 @@
 import UIKit
 import FacebookSDK
 
-class SearchTargetCollectionViewCell: UICollectionViewCell {
+class SearchTargetUserCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak private var profilePictureView: FBProfilePictureView!
     @IBOutlet weak private var label: UILabel!
