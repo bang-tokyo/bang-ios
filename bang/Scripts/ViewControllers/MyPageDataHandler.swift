@@ -26,8 +26,6 @@ class MyPageDataHandler: NSObject {
     var delegate: MyPageViewControllerDelegate!
     private weak var userDto: UserDto!
     private weak var tableView: UITableView!
-    private var fetchedResultsController: NSFetchedResultsController!
-    private var fetchedResultsControllerDelegate: DefaultFetchedResultsControllerDelegate!
 
     func setup(tableView: UITableView, userDto: UserDto) {
         self.tableView = tableView

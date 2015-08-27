@@ -53,6 +53,11 @@
         <attribute name="userId" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="messageUser" inverseEntity="User" syncable="YES"/>
     </entity>
+    <entity name="Region" representedClassName="RegionDto" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="statusValue" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+    </entity>
     <entity name="User" representedClassName="UserDto" syncable="YES">
         <attribute name="birthday" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="createdAt" optional="YES" attributeType="Date" syncable="YES"/>
@@ -85,5 +90,6 @@
         <element name="GroupBang" positionX="-227" positionY="162" width="128" height="148"/>
         <element name="Group" positionX="-45" positionY="216" width="128" height="148"/>
         <element name="GroupUser" positionX="-288" positionY="363" width="128" height="103"/>
+        <element name="Region" positionX="-36" positionY="135" width="128" height="90"/>
     </elements>
 </model>

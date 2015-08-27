@@ -68,6 +68,14 @@ final class DataStore: NSObject {
         }
     }
 
+    func saveRegionList(regionList: [APIResponse.Region]) -> BFTask {
+        return save {
+            (context, willUpdate) -> Void in
+            self.saveRegionList(regionList, context: context)
+            return
+        }
+    }
+
     func deleteAll() -> BFTask {
         return save {
             (context, willUpdate) -> Void in
@@ -156,7 +164,15 @@ extension DataStore {
         return messageList.map { self.saveMessage($0, context: context) }
     }
 
+    private func saveRegion(region: APIResponse.Region, context: NSManagedObjectContext) -> RegionDto {
+        let regionDto: RegionDto = RegionDto.firstOrInitializeById(region.id, context: context)
+        regionDto.fill(region)
+        return regionDto
+    }
 
+    private func saveRegionList(regionList: [APIResponse.Region], context: NSManagedObjectContext) -> [RegionDto] {
+        return regionList.map { self.saveRegion($0, context: context) }
+    }
 
     // NOTE: - キャッシュが全部消えるので気をつけてね。
     private func truncateAll(context: NSManagedObjectContext) {

@@ -13,5 +13,6 @@ pod 'TAKUUID'
 pod 'SVProgressHUD'
 pod 'HPGrowingTextView'
 pod 'TTTAttributedLabel'
+pod 'LXReorderableCollectionViewFlowLayout'
 
 pod 'TestFairy'
