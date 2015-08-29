@@ -17,4 +17,23 @@ extension UIImage {
             maskImage: nil
         )
     }
+
+    func resizeAspectFit(size: CGSize) -> UIImage {
+        let widthRatio = size.width / self.size.width
+        let heightRatio = size.height / self.size.height
+        let ratio = (widthRatio < heightRatio) ? widthRatio : heightRatio
+        return resize(ratio)
+    }
+
+    private func resize(ratio: CGFloat) -> UIImage {
+        let resizedSize = CGSizeMake(size.width * ratio, size.height * ratio)
+
+        UIGraphicsBeginImageContext(resizedSize)
+        drawInRect(CGRectMake(0, 0, resizedSize.width, resizedSize.height))
+        let context = UIGraphicsGetCurrentContext()
+        CGContextSetInterpolationQuality(context, kCGInterpolationHigh)
+        let resizedImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return resizedImage
+    }
 }

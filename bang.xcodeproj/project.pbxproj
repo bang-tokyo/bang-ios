@@ -106,6 +106,10 @@
 		B8631B4F1B5299560063039A /* ProfileEdit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8631B4E1B5299560063039A /* ProfileEdit.storyboard */; };
 		B8631B511B52998E0063039A /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8631B501B52998E0063039A /* ProfileViewController.swift */; };
 		B8631B531B529C0A0063039A /* ProfileEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8631B521B529C0A0063039A /* ProfileEditViewController.swift */; };
+		B86BEAB41B8F5FA200A0716E /* PhotoSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86BEAB31B8F5FA200A0716E /* PhotoSelector.swift */; };
+		B86BEAB61B8F601100A0716E /* ActionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86BEAB51B8F601100A0716E /* ActionSheet.swift */; };
+		B86BEAB91B8F64DD00A0716E /* UIWindow+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86BEAB81B8F64DD00A0716E /* UIWindow+Extension.swift */; };
+		B86BEABE1B8F6E7E00A0716E /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B86BEABD1B8F6E7E00A0716E /* AVFoundation.framework */; };
 		B898BC6B1B8A019F0019B1D6 /* BloodTypeSelector.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B898BC6A1B8A019F0019B1D6 /* BloodTypeSelector.storyboard */; };
 		B898BC6D1B8A02580019B1D6 /* BloodType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B898BC6C1B8A02580019B1D6 /* BloodType.swift */; };
 		B898BC701B8A0A5B0019B1D6 /* BloodTypeSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B898BC6F1B8A0A5B0019B1D6 /* BloodTypeSelectorViewController.swift */; };
@@ -180,7 +184,7 @@
 		B810A00B1B895A5B00EE7575 /* APIManager+Region.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "APIManager+Region.swift"; sourceTree = "<group>"; };
 		B810A0101B895F0B00EE7575 /* RegionSelectorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegionSelectorViewController.swift; sourceTree = "<group>"; };
 		B810A0121B895F5100EE7575 /* RegionSelector.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RegionSelector.storyboard; sourceTree = "<group>"; };
-		B810A0151B8961BE00EE7575 /* RegionSelectorTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegionSelectorTableViewCell.swift; sourceTree = "<group>"; };
+		B810A0151B8961BE00EE7575 /* RegionSelectorTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegionSelectorTableViewCell.swift; path = Views/RegionSelectorTableViewCell.swift; sourceTree = "<group>"; };
 		B810A0171B896A7300EE7575 /* RegionSelectorDataHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegionSelectorDataHandler.swift; sourceTree = "<group>"; };
 		B8187BC41B1603CF00E23716 /* UserMiddleSearch.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UserMiddleSearch.storyboard; sourceTree = "<group>"; };
 		B8187BC81B16044900E23716 /* UserMiddleSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserMiddleSearchViewController.swift; sourceTree = "<group>"; };
@@ -255,11 +259,15 @@
 		B8631B4E1B5299560063039A /* ProfileEdit.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ProfileEdit.storyboard; sourceTree = "<group>"; };
 		B8631B501B52998E0063039A /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		B8631B521B529C0A0063039A /* ProfileEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileEditViewController.swift; sourceTree = "<group>"; };
+		B86BEAB31B8F5FA200A0716E /* PhotoSelector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoSelector.swift; sourceTree = "<group>"; };
+		B86BEAB51B8F601100A0716E /* ActionSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionSheet.swift; sourceTree = "<group>"; };
+		B86BEAB81B8F64DD00A0716E /* UIWindow+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIWindow+Extension.swift"; sourceTree = "<group>"; };
+		B86BEABD1B8F6E7E00A0716E /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		B898BC6A1B8A019F0019B1D6 /* BloodTypeSelector.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = BloodTypeSelector.storyboard; sourceTree = "<group>"; };
 		B898BC6C1B8A02580019B1D6 /* BloodType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BloodType.swift; sourceTree = "<group>"; };
 		B898BC6F1B8A0A5B0019B1D6 /* BloodTypeSelectorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BloodTypeSelectorViewController.swift; sourceTree = "<group>"; };
 		B898BC711B8A0A810019B1D6 /* BloodTypeSelectorDataHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BloodTypeSelectorDataHandler.swift; sourceTree = "<group>"; };
-		B898BC751B8A0C560019B1D6 /* BloodTypeSelectorTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BloodTypeSelectorTableViewCell.swift; sourceTree = "<group>"; };
+		B898BC751B8A0C560019B1D6 /* BloodTypeSelectorTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BloodTypeSelectorTableViewCell.swift; path = Views/BloodTypeSelectorTableViewCell.swift; sourceTree = "<group>"; };
 		B899149D1A8C1F69003E8930 /* BLECentralManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLECentralManager.swift; sourceTree = "<group>"; };
 		B8B979CB1AE67FE600BC3E2C /* APIResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIResponse.swift; sourceTree = "<group>"; };
 		B8B9AB781AF77A8E009FEE4B /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
@@ -304,6 +312,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B86BEABE1B8F6E7E00A0716E /* AVFoundation.framework in Frameworks */,
 				B8E6D9A71ABE46B00094D582 /* CoreLocation.framework in Frameworks */,
 				B8DD29871A8B13840024ABD0 /* CoreBluetooth.framework in Frameworks */,
 				40A54690F851E512A9FB79DC /* Pods.framework in Frameworks */,
@@ -334,6 +343,7 @@
 		2ABF3CDD21B556A72AAEB1C7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B86BEABD1B8F6E7E00A0716E /* AVFoundation.framework */,
 				B8E6D9A61ABE46B00094D582 /* CoreLocation.framework */,
 				B8DD29861A8B13840024ABD0 /* CoreBluetooth.framework */,
 				2402A515E3FAD2530DBCB7FE /* Pods.framework */,
@@ -398,6 +408,7 @@
 		B82CA4571AEC783B00159D99 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				B86BEAB81B8F64DD00A0716E /* UIWindow+Extension.swift */,
 				B82CA4581AEC788200159D99 /* BFTask+Extension.swift */,
 				B84BF6371B3EF24000067C4A /* NSNotificationCenter+Extension.swift */,
 			);
@@ -434,6 +445,8 @@
 				B8D9B2521A824E2300B30271 /* Models */,
 				B8F138981A8A495C002A820E /* Functions */,
 				B8D9B2511A824DEA00B30271 /* Views */,
+				B810A0151B8961BE00EE7575 /* RegionSelectorTableViewCell.swift */,
+				B898BC751B8A0C560019B1D6 /* BloodTypeSelectorTableViewCell.swift */,
 				B830CDD71A823DE40038CAFE /* ViewControllers */,
 				B8FDC5121A818EDC00D4511E /* AppDelegate.swift */,
 			);
@@ -636,6 +649,41 @@
 			name = ProfileEditViewController;
 			sourceTree = "<group>";
 		};
+		B86BEAB01B8F5EA300A0716E /* Conversation */ = {
+			isa = PBXGroup;
+			children = (
+				B84BF60C1B366F5B00067C4A /* ConversationTableViewCell.swift */,
+				B8461C5A1B4D693B00133C2E /* ConversationMessageTableViewCell.swift */,
+			);
+			name = Conversation;
+			sourceTree = "<group>";
+		};
+		B86BEAB11B8F5ED400A0716E /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				A9925ACC1B634F37006B7E34 /* SearchTargetGroupCollectionViewCell.swift */,
+				B8187BCA1B1748C800E23716 /* SearchTargetUserCollectionViewCell.swift */,
+			);
+			name = Search;
+			sourceTree = "<group>";
+		};
+		B86BEAB21B8F5F0E00A0716E /* RequestBang */ = {
+			isa = PBXGroup;
+			children = (
+				B84BF5F01B1C1D9700067C4A /* RequestedBangTableViewCell.swift */,
+			);
+			name = RequestBang;
+			sourceTree = "<group>";
+		};
+		B86BEAB71B8F602300A0716E /* CommonFeature */ = {
+			isa = PBXGroup;
+			children = (
+				B86BEAB51B8F601100A0716E /* ActionSheet.swift */,
+				B86BEAB31B8F5FA200A0716E /* PhotoSelector.swift */,
+			);
+			name = CommonFeature;
+			sourceTree = "<group>";
+		};
 		B898BC6E1B8A0A270019B1D6 /* BloodTypeSelectorViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -693,15 +741,12 @@
 		B8D9B2511A824DEA00B30271 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				A9925ACC1B634F37006B7E34 /* SearchTargetGroupCollectionViewCell.swift */,
 				B81475F41AD8AAC90099A878 /* Extensions */,
 				B8F1389D1A8A4CC5002A820E /* CustomViews */,
-				B8187BCA1B1748C800E23716 /* SearchTargetUserCollectionViewCell.swift */,
-				B84BF5F01B1C1D9700067C4A /* RequestedBangTableViewCell.swift */,
-				B84BF60C1B366F5B00067C4A /* ConversationTableViewCell.swift */,
-				B8461C5A1B4D693B00133C2E /* ConversationMessageTableViewCell.swift */,
-				B810A0151B8961BE00EE7575 /* RegionSelectorTableViewCell.swift */,
-				B898BC751B8A0C560019B1D6 /* BloodTypeSelectorTableViewCell.swift */,
+				B86BEAB71B8F602300A0716E /* CommonFeature */,
+				B86BEAB01B8F5EA300A0716E /* Conversation */,
+				B86BEAB21B8F5F0E00A0716E /* RequestBang */,
+				B86BEAB11B8F5ED400A0716E /* Search */,
 				B8CC947F1B63346800AF7B5D /* MyPage */,
 				B85F59DF1B7715F900D7E8AE /* ProfileEdit */,
 			);
@@ -1066,6 +1111,7 @@
 				B8D9B2591A82534A00B30271 /* UIView+Extension.swift in Sources */,
 				A9925AE51B78F510006B7E34 /* _GroupUserDto.swift in Sources */,
 				B8631B471B50BF270063039A /* Style.swift in Sources */,
+				B86BEAB91B8F64DD00A0716E /* UIWindow+Extension.swift in Sources */,
 				B85A3D101AEFBCC3008AC7B8 /* bang.xcdatamodeld in Sources */,
 				B84BF5FE1B2428D200067C4A /* UserBangDto.swift in Sources */,
 				B8B9AB791AF77A8E009FEE4B /* TabBarViewController.swift in Sources */,
@@ -1124,11 +1170,13 @@
 				B85F59E11B77167F00D7E8AE /* ProfileEditImagesTableViewCell.swift in Sources */,
 				B84BF6031B24856900067C4A /* RequestedBangDataHandler.swift in Sources */,
 				B84BF5FC1B24272000067C4A /* BangStatus.swift in Sources */,
+				B86BEAB41B8F5FA200A0716E /* PhotoSelector.swift in Sources */,
 				A9925ACB1B634E35006B7E34 /* APIResponse+Group.swift in Sources */,
 				B8FDC5131A818EDC00D4511E /* AppDelegate.swift in Sources */,
 				B838B6DA1AF4667F00243580 /* GCD.swift in Sources */,
 				B807F3361AB433D300571ACB /* Tracker.swift in Sources */,
 				B898BC6D1B8A02580019B1D6 /* BloodType.swift in Sources */,
+				B86BEAB61B8F601100A0716E /* ActionSheet.swift in Sources */,
 				B84BF6151B36F08000067C4A /* _ConversationDto.swift in Sources */,
 				B84BF63E1B3FA6C100067C4A /* APIResponse+Message.swift in Sources */,
 				B8CC94811B6334D400AF7B5D /* MyPageProfileTableViewCell.swift in Sources */,

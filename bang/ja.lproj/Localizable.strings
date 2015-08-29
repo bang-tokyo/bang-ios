@@ -10,6 +10,7 @@
 "yes" = "はい";
 "no" = "いいえ";
 "confirm" = "確認";
+"cancel" = "キャンセル";
 
 // MARK: - Facebook
 "facebookAlertTitle" = "Error about Facebook";
@@ -29,3 +30,12 @@
 "BType" = "B型";
 "OType" = "O型";
 "ABType" = "AB型";
+
+// MARK: - PhotoSelector
+"takePicture" = "写真を撮る";
+"selectFromCameraRoll" = "カメラロールから選択する";
+
+// MARK: - Error
+"networkErrorMessage" = "読み込みに失敗しました。\n通信状態の良いところで再接続して下さい。";
+"cameraNotAvailable" = "カメラを使用できませんでした。";
+"photoLibraryNotAvailable" = "カメラロールが利用できません。\n設定から有効にして下さい。";

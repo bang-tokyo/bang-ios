@@ -14,12 +14,15 @@ class ProfileEditImagesDataHandler: NSObject {
 
     private weak var userDto: UserDto!
     private weak var collectionView: UICollectionView!
+    var photoSelector: PhotoSelector!
 
     func setup(collectionView: UICollectionView, userDto: UserDto) {
         self.collectionView = collectionView
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
         self.userDto = userDto
+
+        photoSelector = PhotoSelector()
     }
 
     func loadData() {
@@ -28,7 +31,19 @@ class ProfileEditImagesDataHandler: NSObject {
 }
 
 extension ProfileEditImagesDataHandler: UICollectionViewDelegate {
-
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        let index = indexPath.row
+        photoSelector.show().continueWithBlock({
+            [weak self] (task) -> AnyObject! in
+            if let strongSelf = self, error = task.error {
+                if Error.isEqual(error, code: .TaskCancelled) { return task }
+            }
+            return task
+        }).continueWithSuccessBlock({
+            [weak self] (task) -> AnyObject! in
+            return task
+        })
+    }
 }
 
 extension ProfileEditImagesDataHandler: UICollectionViewDataSource {

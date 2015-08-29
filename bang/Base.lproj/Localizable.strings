@@ -10,6 +10,7 @@
 "yes" = "Yes";
 "no" = "No";
 "confirm" = "OK";
+"cancel" = "Cancel";
 
 // MARK: - Facebook
 "facebookAlertTitle" = "Error about Facebook";
@@ -29,3 +30,12 @@
 "BType" = "Blood Type B";
 "OType" = "Blood Type O";
 "ABType" = "Blood Type AB";
+
+// MARK: - PhotoSelector
+"takePicture" = "Take a picture";
+"selectFromCameraRoll" = "Select from camera roll";
+
+// MARK: - Error
+"networkErrorMessage" = "Network error.\nPlease try again later.";
+"cameraNotAvailable" = "Your camera not available.";
+"photoLibraryNotAvailable" = "Photo library not available.\nPlease check your app setting.";
