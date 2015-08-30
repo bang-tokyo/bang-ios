@@ -5,6 +5,7 @@
 #import "UIImage+ImageEffects.h"
 #import "UIImage+ImageEffects.m"
 
+#import <AFNetworking/AFNetworking.h>
 #import <Bolts/Bolts.h>
 #import <FacebookSDK/FacebookSDK.h>
 #import <SSKeychain/SSKeychain.h>

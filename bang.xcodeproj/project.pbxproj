@@ -110,6 +110,7 @@
 		B86BEAB61B8F601100A0716E /* ActionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86BEAB51B8F601100A0716E /* ActionSheet.swift */; };
 		B86BEAB91B8F64DD00A0716E /* UIWindow+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86BEAB81B8F64DD00A0716E /* UIWindow+Extension.swift */; };
 		B86BEABE1B8F6E7E00A0716E /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B86BEABD1B8F6E7E00A0716E /* AVFoundation.framework */; };
+		B86BEAC21B91BE5700A0716E /* APIManager+Me.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86BEAC11B91BE5700A0716E /* APIManager+Me.swift */; };
 		B898BC6B1B8A019F0019B1D6 /* BloodTypeSelector.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B898BC6A1B8A019F0019B1D6 /* BloodTypeSelector.storyboard */; };
 		B898BC6D1B8A02580019B1D6 /* BloodType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B898BC6C1B8A02580019B1D6 /* BloodType.swift */; };
 		B898BC701B8A0A5B0019B1D6 /* BloodTypeSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B898BC6F1B8A0A5B0019B1D6 /* BloodTypeSelectorViewController.swift */; };
@@ -263,6 +264,7 @@
 		B86BEAB51B8F601100A0716E /* ActionSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionSheet.swift; sourceTree = "<group>"; };
 		B86BEAB81B8F64DD00A0716E /* UIWindow+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIWindow+Extension.swift"; sourceTree = "<group>"; };
 		B86BEABD1B8F6E7E00A0716E /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		B86BEAC11B91BE5700A0716E /* APIManager+Me.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "APIManager+Me.swift"; sourceTree = "<group>"; };
 		B898BC6A1B8A019F0019B1D6 /* BloodTypeSelector.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = BloodTypeSelector.storyboard; sourceTree = "<group>"; };
 		B898BC6C1B8A02580019B1D6 /* BloodType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BloodType.swift; sourceTree = "<group>"; };
 		B898BC6F1B8A0A5B0019B1D6 /* BloodTypeSelectorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BloodTypeSelectorViewController.swift; sourceTree = "<group>"; };
@@ -374,10 +376,7 @@
 		B81475F41AD8AAC90099A878 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				B8631B4A1B50C2550063039A /* UIColor+Extension.swift */,
-				B8631B481B50C1FD0063039A /* UIFont+Extension.swift */,
 				B8D9B2581A82534A00B30271 /* UIView+Extension.swift */,
-				B8D9B25C1A8254C400B30271 /* UIImage+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -393,11 +392,12 @@
 		B821152B1ADA5581002CCA46 /* API */ = {
 			isa = PBXGroup;
 			children = (
-				A9925AD21B6A8F59006B7E34 /* APIManager+GroupBang.swift */,
-				A9925AC81B634DA6006B7E34 /* APIManager+Group.swift */,
 				B821152C1ADA55AB002CCA46 /* APIManager.swift */,
+				B86BEAC11B91BE5700A0716E /* APIManager+Me.swift */,
 				B8F547531ADC197B00548883 /* APIManager+User.swift */,
 				B84BF5EA1B19E68500067C4A /* APIManager+UserBang.swift */,
+				A9925AD21B6A8F59006B7E34 /* APIManager+GroupBang.swift */,
+				A9925AC81B634DA6006B7E34 /* APIManager+Group.swift */,
 				B84BF6241B39A26E00067C4A /* APIManager+Conversation.swift */,
 				B810A00B1B895A5B00EE7575 /* APIManager+Region.swift */,
 				B8C1884A1AE3397600037552 /* BFTask+API.swift */,
@@ -409,6 +409,9 @@
 			isa = PBXGroup;
 			children = (
 				B86BEAB81B8F64DD00A0716E /* UIWindow+Extension.swift */,
+				B8D9B25C1A8254C400B30271 /* UIImage+Extension.swift */,
+				B8631B4A1B50C2550063039A /* UIColor+Extension.swift */,
+				B8631B481B50C1FD0063039A /* UIFont+Extension.swift */,
 				B82CA4581AEC788200159D99 /* BFTask+Extension.swift */,
 				B84BF6371B3EF24000067C4A /* NSNotificationCenter+Extension.swift */,
 			);
@@ -696,12 +699,12 @@
 		B8C1884C1AE3A68A00037552 /* API */ = {
 			isa = PBXGroup;
 			children = (
-				A9925ACE1B638525006B7E34 /* APIResponse+GroupUser.swift */,
-				A9925AD01B6A8EC7006B7E34 /* APIResponse+GroupBang.swift */,
-				A9925ACA1B634E34006B7E34 /* APIResponse+Group.swift */,
 				B8B979CB1AE67FE600BC3E2C /* APIResponse.swift */,
 				B8F9C6941AE687CB003320AB /* APIResponse+User.swift */,
 				B84BF5F91B24254E00067C4A /* APIResponse+UserBang.swift */,
+				A9925ACE1B638525006B7E34 /* APIResponse+GroupUser.swift */,
+				A9925AD01B6A8EC7006B7E34 /* APIResponse+GroupBang.swift */,
+				A9925ACA1B634E34006B7E34 /* APIResponse+Group.swift */,
 				B84BF6181B38533B00067C4A /* APIResponse+Conversation.swift */,
 				B84BF6221B3857B300067C4A /* APIResponse+ConversationUser.swift */,
 				B84BF63D1B3FA6C100067C4A /* APIResponse+Message.swift */,
@@ -1164,6 +1167,7 @@
 				B8C1884B1AE3397600037552 /* BFTask+API.swift in Sources */,
 				A9925ADF1B762341006B7E34 /* GroupStatus.swift in Sources */,
 				B84BF5F11B1C1D9700067C4A /* RequestedBangTableViewCell.swift in Sources */,
+				B86BEAC21B91BE5700A0716E /* APIManager+Me.swift in Sources */,
 				A9925ADB1B761852006B7E34 /* GroupBangDto.swift in Sources */,
 				A9925AD31B6A8F59006B7E34 /* APIManager+GroupBang.swift in Sources */,
 				B8B979CC1AE67FE600BC3E2C /* APIResponse.swift in Sources */,

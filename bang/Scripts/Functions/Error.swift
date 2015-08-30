@@ -60,16 +60,14 @@ class Error {
         }
         return false
     }
-}
 
-extension Error {
-    private class func isNetworkError(error: NSError?) -> Bool {
+    class func isNetworkError(error: NSError?) -> Bool {
         if let e = error {
             if e.domain != NSURLErrorDomain { return false }
             switch e.code {
             case NSURLErrorUnknown, NSURLErrorCancelled, NSURLErrorTimedOut, NSURLErrorCannotFindHost,
-                NSURLErrorCannotConnectToHost, NSURLErrorNetworkConnectionLost, NSURLErrorNotConnectedToInternet,
-                NSURLErrorSecureConnectionFailed, NSURLErrorCannotLoadFromNetwork:
+            NSURLErrorCannotConnectToHost, NSURLErrorNetworkConnectionLost, NSURLErrorNotConnectedToInternet,
+            NSURLErrorSecureConnectionFailed, NSURLErrorCannotLoadFromNetwork:
                 return true
             default:
                 return false
@@ -77,7 +75,9 @@ extension Error {
         }
         return false
     }
+}
 
+extension Error {
     private class func buildErrorMessage(code: Code) -> String? {
         switch code {
         case .CameraNotAvailable: return localizedString("cameraNotAvailable")

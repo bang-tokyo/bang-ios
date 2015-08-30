@@ -33,6 +33,7 @@ class ProfileEditImagesDataHandler: NSObject {
 extension ProfileEditImagesDataHandler: UICollectionViewDelegate {
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         let index = indexPath.row
+
         photoSelector.show().continueWithBlock({
             [weak self] (task) -> AnyObject! in
             if let strongSelf = self, error = task.error {
@@ -41,6 +42,14 @@ extension ProfileEditImagesDataHandler: UICollectionViewDelegate {
             return task
         }).continueWithSuccessBlock({
             [weak self] (task) -> AnyObject! in
+            ProgressHUD.show()
+            if let image = task.result as? UIImage {
+                return APIManager.sharedInstance.uploadMyImage(index, image: image)
+            }
+            return task
+        }).hideProgressHUD().continueWithBlock({
+            [weak self] (task) -> AnyObject! in
+
             return task
         })
     }
