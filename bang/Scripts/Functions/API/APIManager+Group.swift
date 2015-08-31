@@ -11,7 +11,13 @@ import Bolts
 
 extension APIManager {
 
+    //グループbang一覧を要求する
     func searchGroup() -> BFTask {
+        return request(.GET, path: "/v1/groups/").APIErrorHandler()
+    }
+
+    //自分の所属するグループを要求する
+    func requestMyGroups() -> BFTask {
         return request(.GET, path: "/v1/groups/").APIErrorHandler()
     }
 }

@@ -14,6 +14,7 @@ class TabBarViewController: UITabBarController {
     var myPageNavigationController: UINavigationController!
     var conversationNavigationController: UINavigationController!
     var requestedBangNavigationController: UINavigationController!
+    var groupNavigationController: UINavigationController!
     var searchViewController: UIViewController!
 
     override func viewDidLoad() {
@@ -23,15 +24,18 @@ class TabBarViewController: UITabBarController {
         var (myPageNavigationController, myPageViewController) = MyPageViewController.build()
         var (conversationNavigationController, conversationViewController) = ConversationViewController.build()
         var (requestedBangNavigationController, requestedBangViewController) = RequestedBangViewController.build()
+        var (groupNavigationController, groupViewController) = GroupViewController.build()
         searchViewController = UIViewController()
 
         self.myPageNavigationController = myPageNavigationController
         self.conversationNavigationController = conversationNavigationController
         self.requestedBangNavigationController = requestedBangNavigationController
+        self.groupNavigationController = groupNavigationController
 
         super.viewDidLoad()
 
         // TODO: - Designがきまったら修正
+        groupViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .Recents, tag: 0)
         myPageViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .Bookmarks, tag: 0)
         searchViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .Contacts, tag: 0)
         conversationViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .Favorites, tag: 0)
@@ -41,6 +45,7 @@ class TabBarViewController: UITabBarController {
             conversationNavigationController,
             requestedBangNavigationController,
             searchViewController,
+            groupViewController,
             myPageNavigationController
         ], animated: false)
 

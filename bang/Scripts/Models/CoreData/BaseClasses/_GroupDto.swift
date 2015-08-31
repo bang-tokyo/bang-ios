@@ -4,11 +4,14 @@
 import CoreData
 
 enum GroupDtoAttributes: String {
+    case createdAt = "createdAt"
+    case id = "id"
     case memo = "memo"
     case name = "name"
     case ownerUserId = "ownerUserId"
     case regionId = "regionId"
     case statusValue = "statusValue"
+    case updatedAt = "updatedAt"
 }
 
 enum GroupDtoRelationships: String {
@@ -43,6 +46,16 @@ class _GroupDto: NSManagedObject {
     // MARK: - Properties
 
     @NSManaged
+    var createdAt: NSDate?
+
+    // func validateCreatedAt(value: AutoreleasingUnsafePointer<AnyObject>, error: NSErrorPointer) {}
+
+    @NSManaged
+    var id: NSNumber?
+
+    // func validateId(value: AutoreleasingUnsafePointer<AnyObject>, error: NSErrorPointer) {}
+
+    @NSManaged
     var memo: String?
 
     // func validateMemo(value: AutoreleasingUnsafePointer<AnyObject>, error: NSErrorPointer) {}
@@ -66,6 +79,11 @@ class _GroupDto: NSManagedObject {
     var statusValue: NSNumber?
 
     // func validateStatusValue(value: AutoreleasingUnsafePointer<AnyObject>, error: NSErrorPointer) {}
+
+    @NSManaged
+    var updatedAt: NSDate?
+
+    // func validateUpdatedAt(value: AutoreleasingUnsafePointer<AnyObject>, error: NSErrorPointer) {}
 
     // MARK: - Relationships
 

@@ -60,6 +60,14 @@ final class DataStore: NSObject {
         }
     }
 
+    func saveGroupList(groupList: [APIResponse.Group]) -> BFTask {
+        return save {
+            (context, willUpdate) -> Void in
+            self.saveGroupList(groupList, context: context)
+            return
+        }
+    }
+
     func saveMessageList(messageList: [APIResponse.Message]) -> BFTask {
         return save {
             (context, willUpdate) -> Void in
@@ -156,7 +164,15 @@ extension DataStore {
         return messageList.map { self.saveMessage($0, context: context) }
     }
 
+    private func saveGroup(group: APIResponse.Group, context: NSManagedObjectContext) -> GroupDto {
+        let groupDto: GroupDto = GroupDto.firstOrInitializeById(group.id, context: context)
+        groupDto.fill(group)
+        return groupDto
+    }
 
+    private func saveGroupList(groupList: [APIResponse.Group], context: NSManagedObjectContext) -> [GroupDto] {
+        return groupList.map { self.saveGroup($0, context: context) }
+    }
 
     // NOTE: - キャッシュが全部消えるので気をつけてね。
     private func truncateAll(context: NSManagedObjectContext) {
