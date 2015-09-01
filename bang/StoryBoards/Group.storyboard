@@ -2,30 +2,9 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="pH8-pb-v6g">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Group-->
-        <scene sceneID="HYT-Aj-maf">
-            <objects>
-                <tableViewController id="SDg-jQ-kbk" customClass="GroupViewController" customModule="bang" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="gOD-gp-yFV">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <connections>
-                            <outlet property="dataSource" destination="SDg-jQ-kbk" id="drm-k1-3A5"/>
-                            <outlet property="delegate" destination="SDg-jQ-kbk" id="rk9-6O-A7z"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Group" id="j7i-7a-79K" userLabel="Group"/>
-                    <connections>
-                        <outlet property="tableView" destination="gOD-gp-yFV" id="alC-bH-b3a"/>
-                    </connections>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="F9E-A4-2ET" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2192" y="374"/>
-        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="vkN-i2-AjQ">
             <objects>
@@ -44,22 +23,56 @@
             </objects>
             <point key="canvasLocation" x="548" y="374"/>
         </scene>
-        <!--Item-->
+        <!--Group-->
         <scene sceneID="R8w-ZW-H5h">
             <objects>
                 <navigationController id="8j3-Ut-Nwb" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="uwm-Ww-roh"/>
+                    <tabBarItem key="tabBarItem" title="Group" id="uwm-Ww-roh"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="QwA-g1-OYq">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="SDg-jQ-kbk" kind="relationship" relationship="rootViewController" id="WlC-cV-Gqr"/>
+                        <segue destination="pxZ-Vn-6q2" kind="relationship" relationship="rootViewController" id="8MT-MN-sg7"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jks-iY-EyE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1368" y="374"/>
+        </scene>
+        <!--Group-->
+        <scene sceneID="BG6-3b-J5V">
+            <objects>
+                <viewController id="pxZ-Vn-6q2" customClass="GroupViewController" customModule="bang" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="EtX-cT-ywo"/>
+                        <viewControllerLayoutGuide type="bottom" id="OVE-6B-iz0"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="n6z-cu-Ult">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="ASJ-Pn-qba">
+                                <rect key="frame" x="0.0" y="64" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottomMargin" secondItem="ASJ-Pn-qba" secondAttribute="bottom" constant="-64" id="DPM-ux-CAQ"/>
+                            <constraint firstItem="ASJ-Pn-qba" firstAttribute="leading" secondItem="n6z-cu-Ult" secondAttribute="leadingMargin" constant="-16" id="Pc4-ix-Msi"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ASJ-Pn-qba" secondAttribute="trailing" constant="-16" id="glg-Af-FGn"/>
+                            <constraint firstItem="ASJ-Pn-qba" firstAttribute="top" secondItem="EtX-cT-ywo" secondAttribute="bottom" id="xpH-cf-xhA"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Group" id="Yyk-HZ-egi"/>
+                    <connections>
+                        <outlet property="tableView" destination="ASJ-Pn-qba" id="7ov-9N-6Ku"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="28n-fj-ARX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2139" y="374"/>
         </scene>
     </scenes>
 </document>
