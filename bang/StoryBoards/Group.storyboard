@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="pH8-pb-v6g">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Tab Bar Controller-->
@@ -45,29 +44,39 @@
             <objects>
                 <viewController id="pxZ-Vn-6q2" customClass="GroupViewController" customModule="bang" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="EtX-cT-ywo"/>
-                        <viewControllerLayoutGuide type="bottom" id="OVE-6B-iz0"/>
+                        <viewControllerLayoutGuide type="top" id="zm7-aP-OHI"/>
+                        <viewControllerLayoutGuide type="bottom" id="4ok-5w-pVK"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="n6z-cu-Ult">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <view key="view" contentMode="scaleToFill" id="vdL-6U-0Lf">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="ASJ-Pn-qba">
-                                <rect key="frame" x="0.0" y="64" width="600" height="600"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="zJA-mZ-WVo">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="487"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="qlM-1w-88Z">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qlM-1w-88Z" id="Txf-Mf-Fta">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="bottomMargin" secondItem="ASJ-Pn-qba" secondAttribute="bottom" constant="-64" id="DPM-ux-CAQ"/>
-                            <constraint firstItem="ASJ-Pn-qba" firstAttribute="leading" secondItem="n6z-cu-Ult" secondAttribute="leadingMargin" constant="-16" id="Pc4-ix-Msi"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="ASJ-Pn-qba" secondAttribute="trailing" constant="-16" id="glg-Af-FGn"/>
-                            <constraint firstItem="ASJ-Pn-qba" firstAttribute="top" secondItem="EtX-cT-ywo" secondAttribute="bottom" id="xpH-cf-xhA"/>
+                            <constraint firstItem="zJA-mZ-WVo" firstAttribute="top" secondItem="zm7-aP-OHI" secondAttribute="bottom" id="DKH-Eo-R9h"/>
+                            <constraint firstItem="zJA-mZ-WVo" firstAttribute="bottom" secondItem="4ok-5w-pVK" secondAttribute="top" id="IFn-Ly-XE0"/>
+                            <constraint firstAttribute="trailing" secondItem="zJA-mZ-WVo" secondAttribute="trailing" id="j8V-VO-fb9"/>
+                            <constraint firstItem="zJA-mZ-WVo" firstAttribute="leading" secondItem="vdL-6U-0Lf" secondAttribute="leading" id="xeo-dI-QtB"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Group" id="Yyk-HZ-egi"/>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                    <navigationItem key="navigationItem" title="Group" id="xe4-l1-Qid"/>
                     <connections>
-                        <outlet property="tableView" destination="ASJ-Pn-qba" id="7ov-9N-6Ku"/>
+                        <outlet property="tableView" destination="zJA-mZ-WVo" id="eVN-ci-06U"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="28n-fj-ARX" userLabel="First Responder" sceneMemberID="firstResponder"/>
