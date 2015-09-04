@@ -7,7 +7,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="vkN-i2-AjQ">
             <objects>
-                <tabBarController id="pH8-pb-v6g" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="pH8-pb-v6g" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="oqf-Si-ePm">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
@@ -25,7 +25,7 @@
         <!--Group-->
         <scene sceneID="R8w-ZW-H5h">
             <objects>
-                <navigationController id="8j3-Ut-Nwb" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8j3-Ut-Nwb" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Group" id="uwm-Ww-roh"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="QwA-g1-OYq">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -51,7 +51,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="zJA-mZ-WVo">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="zJA-mZ-WVo">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="487"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>

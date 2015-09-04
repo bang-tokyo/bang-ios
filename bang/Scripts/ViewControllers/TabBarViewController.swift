@@ -45,7 +45,7 @@ class TabBarViewController: UITabBarController {
             conversationNavigationController,
             requestedBangNavigationController,
             searchViewController,
-            groupViewController,
+            groupNavigationController,
             myPageNavigationController
         ], animated: false)
 
