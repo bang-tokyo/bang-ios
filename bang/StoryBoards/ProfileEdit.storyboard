@@ -43,7 +43,18 @@
                                                                         <subviews>
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bvU-EZ-Ejl">
                                                                                 <rect key="frame" x="3" y="3" width="94" height="94"/>
+                                                                                <subviews>
+                                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fjW-fW-uG1" customClass="ProfileImageView" customModule="bang" customModuleProvider="target">
+                                                                                        <rect key="frame" x="3" y="3" width="88" height="88"/>
+                                                                                    </imageView>
+                                                                                </subviews>
                                                                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                                                <constraints>
+                                                                                    <constraint firstAttribute="trailing" secondItem="fjW-fW-uG1" secondAttribute="trailing" constant="3" id="CWm-Py-NdU"/>
+                                                                                    <constraint firstAttribute="bottom" secondItem="fjW-fW-uG1" secondAttribute="bottom" constant="3" id="Z4a-ZC-OZW"/>
+                                                                                    <constraint firstItem="fjW-fW-uG1" firstAttribute="leading" secondItem="bvU-EZ-Ejl" secondAttribute="leading" constant="3" id="hoS-vg-FEb"/>
+                                                                                    <constraint firstItem="fjW-fW-uG1" firstAttribute="top" secondItem="bvU-EZ-Ejl" secondAttribute="top" constant="3" id="xtI-db-iKt"/>
+                                                                                </constraints>
                                                                             </view>
                                                                         </subviews>
                                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -64,6 +75,9 @@
                                                                 <constraint firstItem="vGi-g3-mV1" firstAttribute="leading" secondItem="APw-Rv-8o7" secondAttribute="leading" id="umt-Wf-Cww"/>
                                                             </constraints>
                                                             <size key="customSize" width="100" height="100"/>
+                                                            <connections>
+                                                                <outlet property="profileImageView" destination="fjW-fW-uG1" id="AAa-n3-ZVq"/>
+                                                            </connections>
                                                         </collectionViewCell>
                                                     </cells>
                                                 </collectionView>

@@ -15,5 +15,6 @@ pod 'Blockskit'
 pod 'HPGrowingTextView'
 pod 'TTTAttributedLabel'
 pod 'LXReorderableCollectionViewFlowLayout'
+pod 'SDWebImage'
 
 pod 'TestFairy'

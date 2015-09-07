@@ -29,8 +29,6 @@ class TabBarViewController: UITabBarController {
         self.conversationNavigationController = conversationNavigationController
         self.requestedBangNavigationController = requestedBangNavigationController
 
-        super.viewDidLoad()
-
         // TODO: - Designがきまったら修正
         myPageViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .Bookmarks, tag: 0)
         searchViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .Contacts, tag: 0)

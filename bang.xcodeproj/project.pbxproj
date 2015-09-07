@@ -26,6 +26,7 @@
 		A9925AE51B78F510006B7E34 /* _GroupUserDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9925AE21B78F510006B7E34 /* _GroupUserDto.swift */; };
 		B807F3361AB433D300571ACB /* Tracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B807F3351AB433D300571ACB /* Tracker.swift */; };
 		B80D21151ABC5BEC00405EAE /* QueueManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80D21141ABC5BEC00405EAE /* QueueManager.swift */; };
+		B80DF33D1B9C57A200C451E1 /* ProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80DF33C1B9C57A200C451E1 /* ProfileImageView.swift */; };
 		B810A0061B8899FD00EE7575 /* RegionDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = B810A0051B8899FD00EE7575 /* RegionDto.swift */; };
 		B810A0081B889A0C00EE7575 /* _RegionDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = B810A0071B889A0C00EE7575 /* _RegionDto.swift */; };
 		B810A00A1B89597E00EE7575 /* APIResponse+Region.swift in Sources */ = {isa = PBXBuildFile; fileRef = B810A0091B89597E00EE7575 /* APIResponse+Region.swift */; };
@@ -179,6 +180,7 @@
 		A9925AE21B78F510006B7E34 /* _GroupUserDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _GroupUserDto.swift; sourceTree = "<group>"; };
 		B807F3351AB433D300571ACB /* Tracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tracker.swift; sourceTree = "<group>"; };
 		B80D21141ABC5BEC00405EAE /* QueueManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueueManager.swift; sourceTree = "<group>"; };
+		B80DF33C1B9C57A200C451E1 /* ProfileImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileImageView.swift; sourceTree = "<group>"; };
 		B810A0051B8899FD00EE7575 /* RegionDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegionDto.swift; sourceTree = "<group>"; };
 		B810A0071B889A0C00EE7575 /* _RegionDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _RegionDto.swift; sourceTree = "<group>"; };
 		B810A0091B89597E00EE7575 /* APIResponse+Region.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "APIResponse+Region.swift"; sourceTree = "<group>"; };
@@ -683,6 +685,7 @@
 			children = (
 				B86BEAB51B8F601100A0716E /* ActionSheet.swift */,
 				B86BEAB31B8F5FA200A0716E /* PhotoSelector.swift */,
+				B80DF33C1B9C57A200C451E1 /* ProfileImageView.swift */,
 			);
 			name = CommonFeature;
 			sourceTree = "<group>";
@@ -1139,6 +1142,7 @@
 				B84BF6401B3FF76300067C4A /* ConversationDetailDataHandler.swift in Sources */,
 				B84BF6361B3EEC2200067C4A /* KeyboardDisplayDetector.swift in Sources */,
 				B810A00C1B895A5B00EE7575 /* APIManager+Region.swift in Sources */,
+				B80DF33D1B9C57A200C451E1 /* ProfileImageView.swift in Sources */,
 				B8187BCB1B1748C800E23716 /* SearchTargetUserCollectionViewCell.swift in Sources */,
 				B821152F1ADA6B5F002CCA46 /* GeneralInfo.swift in Sources */,
 				B84A6EBE1AF4578900A7C632 /* DataStore.swift in Sources */,

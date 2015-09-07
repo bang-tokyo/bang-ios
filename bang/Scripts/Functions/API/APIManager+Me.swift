@@ -16,6 +16,6 @@ extension APIManager {
         var parameters: [String: AnyObject] = [
             "index": index
         ]
-        return upload("/v1/me/image/", data: data, name: "image", fileName: "image.jpg", mimeType: "image/jpeg", parameters: parameters)
+        return upload("/v1/me/image/", data: data, name: "image", fileName: "image.jpg", mimeType: "image/jpeg", parameters: parameters).APIErrorHandler()
     }
 }

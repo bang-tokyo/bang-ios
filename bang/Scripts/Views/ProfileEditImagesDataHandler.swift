@@ -49,7 +49,12 @@ extension ProfileEditImagesDataHandler: UICollectionViewDelegate {
             return task
         }).hideProgressHUD().continueWithBlock({
             [weak self] (task) -> AnyObject! in
-
+            if let cell = collectionView.cellForItemAtIndexPath(indexPath) as? ProfileEditImageCollectionViewCell {
+                if let url = task.result["imagePath"] as? String {
+                    println(url)
+                    cell.profileImageView.configure(url: NSURL(string: url), placeholderImage: nil, notRounded: false)
+                }
+            }
             return task
         })
     }
@@ -62,6 +67,7 @@ extension ProfileEditImagesDataHandler: UICollectionViewDataSource {
 
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         var cell = collectionView.dequeueReusableCellWithReuseIdentifier("ProfileEditImageCell", forIndexPath: indexPath) as! ProfileEditImageCollectionViewCell
+        cell.configure("")
         return cell
     }
 }

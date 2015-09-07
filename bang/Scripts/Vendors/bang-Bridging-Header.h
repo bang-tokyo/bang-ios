@@ -17,3 +17,4 @@
 #import <TTTAttributedLabel/TTTAttributedLabel.h>
 #import <TestFairy/TestFairy.h>
 #import <LXReorderableCollectionViewFlowLayout/LXReorderableCollectionViewFlowLayout.h>
+#import <SDWebImage/UIImageView+WebCache.h>
