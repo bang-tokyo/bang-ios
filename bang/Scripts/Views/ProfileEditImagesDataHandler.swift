@@ -28,6 +28,15 @@ class ProfileEditImagesDataHandler: NSObject {
     func loadData() {
         collectionView.reloadData()
     }
+
+    func parameters(key_format: String) -> [String: AnyObject] {
+        var parameters = [String: AnyObject]()
+        for index in 0...imageNum-1 {
+            let cell = collectionView.cellForItemAtIndexPath(NSIndexPath(forRow: index, inSection: 0)) as! ProfileEditImageCollectionViewCell
+            parameters[String(format: key_format, index)] = cell.userProfileImageId
+        }
+        return parameters
+    }
 }
 
 extension ProfileEditImagesDataHandler: UICollectionViewDelegate {
@@ -49,10 +58,10 @@ extension ProfileEditImagesDataHandler: UICollectionViewDelegate {
             return task
         }).hideProgressHUD().continueWithBlock({
             [weak self] (task) -> AnyObject! in
+            if task.result == nil { return task }
             if let cell = collectionView.cellForItemAtIndexPath(indexPath) as? ProfileEditImageCollectionViewCell {
-                if let url = task.result["imagePath"] as? String {
-                    println(url)
-                    cell.profileImageView.configure(url: NSURL(string: url), placeholderImage: nil, notRounded: false)
+                if let url = task.result["imagePath"] as? String, id = task.result["id"] as? NSNumber {
+                    cell.configure(id.integerValue, imagePath: url)
                 }
             }
             return task
@@ -67,7 +76,7 @@ extension ProfileEditImagesDataHandler: UICollectionViewDataSource {
 
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         var cell = collectionView.dequeueReusableCellWithReuseIdentifier("ProfileEditImageCell", forIndexPath: indexPath) as! ProfileEditImageCollectionViewCell
-        cell.configure("")
+        cell.configure(0, imagePath: "")
         return cell
     }
 }

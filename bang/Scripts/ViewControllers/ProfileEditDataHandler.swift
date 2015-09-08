@@ -12,11 +12,11 @@ class ProfileEditDataHandler: NSObject {
 
     private struct Const {
         static let Cells = [
-            ( type: "ProfileEditImagesCell", id: "ProfileImages" ),
-            ( type: "ProfileEditTextCell", id: "SelfIntroduction" ),
-            ( type: "ProfileEditTextCell", id: "SelfIntroductionLong" ),
-            ( type: "ProfileEditChoicesCell", id: "BloodType" ),
-            ( type: "ProfileEditChoicesCell", id: "Region" )
+            ( type: "ProfileEditImagesCell", id: "ProfileImages", key_format: "profile_image_%d"),
+            ( type: "ProfileEditTextCell", id: "SelfIntroduction", key_format: "self_introduction"),
+            ( type: "ProfileEditTextCell", id: "SelfIntroductionLong", key_format: "self_introduction_long"),
+            ( type: "ProfileEditChoicesCell", id: "BloodType", key_format: "blood_type"),
+            ( type: "ProfileEditChoicesCell", id: "Region", key_format: "region_id")
         ]
         static let CellHeightTypeOf = (
             ProfileEditImagesCell: UIScreen.mainScreen().bounds.width,
@@ -54,6 +54,14 @@ class ProfileEditDataHandler: NSObject {
         }
     }
 
+    func getAllParameter() -> [String: AnyObject] {
+        var parameters = [String: AnyObject]()
+        for (var i = 0; i < Const.Cells.count; i++) {
+            parameters = mergeParameters(parameters, parameterOf(Const.Cells[i].id))
+        }
+        return parameters
+    }
+
     func loadData() {
         tableView.reloadData()
     }
@@ -68,6 +76,42 @@ extension ProfileEditDataHandler {
             }
         }
         return index
+    }
+
+    private func parameterOf(id: String) -> [String: AnyObject]? {
+        if let index = cellsIndexOf(id) {
+            let constCell = Const.Cells[index]
+            switch constCell.type {
+            case "ProfileEditImagesCell":
+                if let cell = tableView.cellForRowAtIndexPath(NSIndexPath(forRow: index, inSection: 0)) as? ProfileEditImagesTableViewCell {
+                    return cell.parameters(constCell.key_format)
+                }
+            case "ProfileEditTextCell":
+                if let cell = tableView.cellForRowAtIndexPath(NSIndexPath(forRow: index, inSection: 0)) as? ProfileEditTextTableViewCell {
+                    return [constCell.key_format: cell.value()]
+                }
+            case "ProfileEditChoicesCell":
+                if let cell = tableView.cellForRowAtIndexPath(NSIndexPath(forRow: index, inSection: 0)) as? ProfileEditChoicesTableViewCell {
+                    return [constCell.key_format: cell.id]
+                }
+            default:
+                return nil
+            }
+        }
+        return nil
+    }
+
+    private func mergeParameters(dist1: [String: AnyObject], _ dist2: [String: AnyObject]?) -> [String: AnyObject] {
+        var result = [String: AnyObject]()
+        for (key, value) in dist1 {
+            result[key] = value
+        }
+        if let _dist2 = dist2 {
+            for (key, value) in _dist2 {
+                result[key] = value
+            }
+        }
+        return result
     }
 }
 

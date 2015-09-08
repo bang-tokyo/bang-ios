@@ -45,6 +45,8 @@ class ProfileEditViewController: UIViewController {
     }
 
     @IBAction func onTouchUpInsideDoneButton(sender: UIBarButtonItem) {
+        let parameters = dataHandler.getAllParameter()
+        println(parameters)
         navigationController?.popViewControllerAnimated(true)
     }
 }

@@ -31,4 +31,8 @@ class ProfileEditTextTableViewCell: UITableViewCell {
         textView.text = value
         textView.backgroundColor = UIColor.clearColor()
     }
+
+    func value() -> String {
+        return textView.text
+    }
 }
