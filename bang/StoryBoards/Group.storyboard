@@ -2,6 +2,8 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="pH8-pb-v6g">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Tab Bar Controller-->
@@ -51,16 +53,43 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="zJA-mZ-WVo">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="117" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="zJA-mZ-WVo">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="487"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="qlM-1w-88Z">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="groupListCell" rowHeight="100" id="uuf-sr-fty" customClass="GroupTableViewCell" customModule="bang" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qlM-1w-88Z" id="Txf-Mf-Fta">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uuf-sr-fty" id="MCp-k9-GIZ">
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kox-OX-4Kl" customClass="FBProfilePictureView">
+                                                    <rect key="frame" x="8" y="3" width="94" height="94"/>
+                                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="kox-OX-4Kl" secondAttribute="height" multiplier="1:1" id="9e8-8u-Qkq"/>
+                                                    </constraints>
+                                                </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fcC-u4-uEk">
+                                                    <rect key="frame" x="110" y="39" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="kox-OX-4Kl" firstAttribute="leading" secondItem="MCp-k9-GIZ" secondAttribute="leadingMargin" id="10m-1n-LS3"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="kox-OX-4Kl" secondAttribute="bottom" constant="-5" id="2A5-J9-O2R"/>
+                                                <constraint firstItem="kox-OX-4Kl" firstAttribute="top" secondItem="MCp-k9-GIZ" secondAttribute="topMargin" constant="-5" id="IFi-Sp-ydl"/>
+                                                <constraint firstItem="fcC-u4-uEk" firstAttribute="centerY" secondItem="MCp-k9-GIZ" secondAttribute="centerY" id="gHf-Eb-tUg"/>
+                                                <constraint firstItem="fcC-u4-uEk" firstAttribute="leading" secondItem="kox-OX-4Kl" secondAttribute="trailing" constant="8" id="oBj-wk-Ekh"/>
+                                                <constraint firstItem="fcC-u4-uEk" firstAttribute="top" secondItem="MCp-k9-GIZ" secondAttribute="topMargin" constant="31" id="uNX-48-eMa"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="nameLabel" destination="fcC-u4-uEk" id="lVI-G3-Qhs"/>
+                                            <outlet property="profilePictureView" destination="kox-OX-4Kl" id="Rfe-jj-e0o"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>

@@ -35,7 +35,7 @@ class GroupDataHandler: NSObject {
                 return DataStore.sharedInstance.saveGroupList(groupList)
             }
             return task
-            })
+        })
     }
 }
 
@@ -51,9 +51,9 @@ extension GroupDataHandler: UITableViewDataSource {
     }
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCellWithIdentifier("requestedBangCell") as! RequestedBangTableViewCell
-        if let userBangDto = fetchedResultsController.objectAtIndexPath(indexPath) as? UserBangDto {
-            cell.configure(userBangDto)
+        var cell = tableView.dequeueReusableCellWithIdentifier("groupListCell") as! GroupTableViewCell
+        if let groupDto = fetchedResultsController.objectAtIndexPath(indexPath) as? GroupDto {
+            cell.configure(groupDto)
         }
         return cell
     }
