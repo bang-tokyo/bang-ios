@@ -620,9 +620,6 @@
 		B85A3D0D1AEFBC95008AC7B8 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				A9925AD81B761852006B7E34 /* GroupBangDto.swift */,
-				A9925AD91B761852006B7E34 /* GroupDto.swift */,
-				A9925ADA1B761852006B7E34 /* GroupUserDto.swift */,
 				B85A3D0E1AEFBCC3008AC7B8 /* bang.xcdatamodeld */,
 				B84A6EB31AF441FC00A7C632 /* UserDto.swift */,
 				B84BF5FD1B2428D200067C4A /* UserBangDto.swift */,
@@ -630,6 +627,9 @@
 				B84BF61E1B3856B500067C4A /* ConversationUserDto.swift */,
 				B84BF6391B3FA59900067C4A /* MessageDto.swift */,
 				B810A0051B8899FD00EE7575 /* RegionDto.swift */,
+				A9925AD81B761852006B7E34 /* GroupBangDto.swift */,
+				A9925AD91B761852006B7E34 /* GroupDto.swift */,
+				A9925ADA1B761852006B7E34 /* GroupUserDto.swift */,
 				B84A6EB21AF43C5300A7C632 /* BaseClasses */,
 			);
 			path = CoreData;

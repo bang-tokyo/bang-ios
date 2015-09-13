@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import LXReorderableCollectionViewFlowLayout
 
 class ProfileEditImagesDataHandler: NSObject {
 
@@ -76,7 +77,7 @@ extension ProfileEditImagesDataHandler: UICollectionViewDataSource {
 
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         var cell = collectionView.dequeueReusableCellWithReuseIdentifier("ProfileEditImageCell", forIndexPath: indexPath) as! ProfileEditImageCollectionViewCell
-        cell.configure(0, imagePath: "")
+        cell.configure(userDto.profileImageIdBy(indexPath.row)!.integerValue, imagePath: userDto.profileImagePathBy(indexPath.row)!)
         return cell
     }
 }

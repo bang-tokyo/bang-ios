@@ -158,19 +158,19 @@ extension ProfileEditDataHandler: UITableViewDataSource {
             return cell
         case "SelfIntroduction":
             var cell = tableView.dequeueReusableCellWithIdentifier("ProfileEditTextCell") as! ProfileEditTextTableViewCell
-            cell.configure(localizedString("selfIntroduction"), value: "簡単な自己紹介")
+            cell.configure(localizedString("selfIntroduction"), value: userDto.selfIntroduction!)
             return cell
         case "SelfIntroductionLong":
             var cell = tableView.dequeueReusableCellWithIdentifier("ProfileEditTextCell") as! ProfileEditTextTableViewCell
-            cell.configure(localizedString("selfIntroductionLong"), value: "詳細な自己紹介")
+            cell.configure(localizedString("selfIntroductionLong"), value: userDto.selfIntroductionLong!)
             return cell
         case "BloodType":
             var cell = tableView.dequeueReusableCellWithIdentifier("ProfileEditChoicesCell") as! ProfileEditChoicesTableViewCell
-            cell.configure(localizedString("bloodType"), id: 1, name: "O型")
+            cell.configure(localizedString("bloodType"), id: userDto.bloodType.rawValue, name: userDto.bloodType.name())
             return cell
         case "Region":
             var cell = tableView.dequeueReusableCellWithIdentifier("ProfileEditChoicesCell") as! ProfileEditChoicesTableViewCell
-            cell.configure(localizedString("region"), id: 1, name: "東京都")
+            cell.configure(localizedString("region"), id: userDto.regionId!.integerValue, name: userDto.region!)
             return cell
         default:
             // 来ないはずだけどUITableViewCellかえさなきゃいけないので仮に返しておく

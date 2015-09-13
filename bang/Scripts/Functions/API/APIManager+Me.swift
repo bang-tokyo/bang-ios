@@ -18,4 +18,8 @@ extension APIManager {
         ]
         return upload("/v1/me/image/", data: data, name: "image", fileName: "image.jpg", mimeType: "image/jpeg", parameters: parameters).APIErrorHandler()
     }
+
+    func uploadMyInfo(parameters: [String: AnyObject]) -> BFTask {
+        return request(.PUT, path: "/v1/me", parameters: parameters).APIErrorHandler()
+    }
 }

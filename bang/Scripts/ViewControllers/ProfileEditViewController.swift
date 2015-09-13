@@ -46,8 +46,16 @@ class ProfileEditViewController: UIViewController {
 
     @IBAction func onTouchUpInsideDoneButton(sender: UIBarButtonItem) {
         let parameters = dataHandler.getAllParameter()
-        println(parameters)
-        navigationController?.popViewControllerAnimated(true)
+        ProgressHUD.show()
+        APIManager.sharedInstance.uploadMyInfo(parameters).hideProgressHUD().continueWithBlock({
+            [weak self] (task) -> AnyObject! in
+            if let user = APIResponse.parse(APIResponse.User.self, task.result) {
+                DataStore.sharedInstance.saveUser(user)
+            }
+
+            self?.navigationController?.popViewControllerAnimated(true)
+            return task
+        })
     }
 }
 

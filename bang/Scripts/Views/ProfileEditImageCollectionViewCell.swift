@@ -12,6 +12,7 @@ class ProfileEditImageCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var profileImageView: ProfileImageView!
 
     var userProfileImageId: Int = 0
+    var userProfileImagePath: String = ""
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -23,6 +24,7 @@ class ProfileEditImageCollectionViewCell: UICollectionViewCell {
 
     func configure(userProfileImageId: Int, imagePath: String) {
         self.userProfileImageId = userProfileImageId
+        self.userProfileImagePath = imagePath
         profileImageView.configure(url: NSURL(string: imagePath), placeholderImage: nil, notRounded: false)
     }
 }
