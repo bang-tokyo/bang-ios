@@ -11,3 +11,15 @@ import Foundation
 func localizedString(key: String) -> String {
     return NSLocalizedString(key, comment: "")
 }
+
+func currentWindow() -> UIWindow? {
+    return UIApplication.sharedApplication().delegate?.window ?? nil
+}
+
+func appDelegate() -> AppDelegate? {
+    return UIApplication.sharedApplication().delegate as? AppDelegate
+}
+
+func currentTopViewController() -> UIViewController? {
+    return UIApplication.sharedApplication().delegate?.window??.topViewController()
+}

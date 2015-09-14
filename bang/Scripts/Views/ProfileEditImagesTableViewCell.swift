@@ -53,6 +53,10 @@ class ProfileEditImagesTableViewCell: UITableViewCell {
 
         dataHandler.loadData()
     }
+
+    func parameters(key_format: String) -> [String: AnyObject] {
+        return dataHandler.parameters(key_format)
+    }
 }
 
 class ProfileEditImagesFlowLayout: LXReorderableCollectionViewFlowLayout {

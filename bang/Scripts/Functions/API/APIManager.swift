@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import Alamofire
+import AFNetworking
 import Bolts
 
 final class APIManager: NSObject {
@@ -27,19 +27,21 @@ final class APIManager: NSObject {
 
     enum APIMethod { case GET, POST, PUT, DELETE }
 
-    private var manager: Manager!
+    private var manager: AFHTTPSessionManager!
     private var baseURL: String!
 
     override private init() {
         super.init()
-        manager = Alamofire.Manager(configuration: buildSessionConfig())
         #if DEBUG
             baseURL = Const.BaseURLForDevelopment
-        #elseif ADHOC
+            #elseif ADHOC
             baseURL = Const.BaseURLForAdHoc
-        #else
+            #else
             baseURL = Const.BaseURL
         #endif
+
+        manager = AFHTTPSessionManager(baseURL: NSURL(string: baseURL), sessionConfiguration: buildSessionConfig())
+        manager.requestSerializer = requestSerializer()
     }
 
     func request(method: APIMethod, path: String) -> BFTask {
@@ -60,6 +62,30 @@ final class APIManager: NSObject {
             return DELETE(fullPath, parameters: parameters)
         }
     }
+
+    func upload(path: String, data: NSData, name: String, fileName: String, mimeType: String, parameters: [String: AnyObject]?) -> BFTask {
+        var completionSource = BFTaskCompletionSource()
+
+        var fullPath = baseURL + path
+
+        manager.POST(fullPath, parameters: parameters,
+            constructingBodyWithBlock: {
+                (formData) -> Void in
+                formData.appendPartWithFileData(data, name: name, fileName: fileName, mimeType: mimeType)
+            },
+            success: {
+                (task, response) -> Void in
+                completionSource.setResult(response)
+
+            }, failure: {
+                (task, error) -> Void in
+                // TODO: - APIエラーハンドリング APIErrorクラス作る
+                completionSource.setError(error)
+            }
+        )
+
+        return completionSource.task
+    }
 }
 
 
@@ -69,30 +95,35 @@ extension APIManager {
     private func GET(path: String, parameters: [String: AnyObject]? = nil) -> BFTask {
         var completionSource = BFTaskCompletionSource()
 
-        var request = self.manager.request(.GET, path, parameters: parameters, encoding: .JSON)
-        request.responseJSON { (request, response, JSON, error) in
-            if let error = error {
+        var request = manager.GET(path, parameters: parameters,
+            success: {
+                (task, response) -> Void in
+                completionSource.setResult(response)
+            },
+            failure: {
+                (task, error) -> Void in
+                let response = task.response as? NSHTTPURLResponse
+                // TODO: - APIエラーハンドリング APIErrorクラス作る
                 completionSource.setError(error)
-                return
-            }
-            completionSource.setResult(JSON)
-            return
-        }
+        })
 
         return completionSource.task
     }
 
     private func POST(path: String, parameters: [String: AnyObject]? = nil) -> BFTask {
         var completionSource = BFTaskCompletionSource()
-        var request = self.manager.request(.POST, path, parameters: parameters, encoding: .JSON)
-        request.responseJSON { (request, response, JSON, error) in
-            if let error = error {
+
+        var request = manager.POST(path, parameters: parameters,
+            success: {
+                (task, response) -> Void in
+                completionSource.setResult(response)
+            },
+            failure: {
+                (task, error) -> Void in
+                let response = task.response as? NSHTTPURLResponse
+                // TODO APIエラーハンドリング
                 completionSource.setError(error)
-                return
-            }
-            completionSource.setResult(JSON)
-            return
-        }
+        })
 
         return completionSource.task
     }
@@ -100,15 +131,17 @@ extension APIManager {
     private func PUT(path: String, parameters: [String: AnyObject]? = nil) -> BFTask {
         var completionSource = BFTaskCompletionSource()
 
-        var request = self.manager.request(.PUT, path, parameters: parameters, encoding: .JSON)
-        request.responseJSON { (request, response, JSON, error) in
-            if let error = error {
+        var request = manager.PUT(path, parameters: parameters,
+            success: {
+                (task, response) -> Void in
+                completionSource.setResult(response)
+            },
+            failure: {
+                (task, error) -> Void in
+                let response = task.response as? NSHTTPURLResponse
+                // TODO APIエラーハンドリング
                 completionSource.setError(error)
-                return
-            }
-            completionSource.setResult(JSON)
-            return
-        }
+        })
 
         return completionSource.task
     }
@@ -116,15 +149,17 @@ extension APIManager {
     private func DELETE(path: String, parameters: [String: AnyObject]? = nil) -> BFTask {
         var completionSource = BFTaskCompletionSource()
 
-        var request = self.manager.request(.DELETE, path, parameters: parameters, encoding: .JSON)
-        request.responseJSON { (request, response, JSON, error) in
-            if let error = error {
+        var request = manager.DELETE(path, parameters: parameters,
+            success: {
+                (task, response) -> Void in
+                completionSource.setResult(response)
+            },
+            failure: {
+                (task, error) -> Void in
+                let response = task.response as? NSHTTPURLResponse
+                // TODO APIエラーハンドリング
                 completionSource.setError(error)
-                return
-            }
-            completionSource.setResult(JSON)
-            return
-        }
+        })
 
         return completionSource.task
     }
@@ -153,5 +188,9 @@ extension APIManager {
         ] as [String: AnyObject]
         Tracker.sharedInstance.debug("headers: \(headers)")
         return headers
+    }
+
+    private func requestSerializer() -> AFJSONRequestSerializer {
+        return AFJSONRequestSerializer()
     }
 }
