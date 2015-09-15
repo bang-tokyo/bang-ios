@@ -14,7 +14,6 @@ class GroupDataHandler: NSObject {
     private var fetchedResultsController: NSFetchedResultsController!
     private var fetchedResultsControllerDelegate: DefaultFetchedResultsControllerDelegate!
 
-
     func setup(tableView: UITableView) {
         self.tableView = tableView
         self.tableView.delegate = self
@@ -39,13 +38,26 @@ class GroupDataHandler: NSObject {
     }
 }
 
+// MARK: - Private functions
+extension GroupDataHandler {
+    private func getGroupDto(indexPath: NSIndexPath) -> GroupDto {
+        return fetchedResultsController.objectAtIndexPath(indexPath) as! GroupDto
+    }
+}
+
 // MARK: - UITableViewDelegate
 extension GroupDataHandler: UITableViewDelegate {
-
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        var groupDto = getGroupDto(indexPath)
+        if let groupId = groupDto.id {
+            NotificationManager.notifyConversationDetailWillShow(groupId.integerValue)
+        }
+    }
 }
 
 // MARK: - UITableViewDataSource
 extension GroupDataHandler: UITableViewDataSource {
+
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return fetchedResultsController.fetchedObjects?.count ?? 0
     }

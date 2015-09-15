@@ -182,5 +182,6 @@ extension DataStore {
 
         UserBangDto.MR_truncateAllInContext(context)
         UserDto.MR_truncateAllInContext(context)
+        GroupDto.MR_truncateAllInContext(context)
     }
 }

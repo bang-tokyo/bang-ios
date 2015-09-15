@@ -7,6 +7,11 @@ class GroupDto: _GroupDto {
         }
     }
 
+    override func awakeFromFetch() {
+        super.awakeFromFetch()
+        status = GroupStatus.build(statusValue?.integerValue)
+    }
+
     // Custom logic goes here.
     func fill(group: APIResponse.Group) {
         id = group.id
@@ -14,7 +19,7 @@ class GroupDto: _GroupDto {
         name = group.name
         memo = group.memo
         regionId = group.regionId
-        statusValue = group.statusValue
+        status = group.status
         createdAt = group.createdAt
         updatedAt = group.updatedAt
     }

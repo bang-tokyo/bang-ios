@@ -30,6 +30,7 @@ class GroupTableViewCell: UITableViewCell {
     func configure(groupDto: GroupDto) {
         self.groupDto = groupDto
         //profilePictureView.profileID = groupDto.fromUser?.facebookId
+        println(">>>>>>>>>>>>>>>>>>>>>")
         nameLabel.text = self.groupDto?.name
     }
 }

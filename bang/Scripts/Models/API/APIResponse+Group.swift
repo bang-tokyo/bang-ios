@@ -17,12 +17,18 @@ extension APIResponse {
         var statusValue: NSNumber!
         var groupUsers: [GroupUser]!
 
-        var status: UserStatus {
-            return UserStatus.build(statusValue.integerValue)
+        var status: GroupStatus {
+            return GroupStatus.build(statusValue.integerValue)
         }
 
         class func groupUsersJSONTransformer() -> NSValueTransformer {
             return NSValueTransformer.mtl_JSONArrayTransformerWithModelClass(GroupUser.self)
+        }
+
+        override class func JSONKeyPathsByPropertyKey() -> [NSObject : AnyObject]! {
+            return [
+                "statusValue": "status"
+            ]
         }
     }
 }
