@@ -50,7 +50,7 @@ extension GroupDataHandler: UITableViewDelegate {
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         var groupDto = getGroupDto(indexPath)
         if let groupId = groupDto.id {
-            NotificationManager.notifyConversationDetailWillShow(groupId.integerValue)
+            NotificationManager.notifyGroupDetailWillShow(groupId.integerValue)
         }
     }
 }

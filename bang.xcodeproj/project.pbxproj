@@ -12,6 +12,8 @@
 		A963B7801B8DFBD6008F1A78 /* Group.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A963B77F1B8DFBD6008F1A78 /* Group.storyboard */; };
 		A963B7831B91A218008F1A78 /* GroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A963B7821B91A218008F1A78 /* GroupViewController.swift */; };
 		A963B7851B91A3D7008F1A78 /* GroupDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A963B7841B91A3D7008F1A78 /* GroupDataHandler.swift */; };
+		A9705AC01BAD4D29008002A7 /* GroupDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9705ABF1BAD4D29008002A7 /* GroupDetailViewController.swift */; };
+		A9705AC21BAEFC09008002A7 /* GroupDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9705AC11BAEFC09008002A7 /* GroupDetail.storyboard */; };
 		A9925AC51B634355006B7E34 /* GroupMiddleSearch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9925AC41B634355006B7E34 /* GroupMiddleSearch.storyboard */; };
 		A9925AC71B6343AA006B7E34 /* GroupMiddleSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9925AC61B6343AA006B7E34 /* GroupMiddleSearchViewController.swift */; };
 		A9925AC91B634DA6006B7E34 /* APIManager+Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9925AC81B634DA6006B7E34 /* APIManager+Group.swift */; };
@@ -145,6 +147,8 @@
 		A963B77F1B8DFBD6008F1A78 /* Group.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Group.storyboard; sourceTree = "<group>"; };
 		A963B7821B91A218008F1A78 /* GroupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupViewController.swift; sourceTree = "<group>"; };
 		A963B7841B91A3D7008F1A78 /* GroupDataHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupDataHandler.swift; sourceTree = "<group>"; };
+		A9705ABF1BAD4D29008002A7 /* GroupDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupDetailViewController.swift; sourceTree = "<group>"; };
+		A9705AC11BAEFC09008002A7 /* GroupDetail.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = GroupDetail.storyboard; sourceTree = "<group>"; };
 		A9925AC41B634355006B7E34 /* GroupMiddleSearch.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = GroupMiddleSearch.storyboard; sourceTree = "<group>"; };
 		A9925AC61B6343AA006B7E34 /* GroupMiddleSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupMiddleSearchViewController.swift; sourceTree = "<group>"; };
 		A9925AC81B634DA6006B7E34 /* APIManager+Group.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "APIManager+Group.swift"; sourceTree = "<group>"; };
@@ -318,6 +322,14 @@
 				A963B7841B91A3D7008F1A78 /* GroupDataHandler.swift */,
 			);
 			name = GroupViewController;
+			sourceTree = "<group>";
+		};
+		A9705ABE1BAD4D05008002A7 /* GroupDetailViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A9705ABF1BAD4D29008002A7 /* GroupDetailViewController.swift */,
+			);
+			name = GroupDetailViewController;
 			sourceTree = "<group>";
 		};
 		B81475F31AD8AA750099A878 /* BLE */ = {
@@ -532,6 +544,7 @@
 				B84BF6291B3C3FF100067C4A /* ConversationDetail.storyboard */,
 				B8631B4C1B5299440063039A /* Profile.storyboard */,
 				B8631B4E1B5299560063039A /* ProfileEdit.storyboard */,
+				A9705AC11BAEFC09008002A7 /* GroupDetail.storyboard */,
 			);
 			name = Sub;
 			sourceTree = "<group>";
@@ -539,6 +552,7 @@
 		B84BF62C1B3C429E00067C4A /* Sub */ = {
 			isa = PBXGroup;
 			children = (
+				A9705ABE1BAD4D05008002A7 /* GroupDetailViewController */,
 				B84BF62D1B3C42C200067C4A /* ConversationDetailViewController */,
 				B8631B501B52998E0063039A /* ProfileViewController.swift */,
 				B8631B521B529C0A0063039A /* ProfileEditViewController.swift */,
@@ -854,6 +868,7 @@
 				B84BF62A1B3C3FF100067C4A /* ConversationDetail.storyboard in Resources */,
 				B830CDDC1A8240C30038CAFE /* ShortSearch.storyboard in Resources */,
 				B8FDC51A1A818EDC00D4511E /* Images.xcassets in Resources */,
+				A9705AC21BAEFC09008002A7 /* GroupDetail.storyboard in Resources */,
 				B8EA20FA1A99D35E00BD0164 /* Conversation.storyboard in Resources */,
 				B8631B4F1B5299560063039A /* ProfileEdit.storyboard in Resources */,
 			);
@@ -1048,6 +1063,7 @@
 				A9925ADC1B761852006B7E34 /* GroupDto.swift in Sources */,
 				B84BF60A1B364AA100067C4A /* ProgressHUD.swift in Sources */,
 				B8E6D9A91ABE55840094D582 /* LocationManager.swift in Sources */,
+				A9705AC01BAD4D29008002A7 /* GroupDetailViewController.swift in Sources */,
 				B8F9C6971AE6947D003320AB /* APIResponse+Facebook.swift in Sources */,
 				A963B7851B91A3D7008F1A78 /* GroupDataHandler.swift in Sources */,
 				B84BF6321B3CCD5300067C4A /* NotificationManager.swift in Sources */,

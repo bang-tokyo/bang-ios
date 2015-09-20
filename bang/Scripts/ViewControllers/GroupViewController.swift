@@ -27,6 +27,8 @@ class GroupViewController: UIViewController {
         super.viewDidLoad()
         dataHandler = GroupDataHandler()
         dataHandler.setup(tableView)
+
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "showDetail:", name: Notification.GroupDetailWillShow.rawValue, object: nil)
     }
 
     override func viewDidAppear(animated: Bool) {
@@ -42,5 +44,14 @@ class GroupViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+
+    func showDetail(notification: NSNotification) {
+        if let parameters = notification.userInfo {
+            let groupId = parameters["groupId"] as! Int
+            var (navigationController, viewController) = GroupDetailViewController.build(groupId)
+            viewController.hidesBottomBarWhenPushed = true
+            self.navigationController?.pushViewController(viewController, animated: true)
+        }
     }
 }

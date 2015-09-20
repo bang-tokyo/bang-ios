@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="kxt-HK-q4g">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="vFy-41-jN0">
+            <objects>
+                <navigationController id="kxt-HK-q4g" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="iwI-gK-jnt">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="vCO-gR-m3R" kind="relationship" relationship="rootViewController" id="Exf-Uo-SjL"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jLw-Ly-Yil" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="573" y="-71"/>
+        </scene>
+        <!--Group Detail View Controller-->
+        <scene sceneID="OdW-uy-JgR">
+            <objects>
+                <viewController id="vCO-gR-m3R" customClass="GroupDetailViewController" customModule="bang" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="TbI-85-wPo"/>
+                        <viewControllerLayoutGuide type="bottom" id="fGw-aK-gga"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ndf-UN-Aqt">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="3ZZ-q1-PUW"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IWn-hp-hSR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1354" y="-71"/>
+        </scene>
+    </scenes>
+</document>

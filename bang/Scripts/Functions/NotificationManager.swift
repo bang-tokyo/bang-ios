@@ -10,12 +10,18 @@ import Foundation
 
 enum Notification: String {
     case ConversationDetailWillShow = "Notification/ConversationDetailWillShow"
+    case GroupDetailWillShow = "Notification/GroupDetailWillShow"
 }
 
 class NotificationManager {
     class func notifyConversationDetailWillShow(conversationId: Int) {
         var parameters:[String:Int] = ["conversationId": conversationId]
         postNotification(Notification.ConversationDetailWillShow, parameters: parameters)
+    }
+
+    class func notifyGroupDetailWillShow(groupId: Int) {
+        var parameters:[String:Int] = ["groupId": groupId]
+        postNotification(Notification.GroupDetailWillShow, parameters: parameters)
     }
 }
 
