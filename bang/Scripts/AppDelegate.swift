@@ -10,7 +10,6 @@ import UIKit
 import FacebookSDK
 import CoreLocation
 import MagicalRecord
-import TestFairy
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
