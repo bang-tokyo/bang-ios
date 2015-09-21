@@ -11,9 +11,9 @@ import UIKit
 class ProfileViewController: UIViewController {
 
     class func build(userDto: UserDto) -> (UINavigationController, ProfileViewController) {
-        var storyboard = UIStoryboard(name: "Profile", bundle: nil)
-        var navigationViewController = storyboard.instantiateInitialViewController() as! UINavigationController
-        var profileViewController = navigationViewController.topViewController as! ProfileViewController
+        let storyboard = UIStoryboard(name: "Profile", bundle: nil)
+        let navigationViewController = storyboard.instantiateInitialViewController() as! UINavigationController
+        let profileViewController = navigationViewController.topViewController as! ProfileViewController
         profileViewController.userDto = userDto
         return (navigationViewController, profileViewController)
     }
@@ -37,7 +37,7 @@ class ProfileViewController: UIViewController {
 
     @IBAction func onTouchUpInsideEditbutton(sender: UIBarButtonItem) {
         if userDto.isMine() {
-            var (navigationController, viewController) = ProfileEditViewController.build(userDto)
+            let (_, viewController) = ProfileEditViewController.build(userDto)
             self.navigationController?.pushViewController(viewController, animated: true)
         }
     }

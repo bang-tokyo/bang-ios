@@ -27,7 +27,7 @@ class BloodTypeSelectorDataHandler: NSObject {
     func fetchData() {
         APIManager.sharedInstance.regionList().continueWithBlock({
             [weak self] (task) -> AnyObject! in
-            if let strongSelf = self, regionList = APIResponse.parseJSONArray(APIResponse.Region.self, task.result) {
+            if let _ = self, regionList = APIResponse.parseJSONArray(APIResponse.Region.self, task.result) {
                 return DataStore.sharedInstance.saveRegionList(regionList)
             }
             return task
@@ -45,7 +45,7 @@ extension BloodTypeSelectorDataHandler {
 // MARK: - UITableViewDelegate
 extension BloodTypeSelectorDataHandler: UITableViewDelegate {
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        var bloodType = getBloodType(indexPath)
+        let bloodType = getBloodType(indexPath)
         delegate.didSelectBloodType(bloodType)
     }
 
@@ -58,7 +58,7 @@ extension BloodTypeSelectorDataHandler: UITableViewDataSource {
     }
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCellWithIdentifier("bloodTypeCell") as! BloodTypeSelectorTableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("bloodTypeCell") as! BloodTypeSelectorTableViewCell
         cell.configure(getBloodType(indexPath))
         return cell
     }

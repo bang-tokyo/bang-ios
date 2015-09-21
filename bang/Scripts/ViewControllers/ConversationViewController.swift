@@ -11,11 +11,9 @@ import UIKit
 class ConversationViewController: UIViewController {
 
     class func build() -> (UINavigationController, ConversationViewController) {
-        var storyboard = UIStoryboard(name: "Conversation", bundle: nil)
-        var tabBarViewController = storyboard.instantiateInitialViewController() as! UITabBarController
-        var viewControllers = tabBarViewController.viewControllers as! [UIViewController]
-        var navigationController = viewControllers[0] as! UINavigationController
-        var viewController = navigationController.topViewController as! ConversationViewController
+        let tabBarViewController = UIStoryboard(name: "Conversation", bundle: nil).instantiateInitialViewController() as! UITabBarController
+        let navigationController = tabBarViewController.viewControllers?.first as! UINavigationController
+        let viewController = navigationController.topViewController as! ConversationViewController
         return (navigationController, viewController)
     }
 
@@ -49,7 +47,7 @@ class ConversationViewController: UIViewController {
     func showDetail(notification: NSNotification) {
         if let parameters = notification.userInfo {
             let conversationId = parameters["conversationId"] as! Int
-            var (navigationController, viewController) = ConversationDetailViewController.build(conversationId)
+            let (_, viewController) = ConversationDetailViewController.build(conversationId)
             viewController.hidesBottomBarWhenPushed = true
             self.navigationController?.pushViewController(viewController, animated: true)
         }

@@ -28,7 +28,7 @@ class FacebookManager: NSObject {
     }
 
     func requestUserData() -> BFTask {
-        var completionSource = BFTaskCompletionSource()
+        let completionSource = BFTaskCompletionSource()
 
         FBRequest.requestForMe().startWithCompletionHandler {
             (connection: FBRequestConnection!, result: AnyObject!, error: NSError!) -> Void in
@@ -51,7 +51,7 @@ class FacebookManager: NSObject {
 extension FacebookManager {
 
     private func login() -> BFTask {
-        var completionSource = BFTaskCompletionSource()
+        let completionSource = BFTaskCompletionSource()
 
         closeFacebookSession()
         FBSession.setActiveSession(nil)

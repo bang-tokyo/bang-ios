@@ -43,12 +43,12 @@ class ProfileEditImagesTableViewCell: UITableViewCell {
             layout.minimumInteritemSpacing = Const.SpacingValue
 
             layout.maxColumn = Const.MaxColumn
-            layout.cellPattern.append(sideLength: 2,heightLength: 2,column: 0,row: 0)
-            layout.cellPattern.append(sideLength: 1,heightLength: 1,column: 2,row: 0)
-            layout.cellPattern.append(sideLength: 1,heightLength: 1,column: 2,row: 1)
-            layout.cellPattern.append(sideLength: 1,heightLength: 1,column: 0,row: 2)
-            layout.cellPattern.append(sideLength: 1,heightLength: 1,column: 1,row: 2)
-            layout.cellPattern.append(sideLength: 1,heightLength: 1,column: 2,row: 2)
+            layout.cellPattern.append((sideLength: 2,heightLength: 2,column: 0,row: 0))
+            layout.cellPattern.append((sideLength: 1,heightLength: 1,column: 2,row: 0))
+            layout.cellPattern.append((sideLength: 1,heightLength: 1,column: 2,row: 1))
+            layout.cellPattern.append((sideLength: 1,heightLength: 1,column: 0,row: 2))
+            layout.cellPattern.append((sideLength: 1,heightLength: 1,column: 1,row: 2))
+            layout.cellPattern.append((sideLength: 1,heightLength: 1,column: 2,row: 2))
         }
 
         dataHandler.loadData()
@@ -77,7 +77,7 @@ class ProfileEditImagesFlowLayout: LXReorderableCollectionViewFlowLayout {
 
             for section in (0..<collectionView.numberOfSections()) {
                 var cells = [CGRect]()
-                var numberOfCellsInSection = collectionView.numberOfItemsInSection(section);
+                let numberOfCellsInSection = collectionView.numberOfItemsInSection(section);
                 var height = contentSize.height
 
                 for i in (0..<numberOfCellsInSection) {
@@ -102,14 +102,12 @@ class ProfileEditImagesFlowLayout: LXReorderableCollectionViewFlowLayout {
         }
     }
 
-    override func layoutAttributesForElementsInRect(rect: CGRect) -> [AnyObject]? {
+    override func layoutAttributesForElementsInRect(rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
         var layoutAttributes = [UICollectionViewLayoutAttributes]()
 
         if let collectionView = self.collectionView {
             for (var i = 0 ;i<collectionView.numberOfSections(); i++) {
-                var sectionIndexPath = NSIndexPath(forItem: 0, inSection: i)
-
-                var numberOfCellsInSection = collectionView.numberOfItemsInSection(i);
+                let numberOfCellsInSection = collectionView.numberOfItemsInSection(i);
                 for (var j = 0; j<numberOfCellsInSection; j++) {
                     let indexPath = NSIndexPath(forRow:j, inSection:i)
                     if let attributes = layoutAttributesForItemAtIndexPath(indexPath) {
@@ -123,9 +121,9 @@ class ProfileEditImagesFlowLayout: LXReorderableCollectionViewFlowLayout {
         return layoutAttributes
     }
 
-    override func layoutAttributesForItemAtIndexPath(indexPath: NSIndexPath) -> UICollectionViewLayoutAttributes! {
-        var attributes = super.layoutAttributesForItemAtIndexPath(indexPath)
-        attributes.frame = sectionCells[indexPath.section][indexPath.row]
+    override func layoutAttributesForItemAtIndexPath(indexPath: NSIndexPath) -> UICollectionViewLayoutAttributes? {
+        let attributes = super.layoutAttributesForItemAtIndexPath(indexPath)
+        attributes!.frame = sectionCells[indexPath.section][indexPath.row]
         return attributes
     }
 

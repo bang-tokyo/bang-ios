@@ -49,7 +49,7 @@ final class APIManager: NSObject {
     }
 
     func request(method: APIMethod, path: String, parameters: [String: AnyObject]?) -> BFTask {
-        var fullPath = baseURL + path
+        let fullPath = baseURL + path
         Tracker.sharedInstance.debug("API Request: \(fullPath) parameters: \(parameters)")
         switch method {
         case .GET:
@@ -64,9 +64,9 @@ final class APIManager: NSObject {
     }
 
     func upload(path: String, data: NSData, name: String, fileName: String, mimeType: String, parameters: [String: AnyObject]?) -> BFTask {
-        var completionSource = BFTaskCompletionSource()
+        let completionSource = BFTaskCompletionSource()
 
-        var fullPath = baseURL + path
+        let fullPath = baseURL + path
 
         manager.POST(fullPath, parameters: parameters,
             constructingBodyWithBlock: {
@@ -93,16 +93,18 @@ final class APIManager: NSObject {
 extension APIManager {
 
     private func GET(path: String, parameters: [String: AnyObject]? = nil) -> BFTask {
-        var completionSource = BFTaskCompletionSource()
+        let completionSource = BFTaskCompletionSource()
 
-        var request = manager.GET(path, parameters: parameters,
+        // request
+        _ = manager.GET(path, parameters: parameters,
             success: {
                 (task, response) -> Void in
                 completionSource.setResult(response)
             },
             failure: {
                 (task, error) -> Void in
-                let response = task.response as? NSHTTPURLResponse
+                // response
+                _ = task.response as? NSHTTPURLResponse
                 // TODO: - APIエラーハンドリング APIErrorクラス作る
                 completionSource.setError(error)
         })
@@ -111,16 +113,16 @@ extension APIManager {
     }
 
     private func POST(path: String, parameters: [String: AnyObject]? = nil) -> BFTask {
-        var completionSource = BFTaskCompletionSource()
+        let completionSource = BFTaskCompletionSource()
 
-        var request = manager.POST(path, parameters: parameters,
+        _ = manager.POST(path, parameters: parameters,
             success: {
                 (task, response) -> Void in
                 completionSource.setResult(response)
             },
             failure: {
                 (task, error) -> Void in
-                let response = task.response as? NSHTTPURLResponse
+                _ = task.response as? NSHTTPURLResponse
                 // TODO APIエラーハンドリング
                 completionSource.setError(error)
         })
@@ -129,16 +131,16 @@ extension APIManager {
     }
 
     private func PUT(path: String, parameters: [String: AnyObject]? = nil) -> BFTask {
-        var completionSource = BFTaskCompletionSource()
+        let completionSource = BFTaskCompletionSource()
 
-        var request = manager.PUT(path, parameters: parameters,
+        _ = manager.PUT(path, parameters: parameters,
             success: {
                 (task, response) -> Void in
                 completionSource.setResult(response)
             },
             failure: {
                 (task, error) -> Void in
-                let response = task.response as? NSHTTPURLResponse
+                _ = task.response as? NSHTTPURLResponse
                 // TODO APIエラーハンドリング
                 completionSource.setError(error)
         })
@@ -147,16 +149,16 @@ extension APIManager {
     }
 
     private func DELETE(path: String, parameters: [String: AnyObject]? = nil) -> BFTask {
-        var completionSource = BFTaskCompletionSource()
+        let completionSource = BFTaskCompletionSource()
 
-        var request = manager.DELETE(path, parameters: parameters,
+        _ = manager.DELETE(path, parameters: parameters,
             success: {
                 (task, response) -> Void in
                 completionSource.setResult(response)
             },
             failure: {
                 (task, error) -> Void in
-                let response = task.response as? NSHTTPURLResponse
+                _ = task.response as? NSHTTPURLResponse
                 // TODO APIエラーハンドリング
                 completionSource.setError(error)
         })
@@ -165,7 +167,7 @@ extension APIManager {
     }
 
     private func buildSessionConfig() -> NSURLSessionConfiguration {
-        var config = NSURLSessionConfiguration.defaultSessionConfiguration()
+        let config = NSURLSessionConfiguration.defaultSessionConfiguration()
         config.timeoutIntervalForRequest = 20.0
         config.timeoutIntervalForResource = config.timeoutIntervalForRequest * 2.0
         config.HTTPAdditionalHeaders = buildHeader()

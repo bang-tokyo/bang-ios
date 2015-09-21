@@ -14,7 +14,7 @@ enum Notification: String {
 
 class NotificationManager {
     class func notifyConversationDetailWillShow(conversationId: Int) {
-        var parameters:[String:Int] = ["conversationId": conversationId]
+        let parameters:[String:Int] = ["conversationId": conversationId]
         postNotification(Notification.ConversationDetailWillShow, parameters: parameters)
     }
 }

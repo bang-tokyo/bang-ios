@@ -153,23 +153,23 @@ extension ProfileEditDataHandler: UITableViewDataSource {
         let index = indexPath.row
         switch Const.Cells[index].id {
         case "ProfileImages":
-            var cell = tableView.dequeueReusableCellWithIdentifier("ProfileEditImagesCell") as! ProfileEditImagesTableViewCell
+            let cell = tableView.dequeueReusableCellWithIdentifier("ProfileEditImagesCell") as! ProfileEditImagesTableViewCell
             cell.configure(userDto)
             return cell
         case "SelfIntroduction":
-            var cell = tableView.dequeueReusableCellWithIdentifier("ProfileEditTextCell") as! ProfileEditTextTableViewCell
+            let cell = tableView.dequeueReusableCellWithIdentifier("ProfileEditTextCell") as! ProfileEditTextTableViewCell
             cell.configure(localizedString("selfIntroduction"), value: userDto.selfIntroduction!)
             return cell
         case "SelfIntroductionLong":
-            var cell = tableView.dequeueReusableCellWithIdentifier("ProfileEditTextCell") as! ProfileEditTextTableViewCell
+            let cell = tableView.dequeueReusableCellWithIdentifier("ProfileEditTextCell") as! ProfileEditTextTableViewCell
             cell.configure(localizedString("selfIntroductionLong"), value: userDto.selfIntroductionLong!)
             return cell
         case "BloodType":
-            var cell = tableView.dequeueReusableCellWithIdentifier("ProfileEditChoicesCell") as! ProfileEditChoicesTableViewCell
+            let cell = tableView.dequeueReusableCellWithIdentifier("ProfileEditChoicesCell") as! ProfileEditChoicesTableViewCell
             cell.configure(localizedString("bloodType"), id: userDto.bloodType.rawValue, name: userDto.bloodType.name())
             return cell
         case "Region":
-            var cell = tableView.dequeueReusableCellWithIdentifier("ProfileEditChoicesCell") as! ProfileEditChoicesTableViewCell
+            let cell = tableView.dequeueReusableCellWithIdentifier("ProfileEditChoicesCell") as! ProfileEditChoicesTableViewCell
             cell.configure(localizedString("region"), id: userDto.regionId!.integerValue, name: userDto.region!)
             return cell
         default:

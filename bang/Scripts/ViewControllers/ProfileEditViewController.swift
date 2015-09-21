@@ -18,9 +18,9 @@ protocol ProfileEditViewControllerDelegate {
 class ProfileEditViewController: UIViewController {
 
     class func build(userDto: UserDto) -> (UINavigationController, ProfileEditViewController) {
-        var storyboard = UIStoryboard(name: "ProfileEdit", bundle: nil)
-        var navigationViewController = storyboard.instantiateInitialViewController() as! UINavigationController
-        var profileSettingViewController = navigationViewController.topViewController as! ProfileEditViewController
+        let storyboard = UIStoryboard(name: "ProfileEdit", bundle: nil)
+        let navigationViewController = storyboard.instantiateInitialViewController() as! UINavigationController
+        let profileSettingViewController = navigationViewController.topViewController as! ProfileEditViewController
         profileSettingViewController.userDto = userDto
         return (navigationViewController, profileSettingViewController)
     }
@@ -63,7 +63,7 @@ class ProfileEditViewController: UIViewController {
 extension ProfileEditViewController: ProfileEditViewControllerDelegate {
     func openBloodTypeSelectorViewController() {
         if bloodTypeSelectorViewController == nil {
-            var (navigationController, viewController) = BloodTypeSelectorViewController.build()
+            let (_, viewController) = BloodTypeSelectorViewController.build()
             viewController.delegate = self
             bloodTypeSelectorViewController = viewController
         }
@@ -79,7 +79,7 @@ extension ProfileEditViewController: ProfileEditViewControllerDelegate {
 
     func openRegionSelectorViewController() {
         if regionSelectorViewController == nil {
-            var (navigationController, viewController) = RegionSelectorViewController.build()
+            let (_, viewController) = RegionSelectorViewController.build()
             viewController.delegate = self
             regionSelectorViewController = viewController
         }

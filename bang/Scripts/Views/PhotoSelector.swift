@@ -16,7 +16,7 @@ final class PhotoSelector: NSObject, UIImagePickerControllerDelegate, UINavigati
     }
 
     func show() -> BFTask {
-        var completionSource = BFTaskCompletionSource()
+        let completionSource = BFTaskCompletionSource()
         let actionSheet = ActionSheet.Builder()
 
         // フロントカメラ
@@ -65,8 +65,8 @@ final class PhotoSelector: NSObject, UIImagePickerControllerDelegate, UINavigati
 
         // キャンセル
         actionSheet.cancelStyle(localizedString("cancel"), {
-            [weak self] in
-            completionSource.setError(Error.create(code: .TaskCancelled))
+            () in
+            completionSource.setError(Error.create(.TaskCancelled))
         })
 
         actionSheet.show()
@@ -83,11 +83,11 @@ final class PhotoSelector: NSObject, UIImagePickerControllerDelegate, UINavigati
 
     func showImagePicker() -> BFTask {
         if !UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.PhotoLibrary) {
-            return BFTask(error: Error.create(code: .PhotoLibraryNotAvailable))
+            return BFTask(error: Error.create(.PhotoLibraryNotAvailable))
         }
 
-        var completionSource = BFTaskCompletionSource()
-        var picker = UIImagePickerController()
+        let completionSource = BFTaskCompletionSource()
+        let picker = UIImagePickerController()
         picker.sourceType = .PhotoLibrary
         picker.allowsEditing = true
         configureImagePickerController(picker, completionSource: completionSource)
@@ -99,13 +99,13 @@ final class PhotoSelector: NSObject, UIImagePickerControllerDelegate, UINavigati
 extension PhotoSelector {
     private func showCamera(device: UIImagePickerControllerCameraDevice) -> BFTask {
         if !UIImagePickerController.isSourceTypeAvailable(.Camera) {
-            return BFTask(error: Error.create(code: .CameraNotAvailable))
+            return BFTask(error: Error.create(.CameraNotAvailable))
         }
 
         // カメラが許可されているかどうか確認
         switch AVCaptureDevice.authorizationStatusForMediaType(AVMediaTypeVideo) {
         case .Restricted, .Denied:
-            return BFTask(error: Error.create(code: .CameraNotAvailable))
+            return BFTask(error: Error.create(.CameraNotAvailable))
         default:
             break
         }
@@ -114,12 +114,12 @@ extension PhotoSelector {
         if !UIImagePickerController.isCameraDeviceAvailable(device) {
             switch device {
             case .Front, .Rear:
-                return BFTask(error: Error.create(code: .CameraNotAvailable))
+                return BFTask(error: Error.create(.CameraNotAvailable))
             }
         }
 
-        var completionSource = BFTaskCompletionSource()
-        var picker = UIImagePickerController()
+        let completionSource = BFTaskCompletionSource()
+        let picker = UIImagePickerController()
         picker.sourceType = .Camera
         picker.cameraDevice = device
         picker.allowsEditing = true
@@ -136,11 +136,11 @@ extension PhotoSelector {
         }
 
         picker.bk_didCancelBlock = {
-            [weak self] (picker) in
+            (picker) in
             GCD.runOnMainThread({
                 picker.dismissViewControllerAnimated(true, completion: {
-                    [weak self] in
-                    completionSource.setError(Error.create(code: .TaskCancelled))
+                    () in
+                    completionSource.setError(Error.create(.TaskCancelled))
                 })
             })
         }
@@ -153,13 +153,13 @@ extension PhotoSelector {
 
             GCD.runOnMainThread({
                 picker.dismissViewControllerAnimated(true, completion: {
-                    [weak self] in
+                    () in
                     completionSource.setResult(resizedImage)
                 })
             })
         } else {
             picker.dismissViewControllerAnimated(true, completion: {
-                [weak self] in
+                () in
                 completionSource.setError(Error.create())
             })
         }

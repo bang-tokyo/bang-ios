@@ -20,9 +20,9 @@ class TabBarViewController: UITabBarController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        var (myPageNavigationController, myPageViewController) = MyPageViewController.build()
-        var (conversationNavigationController, conversationViewController) = ConversationViewController.build()
-        var (requestedBangNavigationController, requestedBangViewController) = RequestedBangViewController.build()
+        let (myPageNavigationController, myPageViewController) = MyPageViewController.build()
+        let (conversationNavigationController, conversationViewController) = ConversationViewController.build()
+        let (requestedBangNavigationController, requestedBangViewController) = RequestedBangViewController.build()
         searchViewController = UIViewController()
 
         self.myPageNavigationController = myPageNavigationController

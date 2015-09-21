@@ -31,7 +31,7 @@ extension UIImage {
         UIGraphicsBeginImageContext(resizedSize)
         drawInRect(CGRectMake(0, 0, resizedSize.width, resizedSize.height))
         let context = UIGraphicsGetCurrentContext()
-        CGContextSetInterpolationQuality(context, kCGInterpolationHigh)
+        CGContextSetInterpolationQuality(context, CGInterpolationQuality.High)
         let resizedImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         return resizedImage

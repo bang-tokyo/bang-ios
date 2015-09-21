@@ -12,11 +12,11 @@ import Bolts
 extension APIManager {
     func uploadMyImage(index: Int, image: UIImage) -> BFTask {
 
-        var data = UIImageJPEGRepresentation(image, 0.98)
-        var parameters: [String: AnyObject] = [
+        let data = UIImageJPEGRepresentation(image, 0.98)
+        let parameters: [String: AnyObject] = [
             "index": index
         ]
-        return upload("/v1/me/image/", data: data, name: "image", fileName: "image.jpg", mimeType: "image/jpeg", parameters: parameters).APIErrorHandler()
+        return upload("/v1/me/image/", data: data!, name: "image", fileName: "image.jpg", mimeType: "image/jpeg", parameters: parameters).APIErrorHandler()
     }
 
     func uploadMyInfo(parameters: [String: AnyObject]) -> BFTask {

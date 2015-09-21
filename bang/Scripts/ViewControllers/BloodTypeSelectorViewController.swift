@@ -15,9 +15,9 @@ protocol BloodTypeSelectorViewControllerDelegate {
 class BloodTypeSelectorViewController: UIViewController {
 
     class func build() -> (UINavigationController, BloodTypeSelectorViewController) {
-        var storyboard = UIStoryboard(name: "BloodTypeSelector", bundle: nil)
-        var navigationViewController = storyboard.instantiateInitialViewController() as! UINavigationController
-        var bloodTypeSelectorViewController = navigationViewController.topViewController as! BloodTypeSelectorViewController
+        let storyboard = UIStoryboard(name: "BloodTypeSelector", bundle: nil)
+        let navigationViewController = storyboard.instantiateInitialViewController() as! UINavigationController
+        let bloodTypeSelectorViewController = navigationViewController.topViewController as! BloodTypeSelectorViewController
         return (navigationViewController, bloodTypeSelectorViewController)
     }
 

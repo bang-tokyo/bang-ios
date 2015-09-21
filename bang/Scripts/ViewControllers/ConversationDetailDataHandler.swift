@@ -33,7 +33,7 @@ class ConversationDetailDataHandler: NSObject {
     func fetchData() {
         APIManager.sharedInstance.showConversation(conversationId).continueWithBlock({
             [weak self] (task) -> AnyObject! in
-            if let strongSelf = self, messageList = APIResponse.parseJSONArray(APIResponse.Message.self, task.result) {
+            if let _ = self, messageList = APIResponse.parseJSONArray(APIResponse.Message.self, task.result) {
                 return DataStore.sharedInstance.saveMessageList(messageList)
             }
             return task
@@ -65,7 +65,7 @@ extension ConversationDetailDataHandler: UITableViewDataSource {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let messageDto = getMessageDto(indexPath)
         let identifier = messageDto.isMine() ? "messageMineCell" : "messageOtherCell"
-        var cell = tableView.dequeueReusableCellWithIdentifier(identifier) as! ConversationMessageTableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(identifier) as! ConversationMessageTableViewCell
         cell.configure(messageDto)
         return cell
     }

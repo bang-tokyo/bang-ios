@@ -13,7 +13,7 @@ extension CBCentralManagerState
 {
     var name : NSString {
         get{
-            var enumName = "CBCentralManagerState"
+            let enumName = "CBCentralManagerState"
             var valueName = ""
 
             switch self {
@@ -40,7 +40,7 @@ extension CBPeripheralState
 {
     var name : NSString {
         get{
-            var enumName = "CBPeripheralState"
+            let enumName = "CBPeripheralState"
             var valueName = ""
 
             switch self {
@@ -50,6 +50,8 @@ extension CBPeripheralState
                 valueName = enumName + "Connecting"
             case .Disconnected:
                 valueName = enumName + "Disconnected"
+            default:
+                break
             }
 
             return valueName
@@ -61,7 +63,7 @@ extension CBPeripheralManagerState
 {
     var name : NSString {
         get{
-            var enumName = "CBPeripheralManagerState"
+            let enumName = "CBPeripheralManagerState"
             var valueName = ""
 
             switch self {

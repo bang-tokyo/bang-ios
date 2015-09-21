@@ -31,7 +31,7 @@ class RequestedBangDataHandler: NSObject {
     func fetchData() {
         APIManager.sharedInstance.requestedList().continueWithBlock({
             [weak self] (task) -> AnyObject! in
-            if let strongSelf = self, userBangList = APIResponse.parseJSONArray(APIResponse.UserBang.self, task.result) {
+            if let _ = self, userBangList = APIResponse.parseJSONArray(APIResponse.UserBang.self, task.result) {
                 return DataStore.sharedInstance.saveUserBangList(userBangList)
             }
             return task
@@ -51,7 +51,7 @@ extension RequestedBangDataHandler: UITableViewDataSource {
     }
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCellWithIdentifier("requestedBangCell") as! RequestedBangTableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("requestedBangCell") as! RequestedBangTableViewCell
         if let userBangDto = fetchedResultsController.objectAtIndexPath(indexPath) as? UserBangDto {
             cell.configure(userBangDto)
         }

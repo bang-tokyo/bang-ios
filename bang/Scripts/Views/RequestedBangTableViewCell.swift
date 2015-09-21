@@ -48,7 +48,7 @@ extension RequestedBangTableViewCell {
         if let _userBangDto: UserBangDto = userBangDto {
             APIManager.sharedInstance.replyUserBang(_userBangDto.id!.integerValue, status: status).continueWithBlock({
                 [weak self] (task) -> AnyObject! in
-                if let strongSelf = self, userBang = APIResponse.parse(APIResponse.UserBang.self, task.result) {
+                if let _ = self, userBang = APIResponse.parse(APIResponse.UserBang.self, task.result) {
                     return DataStore.sharedInstance.saveUserBang(userBang)
                 }
                 return task
