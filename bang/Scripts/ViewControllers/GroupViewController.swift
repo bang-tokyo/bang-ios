@@ -11,11 +11,10 @@ import UIKit
 class GroupViewController: UIViewController {
 
     class func build() -> (UINavigationController, GroupViewController) {
-        var storyboard = UIStoryboard(name: "Group", bundle: nil)
-        var tabBarViewController = storyboard.instantiateInitialViewController() as! UITabBarController
-        var viewControllers = tabBarViewController.viewControllers as! [UIViewController]
-        var navigationController = viewControllers[0] as! UINavigationController
-        var viewController = navigationController.topViewController as! GroupViewController
+        let storyboard = UIStoryboard(name: "Group", bundle: nil)
+        let tabBarViewController = storyboard.instantiateInitialViewController() as! UITabBarController
+        let navigationController = tabBarViewController.viewControllers?.first as! UINavigationController
+        let viewController = navigationController.topViewController as! GroupViewController
         return (navigationController, viewController)
     }
 
@@ -38,7 +37,6 @@ class GroupViewController: UIViewController {
 
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
-        //NSNotificationCenter.defaultCenter().removeObserver(self)
     }
 
     override func didReceiveMemoryWarning() {
@@ -49,7 +47,8 @@ class GroupViewController: UIViewController {
     func showDetail(notification: NSNotification) {
         if let parameters = notification.userInfo {
             let groupId = parameters["groupId"] as! Int
-            var (navigationController, viewController) = GroupDetailViewController.build(groupId)
+            let (_, viewController) = GroupDetailViewController.build(groupId)
+            viewController.groupId = groupId
             viewController.hidesBottomBarWhenPushed = true
             self.navigationController?.pushViewController(viewController, animated: true)
         }

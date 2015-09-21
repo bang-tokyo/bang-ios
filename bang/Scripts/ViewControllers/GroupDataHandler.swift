@@ -30,7 +30,7 @@ class GroupDataHandler: NSObject {
     func fetchData() {
         APIManager.sharedInstance.requestMyGroups().continueWithBlock({
             [weak self] (task) -> AnyObject! in
-            if let strongSelf = self, groupList = APIResponse.parseJSONArray(APIResponse.Group.self, task.result) {
+            if let _ = self, groupList = APIResponse.parseJSONArray(APIResponse.Group.self, task.result) {
                 return DataStore.sharedInstance.saveGroupList(groupList)
             }
             return task
@@ -48,7 +48,7 @@ extension GroupDataHandler {
 // MARK: - UITableViewDelegate
 extension GroupDataHandler: UITableViewDelegate {
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        var groupDto = getGroupDto(indexPath)
+        let groupDto = getGroupDto(indexPath)
         if let groupId = groupDto.id {
             NotificationManager.notifyGroupDetailWillShow(groupId.integerValue)
         }
@@ -63,7 +63,7 @@ extension GroupDataHandler: UITableViewDataSource {
     }
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCellWithIdentifier("groupListCell") as! GroupTableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("groupListCell") as! GroupTableViewCell
         if let groupDto = fetchedResultsController.objectAtIndexPath(indexPath) as? GroupDto {
             cell.configure(groupDto)
         }

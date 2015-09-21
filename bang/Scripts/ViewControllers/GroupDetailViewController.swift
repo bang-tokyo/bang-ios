@@ -10,19 +10,29 @@ import Foundation
 
 class GroupDetailViewController: UIViewController {
 
-    class func build(conversationId: Int) -> (UINavigationController, GroupDetailViewController) {
-        var storyboard = UIStoryboard(name: "GroupDetail", bundle: nil)
-        var navigationViewController = storyboard.instantiateInitialViewController() as! UINavigationController
-        var groupDetailViewController = navigationViewController.topViewController as! GroupDetailViewController
+    class func build(groupId: Int) -> (UINavigationController, GroupDetailViewController) {
+        let storyboard = UIStoryboard(name: "GroupDetail", bundle: nil)
+        let navigationViewController = storyboard.instantiateInitialViewController() as! UINavigationController
+        let groupDetailViewController = navigationViewController.topViewController as! GroupDetailViewController
         return (navigationViewController, groupDetailViewController)
     }
 
+    var groupId: Int!
+
+    private var dataHandler: GroupDetailDataHandler!
+
+    private weak var groupDto: GroupDto!
+
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        dataHandler = GroupDetailDataHandler()
+        dataHandler.setup(groupId)
     }
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        dataHandler.fetchData()
     }
 
     override func viewDidAppear(animated: Bool) {

@@ -20,7 +20,7 @@ class NotificationManager {
     }
 
     class func notifyGroupDetailWillShow(groupId: Int) {
-        var parameters:[String:Int] = ["groupId": groupId]
+        let parameters:[String:Int] = ["groupId": groupId]
         postNotification(Notification.GroupDetailWillShow, parameters: parameters)
     }
 }

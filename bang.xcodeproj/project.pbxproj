@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		40A54690F851E512A9FB79DC /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2402A515E3FAD2530DBCB7FE /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		4EFDA3E79AFC38B598C73549 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2402A515E3FAD2530DBCB7FE /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		A941E19C1BAFB39C001FF372 /* GroupDetailDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A941E19B1BAFB39C001FF372 /* GroupDetailDataHandler.swift */; };
+		A944BEC61BB00BFE0011A03E /* RegionSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A944BEC51BB00BFE0011A03E /* RegionSelectorViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		A944BEC81BB00C0F0011A03E /* RegionSelectorDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A944BEC71BB00C0F0011A03E /* RegionSelectorDataHandler.swift */; settings = {ASSET_TAGS = (); }; };
 		A963B7801B8DFBD6008F1A78 /* Group.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A963B77F1B8DFBD6008F1A78 /* Group.storyboard */; };
 		A963B7831B91A218008F1A78 /* GroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A963B7821B91A218008F1A78 /* GroupViewController.swift */; };
 		A963B7851B91A3D7008F1A78 /* GroupDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A963B7841B91A3D7008F1A78 /* GroupDataHandler.swift */; };
@@ -37,10 +40,8 @@
 		B810A0081B889A0C00EE7575 /* _RegionDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = B810A0071B889A0C00EE7575 /* _RegionDto.swift */; };
 		B810A00A1B89597E00EE7575 /* APIResponse+Region.swift in Sources */ = {isa = PBXBuildFile; fileRef = B810A0091B89597E00EE7575 /* APIResponse+Region.swift */; };
 		B810A00C1B895A5B00EE7575 /* APIManager+Region.swift in Sources */ = {isa = PBXBuildFile; fileRef = B810A00B1B895A5B00EE7575 /* APIManager+Region.swift */; };
-		B810A0111B895F0B00EE7575 /* RegionSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B810A0101B895F0B00EE7575 /* RegionSelectorViewController.swift */; };
 		B810A0131B895F5100EE7575 /* RegionSelector.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B810A0121B895F5100EE7575 /* RegionSelector.storyboard */; };
 		B810A0161B8961BE00EE7575 /* RegionSelectorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B810A0151B8961BE00EE7575 /* RegionSelectorTableViewCell.swift */; };
-		B810A0181B896A7300EE7575 /* RegionSelectorDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B810A0171B896A7300EE7575 /* RegionSelectorDataHandler.swift */; };
 		B8187BC51B1603CF00E23716 /* UserMiddleSearch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8187BC41B1603CF00E23716 /* UserMiddleSearch.storyboard */; };
 		B8187BC91B16044900E23716 /* UserMiddleSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8187BC81B16044900E23716 /* UserMiddleSearchViewController.swift */; };
 		B8187BCB1B1748C800E23716 /* SearchTargetUserCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8187BCA1B1748C800E23716 /* SearchTargetUserCollectionViewCell.swift */; };
@@ -169,6 +170,9 @@
 		07720D1FE88AFACC32454227 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		2402A515E3FAD2530DBCB7FE /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E24BFC2BD3FDB4B7751D942 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		A941E19B1BAFB39C001FF372 /* GroupDetailDataHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupDetailDataHandler.swift; sourceTree = "<group>"; };
+		A944BEC51BB00BFE0011A03E /* RegionSelectorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegionSelectorViewController.swift; sourceTree = "<group>"; };
+		A944BEC71BB00C0F0011A03E /* RegionSelectorDataHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegionSelectorDataHandler.swift; sourceTree = "<group>"; };
 		A963B77F1B8DFBD6008F1A78 /* Group.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Group.storyboard; sourceTree = "<group>"; };
 		A963B7821B91A218008F1A78 /* GroupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupViewController.swift; sourceTree = "<group>"; };
 		A963B7841B91A3D7008F1A78 /* GroupDataHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupDataHandler.swift; sourceTree = "<group>"; };
@@ -197,10 +201,8 @@
 		B810A0071B889A0C00EE7575 /* _RegionDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _RegionDto.swift; sourceTree = "<group>"; };
 		B810A0091B89597E00EE7575 /* APIResponse+Region.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "APIResponse+Region.swift"; sourceTree = "<group>"; };
 		B810A00B1B895A5B00EE7575 /* APIManager+Region.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "APIManager+Region.swift"; sourceTree = "<group>"; };
-		B810A0101B895F0B00EE7575 /* RegionSelectorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegionSelectorViewController.swift; sourceTree = "<group>"; };
 		B810A0121B895F5100EE7575 /* RegionSelector.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RegionSelector.storyboard; sourceTree = "<group>"; };
 		B810A0151B8961BE00EE7575 /* RegionSelectorTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegionSelectorTableViewCell.swift; path = Views/RegionSelectorTableViewCell.swift; sourceTree = "<group>"; };
-		B810A0171B896A7300EE7575 /* RegionSelectorDataHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegionSelectorDataHandler.swift; sourceTree = "<group>"; };
 		B8187BC41B1603CF00E23716 /* UserMiddleSearch.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UserMiddleSearch.storyboard; sourceTree = "<group>"; };
 		B8187BC81B16044900E23716 /* UserMiddleSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserMiddleSearchViewController.swift; sourceTree = "<group>"; };
 		B8187BCA1B1748C800E23716 /* SearchTargetUserCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTargetUserCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -367,6 +369,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		A944BEC41BB003930011A03E /* RegionSelectorViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A944BEC71BB00C0F0011A03E /* RegionSelectorDataHandler.swift */,
+				A944BEC51BB00BFE0011A03E /* RegionSelectorViewController.swift */,
+			);
+			name = RegionSelectorViewController;
+			sourceTree = "<group>";
+		};
 		A963B7811B91A1F6008F1A78 /* GroupViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -380,17 +391,10 @@
 			isa = PBXGroup;
 			children = (
 				A9705ABF1BAD4D29008002A7 /* GroupDetailViewController.swift */,
+				A941E19B1BAFB39C001FF372 /* GroupDetailDataHandler.swift */,
 			);
 			name = GroupDetailViewController;
 			sourceTree = "<group>";
-		};
-		B810A00D1B895E7E00EE7575 /* RegionSelectorViewController */ = {
-			isa = PBXGroup;
-			children = (
-				B810A0101B895F0B00EE7575 /* RegionSelectorViewController.swift */,
-				B810A0171B896A7300EE7575 /* RegionSelectorDataHandler.swift */,
-			);
-			name = RegionSelectorViewController;
 		};
 		B81475F31AD8AA750099A878 /* BLE */ = {
 			isa = PBXGroup;
@@ -624,7 +628,7 @@
 				B84BF62D1B3C42C200067C4A /* ConversationDetailViewController */,
 				B8631B501B52998E0063039A /* ProfileViewController.swift */,
 				B85F59E61B77196F00D7E8AE /* ProfileEditViewController */,
-				B810A00D1B895E7E00EE7575 /* RegionSelectorViewController */,
+				A944BEC41BB003930011A03E /* RegionSelectorViewController */,
 				B898BC6E1B8A0A270019B1D6 /* BloodTypeSelectorViewController */,
 			);
 			name = Sub;
@@ -1171,7 +1175,6 @@
 				B84BF6381B3EF24000067C4A /* NSNotificationCenter+Extension.swift in Sources */,
 				B85F59E51B77182900D7E8AE /* ProfileEditChoicesTableViewCell.swift in Sources */,
 				B8F1389F1A8A4D13002A820E /* RoundedCornersView.swift in Sources */,
-				B810A0111B895F0B00EE7575 /* RegionSelectorViewController.swift in Sources */,
 				B8CC94831B63350100AF7B5D /* MyPageMenuTableViewCell.swift in Sources */,
 				B898BC721B8A0A810019B1D6 /* BloodTypeSelectorDataHandler.swift in Sources */,
 				B84BF6251B39A26E00067C4A /* APIManager+Conversation.swift in Sources */,
@@ -1181,6 +1184,7 @@
 				B810A00C1B895A5B00EE7575 /* APIManager+Region.swift in Sources */,
 				B80DF33D1B9C57A200C451E1 /* ProfileImageView.swift in Sources */,
 				B8187BCB1B1748C800E23716 /* SearchTargetUserCollectionViewCell.swift in Sources */,
+				A944BEC81BB00C0F0011A03E /* RegionSelectorDataHandler.swift in Sources */,
 				B821152F1ADA6B5F002CCA46 /* GeneralInfo.swift in Sources */,
 				B84A6EBE1AF4578900A7C632 /* DataStore.swift in Sources */,
 				B810A0081B889A0C00EE7575 /* _RegionDto.swift in Sources */,
@@ -1234,6 +1238,7 @@
 				B8F9C6971AE6947D003320AB /* APIResponse+Facebook.swift in Sources */,
 				A963B7851B91A3D7008F1A78 /* GroupDataHandler.swift in Sources */,
 				B84BF6321B3CCD5300067C4A /* NotificationManager.swift in Sources */,
+				A941E19C1BAFB39C001FF372 /* GroupDetailDataHandler.swift in Sources */,
 				A9925ACF1B638525006B7E34 /* APIResponse+GroupUser.swift in Sources */,
 				B8F1389C1A8A4B84002A820E /* BLEPeripheralManager.swift in Sources */,
 				B8631B531B529C0A0063039A /* ProfileEditViewController.swift in Sources */,
@@ -1258,13 +1263,13 @@
 				B8D9B25D1A8254C400B30271 /* UIImage+Extension.swift in Sources */,
 				B8F547541ADC197B00548883 /* APIManager+User.swift in Sources */,
 				A963B7831B91A218008F1A78 /* GroupViewController.swift in Sources */,
-				B810A0181B896A7300EE7575 /* RegionSelectorDataHandler.swift in Sources */,
 				A9925ADD1B761852006B7E34 /* GroupUserDto.swift in Sources */,
 				B84A6EBC1AF44D2600A7C632 /* Date.swift in Sources */,
 				B82CA45B1AEC7C4100159D99 /* Alert.swift in Sources */,
 				A9925AE31B78F510006B7E34 /* _GroupBangDto.swift in Sources */,
 				B84BF60F1B36727100067C4A /* ConversationDataHandler.swift in Sources */,
 				B84BF5EB1B19E68500067C4A /* APIManager+UserBang.swift in Sources */,
+				A944BEC61BB00BFE0011A03E /* RegionSelectorViewController.swift in Sources */,
 				B8CC94861B6338B400AF7B5D /* MyPageDataHandler.swift in Sources */,
 				B82448421A8EF16C00B540A4 /* LoginViewController.swift in Sources */,
 			);

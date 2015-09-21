@@ -60,6 +60,14 @@ final class DataStore: NSObject {
         }
     }
 
+    func saveGroup(group: APIResponse.Group) -> BFTask {
+        return save {
+            (context, willUpdate) -> Void in
+            self.saveGroup(group, context: context)
+            return
+        }
+    }
+
     func saveGroupList(groupList: [APIResponse.Group]) -> BFTask {
         return save {
             (context, willUpdate) -> Void in

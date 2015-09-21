@@ -20,4 +20,9 @@ extension APIManager {
     func requestMyGroups() -> BFTask {
         return request(.GET, path: "/v1/groups/my").APIErrorHandler()
     }
+
+    //グループ詳細を要求する
+    func requestGroupInfo(id:Int) -> BFTask {
+        return request(.GET, path: "/v1/groups/\(id)").APIErrorHandler()
+    }
 }

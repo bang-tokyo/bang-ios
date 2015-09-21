@@ -24,7 +24,7 @@ class TabBarViewController: UITabBarController {
         let (myPageNavigationController, myPageViewController) = MyPageViewController.build()
         let (conversationNavigationController, conversationViewController) = ConversationViewController.build()
         let (requestedBangNavigationController, requestedBangViewController) = RequestedBangViewController.build()
-        var (groupNavigationController, groupViewController) = GroupViewController.build()
+        let (groupNavigationController, groupViewController) = GroupViewController.build()
         searchViewController = UIViewController()
 
         self.myPageNavigationController = myPageNavigationController
