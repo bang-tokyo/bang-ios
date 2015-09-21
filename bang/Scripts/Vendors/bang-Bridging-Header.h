@@ -12,7 +12,7 @@
 #import <Mantle/Mantle.h>
 #import <TAKUUID/TAKUUID.h>
 #import <SVProgressHUD/SVProgressHUD.h>
-#import <Blockskit/Blockskit.h>
+#import <BlocksKit/BlocksKit.h>
 #import <HPGrowingTextView/HPGrowingTextView.h>
 #import <TTTAttributedLabel/TTTAttributedLabel.h>
 #import <TestFairy/TestFairy.h>

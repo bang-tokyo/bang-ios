@@ -931,6 +931,8 @@
 		B8FDC5051A818EDC00D4511E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = "Yoshikazu Oda";
 				TargetAttributes = {

@@ -32,7 +32,7 @@ class RegionSelectorDataHandler: NSObject {
     func fetchData() {
         APIManager.sharedInstance.regionList().continueWithBlock({
             [weak self] (task) -> AnyObject! in
-            if let strongSelf = self, regionList = APIResponse.parseJSONArray(APIResponse.Region.self, task.result) {
+            if let _ = self, regionList = APIResponse.parseJSONArray(APIResponse.Region.self, task.result) {
                 return DataStore.sharedInstance.saveRegionList(regionList)
             }
             return task
@@ -50,7 +50,7 @@ extension RegionSelectorDataHandler {
 // MARK: - UITableViewDelegate
 extension RegionSelectorDataHandler: UITableViewDelegate {
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        var regionDto = getRegionDto(indexPath)
+        let regionDto = getRegionDto(indexPath)
         delegate.didSelectRegion(regionDto)
     }
 }
@@ -62,7 +62,7 @@ extension RegionSelectorDataHandler: UITableViewDataSource {
     }
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCellWithIdentifier("regionCell") as! RegionSelectorTableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("regionCell") as! RegionSelectorTableViewCell
         if let regionDto = fetchedResultsController.objectAtIndexPath(indexPath) as? RegionDto {
             cell.configure(regionDto)
         }

@@ -37,21 +37,21 @@ extension UIViewController {
     }
 
     func addBackButton() {
-        if let navigationController = self.navigationController {
-            var buttonItem = UIBarButtonItem(
+        if let _ = self.navigationController {
+            let buttonItem = UIBarButtonItem(
                 image: UIImage(named: ""),
                 style: .Plain,
                 target: self,
                 action: Selector("backPrevViewController")
             )
             self.navigationItem.leftBarButtonItem = buttonItem
-            self.navigationController?.interactivePopGestureRecognizer.delegate = self
+            self.navigationController?.interactivePopGestureRecognizer!.delegate = self
         }
     }
 
     func addCloseButton() {
-        if let navigationController = self.navigationController {
-            var buttonItem = UIBarButtonItem(
+        if let _ = self.navigationController {
+            let buttonItem = UIBarButtonItem(
                 image: UIImage(named: ""),
                 style: .Plain,
                 target: self,
@@ -59,7 +59,7 @@ extension UIViewController {
             )
             buttonItem.title = "Close"
             self.navigationItem.leftBarButtonItem = buttonItem
-            self.navigationController?.interactivePopGestureRecognizer.delegate = self
+            self.navigationController?.interactivePopGestureRecognizer!.delegate = self
         }
     }
 }

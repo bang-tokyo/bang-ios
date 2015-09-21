@@ -11,7 +11,7 @@ import UIKit
 class GroupMiddleSearchViewController: UIViewController {
 
     class func build() -> GroupMiddleSearchViewController {
-        var storyboard = UIStoryboard(name: "GroupMiddleSearch", bundle: nil)
+        let storyboard = UIStoryboard(name: "GroupMiddleSearch", bundle: nil)
         return storyboard.instantiateInitialViewController() as! GroupMiddleSearchViewController
     }
 
@@ -62,7 +62,7 @@ class GroupMiddleSearchViewController: UIViewController {
 
     @IBAction func onTouchUpInsideBangBtn(sender: UIButton) {
         if let indexPath = selectedTargetIndexPath {
-            var group = searchedGroups[indexPath.row]
+            let group = searchedGroups[indexPath.row]
             APIManager.sharedInstance.requestGroupBang(group.id.integerValue, fromGroupId: currentGroupId).continueWithBlock({
                 [weak self] (task) -> AnyObject! in
                 self?.searchedGroups.removeAtIndex(indexPath.row)
@@ -76,7 +76,7 @@ class GroupMiddleSearchViewController: UIViewController {
     }
 
     @IBAction func onTouchDownBangBtn(sender: UIButton) {
-        println("touched")
+        print("touched")
     }
 	
     @IBAction func onClickCloseButton(sender: UIBarButtonItem) {
@@ -92,7 +92,7 @@ class GroupMiddleSearchViewController: UIViewController {
             let groupMiddleSearchViewController = GroupMiddleSearchViewController.build()
             self.presentViewController(groupMiddleSearchViewController, animated: false, completion: nil)
         default:
-            let userMiddleSearchViewController = UserMiddleSearchViewController.build()
+            _ = UserMiddleSearchViewController.build()
             self.dismissViewControllerAnimated(false, completion: nil)
         }
     }
@@ -138,11 +138,11 @@ extension GroupMiddleSearchViewController: UICollectionViewDelegate {
 
     func scrollViewWillEndDragging(scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         // スワイプした到着点の画面の中心にきたCellを選択すべきCellとする
-        var targetPoint = CGPoint(x: collectionView.frame.width/2 + targetContentOffset.memory.x + cellMargin / 2 , y: collectionView.frame.height/2)
-        var targetIndexPath = collectionView.indexPathForItemAtPoint(targetPoint)
+        let targetPoint = CGPoint(x: collectionView.frame.width/2 + targetContentOffset.memory.x + cellMargin / 2 , y: collectionView.frame.height/2)
+        let targetIndexPath = collectionView.indexPathForItemAtPoint(targetPoint)
 
         // 選択すべきCellの中心座標をスワイプの到着地点として再定義することでTargetCellの中心でスワイプを止める
-        var targetX = (widthSizeOfCell + cellMargin) * CGFloat(targetIndexPath!.row)
+        let targetX = (widthSizeOfCell + cellMargin) * CGFloat(targetIndexPath!.row)
         targetContentOffset.memory.x = targetX > 0 ? targetX : 0.0
 
         selectedTargetIndexPath = targetIndexPath
@@ -157,7 +157,7 @@ extension GroupMiddleSearchViewController: UICollectionViewDelegate {
         //スケール範囲
         let scalableRange = 100 + widthSizeOfCell / 2
 		
-        for cell in collectionView.visibleCells() as! [UICollectionViewCell] {
+        for cell in collectionView.visibleCells() {
             //現在のcellのx座標(cellの中心)
             let posX = cell.frame.origin.x + widthSizeOfCell / 2 - collectionView.contentOffset.x
 			
@@ -207,8 +207,8 @@ extension GroupMiddleSearchViewController: UICollectionViewDataSource {
     }
 
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        var cell = collectionView.dequeueReusableCellWithReuseIdentifier("searchTargetCell", forIndexPath: indexPath) as! SearchTargetGroupCollectionViewCell
-        var user = searchedGroups[indexPath.row]
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("searchTargetCell", forIndexPath: indexPath) as! SearchTargetGroupCollectionViewCell
+        let user = searchedGroups[indexPath.row]
         cell.setup(user)
 		
         //TODO: 後日移動

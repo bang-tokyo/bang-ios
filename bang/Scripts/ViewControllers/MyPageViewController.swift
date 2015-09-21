@@ -17,11 +17,9 @@ protocol MyPageViewControllerDelegate {
 class MyPageViewController: UIViewController {
 
     class func build() -> (UINavigationController, MyPageViewController) {
-        var storyboard = UIStoryboard(name: "MyPage", bundle: nil)
-        var tabBarViewController = storyboard.instantiateInitialViewController() as! UITabBarController
-        var viewControllers = tabBarViewController.viewControllers as! [UIViewController]
-        var navigationController = viewControllers[0] as! UINavigationController
-        var viewController = navigationController.topViewController as! MyPageViewController
+        let tabBarViewController = UIStoryboard(name: "MyPage", bundle: nil).instantiateInitialViewController() as! UITabBarController
+        let navigationController = tabBarViewController.viewControllers?.first as! UINavigationController
+        let viewController = navigationController.topViewController as! MyPageViewController
         return (navigationController, viewController)
     }
 
@@ -40,7 +38,7 @@ class MyPageViewController: UIViewController {
         } else {
             // TODO: - ここにこないはずだけど一応とっておく。あとで整理
             APIManager.sharedInstance.showUser(Int(MyAccount.sharedInstance.userId)).continueWithBlock({
-                [weak self] (task) -> AnyObject! in
+                (task) -> AnyObject! in
                 if let user = APIResponse.parse(APIResponse.User.self, task.result) {
                     return DataStore.sharedInstance.saveUser(user)
                 }
@@ -62,7 +60,7 @@ class MyPageViewController: UIViewController {
 // MARK: - Private functions
 extension MyPageViewController {
     private func moveToLoginViewController() {
-        var loginViewController = LoginViewController.build()
+        let loginViewController = LoginViewController.build()
         moveTo(loginViewController)
     }
 }
@@ -70,7 +68,7 @@ extension MyPageViewController {
 extension MyPageViewController: MyPageViewControllerDelegate {
     func openProfileViewController() {
         if let userDto = self.userDto {
-            var (navigationController, viewController) = ProfileViewController.build(userDto)
+            let (_, viewController) = ProfileViewController.build(userDto)
             viewController.hidesBottomBarWhenPushed = true
             self.navigationController?.pushViewController(viewController, animated: true)
         }

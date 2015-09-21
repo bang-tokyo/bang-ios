@@ -18,7 +18,7 @@ class Date {
 
     class func day() -> Int {
         let calendar = NSCalendar.currentCalendar()
-        let unitFlags: NSCalendarUnit = .CalendarUnitEra | .CalendarUnitYear | .CalendarUnitMonth | .CalendarUnitDay
+        let unitFlags: NSCalendarUnit = [.Era, .Year, .Month, .Day]
         let dateComponents = calendar.components(unitFlags, fromDate: NSDate())
         return dateComponents.day
     }
@@ -27,8 +27,7 @@ class Date {
         let date: NSDate = NSDate(timeIntervalSince1970: unixTime)
         let calendar: NSCalendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
         let calendarComponent = calendar.components(
-            NSCalendarUnit.CalendarUnitHour |
-                NSCalendarUnit.CalendarUnitMinute,
+            [NSCalendarUnit.Hour, NSCalendarUnit.Minute],
             fromDate: date
         )
         return String(
@@ -40,7 +39,7 @@ class Date {
     // TODO : - あとで用途に合わせて修正
     class func getUntilTime(unixtTime:Int) -> String {
         var untilTimeString: String
-        var untilSec = unixtTime - now()
+        let untilSec = unixtTime - now()
         if untilSec <= 0 {
             untilTimeString = NSLocalizedString("allRecovery", comment: "")
         } else if untilSec < 60 {
@@ -49,15 +48,15 @@ class Date {
                 0, untilSec
             )
         } else if untilSec < 60 * 60 {
-            var min = untilSec / 60
-            var sec = untilSec % 60
+            let min = untilSec / 60
+            let sec = untilSec % 60
             untilTimeString = String(
                 format: NSLocalizedString("degitalClockForRecovery", comment: ""),
                 min, sec
             )
         } else {
-            var hour = untilSec / 60 * 60
-            var min = untilSec % 60 * 60
+            let hour = untilSec / 60 * 60
+            let min = untilSec % 60 * 60
             untilTimeString = String(
                 format: NSLocalizedString("degitalClockForRecovery", comment: ""),
                 hour, min

@@ -13,7 +13,7 @@ extension UIView {
     func convertToImage() -> UIImage {
         UIGraphicsBeginImageContext(self.bounds.size)
         self.drawViewHierarchyInRect(self.bounds, afterScreenUpdates: true)
-        var image = UIGraphicsGetImageFromCurrentImageContext()
+        let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         return image
     }
@@ -24,7 +24,7 @@ extension UIView {
     }
 
     func setBlurBackground(view: UIView) {
-        var image:UIImage = view.convertToImage()
+        let image:UIImage = view.convertToImage()
         image.applyBlurWithRadius()
         self.backgroundColor = UIColor(patternImage: image)
     }
@@ -35,8 +35,8 @@ extension UIView {
     }
 
     func addImageviewOnCenterByName(name: String) -> UIImageView {
-        var image: UIImage = UIImage(named: name)!
-        var imageView = UIImageView(frame: CGRect(
+        let image: UIImage = UIImage(named: name)!
+        let imageView = UIImageView(frame: CGRect(
             x: 0,
             y: 0,
             width: self.bounds.width*0.60,
@@ -50,8 +50,8 @@ extension UIView {
 
     func addSubViewToFix(childView:UIView) {
         self.addSubview(childView)
-        childView.setTranslatesAutoresizingMaskIntoConstraints(false)
-        var layoutTop = NSLayoutConstraint(
+        childView.translatesAutoresizingMaskIntoConstraints = false
+        let layoutTop = NSLayoutConstraint(
             item: childView,
             attribute: NSLayoutAttribute.Top,
             relatedBy: NSLayoutRelation.Equal,
@@ -60,7 +60,7 @@ extension UIView {
             multiplier: 1.0,
             constant: 0.0
         )
-        var layoutBottom = NSLayoutConstraint(
+        let layoutBottom = NSLayoutConstraint(
             item: childView,
             attribute: NSLayoutAttribute.Bottom,
             relatedBy: NSLayoutRelation.Equal,
@@ -69,7 +69,7 @@ extension UIView {
             multiplier: 1.0,
             constant: 0.0
         )
-        var layoutLeft = NSLayoutConstraint(
+        let layoutLeft = NSLayoutConstraint(
             item: childView,
             attribute: NSLayoutAttribute.Left,
             relatedBy: NSLayoutRelation.Equal,
@@ -78,7 +78,7 @@ extension UIView {
             multiplier: 1.0,
             constant: 0.0
         )
-        var layoutRight = NSLayoutConstraint(
+        let layoutRight = NSLayoutConstraint(
             item: childView,
             attribute: NSLayoutAttribute.Right,
             relatedBy: NSLayoutRelation.Equal,
@@ -87,7 +87,7 @@ extension UIView {
             multiplier: 1.0,
             constant: 0.0
         )
-        var layoutConstraints: [NSLayoutConstraint] = [
+        let layoutConstraints: [NSLayoutConstraint] = [
             layoutTop, layoutBottom, layoutLeft, layoutRight
         ]
         self.addConstraints(layoutConstraints)
@@ -95,10 +95,10 @@ extension UIView {
     }
 
     func centerFrameInUIView(view: UIView) -> CGRect {
-        var width: CGFloat = view.frame.size.width
-        var height: CGFloat = view.frame.size.height
-        var marginX: CGFloat = self.frame.size.width - width
-        var marginY: CGFloat = self.frame.size.height - height
+        let width: CGFloat = view.frame.size.width
+        let height: CGFloat = view.frame.size.height
+        let marginX: CGFloat = self.frame.size.width - width
+        let marginY: CGFloat = self.frame.size.height - height
         return CGRectMake(marginX/2.0, marginY/2.0, width, height)
     }
 

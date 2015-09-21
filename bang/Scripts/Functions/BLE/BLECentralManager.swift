@@ -69,7 +69,7 @@ class BLECentralManager: NSObject {
 extension BLECentralManager: CBCentralManagerDelegate {
 
     // CentralManagerの状態変化した時に呼ばれる(require)
-    func centralManagerDidUpdateState(central: CBCentralManager!) {
+    func centralManagerDidUpdateState(central: CBCentralManager) {
         switch central.state {
         case .PoweredOn:
             canScanning = true
@@ -83,12 +83,12 @@ extension BLECentralManager: CBCentralManagerDelegate {
 
     // Peripheralが見つかった時呼ばれる
     func centralManager(
-        central: CBCentralManager!,
-        didDiscoverPeripheral peripheral: CBPeripheral!,
-        advertisementData: [NSObject : AnyObject]!,
-        RSSI: NSNumber!)
+        central: CBCentralManager,
+        didDiscoverPeripheral peripheral: CBPeripheral,
+        advertisementData: [String : AnyObject],
+        RSSI: NSNumber)
     {
-        if (find(peripheralContainer, peripheral) != nil) {
+        if (peripheralContainer.indexOf(peripheral) != nil) {
             Tracker.sharedInstance.debug("we´re allready connected to \(peripheral)")
         } else {
             Tracker.sharedInstance.debug("didDiscoverPeripheral \(peripheral)")
@@ -98,20 +98,20 @@ extension BLECentralManager: CBCentralManagerDelegate {
     }
 
     // Peripheralへの接続が失敗すると呼ばれる
-    func centralManager(central: CBCentralManager!, didFailToConnectPeripheral peripheral: CBPeripheral!, error: NSError!){
+    func centralManager(central: CBCentralManager, didFailToConnectPeripheral peripheral: CBPeripheral, error: NSError?){
         Tracker.sharedInstance.debug("didFailToConnectPeripheral \(peripheral) error:\(error)")
         removeFromPeripheralContainer(peripheral)
     }
 
     // Peripheralとの既存の接続が切断した時
-    func centralManager(central: CBCentralManager!, didDisconnectPeripheral peripheral: CBPeripheral!, error: NSError!){
+    func centralManager(central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: NSError?){
         Tracker.sharedInstance.debug("didDisconnectPeripheral \(peripheral) error:\(error)")
         removeFromPeripheralContainer(peripheral)
     }
 
     // Peripheralと接続ができた時に呼ばれる
-    func centralManager(central: CBCentralManager!, didConnectPeripheral peripheral: CBPeripheral!) {
-        Tracker.sharedInstance.debug("didConnectPeripheral " + peripheral.name)
+    func centralManager(central: CBCentralManager, didConnectPeripheral peripheral: CBPeripheral) {
+        Tracker.sharedInstance.debug("didConnectPeripheral " + peripheral.name!)
         peripheral.delegate = self
         peripheral.discoverServices([kBLEServiceUUID])
     }
@@ -121,16 +121,16 @@ extension BLECentralManager: CBCentralManagerDelegate {
 extension BLECentralManager: CBPeripheralDelegate {
 
     // PeripheralのServiceが見つかったら呼ばれる
-    func peripheral(peripheral: CBPeripheral!, didDiscoverServices error: NSError!) {
+    func peripheral(peripheral: CBPeripheral, didDiscoverServices error: NSError?) {
         if error != nil {
             Tracker.sharedInstance.debug("error: \(error)")
             return
         }
-        if peripheral.services.count == 0 {
+        if peripheral.services!.count == 0 {
             Tracker.sharedInstance.debug("didDiscoverServices no services")
             return
         }
-        for service: CBService in peripheral.services as! [CBService]!  {
+        for service: CBService in peripheral.services as [CBService]!  {
             // TODO: - ここでServiceのUUIDを判定して必要なものだけ処理するように
             Tracker.sharedInstance.debug("didDiscoverServices " + service.description)
             peripheral.discoverCharacteristics(nil, forService: service)
@@ -138,16 +138,16 @@ extension BLECentralManager: CBPeripheralDelegate {
     }
 
     // PeripheralServiceからCharacteristicsが見つかったら呼ばれる
-    func peripheral(peripheral: CBPeripheral!, didDiscoverCharacteristicsForService service: CBService!, error: NSError!) {
+    func peripheral(peripheral: CBPeripheral, didDiscoverCharacteristicsForService service: CBService, error: NSError?) {
         if error != nil {
             Tracker.sharedInstance.debug("error: \(error)")
             return
         }
-        if service.characteristics.count == 0 {
+        if service.characteristics!.count == 0 {
             Tracker.sharedInstance.debug("didDiscoverCharacteristicsForService no characteristics")
             return
         }
-        for characteristic: CBCharacteristic in service.characteristics as! [CBCharacteristic]! {
+        for characteristic: CBCharacteristic in service.characteristics as [CBCharacteristic]! {
             if (characteristic.properties.rawValue & CBCharacteristicProperties.Read.rawValue > 0) {
                 Tracker.sharedInstance.debug("didDiscoverCharacteristicsForService \(characteristic.UUID)")
                 switch characteristic.UUID {
@@ -161,17 +161,17 @@ extension BLECentralManager: CBPeripheralDelegate {
     }
 
     // データ読み出しが完了すると呼ばれる
-    func peripheral(peripheral: CBPeripheral!, didUpdateValueForCharacteristic characteristic: CBCharacteristic!, error: NSError!) {
+    func peripheral(peripheral: CBPeripheral, didUpdateValueForCharacteristic characteristic: CBCharacteristic, error: NSError?) {
         if (error != nil) {
             Tracker.sharedInstance.debug("Failed... error: \(error)")
             return
         }
         Tracker.sharedInstance.debug("Succeeded! service uuid: \(characteristic.service.UUID),　characteristic uuid: \(characteristic.UUID)")
-        let data : NSData = characteristic.value
+        let data : NSData = characteristic.value!
         switch (characteristic.UUID) {
         case kBLECharacteristicUUID:
-            if let recieveDictonary = NSJSONSerialization.JSONObjectWithData(
-                data, options: NSJSONReadingOptions.AllowFragments, error: nil) as? NSDictionary
+            if let recieveDictonary = (try? NSJSONSerialization.JSONObjectWithData(
+                data, options: NSJSONReadingOptions.AllowFragments)) as? NSDictionary
             {
                 // Peripheralから読み出した値をrecieveDictonariesに追加
                 recieveDictonaries.append(recieveDictonary)

@@ -12,8 +12,8 @@ import SDWebImage
 
 class ProfileImageView: UIImageView {
 
-    func configure(#url: NSURL?, placeholderImage: UIImage?, notRounded: Bool = true) -> BFTask {
-        var completionSource = BFTaskCompletionSource()
+    func configure(url url: NSURL?, placeholderImage: UIImage?, notRounded: Bool = true) -> BFTask {
+        let completionSource = BFTaskCompletionSource()
 
         if let u = url {
             sd_setImageWithURL(u, placeholderImage: placeholderImage, options: .RetryFailed, completed: {

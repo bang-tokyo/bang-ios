@@ -44,12 +44,12 @@ class AttributedLabel: TTTAttributedLabel {
                 (attributedString) -> NSMutableAttributedString! in
 
                 if let f = font {
-                    attributedString.addAttribute(NSFontAttributeName, value: f, range: NSMakeRange(0, count(t.utf16)))
+                    attributedString.addAttribute(NSFontAttributeName, value: f, range: NSMakeRange(0, t.utf16.count))
                 }
 
                 if let items = attributes {
                     for (key, value) in items {
-                        attributedString.addAttribute(key, value: value, range: NSMakeRange(0, count(t.utf16)))
+                        attributedString.addAttribute(key, value: value, range: NSMakeRange(0, t.utf16.count))
                     }
                 }
 

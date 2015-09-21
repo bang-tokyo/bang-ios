@@ -46,7 +46,7 @@ struct ActionSheet {
     static func show(actions: [Action]) -> BFTask {
         ProgressHUD.hide()
 
-        var completionSource = BFTaskCompletionSource()
+        let completionSource = BFTaskCompletionSource()
 
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
 

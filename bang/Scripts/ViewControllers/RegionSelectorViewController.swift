@@ -15,9 +15,9 @@ protocol RegionSelectorViewControllerDelegate {
 class RegionSelectorViewController: UIViewController {
 
     class func build() -> (UINavigationController, RegionSelectorViewController) {
-        var storyboard = UIStoryboard(name: "RegionSelector", bundle: nil)
-        var navigationViewController = storyboard.instantiateInitialViewController() as! UINavigationController
-        var regionSelectorViewController = navigationViewController.topViewController as! RegionSelectorViewController
+        let storyboard = UIStoryboard(name: "RegionSelector", bundle: nil)
+        let navigationViewController = storyboard.instantiateInitialViewController() as! UINavigationController
+        let regionSelectorViewController = navigationViewController.topViewController as! RegionSelectorViewController
         return (navigationViewController, regionSelectorViewController)
     }
 

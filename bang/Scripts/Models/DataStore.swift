@@ -87,7 +87,7 @@ final class DataStore: NSObject {
 // MARK: - Praivate functions
 extension DataStore {
     private func save(block: (NSManagedObjectContext, inout Bool) -> Void) -> BFTask {
-        var completionSource = BFTaskCompletionSource()
+        let completionSource = BFTaskCompletionSource()
 
         GCD.run(queue) {
             var willUpdate = false

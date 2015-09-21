@@ -46,19 +46,19 @@ extension ProfileEditImagesDataHandler: UICollectionViewDelegate {
 
         photoSelector.show().continueWithBlock({
             [weak self] (task) -> AnyObject! in
-            if let strongSelf = self, error = task.error {
+            if let _ = self, error = task.error {
                 if Error.isEqual(error, code: .TaskCancelled) { return task }
             }
             return task
         }).continueWithSuccessBlock({
-            [weak self] (task) -> AnyObject! in
+            (task) -> AnyObject! in
             ProgressHUD.show()
             if let image = task.result as? UIImage {
                 return APIManager.sharedInstance.uploadMyImage(index, image: image)
             }
             return task
         }).hideProgressHUD().continueWithBlock({
-            [weak self] (task) -> AnyObject! in
+            (task) -> AnyObject! in
             if task.result == nil { return task }
             if let cell = collectionView.cellForItemAtIndexPath(indexPath) as? ProfileEditImageCollectionViewCell {
                 if let url = task.result["imagePath"] as? String, id = task.result["id"] as? NSNumber {
@@ -76,7 +76,7 @@ extension ProfileEditImagesDataHandler: UICollectionViewDataSource {
     }
 
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        var cell = collectionView.dequeueReusableCellWithReuseIdentifier("ProfileEditImageCell", forIndexPath: indexPath) as! ProfileEditImageCollectionViewCell
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("ProfileEditImageCell", forIndexPath: indexPath) as! ProfileEditImageCollectionViewCell
         cell.configure(userDto.profileImageIdBy(indexPath.row)!.integerValue, imagePath: userDto.profileImagePathBy(indexPath.row)!)
         return cell
     }

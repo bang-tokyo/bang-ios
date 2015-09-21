@@ -75,19 +75,19 @@ extension MyPageDataHandler: UITableViewDataSource {
         let index = indexPath.row
         switch Const.Cells[index].id {
         case "Profile":
-            var cell = tableView.dequeueReusableCellWithIdentifier("MyPageProfileCell") as! MyPageProfileTableViewCell
+            let cell = tableView.dequeueReusableCellWithIdentifier("MyPageProfileCell") as! MyPageProfileTableViewCell
             cell.configure(userDto)
             return cell
         case "Setting":
-            var cell = tableView.dequeueReusableCellWithIdentifier("MyPageMenuCell") as! MyPageMenuTableViewCell
+            let cell = tableView.dequeueReusableCellWithIdentifier("MyPageMenuCell") as! MyPageMenuTableViewCell
             cell.configure(localizedString("setting"))
             return cell
         case "Help":
-            var cell = tableView.dequeueReusableCellWithIdentifier("MyPageMenuCell") as! MyPageMenuTableViewCell
+            let cell = tableView.dequeueReusableCellWithIdentifier("MyPageMenuCell") as! MyPageMenuTableViewCell
             cell.configure(localizedString("help"))
             return cell
         case "Logout":
-            var cell = tableView.dequeueReusableCellWithIdentifier("MyPageMenuCell") as! MyPageMenuTableViewCell
+            let cell = tableView.dequeueReusableCellWithIdentifier("MyPageMenuCell") as! MyPageMenuTableViewCell
             cell.configure(localizedString("logout"))
             return cell
         default:
