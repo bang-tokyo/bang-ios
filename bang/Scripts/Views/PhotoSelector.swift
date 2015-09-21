@@ -129,21 +129,21 @@ extension PhotoSelector {
     }
 
     private func configureImagePickerController(picker: UIImagePickerController, completionSource: BFTaskCompletionSource) {
-        picker.bk_didFinishPickingMediaBlock = {
-            [weak self] (picker, info) in
-            self?.didFinishPickingMediaBlock(picker, info: info, completionSource: completionSource)
-            return
-        }
-
-        picker.bk_didCancelBlock = {
-            (picker) in
-            GCD.runOnMainThread({
-                picker.dismissViewControllerAnimated(true, completion: {
-                    () in
-                    completionSource.setError(Error.create(.TaskCancelled))
-                })
-            })
-        }
+//        picker.bk_didFinishPickingMediaBlock = {
+//            [weak self] (picker, info) in
+//            self?.didFinishPickingMediaBlock(picker, info: info, completionSource: completionSource)
+//            return
+//        }
+//
+//        picker.bk_didCancelBlock = {
+//            (picker) in
+//            GCD.runOnMainThread({
+//                picker.dismissViewControllerAnimated(true, completion: {
+//                    () in
+//                    completionSource.setError(Error.create(.TaskCancelled))
+//                })
+//            })
+//        }
     }
 
     private func didFinishPickingMediaBlock(picker: UIImagePickerController, info: [NSObject: AnyObject], completionSource: BFTaskCompletionSource) {
