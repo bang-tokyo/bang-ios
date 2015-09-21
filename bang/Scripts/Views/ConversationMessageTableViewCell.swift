@@ -65,7 +65,7 @@ extension ConversationMessageTableViewCell {
         let screenWidth = UIScreen.mainScreen().bounds.width
         let width = screenWidth - ConversationMessageTableViewCell.padding(messageDto)
 
-        var messageLabel = AttributedLabel(frame: CGRectMake(0, 0, width, 0))
+        let messageLabel = AttributedLabel(frame: CGRectMake(0, 0, width, 0))
         messageLabel.numberOfLines = 0
         messageLabel.lineBreakMode = .ByWordWrapping
         messageLabel.configure(messageDto.message, Style.MessageLabel, width)

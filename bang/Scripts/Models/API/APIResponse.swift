@@ -19,14 +19,14 @@ public struct APIResponse {
 
     static func parse<T: MTLModel where T: MTLJSONSerializing>(klass: T.Type, _ dictionary: AnyObject?) -> T? {
         if let _dictionary = dictionary as? NSDictionary {
-            return MTLJSONAdapter.modelOfClass(klass, fromJSONDictionary: _dictionary as [NSObject : AnyObject], error: nil) as? T
+            return MTLJSONAdapter.modelOfClass(klass, fromJSONDictionary: _dictionary as [NSObject : AnyObject]) as? T
         }
         return nil
     }
 
     static func parseJSONArray<T: MTLModel where T: MTLJSONSerializing>(klass: T.Type, _ array: AnyObject?) -> [T]? {
         if let _array = array as? NSArray {
-            return MTLJSONAdapter.modelsOfClass(klass, fromJSONArray: _array as [AnyObject], error: nil) as? [T]
+            return (try? MTLJSONAdapter.modelsOfClass(klass, fromJSONArray: _array as [AnyObject])) as? [T]
         }
         return nil
     }

@@ -13,7 +13,7 @@ import Mantle
 class LoginViewController: UIViewController {
 
     class func build() -> LoginViewController {
-        var storyboard = UIStoryboard(name: "Login", bundle: nil)
+        let storyboard = UIStoryboard(name: "Login", bundle: nil)
         return storyboard.instantiateInitialViewController() as! LoginViewController
     }
 

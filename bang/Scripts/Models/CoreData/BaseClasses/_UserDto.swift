@@ -5,12 +5,29 @@ import CoreData
 
 enum UserDtoAttributes: String {
     case birthday = "birthday"
+    case bloodTypeValue = "bloodTypeValue"
     case createdAt = "createdAt"
     case facebookId = "facebookId"
     case genderValue = "genderValue"
     case id = "id"
     case name = "name"
+    case profileImage0 = "profileImage0"
+    case profileImage1 = "profileImage1"
+    case profileImage2 = "profileImage2"
+    case profileImage3 = "profileImage3"
+    case profileImage4 = "profileImage4"
+    case profileImage5 = "profileImage5"
+    case profileImagePath0 = "profileImagePath0"
+    case profileImagePath1 = "profileImagePath1"
+    case profileImagePath2 = "profileImagePath2"
+    case profileImagePath3 = "profileImagePath3"
+    case profileImagePath4 = "profileImagePath4"
+    case profileImagePath5 = "profileImagePath5"
+    case region = "region"
+    case regionId = "regionId"
     case savedAt = "savedAt"
+    case selfIntroduction = "selfIntroduction"
+    case selfIntroductionLong = "selfIntroductionLong"
     case statusValue = "statusValue"
     case updatedAt = "updatedAt"
 }
@@ -53,6 +70,11 @@ class _UserDto: NSManagedObject {
     // func validateBirthday(value: AutoreleasingUnsafePointer<AnyObject>, error: NSErrorPointer) {}
 
     @NSManaged
+    var bloodTypeValue: NSNumber?
+
+    // func validateBloodTypeValue(value: AutoreleasingUnsafePointer<AnyObject>, error: NSErrorPointer) {}
+
+    @NSManaged
     var createdAt: NSDate?
 
     // func validateCreatedAt(value: AutoreleasingUnsafePointer<AnyObject>, error: NSErrorPointer) {}
@@ -78,9 +100,89 @@ class _UserDto: NSManagedObject {
     // func validateName(value: AutoreleasingUnsafePointer<AnyObject>, error: NSErrorPointer) {}
 
     @NSManaged
+    var profileImage0: NSNumber?
+
+    // func validateProfileImage0(value: AutoreleasingUnsafePointer<AnyObject>, error: NSErrorPointer) {}
+
+    @NSManaged
+    var profileImage1: NSNumber?
+
+    // func validateProfileImage1(value: AutoreleasingUnsafePointer<AnyObject>, error: NSErrorPointer) {}
+
+    @NSManaged
+    var profileImage2: NSNumber?
+
+    // func validateProfileImage2(value: AutoreleasingUnsafePointer<AnyObject>, error: NSErrorPointer) {}
+
+    @NSManaged
+    var profileImage3: NSNumber?
+
+    // func validateProfileImage3(value: AutoreleasingUnsafePointer<AnyObject>, error: NSErrorPointer) {}
+
+    @NSManaged
+    var profileImage4: NSNumber?
+
+    // func validateProfileImage4(value: AutoreleasingUnsafePointer<AnyObject>, error: NSErrorPointer) {}
+
+    @NSManaged
+    var profileImage5: NSNumber?
+
+    // func validateProfileImage5(value: AutoreleasingUnsafePointer<AnyObject>, error: NSErrorPointer) {}
+
+    @NSManaged
+    var profileImagePath0: String?
+
+    // func validateProfileImagePath0(value: AutoreleasingUnsafePointer<AnyObject>, error: NSErrorPointer) {}
+
+    @NSManaged
+    var profileImagePath1: String?
+
+    // func validateProfileImagePath1(value: AutoreleasingUnsafePointer<AnyObject>, error: NSErrorPointer) {}
+
+    @NSManaged
+    var profileImagePath2: String?
+
+    // func validateProfileImagePath2(value: AutoreleasingUnsafePointer<AnyObject>, error: NSErrorPointer) {}
+
+    @NSManaged
+    var profileImagePath3: String?
+
+    // func validateProfileImagePath3(value: AutoreleasingUnsafePointer<AnyObject>, error: NSErrorPointer) {}
+
+    @NSManaged
+    var profileImagePath4: String?
+
+    // func validateProfileImagePath4(value: AutoreleasingUnsafePointer<AnyObject>, error: NSErrorPointer) {}
+
+    @NSManaged
+    var profileImagePath5: String?
+
+    // func validateProfileImagePath5(value: AutoreleasingUnsafePointer<AnyObject>, error: NSErrorPointer) {}
+
+    @NSManaged
+    var region: String?
+
+    // func validateRegion(value: AutoreleasingUnsafePointer<AnyObject>, error: NSErrorPointer) {}
+
+    @NSManaged
+    var regionId: NSNumber?
+
+    // func validateRegionId(value: AutoreleasingUnsafePointer<AnyObject>, error: NSErrorPointer) {}
+
+    @NSManaged
     var savedAt: NSDate?
 
     // func validateSavedAt(value: AutoreleasingUnsafePointer<AnyObject>, error: NSErrorPointer) {}
+
+    @NSManaged
+    var selfIntroduction: String?
+
+    // func validateSelfIntroduction(value: AutoreleasingUnsafePointer<AnyObject>, error: NSErrorPointer) {}
+
+    @NSManaged
+    var selfIntroductionLong: String?
+
+    // func validateSelfIntroductionLong(value: AutoreleasingUnsafePointer<AnyObject>, error: NSErrorPointer) {}
 
     @NSManaged
     var statusValue: NSNumber?

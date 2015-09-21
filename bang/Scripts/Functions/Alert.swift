@@ -53,8 +53,8 @@ extension Alert {
     }
 
     private func show(title: String, message: String, labels: [String], clicked: (()->Void)? = nil, completion: (()->Void)? = nil) {
-        var alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
-        for (index, label) in enumerate(labels) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        for (index, label) in labels.enumerate() {
             let style = index == 0 ? UIAlertActionStyle.Default : UIAlertActionStyle.Cancel
             alertController.addAction(UIAlertAction(title: label, style: style, handler: {
                 (alertAction) -> Void in
@@ -65,7 +65,7 @@ extension Alert {
             }))
         }
         window.hidden = false
-        var rootViewController = window.rootViewController
+        let rootViewController = window.rootViewController
         rootViewController?.presentViewController(alertController, animated: true, completion: completion)
     }
 }

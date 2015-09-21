@@ -82,17 +82,18 @@ class LocationManager: NSObject {
 
 // MARK: - CLLocationManagerDelegate
 extension LocationManager: CLLocationManagerDelegate {
-    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
-        var newLocation = locations.last as! CLLocation
-        var howRecent = newLocation.timestamp.timeIntervalSinceNow
-        if isAdoptableLocation(newLocation) {
-            location = newLocation
-            delegate?.didUpdateLocation(newLocation, isSignificantChangeLocationService: isSignificantChangeLocationService)
-            successClosure?(location: newLocation)
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let newLocation = locations.last {
+            _ = newLocation.timestamp.timeIntervalSinceNow
+            if isAdoptableLocation(newLocation) {
+                location = newLocation
+                delegate?.didUpdateLocation(newLocation, isSignificantChangeLocationService: isSignificantChangeLocationService)
+                successClosure?(location: newLocation)
+            }
         }
     }
 
-    func locationManager(manager: CLLocationManager!, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+    func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
         Tracker.sharedInstance.debug("locationManager:didChangeAuthorizationStatus:\(status.rawValue)")
         switch status {
         case .AuthorizedAlways:
@@ -114,7 +115,7 @@ extension LocationManager {
     }
 
     private func isAdoptableLocation(location: CLLocation) -> Bool {
-        var howRecent = location.timestamp.timeIntervalSinceNow
+        let howRecent = location.timestamp.timeIntervalSinceNow
         Tracker.sharedInstance.debug("isAdoptableLocation \(abs(howRecent)) \(location.horizontalAccuracy )")
         return abs(howRecent) <= kLocationAdoptableTimeInterval
             && location.horizontalAccuracy <= kLocationAdoptableAccuracy

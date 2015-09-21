@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7701" systemVersion="14B25" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7701" systemVersion="14E46" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Conversation" representedClassName="ConversationDto" syncable="YES">
         <attribute name="createdAt" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
@@ -56,14 +56,36 @@
         <attribute name="userId" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="messageUser" inverseEntity="User" syncable="YES"/>
     </entity>
+    <entity name="Region" representedClassName="RegionDto" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="statusValue" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+    </entity>
     <entity name="User" representedClassName="UserDto" syncable="YES">
         <attribute name="birthday" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="bloodTypeValue" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="createdAt" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="facebookId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="genderValue" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="profileImage0" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="profileImage1" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="profileImage2" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="profileImage3" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="profileImage4" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="profileImage5" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="profileImagePath0" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="profileImagePath1" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="profileImagePath2" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="profileImagePath3" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="profileImagePath4" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="profileImagePath5" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="region" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="regionId" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="savedAt" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="selfIntroduction" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="selfIntroductionLong" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="statusValue" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="updatedAt" optional="YES" attributeType="Date" syncable="YES"/>
         <relationship name="conversationUser" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ConversationUser" inverseName="user" inverseEntity="ConversationUser" syncable="YES"/>
@@ -82,11 +104,12 @@
     <elements>
         <element name="Conversation" positionX="-776" positionY="180" width="128" height="135"/>
         <element name="ConversationUser" positionX="-36" positionY="-15" width="128" height="150"/>
-        <element name="Group" positionX="-45" positionY="216" width="128" height="195"/>
+        <element name="Group" positionX="-45" positionY="216" width="128" height="148"/>
         <element name="GroupBang" positionX="-227" positionY="162" width="128" height="148"/>
         <element name="GroupUser" positionX="-288" positionY="363" width="128" height="103"/>
         <element name="Message" positionX="124" positionY="129" width="128" height="195"/>
-        <element name="User" positionX="-20" positionY="-1242" width="128" height="225"/>
+        <element name="Region" positionX="-36" positionY="135" width="128" height="90"/>
+        <element name="User" positionX="-20" positionY="-1242" width="128" height="480"/>
         <element name="UserBang" positionX="-270" positionY="-297" width="128" height="150"/>
     </elements>
 </model>

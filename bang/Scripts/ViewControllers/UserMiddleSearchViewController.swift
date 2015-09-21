@@ -11,7 +11,7 @@ import UIKit
 class UserMiddleSearchViewController: UIViewController {
 
     class func build() -> UserMiddleSearchViewController {
-        var storyboard = UIStoryboard(name: "UserMiddleSearch", bundle: nil)
+        let storyboard = UIStoryboard(name: "UserMiddleSearch", bundle: nil)
         return storyboard.instantiateInitialViewController() as! UserMiddleSearchViewController
     }
 
@@ -60,7 +60,7 @@ class UserMiddleSearchViewController: UIViewController {
 
     @IBAction func onTouchUpInsideBangBtn(sender: UIButton) {
         if let indexPath = selectedTargetIndexPath {
-            var user = searchedUsers[indexPath.row]
+            let user = searchedUsers[indexPath.row]
             APIManager.sharedInstance.requestUserBang(user.id.integerValue).continueWithBlock({
                 [weak self] (task) -> AnyObject! in
                 self?.searchedUsers.removeAtIndex(indexPath.row)
@@ -74,7 +74,7 @@ class UserMiddleSearchViewController: UIViewController {
     }
 
     @IBAction func onTouchDownBangBtn(sender: UIButton) {
-        println("touched")
+        print("touched")
     }
 	
     @IBAction func onClickCloseButton(sender: UIBarButtonItem) {
@@ -90,7 +90,7 @@ class UserMiddleSearchViewController: UIViewController {
                 let groupMiddleSearchViewController = GroupMiddleSearchViewController.build()
                 self.presentViewController(groupMiddleSearchViewController, animated: false, completion: nil)
             default:
-                let userMiddleSearchViewController = UserMiddleSearchViewController.build()
+                _ = UserMiddleSearchViewController.build()
                 self.dismissViewControllerAnimated(false, completion: nil)
         }
     }
@@ -136,11 +136,11 @@ extension UserMiddleSearchViewController: UICollectionViewDelegate {
 
     func scrollViewWillEndDragging(scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         // スワイプした到着点の画面の中心にきたCellを選択すべきCellとする
-        var targetPoint = CGPoint(x: collectionView.frame.width/2 + targetContentOffset.memory.x + cellMargin / 2 , y: collectionView.frame.height/2)
-        var targetIndexPath = collectionView.indexPathForItemAtPoint(targetPoint)
+        let targetPoint = CGPoint(x: collectionView.frame.width/2 + targetContentOffset.memory.x + cellMargin / 2 , y: collectionView.frame.height/2)
+        let targetIndexPath = collectionView.indexPathForItemAtPoint(targetPoint)
 
         // 選択すべきCellの中心座標をスワイプの到着地点として再定義することでTargetCellの中心でスワイプを止める
-        var targetX = (widthSizeOfCell + cellMargin) * CGFloat(targetIndexPath!.row)
+        let targetX = (widthSizeOfCell + cellMargin) * CGFloat(targetIndexPath!.row)
         targetContentOffset.memory.x = targetX > 0 ? targetX : 0.0
 
         selectedTargetIndexPath = targetIndexPath
@@ -155,7 +155,7 @@ extension UserMiddleSearchViewController: UICollectionViewDelegate {
         //スケール範囲
         let scalableRange = 100 + widthSizeOfCell / 2
 		
-        for cell in collectionView.visibleCells() as! [UICollectionViewCell] {
+        for cell in collectionView.visibleCells() {
             //現在のcellのx座標(cellの中心)
             let posX = cell.frame.origin.x + widthSizeOfCell / 2 - collectionView.contentOffset.x
 			
@@ -205,8 +205,8 @@ extension UserMiddleSearchViewController: UICollectionViewDataSource {
     }
 
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        var cell = collectionView.dequeueReusableCellWithReuseIdentifier("searchTargetCell", forIndexPath: indexPath) as! SearchTargetUserCollectionViewCell
-        var user = searchedUsers[indexPath.row]
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("searchTargetCell", forIndexPath: indexPath) as! SearchTargetUserCollectionViewCell
+        let user = searchedUsers[indexPath.row]
         cell.setup(user)
 		
         //TODO: 後日移動

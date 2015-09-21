@@ -12,9 +12,9 @@ import HPGrowingTextView
 class ConversationDetailViewController: UIViewController {
 
     class func build(conversationId: Int) -> (UINavigationController, ConversationDetailViewController) {
-        var storyboard = UIStoryboard(name: "ConversationDetail", bundle: nil)
-        var navigationViewController = storyboard.instantiateInitialViewController() as! UINavigationController
-        var conversationDetailViewController = navigationViewController.topViewController as! ConversationDetailViewController
+        let storyboard = UIStoryboard(name: "ConversationDetail", bundle: nil)
+        let navigationViewController = storyboard.instantiateInitialViewController() as! UINavigationController
+        let conversationDetailViewController = navigationViewController.topViewController as! ConversationDetailViewController
         conversationDetailViewController.conversationId = conversationId
         return (navigationViewController, conversationDetailViewController)
     }
@@ -86,7 +86,7 @@ class ConversationDetailViewController: UIViewController {
         APIManager.sharedInstance.sendMessage(conversationId, message: messageString()).showErrorIfNeeded()
         .continueWithBlock({
             [weak self] (task) -> AnyObject! in
-            if let strongSelf = self, message = APIResponse.parse(APIResponse.Message.self, task.result) {
+            if let _ = self, message = APIResponse.parse(APIResponse.Message.self, task.result) {
                 return DataStore.sharedInstance.saveMessage(message)
             }
             return task
@@ -155,7 +155,7 @@ extension ConversationDetailViewController: HPGrowingTextViewDelegate {
     }
 
     func growingTextViewDidChange(growingTextView: HPGrowingTextView!) {
-        var textCount = count(messageString())
+        let textCount = messageString().characters.count
         sendButton.enabled =
                textCount >= Const.MinMessageLength
             && textCount <= Const.MaxMessageLength

@@ -12,7 +12,7 @@ class RoundedCornersView: UIView {
 
     let cornerRadius: CGFloat = 8
 
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
 
         self.makeRoundedCorner()

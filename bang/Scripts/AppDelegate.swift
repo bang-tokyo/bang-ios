@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var locationManager = LocationManager()
 
     class func sharedAppDelegate() -> AppDelegate? {
-        var application = UIApplication.sharedApplication()
+        let application = UIApplication.sharedApplication()
         if let appDelegate = application.delegate as? AppDelegate {
             return appDelegate
         }
@@ -79,7 +79,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FBSession.activeSession().close()
     }
 
-    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject?) -> Bool {
+    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
         return FBAppCall.handleOpenURL(url, sourceApplication: sourceApplication)
     }
 

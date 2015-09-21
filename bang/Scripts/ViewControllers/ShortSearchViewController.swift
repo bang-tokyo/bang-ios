@@ -12,7 +12,7 @@ import CoreLocation
 class ShortSearchViewController: UIViewController {
 
     class func build() -> ShortSearchViewController {
-        var storyboard = UIStoryboard(name: "ShortSearch", bundle: nil)
+        let storyboard = UIStoryboard(name: "ShortSearch", bundle: nil)
         return storyboard.instantiateInitialViewController() as! ShortSearchViewController
     }
 
@@ -75,12 +75,12 @@ extension ShortSearchViewController: BLECentralManagerDelegate {
     }
 
     func finishScaning(recieveDictonaries: [NSDictionary]) {
-        for recieveDictonary in recieveDictonaries {
-            var recieveDictonary = recieveDictonaries[0]
-            var id = recieveDictonary["id"] as? String
-            var name = recieveDictonary["name"] as? String
-            var longitude = recieveDictonary["longitude"] as? String
-            var latitude = recieveDictonary["latitude"] as? String
+        for _ in recieveDictonaries {
+            let recieveDictonary = recieveDictonaries[0]
+            let id = recieveDictonary["id"] as? String
+            let name = recieveDictonary["name"] as? String
+            let longitude = recieveDictonary["longitude"] as? String
+            let latitude = recieveDictonary["latitude"] as? String
             Tracker.sharedInstance.debug("\(id) \(name) \(longitude) \(latitude)")
             label.text = "\(name)\n\(longitude)\n\(latitude)"
         }
