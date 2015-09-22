@@ -23,6 +23,11 @@ extension UIView {
         self.clipsToBounds = true
     }
 
+    func round() {
+        layer.cornerRadius = frame.size.width * 0.5
+        layer.masksToBounds = true
+    }
+
     func setBlurBackground(view: UIView) {
         let image:UIImage = view.convertToImage()
         image.applyBlurWithRadius()

@@ -112,6 +112,7 @@
 		B86BEAB91B8F64DD00A0716E /* UIWindow+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86BEAB81B8F64DD00A0716E /* UIWindow+Extension.swift */; };
 		B86BEABE1B8F6E7E00A0716E /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B86BEABD1B8F6E7E00A0716E /* AVFoundation.framework */; };
 		B86BEAC21B91BE5700A0716E /* APIManager+Me.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86BEAC11B91BE5700A0716E /* APIManager+Me.swift */; };
+		B872E3D21BAFC65700897162 /* ProfileImagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B872E3D11BAFC65700897162 /* ProfileImagesView.swift */; settings = {ASSET_TAGS = (); }; };
 		B898BC6B1B8A019F0019B1D6 /* BloodTypeSelector.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B898BC6A1B8A019F0019B1D6 /* BloodTypeSelector.storyboard */; };
 		B898BC6D1B8A02580019B1D6 /* BloodType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B898BC6C1B8A02580019B1D6 /* BloodType.swift */; };
 		B898BC701B8A0A5B0019B1D6 /* BloodTypeSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B898BC6F1B8A0A5B0019B1D6 /* BloodTypeSelectorViewController.swift */; };
@@ -187,7 +188,7 @@
 		B810A00B1B895A5B00EE7575 /* APIManager+Region.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "APIManager+Region.swift"; sourceTree = "<group>"; };
 		B810A0101B895F0B00EE7575 /* RegionSelectorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegionSelectorViewController.swift; sourceTree = "<group>"; };
 		B810A0121B895F5100EE7575 /* RegionSelector.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RegionSelector.storyboard; sourceTree = "<group>"; };
-		B810A0151B8961BE00EE7575 /* RegionSelectorTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegionSelectorTableViewCell.swift; path = Views/RegionSelectorTableViewCell.swift; sourceTree = "<group>"; };
+		B810A0151B8961BE00EE7575 /* RegionSelectorTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegionSelectorTableViewCell.swift; sourceTree = "<group>"; };
 		B810A0171B896A7300EE7575 /* RegionSelectorDataHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegionSelectorDataHandler.swift; sourceTree = "<group>"; };
 		B8187BC41B1603CF00E23716 /* UserMiddleSearch.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UserMiddleSearch.storyboard; sourceTree = "<group>"; };
 		B8187BC81B16044900E23716 /* UserMiddleSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserMiddleSearchViewController.swift; sourceTree = "<group>"; };
@@ -267,11 +268,12 @@
 		B86BEAB81B8F64DD00A0716E /* UIWindow+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIWindow+Extension.swift"; sourceTree = "<group>"; };
 		B86BEABD1B8F6E7E00A0716E /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		B86BEAC11B91BE5700A0716E /* APIManager+Me.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "APIManager+Me.swift"; sourceTree = "<group>"; };
+		B872E3D11BAFC65700897162 /* ProfileImagesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileImagesView.swift; sourceTree = "<group>"; };
 		B898BC6A1B8A019F0019B1D6 /* BloodTypeSelector.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = BloodTypeSelector.storyboard; sourceTree = "<group>"; };
 		B898BC6C1B8A02580019B1D6 /* BloodType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BloodType.swift; sourceTree = "<group>"; };
 		B898BC6F1B8A0A5B0019B1D6 /* BloodTypeSelectorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BloodTypeSelectorViewController.swift; sourceTree = "<group>"; };
 		B898BC711B8A0A810019B1D6 /* BloodTypeSelectorDataHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BloodTypeSelectorDataHandler.swift; sourceTree = "<group>"; };
-		B898BC751B8A0C560019B1D6 /* BloodTypeSelectorTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BloodTypeSelectorTableViewCell.swift; path = Views/BloodTypeSelectorTableViewCell.swift; sourceTree = "<group>"; };
+		B898BC751B8A0C560019B1D6 /* BloodTypeSelectorTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BloodTypeSelectorTableViewCell.swift; sourceTree = "<group>"; };
 		B899149D1A8C1F69003E8930 /* BLECentralManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLECentralManager.swift; sourceTree = "<group>"; };
 		B8B979CB1AE67FE600BC3E2C /* APIResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIResponse.swift; sourceTree = "<group>"; };
 		B8B9AB781AF77A8E009FEE4B /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
@@ -450,8 +452,6 @@
 				B8D9B2521A824E2300B30271 /* Models */,
 				B8F138981A8A495C002A820E /* Functions */,
 				B8D9B2511A824DEA00B30271 /* Views */,
-				B810A0151B8961BE00EE7575 /* RegionSelectorTableViewCell.swift */,
-				B898BC751B8A0C560019B1D6 /* BloodTypeSelectorTableViewCell.swift */,
 				B830CDD71A823DE40038CAFE /* ViewControllers */,
 				B8FDC5121A818EDC00D4511E /* AppDelegate.swift */,
 			);
@@ -638,6 +638,7 @@
 		B85F59DF1B7715F900D7E8AE /* ProfileEdit */ = {
 			isa = PBXGroup;
 			children = (
+				B898BC751B8A0C560019B1D6 /* BloodTypeSelectorTableViewCell.swift */,
 				B8516AE41B84BCC5000B0EC5 /* ProfileEditImagesTableViewCell */,
 				B85F59E21B7716AA00D7E8AE /* ProfileEditTextTableViewCell.swift */,
 				B85F59E41B77182900D7E8AE /* ProfileEditChoicesTableViewCell.swift */,
@@ -686,6 +687,7 @@
 				B86BEAB51B8F601100A0716E /* ActionSheet.swift */,
 				B86BEAB31B8F5FA200A0716E /* PhotoSelector.swift */,
 				B80DF33C1B9C57A200C451E1 /* ProfileImageView.swift */,
+				B872E3D11BAFC65700897162 /* ProfileImagesView.swift */,
 			);
 			name = CommonFeature;
 			sourceTree = "<group>";
@@ -747,6 +749,7 @@
 		B8D9B2511A824DEA00B30271 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B810A0151B8961BE00EE7575 /* RegionSelectorTableViewCell.swift */,
 				B81475F41AD8AAC90099A878 /* Extensions */,
 				B8F1389D1A8A4CC5002A820E /* CustomViews */,
 				B86BEAB71B8F602300A0716E /* CommonFeature */,
@@ -1172,6 +1175,7 @@
 				B830CDDA1A82403B0038CAFE /* ShortSearchViewController.swift in Sources */,
 				B8C1884B1AE3397600037552 /* BFTask+API.swift in Sources */,
 				A9925ADF1B762341006B7E34 /* GroupStatus.swift in Sources */,
+				B872E3D21BAFC65700897162 /* ProfileImagesView.swift in Sources */,
 				B84BF5F11B1C1D9700067C4A /* RequestedBangTableViewCell.swift in Sources */,
 				B86BEAC21B91BE5700A0716E /* APIManager+Me.swift in Sources */,
 				A9925ADB1B761852006B7E34 /* GroupBangDto.swift in Sources */,

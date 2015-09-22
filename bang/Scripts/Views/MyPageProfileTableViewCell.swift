@@ -12,7 +12,8 @@ import FacebookSDK
 class MyPageProfileTableViewCell: UITableViewCell {
 
     var userDto: UserDto?
-    @IBOutlet weak var profilePictureView: FBProfilePictureView!
+
+    @IBOutlet weak var profileImageView: ProfileImagesView!
     @IBOutlet weak var nameLabel: UILabel!
 
     override func awakeFromNib() {
@@ -22,7 +23,6 @@ class MyPageProfileTableViewCell: UITableViewCell {
 
     override func layoutSubviews() {
         super.layoutSubviews()
-        profilePictureView.makeCircle()
     }
 
     override func setSelected(selected: Bool, animated: Bool) {
@@ -32,7 +32,8 @@ class MyPageProfileTableViewCell: UITableViewCell {
 
     func configure(userDto: UserDto) {
         self.userDto = userDto
-        profilePictureView.profileID = userDto.facebookId
+        profileImageView.configure(userDto, memberUserDto: nil, rounded: true)
+        profileImageView.round()
         nameLabel.text = userDto.name
     }
 }
