@@ -6,7 +6,8 @@
 //  Copyright (c) 2015年 Yoshikazu Oda. All rights reserved.
 //
 
-import Foundation
+import UIKit
+import FacebookSDK
 
 class GroupDetailViewController: UIViewController {
 
@@ -17,17 +18,22 @@ class GroupDetailViewController: UIViewController {
         return (navigationViewController, groupDetailViewController)
     }
 
+    @IBOutlet weak var fbProfilePictureOwner: FBProfilePictureView!
+    //@IBOutlet weak var fbProfilePictureMember1: FBProfilePictureView!
+    //@IBOutlet weak var fbProfilePictureMember2: FBProfilePictureView!
+
     var groupId: Int!
+    private weak var groupDto: GroupDto!
 
     private var dataHandler: GroupDetailDataHandler!
-
-    private weak var groupDto: GroupDto!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         dataHandler = GroupDetailDataHandler()
         dataHandler.setup(groupId)
+
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "showGroupInfo:", name: Notification.GroupDetailInfoWillShow.rawValue, object: nil)
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -44,5 +50,15 @@ class GroupDetailViewController: UIViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+
+    func showGroupInfo(notification: NSNotification) {
+        if let parameters = notification.userInfo {
+            let group = parameters["group"] as! APIResponse.Group
+
+            //データセット
+            self.navigationItem.title = group.name
+            self.fbProfilePictureOwner.profileID = "796755200418503"
+        }
     }
 }

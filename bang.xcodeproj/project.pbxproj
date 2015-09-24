@@ -378,6 +378,14 @@
 			name = RegionSelectorViewController;
 			sourceTree = "<group>";
 		};
+		A944BEC91BB3ECEB0011A03E /* Group */ = {
+			isa = PBXGroup;
+			children = (
+				A9FB05AB1B9DFB4300046E0E /* GroupTableViewCell.swift */,
+			);
+			name = Group;
+			sourceTree = "<group>";
+		};
 		A963B7811B91A1F6008F1A78 /* GroupViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -783,6 +791,7 @@
 		B8D9B2511A824DEA00B30271 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A944BEC91BB3ECEB0011A03E /* Group */,
 				B81475F41AD8AAC90099A878 /* Extensions */,
 				B8F1389D1A8A4CC5002A820E /* CustomViews */,
 				B86BEAB71B8F602300A0716E /* CommonFeature */,
@@ -790,7 +799,6 @@
 				B86BEAB21B8F5F0E00A0716E /* RequestBang */,
 				B86BEAB11B8F5ED400A0716E /* Search */,
 				B8CC947F1B63346800AF7B5D /* MyPage */,
-				A9FB05AB1B9DFB4300046E0E /* GroupTableViewCell.swift */,
 				B85F59DF1B7715F900D7E8AE /* ProfileEdit */,
 			);
 			path = Views;
