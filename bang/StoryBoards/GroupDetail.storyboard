@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -34,22 +35,45 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gau-aE-1zY" customClass="FBProfilePictureView">
-                                <rect key="frame" x="221" y="108" width="159" height="159"/>
+                                <rect key="frame" x="221" y="173" width="159" height="159"/>
                                 <color key="backgroundColor" red="0.88762625178905452" green="0.88762625178905452" blue="0.88762625178905452" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="159" id="5Uv-HD-WQp"/>
                                     <constraint firstAttribute="width" constant="159" id="fo6-oD-Aof"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wyz-ed-Plq" customClass="FBProfilePictureView">
+                                <rect key="frame" x="20" y="340" width="159" height="159"/>
+                                <color key="backgroundColor" red="0.88762625179999999" green="0.88762625179999999" blue="0.88762625179999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="159" id="11r-fM-jhy"/>
+                                    <constraint firstAttribute="height" constant="159" id="71Y-vZ-mdR"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TkH-F9-arb" customClass="FBProfilePictureView">
+                                <rect key="frame" x="421" y="340" width="159" height="159"/>
+                                <color key="backgroundColor" red="0.88762625179999999" green="0.88762625179999999" blue="0.88762625179999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="159" id="FXz-2x-N5v"/>
+                                    <constraint firstAttribute="height" constant="159" id="f7c-cl-Ll3"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="gau-aE-1zY" firstAttribute="top" secondItem="TbI-85-wPo" secondAttribute="bottom" constant="44" id="o5I-zL-ncI"/>
+                            <constraint firstItem="TkH-F9-arb" firstAttribute="top" secondItem="Wyz-ed-Plq" secondAttribute="top" id="49r-60-Iu9"/>
+                            <constraint firstItem="Wyz-ed-Plq" firstAttribute="leading" secondItem="ndf-UN-Aqt" secondAttribute="leadingMargin" id="OgJ-HC-osv"/>
+                            <constraint firstItem="TkH-F9-arb" firstAttribute="trailing" secondItem="ndf-UN-Aqt" secondAttribute="trailingMargin" id="Pz9-a1-8jj"/>
+                            <constraint firstItem="Wyz-ed-Plq" firstAttribute="top" secondItem="TbI-85-wPo" secondAttribute="bottom" constant="276" id="aWs-VX-lJM"/>
+                            <constraint firstItem="TkH-F9-arb" firstAttribute="top" secondItem="TbI-85-wPo" secondAttribute="bottom" constant="276" id="me2-m4-DVV"/>
+                            <constraint firstItem="gau-aE-1zY" firstAttribute="top" secondItem="TbI-85-wPo" secondAttribute="bottom" constant="109" id="o5I-zL-ncI"/>
                             <constraint firstItem="gau-aE-1zY" firstAttribute="centerX" secondItem="ndf-UN-Aqt" secondAttribute="centerX" id="vPi-zh-ahG"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="3ZZ-q1-PUW"/>
                     <connections>
+                        <outlet property="fbProfilePictureMember1" destination="Wyz-ed-Plq" id="iHo-y6-qGj"/>
+                        <outlet property="fbProfilePictureMember2" destination="TkH-F9-arb" id="MZV-ne-aWG"/>
                         <outlet property="fbProfilePictureOwner" destination="gau-aE-1zY" id="Qud-ZU-m3g"/>
                     </connections>
                 </viewController>

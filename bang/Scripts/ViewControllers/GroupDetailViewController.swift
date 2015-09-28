@@ -19,8 +19,9 @@ class GroupDetailViewController: UIViewController {
     }
 
     @IBOutlet weak var fbProfilePictureOwner: FBProfilePictureView!
-    //@IBOutlet weak var fbProfilePictureMember1: FBProfilePictureView!
-    //@IBOutlet weak var fbProfilePictureMember2: FBProfilePictureView!
+    @IBOutlet weak var fbProfilePictureMember1: FBProfilePictureView!
+    @IBOutlet weak var fbProfilePictureMember2: FBProfilePictureView!
+
 
     var groupId: Int!
     private weak var groupDto: GroupDto!
@@ -38,6 +39,9 @@ class GroupDetailViewController: UIViewController {
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        self.fbProfilePictureOwner.makeCircle()
+        self.fbProfilePictureMember1.makeCircle()
+        self.fbProfilePictureMember2.makeCircle()
         dataHandler.fetchData()
     }
 
@@ -59,6 +63,8 @@ class GroupDetailViewController: UIViewController {
             //データセット
             self.navigationItem.title = group.name
             self.fbProfilePictureOwner.profileID = "796755200418503"
+            self.fbProfilePictureMember1.profileID = "796755200418503"
+            self.fbProfilePictureMember2.profileID = "796755200418503"
         }
     }
 }
