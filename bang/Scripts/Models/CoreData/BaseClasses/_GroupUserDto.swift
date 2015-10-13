@@ -4,8 +4,13 @@
 import CoreData
 
 enum GroupUserDtoAttributes: String {
+    case createdAt = "createdAt"
+    case facebookId = "facebookId"
     case groupId = "groupId"
+    case id = "id"
+    case ownerFlg = "ownerFlg"
     case statusValue = "statusValue"
+    case updatedAt = "updatedAt"
     case userId = "userId"
 }
 
@@ -40,14 +45,39 @@ class _GroupUserDto: NSManagedObject {
     // MARK: - Properties
 
     @NSManaged
+    var createdAt: NSDate?
+
+    // func validateCreatedAt(value: AutoreleasingUnsafePointer<AnyObject>, error: NSErrorPointer) {}
+
+    @NSManaged
+    var facebookId: String?
+
+    // func validateFacebookId(value: AutoreleasingUnsafePointer<AnyObject>, error: NSErrorPointer) {}
+
+    @NSManaged
     var groupId: NSNumber?
 
     // func validateGroupId(value: AutoreleasingUnsafePointer<AnyObject>, error: NSErrorPointer) {}
 
     @NSManaged
+    var id: NSNumber?
+
+    // func validateId(value: AutoreleasingUnsafePointer<AnyObject>, error: NSErrorPointer) {}
+
+    @NSManaged
+    var ownerFlg: NSNumber?
+
+    // func validateOwnerFlg(value: AutoreleasingUnsafePointer<AnyObject>, error: NSErrorPointer) {}
+
+    @NSManaged
     var statusValue: NSNumber?
 
     // func validateStatusValue(value: AutoreleasingUnsafePointer<AnyObject>, error: NSErrorPointer) {}
+
+    @NSManaged
+    var updatedAt: NSDate?
+
+    // func validateUpdatedAt(value: AutoreleasingUnsafePointer<AnyObject>, error: NSErrorPointer) {}
 
     @NSManaged
     var userId: NSNumber?

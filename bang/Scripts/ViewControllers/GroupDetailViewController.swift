@@ -38,11 +38,11 @@ class GroupDetailViewController: UIViewController {
     }
 
     override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
         self.fbProfilePictureOwner.makeCircle()
         self.fbProfilePictureMember1.makeCircle()
         self.fbProfilePictureMember2.makeCircle()
         dataHandler.fetchData()
+        super.viewWillAppear(animated)
     }
 
     override func viewDidAppear(animated: Bool) {
@@ -50,7 +50,8 @@ class GroupDetailViewController: UIViewController {
     }
 
     override func viewWillDisappear(animated: Bool) {
-        super.viewWillDisappear(animated)    }
+        super.viewWillDisappear(animated)
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -60,11 +61,24 @@ class GroupDetailViewController: UIViewController {
         if let parameters = notification.userInfo {
             let group = parameters["group"] as! APIResponse.Group
 
-            //データセット
+            //グループ名セット
             self.navigationItem.title = group.name
-            self.fbProfilePictureOwner.profileID = "796755200418503"
-            self.fbProfilePictureMember1.profileID = "796755200418503"
-            self.fbProfilePictureMember2.profileID = "796755200418503"
+
+            //メンバー画像セット
+            let groupUsers: [APIResponse.GroupUser] = group.groupUsers
+            let groupUsersNum: Int = groupUsers.count
+
+            //オーナー
+            self.fbProfilePictureOwner.profileID = groupUsers.filter {
+                $0.ownerFlg == 1
+            }.first?.facebookId
+
+            if groupUsersNum >= 2 {
+                self.fbProfilePictureMember1.profileID = groupUsers[1].facebookId
+                self.fbProfilePictureMember2.profileID = groupUsers[2].facebookId
+            } else {
+                self.fbProfilePictureMember1.profileID = groupUsers[1].facebookId
+            }
         }
     }
 }

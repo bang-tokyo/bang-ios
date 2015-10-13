@@ -6,8 +6,6 @@
 //  Copyright (c) 2015年 Yoshikazu Oda. All rights reserved.
 //
 
-import Foundation
-
 enum GroupStatus: Int {
 
     case Unknown = 0

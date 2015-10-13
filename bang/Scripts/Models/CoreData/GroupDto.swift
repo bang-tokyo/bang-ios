@@ -12,10 +12,8 @@ class GroupDto: _GroupDto {
         status = GroupStatus.build(statusValue?.integerValue)
     }
 
-    // Custom logic goes here.
     func fill(group: APIResponse.Group) {
         id = group.id
-        ownerUserId = group.ownerUserId
         name = group.name
         memo = group.memo
         regionId = group.regionId

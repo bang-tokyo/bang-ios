@@ -8,7 +8,6 @@ enum GroupDtoAttributes: String {
     case id = "id"
     case memo = "memo"
     case name = "name"
-    case ownerUserId = "ownerUserId"
     case regionId = "regionId"
     case statusValue = "statusValue"
     case updatedAt = "updatedAt"
@@ -64,11 +63,6 @@ class _GroupDto: NSManagedObject {
     var name: String?
 
     // func validateName(value: AutoreleasingUnsafePointer<AnyObject>, error: NSErrorPointer) {}
-
-    @NSManaged
-    var ownerUserId: NSNumber?
-
-    // func validateOwnerUserId(value: AutoreleasingUnsafePointer<AnyObject>, error: NSErrorPointer) {}
 
     @NSManaged
     var regionId: NSNumber?

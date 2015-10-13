@@ -181,13 +181,25 @@ extension DataStore {
     }
 
     private func saveGroup(group: APIResponse.Group, context: NSManagedObjectContext) -> GroupDto {
+        let _: [GroupUserDto] = saveGroupUserList(group.groupUsers, context: context)
+
         let groupDto: GroupDto = GroupDto.firstOrInitializeById(group.id, context: context)
         groupDto.fill(group)
         return groupDto
     }
 
+    private func saveGroupUser(groupUser: APIResponse.GroupUser, context: NSManagedObjectContext) -> GroupUserDto {
+        let groupUserDto: GroupUserDto = GroupUserDto.firstOrInitializeById(groupUser.id, context: context)
+        groupUserDto.fill(groupUser)
+        return groupUserDto
+    }
+
     private func saveGroupList(groupList: [APIResponse.Group], context: NSManagedObjectContext) -> [GroupDto] {
         return groupList.map { self.saveGroup($0, context: context) }
+    }
+
+    private func saveGroupUserList(groupUserList: [APIResponse.GroupUser], context: NSManagedObjectContext) -> [GroupUserDto] {
+        return groupUserList.map { self.saveGroupUser($0, context: context) }
     }
 
     private func saveRegion(region: APIResponse.Region, context: NSManagedObjectContext) -> RegionDto {
