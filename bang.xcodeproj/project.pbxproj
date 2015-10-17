@@ -13,7 +13,7 @@
 		A944BEC61BB00BFE0011A03E /* RegionSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A944BEC51BB00BFE0011A03E /* RegionSelectorViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		A944BEC81BB00C0F0011A03E /* RegionSelectorDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A944BEC71BB00C0F0011A03E /* RegionSelectorDataHandler.swift */; settings = {ASSET_TAGS = (); }; };
 		A944BECD1BC6D9140011A03E /* GroupUserStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = A944BECC1BC6D9140011A03E /* GroupUserStatus.swift */; settings = {ASSET_TAGS = (); }; };
-		A94C309F1BCC050000C4B106 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94C309E1BCC050000C4B106 /* AppConfig.swift */; settings = {ASSET_TAGS = (); }; };
+		A94C30A11BCD6A8E00C4B106 /* GroupMemberImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94C30A01BCD6A8E00C4B106 /* GroupMemberImageView.swift */; settings = {ASSET_TAGS = (); }; };
 		A963B7801B8DFBD6008F1A78 /* Group.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A963B77F1B8DFBD6008F1A78 /* Group.storyboard */; };
 		A963B7831B91A218008F1A78 /* GroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A963B7821B91A218008F1A78 /* GroupViewController.swift */; };
 		A963B7851B91A3D7008F1A78 /* GroupDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A963B7841B91A3D7008F1A78 /* GroupDataHandler.swift */; };
@@ -176,7 +176,7 @@
 		A944BEC51BB00BFE0011A03E /* RegionSelectorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegionSelectorViewController.swift; sourceTree = "<group>"; };
 		A944BEC71BB00C0F0011A03E /* RegionSelectorDataHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegionSelectorDataHandler.swift; sourceTree = "<group>"; };
 		A944BECC1BC6D9140011A03E /* GroupUserStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupUserStatus.swift; sourceTree = "<group>"; };
-		A94C309E1BCC050000C4B106 /* AppConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
+		A94C30A01BCD6A8E00C4B106 /* GroupMemberImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupMemberImageView.swift; sourceTree = "<group>"; };
 		A963B77F1B8DFBD6008F1A78 /* Group.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Group.storyboard; sourceTree = "<group>"; };
 		A963B7821B91A218008F1A78 /* GroupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupViewController.swift; sourceTree = "<group>"; };
 		A963B7841B91A3D7008F1A78 /* GroupDataHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupDataHandler.swift; sourceTree = "<group>"; };
@@ -386,6 +386,7 @@
 			isa = PBXGroup;
 			children = (
 				A9FB05AB1B9DFB4300046E0E /* GroupTableViewCell.swift */,
+				A94C30A01BCD6A8E00C4B106 /* GroupMemberImageView.swift */,
 			);
 			name = Group;
 			sourceTree = "<group>";
@@ -498,7 +499,6 @@
 				B898BC751B8A0C560019B1D6 /* BloodTypeSelectorTableViewCell.swift */,
 				B830CDD71A823DE40038CAFE /* ViewControllers */,
 				B8FDC5121A818EDC00D4511E /* AppDelegate.swift */,
-				A94C309E1BCC050000C4B106 /* AppConfig.swift */,
 			);
 			path = Scripts;
 			sourceTree = "<group>";
@@ -1164,7 +1164,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				B84A6EB61AF4422500A7C632 /* _UserDto.swift in Sources */,
-				A94C309F1BCC050000C4B106 /* AppConfig.swift in Sources */,
 				A9925AC71B6343AA006B7E34 /* GroupMiddleSearchViewController.swift in Sources */,
 				B821152D1ADA55AB002CCA46 /* APIManager.swift in Sources */,
 				B810A0161B8961BE00EE7575 /* RegionSelectorTableViewCell.swift in Sources */,
@@ -1281,6 +1280,7 @@
 				A963B7831B91A218008F1A78 /* GroupViewController.swift in Sources */,
 				A9925ADD1B761852006B7E34 /* GroupUserDto.swift in Sources */,
 				B84A6EBC1AF44D2600A7C632 /* Date.swift in Sources */,
+				A94C30A11BCD6A8E00C4B106 /* GroupMemberImageView.swift in Sources */,
 				B82CA45B1AEC7C4100159D99 /* Alert.swift in Sources */,
 				A9925AE31B78F510006B7E34 /* _GroupBangDto.swift in Sources */,
 				B84BF60F1B36727100067C4A /* ConversationDataHandler.swift in Sources */,

@@ -18,9 +18,9 @@ class GroupDetailViewController: UIViewController {
         return (navigationViewController, groupDetailViewController)
     }
 
-    @IBOutlet weak var fbProfilePictureOwner: FBProfilePictureView!
-    @IBOutlet weak var fbProfilePictureMember1: FBProfilePictureView!
-    @IBOutlet weak var fbProfilePictureMember2: FBProfilePictureView!
+    @IBOutlet weak var groupOwnerPictureView: GroupMemberImageView!
+    @IBOutlet weak var groupMember1PictureView: GroupMemberImageView!
+    @IBOutlet weak var groupMember2PictureView: GroupMemberImageView!
 
 
     var groupId: Int!
@@ -38,9 +38,6 @@ class GroupDetailViewController: UIViewController {
     }
 
     override func viewWillAppear(animated: Bool) {
-        self.fbProfilePictureOwner.makeCircle()
-        self.fbProfilePictureMember1.makeCircle()
-        self.fbProfilePictureMember2.makeCircle()
         dataHandler.fetchData()
         super.viewWillAppear(animated)
     }
@@ -69,15 +66,15 @@ class GroupDetailViewController: UIViewController {
             let groupUsersNum: Int = groupUsers.count
 
             //オーナー
-            self.fbProfilePictureOwner.profileID = groupUsers.filter {
+            self.groupOwnerPictureView.configure((groupUsers.filter {
                 $0.ownerFlg == 1
-            }.first?.facebookId
+            }.first?.facebookId)!)
 
             if groupUsersNum >= 2 {
-                self.fbProfilePictureMember1.profileID = groupUsers[1].facebookId
-                self.fbProfilePictureMember2.profileID = groupUsers[2].facebookId
+                self.groupMember1PictureView.configure(groupUsers[1].facebookId)
+                self.groupMember2PictureView.configure(groupUsers[2].facebookId)
             } else {
-                self.fbProfilePictureMember1.profileID = groupUsers[1].facebookId
+                self.groupMember1PictureView.configure(groupUsers[1].facebookId)
             }
         }
     }
