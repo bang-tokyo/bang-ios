@@ -44,6 +44,12 @@ class GroupViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func onTouchUpInsideGroupCreateBtn(sender: UIButton) {
+        let (_, viewController) = CreateGroupViewController.build()
+        viewController.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(viewController, animated: true)
+    }
+
     func showDetail(notification: NSNotification) {
         if let parameters = notification.userInfo {
             let groupId = parameters["groupId"] as! Int

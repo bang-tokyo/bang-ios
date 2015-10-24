@@ -27,7 +27,7 @@ class GroupMemberImageView: UIView {
         self.addSubview(fBProfilePictureView)
     }
 
-    func configure(facebookId: String) {
+    func setup(facebookId: String) {
         if facebookId.isEmpty {
             //TODO: 友達追加用の画像をセットし、押下でfacebookの友達招待に遷移
 

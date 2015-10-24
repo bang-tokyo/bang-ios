@@ -25,4 +25,13 @@ extension APIManager {
     func requestGroupInfo(id:Int) -> BFTask {
         return request(.GET, path: "/v1/groups/\(id)").APIErrorHandler()
     }
+
+    //グループを作成する(自分がオーナー)
+    func createGroup(name:String, memo:String, regionId: Int) -> BFTask {
+        return request(.POST, path: "/v1/groups", parameters: [
+            "name": name,
+            "memo": memo,
+            "region_id": regionId
+            ]).APIErrorHandler()
+    }
 }

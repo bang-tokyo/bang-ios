@@ -66,15 +66,15 @@ class GroupDetailViewController: UIViewController {
             let groupUsersNum: Int = groupUsers.count
 
             //オーナー
-            self.groupOwnerPictureView.configure((groupUsers.filter {
+            self.groupOwnerPictureView.setup((groupUsers.filter {
                 $0.ownerFlg == 1
             }.first?.facebookId)!)
 
             if groupUsersNum >= 2 {
-                self.groupMember1PictureView.configure(groupUsers[1].facebookId)
-                self.groupMember2PictureView.configure(groupUsers[2].facebookId)
+                self.groupMember1PictureView.setup(groupUsers[1].facebookId)
+                self.groupMember2PictureView.setup(groupUsers[2].facebookId)
             } else {
-                self.groupMember1PictureView.configure(groupUsers[1].facebookId)
+                self.groupMember1PictureView.setup(groupUsers[1].facebookId)
             }
         }
     }

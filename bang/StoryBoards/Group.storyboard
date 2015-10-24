@@ -55,14 +55,14 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="117" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="zJA-mZ-WVo">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="487"/>
+                                <rect key="frame" x="0.0" y="86" width="600" height="401"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="groupListCell" rowHeight="100" id="uuf-sr-fty" customClass="GroupTableViewCell" customModule="bang" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="22" width="600" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uuf-sr-fty" id="MCp-k9-GIZ">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="99.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kox-OX-4Kl" customClass="FBProfilePictureView">
@@ -95,11 +95,35 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mIg-7w-t1v">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="86"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ojf-7e-FDk">
+                                        <rect key="frame" x="254" y="28" width="92" height="30"/>
+                                        <state key="normal" title="Create Group">
+                                            <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="deviceRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="onTouchUpInsideGroupCreateBtn:" destination="pxZ-Vn-6q2" eventType="touchUpInside" id="eOU-lC-AZM"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.37592935911655107" green="0.63255774460000003" blue="0.54390409865629097" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="ojf-7e-FDk" firstAttribute="centerX" secondItem="mIg-7w-t1v" secondAttribute="centerX" id="DPV-1X-inP"/>
+                                    <constraint firstItem="ojf-7e-FDk" firstAttribute="centerY" secondItem="mIg-7w-t1v" secondAttribute="centerY" id="um7-I2-XB8"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="zJA-mZ-WVo" firstAttribute="top" secondItem="zm7-aP-OHI" secondAttribute="bottom" id="DKH-Eo-R9h"/>
+                            <constraint firstItem="zJA-mZ-WVo" firstAttribute="top" secondItem="zm7-aP-OHI" secondAttribute="bottom" constant="86" id="3Qn-kR-2xH"/>
+                            <constraint firstItem="zJA-mZ-WVo" firstAttribute="top" secondItem="mIg-7w-t1v" secondAttribute="bottom" id="CbO-jf-9ge"/>
+                            <constraint firstItem="zJA-mZ-WVo" firstAttribute="top" secondItem="zm7-aP-OHI" secondAttribute="bottom" constant="86" id="DKH-Eo-R9h"/>
                             <constraint firstItem="zJA-mZ-WVo" firstAttribute="bottom" secondItem="4ok-5w-pVK" secondAttribute="top" id="IFn-Ly-XE0"/>
+                            <constraint firstItem="mIg-7w-t1v" firstAttribute="leading" secondItem="vdL-6U-0Lf" secondAttribute="leadingMargin" constant="-20" id="azg-So-GqU"/>
+                            <constraint firstItem="mIg-7w-t1v" firstAttribute="top" secondItem="zm7-aP-OHI" secondAttribute="bottom" id="d8k-HI-8kB"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="mIg-7w-t1v" secondAttribute="trailing" constant="-20" id="iFO-jU-CX5"/>
                             <constraint firstAttribute="trailing" secondItem="zJA-mZ-WVo" secondAttribute="trailing" id="j8V-VO-fb9"/>
                             <constraint firstItem="zJA-mZ-WVo" firstAttribute="leading" secondItem="vdL-6U-0Lf" secondAttribute="leading" id="xeo-dI-QtB"/>
                         </constraints>
