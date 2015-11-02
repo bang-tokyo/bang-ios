@@ -25,8 +25,8 @@
         <attribute name="regionId" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="statusValue" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="updatedAt" optional="YES" attributeType="Date" syncable="YES"/>
-        <relationship name="groupBang" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="GroupBang" inverseName="fromGroup" inverseEntity="GroupBang" syncable="YES"/>
-        <relationship name="groupUsers" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="GroupUser" inverseName="group" inverseEntity="GroupUser" syncable="YES"/>
+        <relationship name="groupBang" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="GroupBang" inverseName="fromGroup" inverseEntity="GroupBang" syncable="YES"/>
+        <relationship name="groupUsers" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="GroupUser" inverseName="group" inverseEntity="GroupUser" syncable="YES"/>
     </entity>
     <entity name="GroupBang" representedClassName="GroupBangDto" syncable="YES">
         <attribute name="createdAt" optional="YES" attributeType="Date" syncable="YES"/>
@@ -108,7 +108,7 @@
     <elements>
         <element name="Conversation" positionX="-776" positionY="180" width="128" height="135"/>
         <element name="ConversationUser" positionX="-36" positionY="-15" width="128" height="150"/>
-        <element name="Group" positionX="-45" positionY="216" width="128" height="180"/>
+        <element name="Group" positionX="-36" positionY="252" width="128" height="178"/>
         <element name="GroupBang" positionX="-227" positionY="162" width="128" height="148"/>
         <element name="GroupUser" positionX="-288" positionY="363" width="128" height="180"/>
         <element name="Message" positionX="124" positionY="129" width="128" height="195"/>

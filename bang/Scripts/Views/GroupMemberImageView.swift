@@ -25,15 +25,19 @@ class GroupMemberImageView: UIView {
         )
         fBProfilePictureView.hidden = true
         self.addSubview(fBProfilePictureView)
+
+        let tap = UITapGestureRecognizer(target: self, action: "onTapFriendInvite")
+        self.addGestureRecognizer(tap)
     }
 
     func setup(facebookId: String) {
-        if facebookId.isEmpty {
-            //TODO: 友達追加用の画像をセットし、押下でfacebookの友達招待に遷移
-
-        } else {
-            fBProfilePictureView.profileID = facebookId
-            fBProfilePictureView.hidden = false
-        }
+        fBProfilePictureView.profileID = facebookId
+        fBProfilePictureView.hidden = false
     }
+
+    func onTapFriendInvite() {
+        if !fBProfilePictureView.hidden { return }
+        print("Tapped")
+    }
+
 }

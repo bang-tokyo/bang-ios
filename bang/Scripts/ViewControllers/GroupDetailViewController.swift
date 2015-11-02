@@ -33,12 +33,13 @@ class GroupDetailViewController: UIViewController {
 
         dataHandler = GroupDetailDataHandler()
         dataHandler.setup(groupId)
+        dataHandler.fetchData()
+        self.showGroupInfo()
 
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "showGroupInfo:", name: Notification.GroupDetailInfoWillShow.rawValue, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "syncGroupInfo:", name: Notification.GroupDetailInfoWillShow.rawValue, object: nil)
     }
 
     override func viewWillAppear(animated: Bool) {
-        dataHandler.fetchData()
         super.viewWillAppear(animated)
     }
 
@@ -54,7 +55,35 @@ class GroupDetailViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
 
-    func showGroupInfo(notification: NSNotification) {
+    func showGroupInfo() {
+        if let group = GroupDto.firstById(self.groupId) as? GroupDto {
+            groupDto = group
+
+            //グループ名セット
+            self.navigationItem.title = groupDto.name
+
+            //メンバー画像セット
+            let groupUsers: [GroupUserDto]? = groupDto.getGroupUsers(self.groupId)
+            let groupUsersNum: Int = groupUsers!.count
+
+            if (groupUsersNum == 0) { return }
+
+            //オーナー
+            self.groupOwnerPictureView.setup((groupUsers!.filter {
+                    $0.ownerFlg == 1
+                }.first?.facebookId)!)
+
+            if groupUsersNum >= 3 {
+                self.groupMember1PictureView.setup(groupUsers![1].facebookId!)
+                self.groupMember2PictureView.setup(groupUsers![2].facebookId!)
+            } else if groupUsersNum >= 2 {
+                self.groupMember1PictureView.setup(groupUsers![1].facebookId!)
+            }
+        }
+    }
+
+    //TODO: 詳細を表示するタイミングでbackgroundで詳細情報を取得し、最新の情報とsyncさせる
+    func syncGroupInfo(notification: NSNotification) {
         if let parameters = notification.userInfo {
             let group = parameters["group"] as! APIResponse.Group
 

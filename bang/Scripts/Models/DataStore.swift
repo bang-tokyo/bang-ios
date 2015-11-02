@@ -181,10 +181,11 @@ extension DataStore {
     }
 
     private func saveGroup(group: APIResponse.Group, context: NSManagedObjectContext) -> GroupDto {
-        let _: [GroupUserDto] = saveGroupUserList(group.groupUsers, context: context)
+        let groupUsers: [GroupUserDto] = saveGroupUserList(group.groupUsers, context: context)
 
         let groupDto: GroupDto = GroupDto.firstOrInitializeById(group.id, context: context)
         groupDto.fill(group)
+        groupDto.groupUsers = NSOrderedSet(array: groupUsers)
         return groupDto
     }
 

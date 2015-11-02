@@ -26,7 +26,7 @@ class NotificationManager {
     }
 
     class func notifyGroupDetailInfoWillShow(group: APIResponse.Group) {
-        let parameters:[String:APIResponse.Group] = ["group": group]
+        let parameters:[String:APIResponse.Group]? = ["group": group]
         postNotification(Notification.GroupDetailInfoWillShow, parameters: parameters)
     }
 }

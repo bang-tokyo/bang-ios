@@ -12,6 +12,14 @@ class GroupDto: _GroupDto {
         status = GroupStatus.build(statusValue?.integerValue)
     }
 
+    func getGroupUsers(groupId: Int) -> [GroupUserDto] {
+        let groupUsers: [GroupUserDto] = self.groupUsers.array as! [GroupUserDto]
+        return groupUsers.filter({
+            (groupUserDto: GroupUserDto) -> Bool in
+            groupUserDto.groupId == groupId
+        })
+    }
+
     func fill(group: APIResponse.Group) {
         id = group.id
         name = group.name
