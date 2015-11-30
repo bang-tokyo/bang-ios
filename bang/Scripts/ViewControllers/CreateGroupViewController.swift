@@ -8,7 +8,12 @@
 
 import UIKit
 
-class CreateGroupViewController: UIViewController {
+protocol facebookFriendDelegate {
+    func invitedFriend(user: APIResponse.Facebook.FriendUser)->Void
+    func cancelInviteFriend(user: APIResponse.Facebook.FriendUser)->Void
+}
+
+class CreateGroupViewController: UIViewController, facebookFriendDelegate {
 
     class func build() -> (UINavigationController, CreateGroupViewController) {
         let storyboard = UIStoryboard(name: "CreateGroup", bundle: nil)
@@ -55,10 +60,9 @@ class CreateGroupViewController: UIViewController {
 
         self.groupOwnerPictureView.setup(userDto!.facebookId!)
 
-        //作成ボタンのdefaultはdisable
-        //self.createGroupBtn.enabled = false
-
         self.groupNameTextField.placeholder = "グループ名を入力してください"
+
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "showFacebookFriends:", name: Notification.FacebookFriendWillShow.rawValue, object: nil)
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -77,6 +81,27 @@ class CreateGroupViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
 
+    func showFacebookFriends(notification: NSNotification) {
+        if let parameters = notification.userInfo {
+            let friendUsers = parameters["facebookFriends"] as! [APIResponse.Facebook.FriendUser]
+
+            if friendUsers.count <= 0 { return }
+
+            let inviteFriendViewController = InviteFriendViewController.build()
+            inviteFriendViewController.friendUsers = friendUsers
+            inviteFriendViewController.delegate = self
+            self.presentViewController(inviteFriendViewController, animated: true, completion: nil)
+        }
+    }
+
+    func invitedFriend(user: APIResponse.Facebook.FriendUser) {
+
+    }
+
+    func cancelInviteFriend(user: APIResponse.Facebook.FriendUser) {
+
+    }
+
 }
 
 extension CreateGroupViewController :UITextFieldDelegate {
@@ -87,5 +112,12 @@ extension CreateGroupViewController :UITextFieldDelegate {
         print("textFieldShouldEndEditing:" + textField.text!)
 
         return true
+    }
+}
+
+// MARK: - Private functions
+extension CreateGroupViewController {
+    private func setInvitedFriend() {
+
     }
 }

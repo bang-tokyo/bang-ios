@@ -9,13 +9,17 @@
 /* Begin PBXBuildFile section */
 		40A54690F851E512A9FB79DC /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2402A515E3FAD2530DBCB7FE /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		4EFDA3E79AFC38B598C73549 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2402A515E3FAD2530DBCB7FE /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		A915B0931BFCBA6D00077EB0 /* InviteFriend.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A915B0921BFCBA6D00077EB0 /* InviteFriend.storyboard */; };
+		A915B0951BFCBC2A00077EB0 /* InviteFriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A915B0941BFCBC2A00077EB0 /* InviteFriendViewController.swift */; };
+		A915B0981BFCBD2F00077EB0 /* InviteFriendDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A915B0971BFCBD2F00077EB0 /* InviteFriendDataHandler.swift */; };
+		A915B09B1BFCC9AC00077EB0 /* InviteFriendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A915B09A1BFCC9AC00077EB0 /* InviteFriendTableViewCell.swift */; };
 		A941E19C1BAFB39C001FF372 /* GroupDetailDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A941E19B1BAFB39C001FF372 /* GroupDetailDataHandler.swift */; };
-		A944BEC61BB00BFE0011A03E /* RegionSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A944BEC51BB00BFE0011A03E /* RegionSelectorViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		A944BEC81BB00C0F0011A03E /* RegionSelectorDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A944BEC71BB00C0F0011A03E /* RegionSelectorDataHandler.swift */; settings = {ASSET_TAGS = (); }; };
-		A944BECD1BC6D9140011A03E /* GroupUserStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = A944BECC1BC6D9140011A03E /* GroupUserStatus.swift */; settings = {ASSET_TAGS = (); }; };
-		A94C30A11BCD6A8E00C4B106 /* GroupMemberImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94C30A01BCD6A8E00C4B106 /* GroupMemberImageView.swift */; settings = {ASSET_TAGS = (); }; };
-		A94C30A31BD2AC8B00C4B106 /* CreateGroup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A94C30A21BD2AC8B00C4B106 /* CreateGroup.storyboard */; settings = {ASSET_TAGS = (); }; };
-		A94C30A61BD2AD0300C4B106 /* CreateGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94C30A51BD2AD0300C4B106 /* CreateGroupViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		A944BEC61BB00BFE0011A03E /* RegionSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A944BEC51BB00BFE0011A03E /* RegionSelectorViewController.swift */; };
+		A944BEC81BB00C0F0011A03E /* RegionSelectorDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A944BEC71BB00C0F0011A03E /* RegionSelectorDataHandler.swift */; };
+		A944BECD1BC6D9140011A03E /* GroupUserStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = A944BECC1BC6D9140011A03E /* GroupUserStatus.swift */; };
+		A94C30A11BCD6A8E00C4B106 /* GroupMemberImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94C30A01BCD6A8E00C4B106 /* GroupMemberImageView.swift */; };
+		A94C30A31BD2AC8B00C4B106 /* CreateGroup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A94C30A21BD2AC8B00C4B106 /* CreateGroup.storyboard */; };
+		A94C30A61BD2AD0300C4B106 /* CreateGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94C30A51BD2AD0300C4B106 /* CreateGroupViewController.swift */; };
 		A963B7801B8DFBD6008F1A78 /* Group.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A963B77F1B8DFBD6008F1A78 /* Group.storyboard */; };
 		A963B7831B91A218008F1A78 /* GroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A963B7821B91A218008F1A78 /* GroupViewController.swift */; };
 		A963B7851B91A3D7008F1A78 /* GroupDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A963B7841B91A3D7008F1A78 /* GroupDataHandler.swift */; };
@@ -174,6 +178,10 @@
 		07720D1FE88AFACC32454227 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		2402A515E3FAD2530DBCB7FE /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E24BFC2BD3FDB4B7751D942 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		A915B0921BFCBA6D00077EB0 /* InviteFriend.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = InviteFriend.storyboard; sourceTree = "<group>"; };
+		A915B0941BFCBC2A00077EB0 /* InviteFriendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InviteFriendViewController.swift; sourceTree = "<group>"; };
+		A915B0971BFCBD2F00077EB0 /* InviteFriendDataHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InviteFriendDataHandler.swift; sourceTree = "<group>"; };
+		A915B09A1BFCC9AC00077EB0 /* InviteFriendTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InviteFriendTableViewCell.swift; sourceTree = "<group>"; };
 		A941E19B1BAFB39C001FF372 /* GroupDetailDataHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupDetailDataHandler.swift; sourceTree = "<group>"; };
 		A944BEC51BB00BFE0011A03E /* RegionSelectorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegionSelectorViewController.swift; sourceTree = "<group>"; };
 		A944BEC71BB00C0F0011A03E /* RegionSelectorDataHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegionSelectorDataHandler.swift; sourceTree = "<group>"; };
@@ -375,6 +383,23 @@
 				2402A515E3FAD2530DBCB7FE /* Pods.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A915B0961BFCBCBC00077EB0 /* InviteFriendViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A915B0941BFCBC2A00077EB0 /* InviteFriendViewController.swift */,
+				A915B0971BFCBD2F00077EB0 /* InviteFriendDataHandler.swift */,
+			);
+			name = InviteFriendViewController;
+			sourceTree = "<group>";
+		};
+		A915B0991BFCC96E00077EB0 /* InviteFriend */ = {
+			isa = PBXGroup;
+			children = (
+				A915B09A1BFCC9AC00077EB0 /* InviteFriendTableViewCell.swift */,
+			);
+			name = InviteFriend;
 			sourceTree = "<group>";
 		};
 		A944BEC41BB003930011A03E /* RegionSelectorViewController */ = {
@@ -636,6 +661,7 @@
 		B84BF62B1B3C405900067C4A /* Sub */ = {
 			isa = PBXGroup;
 			children = (
+				A915B0921BFCBA6D00077EB0 /* InviteFriend.storyboard */,
 				A94C30A21BD2AC8B00C4B106 /* CreateGroup.storyboard */,
 				B84BF6291B3C3FF100067C4A /* ConversationDetail.storyboard */,
 				B8631B4C1B5299440063039A /* Profile.storyboard */,
@@ -650,6 +676,7 @@
 		B84BF62C1B3C429E00067C4A /* Sub */ = {
 			isa = PBXGroup;
 			children = (
+				A915B0961BFCBCBC00077EB0 /* InviteFriendViewController */,
 				A94C30A41BD2ACEF00C4B106 /* CreateGroupViewController */,
 				A9705ABE1BAD4D05008002A7 /* GroupDetailViewController */,
 				B84BF62D1B3C42C200067C4A /* ConversationDetailViewController */,
@@ -810,6 +837,7 @@
 		B8D9B2511A824DEA00B30271 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A915B0991BFCC96E00077EB0 /* InviteFriend */,
 				A944BEC91BB3ECEB0011A03E /* Group */,
 				B81475F41AD8AAC90099A878 /* Extensions */,
 				B8F1389D1A8A4CC5002A820E /* CustomViews */,
@@ -1049,6 +1077,7 @@
 				B84BF5EF1B1C1C3A00067C4A /* RequestedBang.storyboard in Resources */,
 				B824484A1A9043E300B540A4 /* MyPage.storyboard in Resources */,
 				A963B7801B8DFBD6008F1A78 /* Group.storyboard in Resources */,
+				A915B0931BFCBA6D00077EB0 /* InviteFriend.storyboard in Resources */,
 				B84BF62A1B3C3FF100067C4A /* ConversationDetail.storyboard in Resources */,
 				B830CDDC1A8240C30038CAFE /* ShortSearch.storyboard in Resources */,
 				B8FDC51A1A818EDC00D4511E /* Images.xcassets in Resources */,
@@ -1240,6 +1269,7 @@
 				B84BF61F1B3856B500067C4A /* ConversationUserDto.swift in Sources */,
 				B84A6EBA1AF446CC00A7C632 /* UserStatus.swift in Sources */,
 				B830CDDA1A82403B0038CAFE /* ShortSearchViewController.swift in Sources */,
+				A915B0951BFCBC2A00077EB0 /* InviteFriendViewController.swift in Sources */,
 				B8C1884B1AE3397600037552 /* BFTask+API.swift in Sources */,
 				A9925ADF1B762341006B7E34 /* GroupStatus.swift in Sources */,
 				B84BF5F11B1C1D9700067C4A /* RequestedBangTableViewCell.swift in Sources */,
@@ -1260,6 +1290,7 @@
 				B84BF6151B36F08000067C4A /* _ConversationDto.swift in Sources */,
 				B84BF63E1B3FA6C100067C4A /* APIResponse+Message.swift in Sources */,
 				B8CC94811B6334D400AF7B5D /* MyPageProfileTableViewCell.swift in Sources */,
+				A915B09B1BFCC9AC00077EB0 /* InviteFriendTableViewCell.swift in Sources */,
 				B84A6EB81AF4432B00A7C632 /* Gender.swift in Sources */,
 				B84BF62F1B3C42FF00067C4A /* ConversationDetailViewController.swift in Sources */,
 				A9925ADC1B761852006B7E34 /* GroupDto.swift in Sources */,
@@ -1296,6 +1327,7 @@
 				A963B7831B91A218008F1A78 /* GroupViewController.swift in Sources */,
 				A9925ADD1B761852006B7E34 /* GroupUserDto.swift in Sources */,
 				B84A6EBC1AF44D2600A7C632 /* Date.swift in Sources */,
+				A915B0981BFCBD2F00077EB0 /* InviteFriendDataHandler.swift in Sources */,
 				A94C30A11BCD6A8E00C4B106 /* GroupMemberImageView.swift in Sources */,
 				B82CA45B1AEC7C4100159D99 /* Alert.swift in Sources */,
 				A9925AE31B78F510006B7E34 /* _GroupBangDto.swift in Sources */,

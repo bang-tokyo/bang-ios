@@ -9,7 +9,7 @@
 import UIKit
 import FacebookSDK
 
-class GroupDetailViewController: UIViewController {
+class GroupDetailViewController: UIViewController, facebookFriendDelegate {
 
     class func build(groupId: Int) -> (UINavigationController, GroupDetailViewController) {
         let storyboard = UIStoryboard(name: "GroupDetail", bundle: nil)
@@ -21,7 +21,6 @@ class GroupDetailViewController: UIViewController {
     @IBOutlet weak var groupOwnerPictureView: GroupMemberImageView!
     @IBOutlet weak var groupMember1PictureView: GroupMemberImageView!
     @IBOutlet weak var groupMember2PictureView: GroupMemberImageView!
-
 
     var groupId: Int!
     private weak var groupDto: GroupDto!
@@ -36,7 +35,9 @@ class GroupDetailViewController: UIViewController {
         dataHandler.fetchData()
         self.showGroupInfo()
 
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "syncGroupInfo:", name: Notification.GroupDetailInfoWillShow.rawValue, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "asyncGroupInfo:", name: Notification.GroupDetailInfoWillShow.rawValue, object: nil)
+
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "showFacebookFriends:", name: Notification.FacebookFriendWillShow.rawValue, object: nil)
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -83,7 +84,7 @@ class GroupDetailViewController: UIViewController {
     }
 
     //TODO: 詳細を表示するタイミングでbackgroundで詳細情報を取得し、最新の情報とsyncさせる
-    func syncGroupInfo(notification: NSNotification) {
+    func asyncGroupInfo(notification: NSNotification) {
         if let parameters = notification.userInfo {
             let group = parameters["group"] as! APIResponse.Group
 
@@ -106,5 +107,26 @@ class GroupDetailViewController: UIViewController {
                 self.groupMember1PictureView.setup(groupUsers[1].facebookId)
             }
         }
+    }
+
+    func showFacebookFriends(notification: NSNotification) {
+        if let parameters = notification.userInfo {
+            let friendUsers = parameters["facebookFriends"] as! [APIResponse.Facebook.FriendUser]
+
+            if friendUsers.count <= 0 { return }
+
+            let inviteFriendViewController = InviteFriendViewController.build()
+            inviteFriendViewController.friendUsers = friendUsers
+            inviteFriendViewController.delegate = self
+            self.presentViewController(inviteFriendViewController, animated: true, completion: nil)
+        }
+    }
+
+    func invitedFriend(user: APIResponse.Facebook.FriendUser) {
+
+    }
+
+    func cancelInviteFriend(user: APIResponse.Facebook.FriendUser) {
+
     }
 }

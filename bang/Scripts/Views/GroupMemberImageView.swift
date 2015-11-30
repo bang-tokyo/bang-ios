@@ -37,7 +37,15 @@ class GroupMemberImageView: UIView {
 
     func onTapFriendInvite() {
         if !fBProfilePictureView.hidden { return }
-        print("Tapped")
+
+        FacebookManager.sharedInstance.requestUserFriends().continueWithBlock({
+            (task) -> AnyObject! in
+            if let facebookFriends = APIResponse.parseJSONArray(APIResponse.Facebook.FriendUser.self, task.result.data) {
+                NotificationManager.notifyFacebookFriendWillShow(facebookFriends)
+            }
+
+            return BFTask(error: Error.create())
+        })
     }
 
 }
