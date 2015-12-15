@@ -35,8 +35,8 @@ extension ProfileImagesView {
 
         let imageView_1 = ProfileImageView.build(userDto)
         let imegeView_2 = ProfileImageView.build(memberUserDto)
-        imageView_1.frame = CGRectMake(-(width/2), 0, width, height)
-        imegeView_2.frame = CGRectMake(width/2, 0, width, height)
+        imageView_1.frame = CGRectMake(0, 0, width/2, height)
+        imegeView_2.frame = CGRectMake(width/2, 0, width/2, height)
 
         self.addSubview(imageView_1)
         self.addSubview(imegeView_2)
@@ -49,8 +49,8 @@ extension ProfileImagesView {
         let imageView_1 = ProfileImageView.build(userDto)
         let imegeView_2 = ProfileImageView.build(memberUserDto[0])
         let imageView_3 = ProfileImageView.build(memberUserDto[1])
-        imageView_1.frame = CGRectMake(0, -(height/2), width, height)
-        imegeView_2.frame = CGRectMake(0, height/2, width/2, height/2)
+        imageView_1.frame = CGRectMake(-(width/4), 0, width, height)
+        imegeView_2.frame = CGRectMake(width/2, 0, width/2, height/2)
         imageView_3.frame = CGRectMake(width/2, height/2, width/2, height/2)
 
         self.addSubview(imageView_1)

@@ -12,7 +12,14 @@ import SDWebImage
 
 class ProfileImageView: UIImageView {
 
-    func configure(url url: NSURL?, placeholderImage: UIImage?, notRounded: Bool = true) -> BFTask {
+    // UserDtoを渡した時はメインの画像が設定される
+    class func build(userDto: UserDto, rounded: Bool = false) -> ProfileImageView {
+        let profileImageView = ProfileImageView()
+        profileImageView.configure(url: NSURL(string: userDto.profileImagePath0!), placeholderImage: nil, rounded: rounded)
+        return profileImageView
+    }
+
+    func configure(url url: NSURL?, placeholderImage: UIImage?, rounded: Bool = false) -> BFTask {
         let completionSource = BFTaskCompletionSource()
 
         if let u = url {
@@ -21,21 +28,14 @@ class ProfileImageView: UIImageView {
                 if error != nil {
                     completionSource.setError(error)
                 } else {
-                    if notRounded { self?.round() }
+                    if rounded { self?.round() }
                     completionSource.setResult(true)
                 }
             })
         }
 
-        if notRounded { self.round() }
+        if rounded { self.round() }
 
         return completionSource.task
-    }
-}
-
-extension ProfileImageView {
-    private func round() {
-        layer.cornerRadius = frame.size.width * 0.5
-        layer.masksToBounds = true
     }
 }
