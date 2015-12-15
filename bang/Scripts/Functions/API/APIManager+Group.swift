@@ -32,6 +32,14 @@ extension APIManager {
             "name": name,
             "memo": memo,
             "region_id": regionId
-            ]).APIErrorHandler()
+        ]).APIErrorHandler()
+    }
+
+    //グループに招待する
+    func inviteGroupMember(facebookId: String,groupId: Int) -> BFTask {
+        return request(.POST, path: "/v1/groups/invite", parameters: [
+            "facebook_id": facebookId,
+            "group_id": groupId
+        ]).APIErrorHandler()
     }
 }

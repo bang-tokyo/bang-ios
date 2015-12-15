@@ -22,6 +22,9 @@ class CreateGroupViewController: UIViewController, facebookFriendDelegate {
         return (navigationViewController, createGroupViewController)
     }
 
+    //招待する友達
+    var inviteUsers: [APIResponse.Facebook.FriendUser]! = []
+
     var userDto: UserDto?
     @IBOutlet weak var groupOwnerPictureView: GroupMemberImageView!
     @IBOutlet weak var groupMember1PictureView: GroupMemberImageView!
@@ -38,13 +41,28 @@ class CreateGroupViewController: UIViewController, facebookFriendDelegate {
         let memo: String = ""
         let regionId :Int = 1
 
+        var groupId: Int!
+        var groupName: String!
+
         APIManager.sharedInstance.createGroup(name, memo: memo, regionId: regionId).continueWithBlock({
             [weak self] (task) -> AnyObject! in
-            if let _ = self, group = APIResponse.parse(APIResponse.Group.self, task.result) {
-                Alert.showNormal("CreateGroup", message: "Success to create \(group.name)")
-            }
-            return task
-            })
+                if let _ = self, group = APIResponse.parse(APIResponse.Group.self, task.result) {
+                    groupId = group.id as Int
+                    groupName = group.name
+                }
+                return task
+        }).continueWithBlock({
+            [weak self] (task) -> AnyObject! in
+                for user in (self?.inviteUsers)! {
+                    APIManager.sharedInstance.inviteGroupMember(user.id,groupId: groupId).continueWithBlock({
+                        (task) -> AnyObject! in
+                        return task
+                    })
+                }
+
+                Alert.showNormal("CreateGroup", message: "Success to create \(groupName)")
+                return task
+        })
     }
 
     override func viewDidLoad() {
@@ -95,7 +113,8 @@ class CreateGroupViewController: UIViewController, facebookFriendDelegate {
     }
 
     func invitedFriend(user: APIResponse.Facebook.FriendUser) {
-
+        setInvitedFriend(user.id)
+        self.inviteUsers.append(user)
     }
 
     func cancelInviteFriend(user: APIResponse.Facebook.FriendUser) {
@@ -110,14 +129,17 @@ extension CreateGroupViewController :UITextFieldDelegate {
     }
     func textFieldShouldEndEditing(textField: UITextField) -> Bool {
         print("textFieldShouldEndEditing:" + textField.text!)
-
         return true
     }
 }
 
 // MARK: - Private functions
 extension CreateGroupViewController {
-    private func setInvitedFriend() {
-
+    private func setInvitedFriend(facebookId: String) {
+        if groupMember1PictureView.fBProfilePictureView.hidden {
+            groupMember1PictureView.setup(facebookId,isInvited: true)
+        } else {
+            groupMember2PictureView.setup(facebookId,isInvited: true)
+        }
     }
 }

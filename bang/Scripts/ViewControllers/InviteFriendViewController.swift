@@ -48,7 +48,7 @@ class InviteFriendViewController: UIViewController, InviteFriendViewControllerDe
 
     func invitedFriend(user: APIResponse.Facebook.FriendUser) {
         delegate.invitedFriend(user)
-        self.closeViewController()
+        closeViewController()
     }
 
     @IBAction func onTouchUpInsideCloseBtn(sender: UIBarButtonItem) {

@@ -30,9 +30,21 @@ class GroupMemberImageView: UIView {
         self.addGestureRecognizer(tap)
     }
 
-    func setup(facebookId: String) {
+    func setup(facebookId: String, isInvited: Bool = false) {
         fBProfilePictureView.profileID = facebookId
         fBProfilePictureView.hidden = false
+
+        if isInvited {
+            //後日デザイン調整
+            let inviteLabel = UILabel(frame: CGRectMake(0, 0, 200, 40));
+            inviteLabel.text = "招待中";
+            inviteLabel.center = CGPointMake(80, 80);//表示位置
+            inviteLabel.textAlignment = NSTextAlignment.Center//整列
+            inviteLabel.font = UIFont.systemFontOfSize(16);//文字サイズ
+            inviteLabel.textColor = UIColor.whiteColor();//文字色
+            inviteLabel.backgroundColor = UIColor.blackColor();//背景色
+            self.addSubview(inviteLabel);
+        }
     }
 
     func onTapFriendInvite() {

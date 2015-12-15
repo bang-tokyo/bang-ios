@@ -63,27 +63,16 @@ class GroupDetailViewController: UIViewController, facebookFriendDelegate {
             //グループ名セット
             self.navigationItem.title = groupDto.name
 
-            //メンバー画像セット
             let groupUsers: [GroupUserDto]? = groupDto.getGroupUsers(self.groupId)
-            let groupUsersNum: Int = groupUsers!.count
 
-            if (groupUsersNum == 0) { return }
-
-            //オーナー
+            //オーナー画像表示
             self.groupOwnerPictureView.setup((groupUsers!.filter {
                     $0.ownerFlg == 1
                 }.first?.facebookId)!)
-
-            if groupUsersNum >= 3 {
-                self.groupMember1PictureView.setup(groupUsers![1].facebookId!)
-                self.groupMember2PictureView.setup(groupUsers![2].facebookId!)
-            } else if groupUsersNum >= 2 {
-                self.groupMember1PictureView.setup(groupUsers![1].facebookId!)
-            }
         }
     }
 
-    //TODO: 詳細を表示するタイミングでbackgroundで詳細情報を取得し、最新の情報とsyncさせる
+    //詳細を表示するタイミングでbackgroundで詳細情報を取得し、最新の情報と同期させる
     func asyncGroupInfo(notification: NSNotification) {
         if let parameters = notification.userInfo {
             let group = parameters["group"] as! APIResponse.Group
@@ -100,11 +89,15 @@ class GroupDetailViewController: UIViewController, facebookFriendDelegate {
                 $0.ownerFlg == 1
             }.first?.facebookId)!)
 
-            if groupUsersNum >= 2 {
-                self.groupMember1PictureView.setup(groupUsers[1].facebookId)
-                self.groupMember2PictureView.setup(groupUsers[2].facebookId)
-            } else {
-                self.groupMember1PictureView.setup(groupUsers[1].facebookId)
+            var isInvited: Bool!
+            for(var i = 1;i < groupUsersNum;i++) {
+                //statusが2なら招待中を表示
+                isInvited = groupUsers[i].statusValue == 2
+                if (i == 1) {
+                    self.groupMember1PictureView.setup(groupUsers[i].facebookId, isInvited: isInvited)
+                }else if(i == 2) {
+                    self.groupMember2PictureView.setup(groupUsers[i].facebookId, isInvited: isInvited)
+                }
             }
         }
     }
@@ -123,10 +116,25 @@ class GroupDetailViewController: UIViewController, facebookFriendDelegate {
     }
 
     func invitedFriend(user: APIResponse.Facebook.FriendUser) {
-
+        APIManager.sharedInstance.inviteGroupMember(user.id,groupId: groupId).continueWithBlock({
+            [weak self] (task) -> AnyObject! in
+                self!.setInvitedFriend(user.id)
+                return task
+        })
     }
 
     func cancelInviteFriend(user: APIResponse.Facebook.FriendUser) {
 
+    }
+}
+
+// MARK: - Private functions
+extension GroupDetailViewController {
+    private func setInvitedFriend(facebookId: String) {
+        if groupMember1PictureView.fBProfilePictureView.hidden {
+            groupMember1PictureView.setup(facebookId,isInvited: true)
+        } else {
+            groupMember2PictureView.setup(facebookId,isInvited: true)
+        }
     }
 }
