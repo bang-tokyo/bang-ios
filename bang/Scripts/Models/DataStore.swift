@@ -60,6 +60,22 @@ final class DataStore: NSObject {
         }
     }
 
+    func saveGroup(group: APIResponse.Group) -> BFTask {
+        return save {
+            (context, willUpdate) -> Void in
+            self.saveGroup(group, context: context)
+            return
+        }
+    }
+
+    func saveGroupList(groupList: [APIResponse.Group]) -> BFTask {
+        return save {
+            (context, willUpdate) -> Void in
+            self.saveGroupList(groupList, context: context)
+            return
+        }
+    }
+
     func saveMessageList(messageList: [APIResponse.Message]) -> BFTask {
         return save {
             (context, willUpdate) -> Void in
@@ -164,6 +180,29 @@ extension DataStore {
         return messageList.map { self.saveMessage($0, context: context) }
     }
 
+    private func saveGroup(group: APIResponse.Group, context: NSManagedObjectContext) -> GroupDto {
+        let groupUsers: [GroupUserDto] = saveGroupUserList(group.groupUsers, context: context)
+
+        let groupDto: GroupDto = GroupDto.firstOrInitializeById(group.id, context: context)
+        groupDto.fill(group)
+        groupDto.groupUsers = NSOrderedSet(array: groupUsers)
+        return groupDto
+    }
+
+    private func saveGroupUser(groupUser: APIResponse.GroupUser, context: NSManagedObjectContext) -> GroupUserDto {
+        let groupUserDto: GroupUserDto = GroupUserDto.firstOrInitializeById(groupUser.id, context: context)
+        groupUserDto.fill(groupUser)
+        return groupUserDto
+    }
+
+    private func saveGroupList(groupList: [APIResponse.Group], context: NSManagedObjectContext) -> [GroupDto] {
+        return groupList.map { self.saveGroup($0, context: context) }
+    }
+
+    private func saveGroupUserList(groupUserList: [APIResponse.GroupUser], context: NSManagedObjectContext) -> [GroupUserDto] {
+        return groupUserList.map { self.saveGroupUser($0, context: context) }
+    }
+
     private func saveRegion(region: APIResponse.Region, context: NSManagedObjectContext) -> RegionDto {
         let regionDto: RegionDto = RegionDto.firstOrInitializeById(region.id, context: context)
         regionDto.fill(region)
@@ -182,5 +221,6 @@ extension DataStore {
 
         UserBangDto.MR_truncateAllInContext(context)
         UserDto.MR_truncateAllInContext(context)
+        GroupDto.MR_truncateAllInContext(context)
     }
 }

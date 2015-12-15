@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="kxt-HK-q4g">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="vFy-41-jN0">
+            <objects>
+                <navigationController id="kxt-HK-q4g" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="iwI-gK-jnt">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="vCO-gR-m3R" kind="relationship" relationship="rootViewController" id="Exf-Uo-SjL"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jLw-Ly-Yil" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="573" y="-71"/>
+        </scene>
+        <!--Create Group View Controller-->
+        <scene sceneID="OdW-uy-JgR">
+            <objects>
+                <viewController id="vCO-gR-m3R" customClass="CreateGroupViewController" customModule="bang" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="TbI-85-wPo"/>
+                        <viewControllerLayoutGuide type="bottom" id="fGw-aK-gga"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ndf-UN-Aqt" customClass="GroupDetailView" customModule="bang" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gau-aE-1zY" customClass="GroupMemberImageView" customModule="bang" customModuleProvider="target">
+                                <rect key="frame" x="221" y="93" width="159" height="159"/>
+                                <color key="backgroundColor" red="0.88762625178905452" green="0.88762625178905452" blue="0.88762625178905452" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="159" id="5Uv-HD-WQp"/>
+                                    <constraint firstAttribute="width" constant="159" id="fo6-oD-Aof"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wyz-ed-Plq" customClass="GroupMemberImageView" customModule="bang" customModuleProvider="target">
+                                <rect key="frame" x="20" y="260" width="159" height="159"/>
+                                <color key="backgroundColor" red="0.88762625179999999" green="0.88762625179999999" blue="0.88762625179999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="159" id="11r-fM-jhy"/>
+                                    <constraint firstAttribute="height" constant="159" id="71Y-vZ-mdR"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TkH-F9-arb" customClass="GroupMemberImageView" customModule="bang" customModuleProvider="target">
+                                <rect key="frame" x="421" y="260" width="159" height="159"/>
+                                <color key="backgroundColor" red="0.88762625179999999" green="0.88762625179999999" blue="0.88762625179999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="159" id="FXz-2x-N5v"/>
+                                    <constraint firstAttribute="height" constant="159" id="f7c-cl-Ll3"/>
+                                </constraints>
+                            </view>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ulx-oq-BMM">
+                                <rect key="frame" x="200" y="467" width="200" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="djF-R7-uOb"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="68h-6o-hXQ">
+                                <rect key="frame" x="285" y="524" width="30" height="30"/>
+                                <state key="normal" title="作成"/>
+                                <connections>
+                                    <action selector="onTouchUpInsideCreateGroupBtn:" destination="vCO-gR-m3R" eventType="touchUpInside" id="cjU-gO-IEb"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="68h-6o-hXQ" firstAttribute="centerX" secondItem="ulx-oq-BMM" secondAttribute="centerX" id="0gm-4t-yGg"/>
+                            <constraint firstItem="TkH-F9-arb" firstAttribute="top" secondItem="Wyz-ed-Plq" secondAttribute="top" id="49r-60-Iu9"/>
+                            <constraint firstItem="ulx-oq-BMM" firstAttribute="top" secondItem="TkH-F9-arb" secondAttribute="bottom" constant="48" id="BcY-fy-5dX"/>
+                            <constraint firstItem="68h-6o-hXQ" firstAttribute="top" secondItem="ulx-oq-BMM" secondAttribute="bottom" constant="27" id="C58-4g-Hte"/>
+                            <constraint firstItem="Wyz-ed-Plq" firstAttribute="leading" secondItem="ndf-UN-Aqt" secondAttribute="leadingMargin" id="OgJ-HC-osv"/>
+                            <constraint firstItem="TkH-F9-arb" firstAttribute="trailing" secondItem="ndf-UN-Aqt" secondAttribute="trailingMargin" id="Pz9-a1-8jj"/>
+                            <constraint firstItem="ulx-oq-BMM" firstAttribute="centerX" secondItem="gau-aE-1zY" secondAttribute="centerX" id="XvT-kP-hmW"/>
+                            <constraint firstItem="Wyz-ed-Plq" firstAttribute="top" secondItem="TbI-85-wPo" secondAttribute="bottom" constant="196" id="aWs-VX-lJM"/>
+                            <constraint firstItem="TkH-F9-arb" firstAttribute="top" secondItem="TbI-85-wPo" secondAttribute="bottom" constant="196" id="me2-m4-DVV"/>
+                            <constraint firstItem="gau-aE-1zY" firstAttribute="top" secondItem="TbI-85-wPo" secondAttribute="bottom" constant="29" id="o5I-zL-ncI"/>
+                            <constraint firstItem="gau-aE-1zY" firstAttribute="centerX" secondItem="ndf-UN-Aqt" secondAttribute="centerX" id="vPi-zh-ahG"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="3ZZ-q1-PUW"/>
+                    <connections>
+                        <outlet property="createGroupBtn" destination="68h-6o-hXQ" id="nfo-N4-c8n"/>
+                        <outlet property="groupMember1PictureView" destination="Wyz-ed-Plq" id="8yl-wc-ELZ"/>
+                        <outlet property="groupMember2PictureView" destination="TkH-F9-arb" id="Mt7-kI-REg"/>
+                        <outlet property="groupNameTextField" destination="ulx-oq-BMM" id="DHx-Jc-cyj"/>
+                        <outlet property="groupOwnerPictureView" destination="gau-aE-1zY" id="0P1-9h-fCI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IWn-hp-hSR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1325" y="-71"/>
+        </scene>
+    </scenes>
+</document>

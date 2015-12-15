@@ -9,6 +9,22 @@
 /* Begin PBXBuildFile section */
 		40A54690F851E512A9FB79DC /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2402A515E3FAD2530DBCB7FE /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		4EFDA3E79AFC38B598C73549 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2402A515E3FAD2530DBCB7FE /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		A915B0931BFCBA6D00077EB0 /* InviteFriend.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A915B0921BFCBA6D00077EB0 /* InviteFriend.storyboard */; };
+		A915B0951BFCBC2A00077EB0 /* InviteFriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A915B0941BFCBC2A00077EB0 /* InviteFriendViewController.swift */; };
+		A915B0981BFCBD2F00077EB0 /* InviteFriendDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A915B0971BFCBD2F00077EB0 /* InviteFriendDataHandler.swift */; };
+		A915B09B1BFCC9AC00077EB0 /* InviteFriendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A915B09A1BFCC9AC00077EB0 /* InviteFriendTableViewCell.swift */; };
+		A941E19C1BAFB39C001FF372 /* GroupDetailDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A941E19B1BAFB39C001FF372 /* GroupDetailDataHandler.swift */; };
+		A944BEC61BB00BFE0011A03E /* RegionSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A944BEC51BB00BFE0011A03E /* RegionSelectorViewController.swift */; };
+		A944BEC81BB00C0F0011A03E /* RegionSelectorDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A944BEC71BB00C0F0011A03E /* RegionSelectorDataHandler.swift */; };
+		A944BECD1BC6D9140011A03E /* GroupUserStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = A944BECC1BC6D9140011A03E /* GroupUserStatus.swift */; };
+		A94C30A11BCD6A8E00C4B106 /* GroupMemberImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94C30A01BCD6A8E00C4B106 /* GroupMemberImageView.swift */; };
+		A94C30A31BD2AC8B00C4B106 /* CreateGroup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A94C30A21BD2AC8B00C4B106 /* CreateGroup.storyboard */; };
+		A94C30A61BD2AD0300C4B106 /* CreateGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94C30A51BD2AD0300C4B106 /* CreateGroupViewController.swift */; };
+		A963B7801B8DFBD6008F1A78 /* Group.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A963B77F1B8DFBD6008F1A78 /* Group.storyboard */; };
+		A963B7831B91A218008F1A78 /* GroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A963B7821B91A218008F1A78 /* GroupViewController.swift */; };
+		A963B7851B91A3D7008F1A78 /* GroupDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A963B7841B91A3D7008F1A78 /* GroupDataHandler.swift */; };
+		A9705AC01BAD4D29008002A7 /* GroupDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9705ABF1BAD4D29008002A7 /* GroupDetailViewController.swift */; };
+		A9705AC21BAEFC09008002A7 /* GroupDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9705AC11BAEFC09008002A7 /* GroupDetail.storyboard */; };
 		A9925AC51B634355006B7E34 /* GroupMiddleSearch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9925AC41B634355006B7E34 /* GroupMiddleSearch.storyboard */; };
 		A9925AC71B6343AA006B7E34 /* GroupMiddleSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9925AC61B6343AA006B7E34 /* GroupMiddleSearchViewController.swift */; };
 		A9925AC91B634DA6006B7E34 /* APIManager+Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9925AC81B634DA6006B7E34 /* APIManager+Group.swift */; };
@@ -24,6 +40,7 @@
 		A9925AE31B78F510006B7E34 /* _GroupBangDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9925AE01B78F510006B7E34 /* _GroupBangDto.swift */; };
 		A9925AE41B78F510006B7E34 /* _GroupDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9925AE11B78F510006B7E34 /* _GroupDto.swift */; };
 		A9925AE51B78F510006B7E34 /* _GroupUserDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9925AE21B78F510006B7E34 /* _GroupUserDto.swift */; };
+		A9FB05AC1B9DFB4300046E0E /* GroupTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FB05AB1B9DFB4300046E0E /* GroupTableViewCell.swift */; };
 		B807F3361AB433D300571ACB /* Tracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B807F3351AB433D300571ACB /* Tracker.swift */; };
 		B80D21151ABC5BEC00405EAE /* QueueManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80D21141ABC5BEC00405EAE /* QueueManager.swift */; };
 		B80DF33D1B9C57A200C451E1 /* ProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80DF33C1B9C57A200C451E1 /* ProfileImageView.swift */; };
@@ -31,10 +48,8 @@
 		B810A0081B889A0C00EE7575 /* _RegionDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = B810A0071B889A0C00EE7575 /* _RegionDto.swift */; };
 		B810A00A1B89597E00EE7575 /* APIResponse+Region.swift in Sources */ = {isa = PBXBuildFile; fileRef = B810A0091B89597E00EE7575 /* APIResponse+Region.swift */; };
 		B810A00C1B895A5B00EE7575 /* APIManager+Region.swift in Sources */ = {isa = PBXBuildFile; fileRef = B810A00B1B895A5B00EE7575 /* APIManager+Region.swift */; };
-		B810A0111B895F0B00EE7575 /* RegionSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B810A0101B895F0B00EE7575 /* RegionSelectorViewController.swift */; };
 		B810A0131B895F5100EE7575 /* RegionSelector.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B810A0121B895F5100EE7575 /* RegionSelector.storyboard */; };
 		B810A0161B8961BE00EE7575 /* RegionSelectorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B810A0151B8961BE00EE7575 /* RegionSelectorTableViewCell.swift */; };
-		B810A0181B896A7300EE7575 /* RegionSelectorDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B810A0171B896A7300EE7575 /* RegionSelectorDataHandler.swift */; };
 		B8187BC51B1603CF00E23716 /* UserMiddleSearch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8187BC41B1603CF00E23716 /* UserMiddleSearch.storyboard */; };
 		B8187BC91B16044900E23716 /* UserMiddleSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8187BC81B16044900E23716 /* UserMiddleSearchViewController.swift */; };
 		B8187BCB1B1748C800E23716 /* SearchTargetUserCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8187BCA1B1748C800E23716 /* SearchTargetUserCollectionViewCell.swift */; };
@@ -164,6 +179,22 @@
 		07720D1FE88AFACC32454227 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		2402A515E3FAD2530DBCB7FE /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E24BFC2BD3FDB4B7751D942 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		A915B0921BFCBA6D00077EB0 /* InviteFriend.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = InviteFriend.storyboard; sourceTree = "<group>"; };
+		A915B0941BFCBC2A00077EB0 /* InviteFriendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InviteFriendViewController.swift; sourceTree = "<group>"; };
+		A915B0971BFCBD2F00077EB0 /* InviteFriendDataHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InviteFriendDataHandler.swift; sourceTree = "<group>"; };
+		A915B09A1BFCC9AC00077EB0 /* InviteFriendTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InviteFriendTableViewCell.swift; sourceTree = "<group>"; };
+		A941E19B1BAFB39C001FF372 /* GroupDetailDataHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupDetailDataHandler.swift; sourceTree = "<group>"; };
+		A944BEC51BB00BFE0011A03E /* RegionSelectorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegionSelectorViewController.swift; sourceTree = "<group>"; };
+		A944BEC71BB00C0F0011A03E /* RegionSelectorDataHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegionSelectorDataHandler.swift; sourceTree = "<group>"; };
+		A944BECC1BC6D9140011A03E /* GroupUserStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupUserStatus.swift; sourceTree = "<group>"; };
+		A94C30A01BCD6A8E00C4B106 /* GroupMemberImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupMemberImageView.swift; sourceTree = "<group>"; };
+		A94C30A21BD2AC8B00C4B106 /* CreateGroup.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CreateGroup.storyboard; sourceTree = "<group>"; };
+		A94C30A51BD2AD0300C4B106 /* CreateGroupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateGroupViewController.swift; sourceTree = "<group>"; };
+		A963B77F1B8DFBD6008F1A78 /* Group.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Group.storyboard; sourceTree = "<group>"; };
+		A963B7821B91A218008F1A78 /* GroupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupViewController.swift; sourceTree = "<group>"; };
+		A963B7841B91A3D7008F1A78 /* GroupDataHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupDataHandler.swift; sourceTree = "<group>"; };
+		A9705ABF1BAD4D29008002A7 /* GroupDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupDetailViewController.swift; sourceTree = "<group>"; };
+		A9705AC11BAEFC09008002A7 /* GroupDetail.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = GroupDetail.storyboard; sourceTree = "<group>"; };
 		A9925AC41B634355006B7E34 /* GroupMiddleSearch.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = GroupMiddleSearch.storyboard; sourceTree = "<group>"; };
 		A9925AC61B6343AA006B7E34 /* GroupMiddleSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupMiddleSearchViewController.swift; sourceTree = "<group>"; };
 		A9925AC81B634DA6006B7E34 /* APIManager+Group.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "APIManager+Group.swift"; sourceTree = "<group>"; };
@@ -179,6 +210,7 @@
 		A9925AE01B78F510006B7E34 /* _GroupBangDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _GroupBangDto.swift; sourceTree = "<group>"; };
 		A9925AE11B78F510006B7E34 /* _GroupDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _GroupDto.swift; sourceTree = "<group>"; };
 		A9925AE21B78F510006B7E34 /* _GroupUserDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _GroupUserDto.swift; sourceTree = "<group>"; };
+		A9FB05AB1B9DFB4300046E0E /* GroupTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupTableViewCell.swift; sourceTree = "<group>"; };
 		B807F3351AB433D300571ACB /* Tracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tracker.swift; sourceTree = "<group>"; };
 		B80D21141ABC5BEC00405EAE /* QueueManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueueManager.swift; sourceTree = "<group>"; };
 		B80DF33C1B9C57A200C451E1 /* ProfileImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileImageView.swift; sourceTree = "<group>"; };
@@ -186,7 +218,6 @@
 		B810A0071B889A0C00EE7575 /* _RegionDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _RegionDto.swift; sourceTree = "<group>"; };
 		B810A0091B89597E00EE7575 /* APIResponse+Region.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "APIResponse+Region.swift"; sourceTree = "<group>"; };
 		B810A00B1B895A5B00EE7575 /* APIManager+Region.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "APIManager+Region.swift"; sourceTree = "<group>"; };
-		B810A0101B895F0B00EE7575 /* RegionSelectorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegionSelectorViewController.swift; sourceTree = "<group>"; };
 		B810A0121B895F5100EE7575 /* RegionSelector.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RegionSelector.storyboard; sourceTree = "<group>"; };
 		B810A0151B8961BE00EE7575 /* RegionSelectorTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegionSelectorTableViewCell.swift; sourceTree = "<group>"; };
 		B810A0171B896A7300EE7575 /* RegionSelectorDataHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegionSelectorDataHandler.swift; sourceTree = "<group>"; };
@@ -357,13 +388,65 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		B810A00D1B895E7E00EE7575 /* RegionSelectorViewController */ = {
+		A915B0961BFCBCBC00077EB0 /* InviteFriendViewController */ = {
 			isa = PBXGroup;
 			children = (
-				B810A0101B895F0B00EE7575 /* RegionSelectorViewController.swift */,
-				B810A0171B896A7300EE7575 /* RegionSelectorDataHandler.swift */,
+				A915B0941BFCBC2A00077EB0 /* InviteFriendViewController.swift */,
+				A915B0971BFCBD2F00077EB0 /* InviteFriendDataHandler.swift */,
+			);
+			name = InviteFriendViewController;
+			sourceTree = "<group>";
+		};
+		A915B0991BFCC96E00077EB0 /* InviteFriend */ = {
+			isa = PBXGroup;
+			children = (
+				A915B09A1BFCC9AC00077EB0 /* InviteFriendTableViewCell.swift */,
+			);
+			name = InviteFriend;
+			sourceTree = "<group>";
+		};
+		A944BEC41BB003930011A03E /* RegionSelectorViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A944BEC71BB00C0F0011A03E /* RegionSelectorDataHandler.swift */,
+				A944BEC51BB00BFE0011A03E /* RegionSelectorViewController.swift */,
 			);
 			name = RegionSelectorViewController;
+			sourceTree = "<group>";
+		};
+		A944BEC91BB3ECEB0011A03E /* Group */ = {
+			isa = PBXGroup;
+			children = (
+				A9FB05AB1B9DFB4300046E0E /* GroupTableViewCell.swift */,
+				A94C30A01BCD6A8E00C4B106 /* GroupMemberImageView.swift */,
+			);
+			name = Group;
+			sourceTree = "<group>";
+		};
+		A94C30A41BD2ACEF00C4B106 /* CreateGroupViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A94C30A51BD2AD0300C4B106 /* CreateGroupViewController.swift */,
+			);
+			name = CreateGroupViewController;
+			sourceTree = "<group>";
+		};
+		A963B7811B91A1F6008F1A78 /* GroupViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A963B7821B91A218008F1A78 /* GroupViewController.swift */,
+				A963B7841B91A3D7008F1A78 /* GroupDataHandler.swift */,
+			);
+			name = GroupViewController;
+			sourceTree = "<group>";
+		};
+		A9705ABE1BAD4D05008002A7 /* GroupDetailViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A9705ABF1BAD4D29008002A7 /* GroupDetailViewController.swift */,
+				A941E19B1BAFB39C001FF372 /* GroupDetailDataHandler.swift */,
+			);
+			name = GroupDetailViewController;
 			sourceTree = "<group>";
 		};
 		B81475F31AD8AA750099A878 /* BLE */ = {
@@ -494,6 +577,7 @@
 		B84BF5F31B1C4B0200067C4A /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				A963B7811B91A1F6008F1A78 /* GroupViewController */,
 				B8B9AB781AF77A8E009FEE4B /* TabBarViewController.swift */,
 				B8CC94841B63389800AF7B5D /* MyPageViewController */,
 				B84BF60B1B36549F00067C4A /* ConversationViewController */,
@@ -560,6 +644,7 @@
 				B82448491A9043E300B540A4 /* MyPage.storyboard */,
 				B8EA20F91A99D35E00BD0164 /* Conversation.storyboard */,
 				B84BF5EE1B1C1C3A00067C4A /* RequestedBang.storyboard */,
+				A963B77F1B8DFBD6008F1A78 /* Group.storyboard */,
 			);
 			name = Main;
 			sourceTree = "<group>";
@@ -577,9 +662,12 @@
 		B84BF62B1B3C405900067C4A /* Sub */ = {
 			isa = PBXGroup;
 			children = (
+				A915B0921BFCBA6D00077EB0 /* InviteFriend.storyboard */,
+				A94C30A21BD2AC8B00C4B106 /* CreateGroup.storyboard */,
 				B84BF6291B3C3FF100067C4A /* ConversationDetail.storyboard */,
 				B8631B4C1B5299440063039A /* Profile.storyboard */,
 				B8631B4E1B5299560063039A /* ProfileEdit.storyboard */,
+				A9705AC11BAEFC09008002A7 /* GroupDetail.storyboard */,
 				B810A0121B895F5100EE7575 /* RegionSelector.storyboard */,
 				B898BC6A1B8A019F0019B1D6 /* BloodTypeSelector.storyboard */,
 			);
@@ -589,10 +677,13 @@
 		B84BF62C1B3C429E00067C4A /* Sub */ = {
 			isa = PBXGroup;
 			children = (
+				A915B0961BFCBCBC00077EB0 /* InviteFriendViewController */,
+				A94C30A41BD2ACEF00C4B106 /* CreateGroupViewController */,
+				A9705ABE1BAD4D05008002A7 /* GroupDetailViewController */,
 				B84BF62D1B3C42C200067C4A /* ConversationDetailViewController */,
 				B8631B501B52998E0063039A /* ProfileViewController.swift */,
 				B85F59E61B77196F00D7E8AE /* ProfileEditViewController */,
-				B810A00D1B895E7E00EE7575 /* RegionSelectorViewController */,
+				A944BEC41BB003930011A03E /* RegionSelectorViewController */,
 				B898BC6E1B8A0A270019B1D6 /* BloodTypeSelectorViewController */,
 			);
 			name = Sub;
@@ -749,6 +840,8 @@
 		B8D9B2511A824DEA00B30271 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A915B0991BFCC96E00077EB0 /* InviteFriend */,
+				A944BEC91BB3ECEB0011A03E /* Group */,
 				B810A0151B8961BE00EE7575 /* RegionSelectorTableViewCell.swift */,
 				B81475F41AD8AAC90099A878 /* Extensions */,
 				B8F1389D1A8A4CC5002A820E /* CustomViews */,
@@ -777,6 +870,7 @@
 				B84BF61C1B3853C300067C4A /* ConversationKind.swift */,
 				B84A6EBD1AF4578900A7C632 /* DataStore.swift */,
 				A9925ADE1B762341006B7E34 /* GroupStatus.swift */,
+				A944BECC1BC6D9140011A03E /* GroupUserStatus.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -983,11 +1077,15 @@
 				B898BC6B1B8A019F0019B1D6 /* BloodTypeSelector.storyboard in Resources */,
 				B810A0131B895F5100EE7575 /* RegionSelector.storyboard in Resources */,
 				B8187BC51B1603CF00E23716 /* UserMiddleSearch.storyboard in Resources */,
+				A94C30A31BD2AC8B00C4B106 /* CreateGroup.storyboard in Resources */,
 				B84BF5EF1B1C1C3A00067C4A /* RequestedBang.storyboard in Resources */,
 				B824484A1A9043E300B540A4 /* MyPage.storyboard in Resources */,
+				A963B7801B8DFBD6008F1A78 /* Group.storyboard in Resources */,
+				A915B0931BFCBA6D00077EB0 /* InviteFriend.storyboard in Resources */,
 				B84BF62A1B3C3FF100067C4A /* ConversationDetail.storyboard in Resources */,
 				B830CDDC1A8240C30038CAFE /* ShortSearch.storyboard in Resources */,
 				B8FDC51A1A818EDC00D4511E /* Images.xcassets in Resources */,
+				A9705AC21BAEFC09008002A7 /* GroupDetail.storyboard in Resources */,
 				B8EA20FA1A99D35E00BD0164 /* Conversation.storyboard in Resources */,
 				B8631B4F1B5299560063039A /* ProfileEdit.storyboard in Resources */,
 			);
@@ -1139,7 +1237,6 @@
 				B84BF6381B3EF24000067C4A /* NSNotificationCenter+Extension.swift in Sources */,
 				B85F59E51B77182900D7E8AE /* ProfileEditChoicesTableViewCell.swift in Sources */,
 				B8F1389F1A8A4D13002A820E /* RoundedCornersView.swift in Sources */,
-				B810A0111B895F0B00EE7575 /* RegionSelectorViewController.swift in Sources */,
 				B8CC94831B63350100AF7B5D /* MyPageMenuTableViewCell.swift in Sources */,
 				B898BC721B8A0A810019B1D6 /* BloodTypeSelectorDataHandler.swift in Sources */,
 				B84BF6251B39A26E00067C4A /* APIManager+Conversation.swift in Sources */,
@@ -1149,6 +1246,7 @@
 				B810A00C1B895A5B00EE7575 /* APIManager+Region.swift in Sources */,
 				B80DF33D1B9C57A200C451E1 /* ProfileImageView.swift in Sources */,
 				B8187BCB1B1748C800E23716 /* SearchTargetUserCollectionViewCell.swift in Sources */,
+				A944BEC81BB00C0F0011A03E /* RegionSelectorDataHandler.swift in Sources */,
 				B821152F1ADA6B5F002CCA46 /* GeneralInfo.swift in Sources */,
 				B84A6EBE1AF4578900A7C632 /* DataStore.swift in Sources */,
 				B810A0081B889A0C00EE7575 /* _RegionDto.swift in Sources */,
@@ -1163,8 +1261,10 @@
 				B80D21151ABC5BEC00405EAE /* QueueManager.swift in Sources */,
 				B84BF60D1B366F5B00067C4A /* ConversationTableViewCell.swift in Sources */,
 				A9925AE41B78F510006B7E34 /* _GroupDto.swift in Sources */,
+				A94C30A61BD2AD0300C4B106 /* CreateGroupViewController.swift in Sources */,
 				B824484C1A90441600B540A4 /* MyPageViewController.swift in Sources */,
 				B82448571A9824AF00B540A4 /* GlobalData.swift in Sources */,
+				A944BECD1BC6D9140011A03E /* GroupUserStatus.swift in Sources */,
 				B8631B511B52998E0063039A /* ProfileViewController.swift in Sources */,
 				A9925AC91B634DA6006B7E34 /* APIManager+Group.swift in Sources */,
 				B84BF63A1B3FA59900067C4A /* MessageDto.swift in Sources */,
@@ -1173,6 +1273,7 @@
 				B84BF61F1B3856B500067C4A /* ConversationUserDto.swift in Sources */,
 				B84A6EBA1AF446CC00A7C632 /* UserStatus.swift in Sources */,
 				B830CDDA1A82403B0038CAFE /* ShortSearchViewController.swift in Sources */,
+				A915B0951BFCBC2A00077EB0 /* InviteFriendViewController.swift in Sources */,
 				B8C1884B1AE3397600037552 /* BFTask+API.swift in Sources */,
 				A9925ADF1B762341006B7E34 /* GroupStatus.swift in Sources */,
 				B872E3D21BAFC65700897162 /* ProfileImagesView.swift in Sources */,
@@ -1194,13 +1295,17 @@
 				B84BF6151B36F08000067C4A /* _ConversationDto.swift in Sources */,
 				B84BF63E1B3FA6C100067C4A /* APIResponse+Message.swift in Sources */,
 				B8CC94811B6334D400AF7B5D /* MyPageProfileTableViewCell.swift in Sources */,
+				A915B09B1BFCC9AC00077EB0 /* InviteFriendTableViewCell.swift in Sources */,
 				B84A6EB81AF4432B00A7C632 /* Gender.swift in Sources */,
 				B84BF62F1B3C42FF00067C4A /* ConversationDetailViewController.swift in Sources */,
 				A9925ADC1B761852006B7E34 /* GroupDto.swift in Sources */,
 				B84BF60A1B364AA100067C4A /* ProgressHUD.swift in Sources */,
 				B8E6D9A91ABE55840094D582 /* LocationManager.swift in Sources */,
+				A9705AC01BAD4D29008002A7 /* GroupDetailViewController.swift in Sources */,
 				B8F9C6971AE6947D003320AB /* APIResponse+Facebook.swift in Sources */,
+				A963B7851B91A3D7008F1A78 /* GroupDataHandler.swift in Sources */,
 				B84BF6321B3CCD5300067C4A /* NotificationManager.swift in Sources */,
+				A941E19C1BAFB39C001FF372 /* GroupDetailDataHandler.swift in Sources */,
 				A9925ACF1B638525006B7E34 /* APIResponse+GroupUser.swift in Sources */,
 				B8F1389C1A8A4B84002A820E /* BLEPeripheralManager.swift in Sources */,
 				B8631B531B529C0A0063039A /* ProfileEditViewController.swift in Sources */,
@@ -1213,6 +1318,7 @@
 				B8F9C6991AEB9C8F003320AB /* Error.swift in Sources */,
 				B85F59E81B771B0200D7E8AE /* ProfileEditDataHandler.swift in Sources */,
 				B84BF6081B35951B00067C4A /* GlobalFunctions.swift in Sources */,
+				A9FB05AC1B9DFB4300046E0E /* GroupTableViewCell.swift in Sources */,
 				B8DD298C1A8B1CC10024ABD0 /* BLEEnum+Extension.swift in Sources */,
 				B8461C5B1B4D693C00133C2E /* ConversationMessageTableViewCell.swift in Sources */,
 				B8516AE61B84BD17000B0EC5 /* ProfileEditImagesDataHandler.swift in Sources */,
@@ -1223,13 +1329,16 @@
 				B84BF6211B3856C000067C4A /* _ConversationUserDto.swift in Sources */,
 				B8D9B25D1A8254C400B30271 /* UIImage+Extension.swift in Sources */,
 				B8F547541ADC197B00548883 /* APIManager+User.swift in Sources */,
-				B810A0181B896A7300EE7575 /* RegionSelectorDataHandler.swift in Sources */,
+				A963B7831B91A218008F1A78 /* GroupViewController.swift in Sources */,
 				A9925ADD1B761852006B7E34 /* GroupUserDto.swift in Sources */,
 				B84A6EBC1AF44D2600A7C632 /* Date.swift in Sources */,
+				A915B0981BFCBD2F00077EB0 /* InviteFriendDataHandler.swift in Sources */,
+				A94C30A11BCD6A8E00C4B106 /* GroupMemberImageView.swift in Sources */,
 				B82CA45B1AEC7C4100159D99 /* Alert.swift in Sources */,
 				A9925AE31B78F510006B7E34 /* _GroupBangDto.swift in Sources */,
 				B84BF60F1B36727100067C4A /* ConversationDataHandler.swift in Sources */,
 				B84BF5EB1B19E68500067C4A /* APIManager+UserBang.swift in Sources */,
+				A944BEC61BB00BFE0011A03E /* RegionSelectorViewController.swift in Sources */,
 				B8CC94861B6338B400AF7B5D /* MyPageDataHandler.swift in Sources */,
 				B82448421A8EF16C00B540A4 /* LoginViewController.swift in Sources */,
 			);

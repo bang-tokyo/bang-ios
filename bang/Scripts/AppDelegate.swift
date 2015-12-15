@@ -46,7 +46,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         locationManager.startLocationUpdates()
 
         // TODO : - For TestFairyテストユーザーの操作動画とかみたい時だけに必要みたい。実際はいらないかも。
-        TestFairy.begin("2230ae3df6cdd204adfa8a9717fd8ecf4945b852")
+        //TestFairy.begin("2230ae3df6cdd204adfa8a9717fd8ecf4945b852")
 
         return true
     }

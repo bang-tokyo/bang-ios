@@ -4,11 +4,13 @@
 import CoreData
 
 enum GroupDtoAttributes: String {
+    case createdAt = "createdAt"
+    case id = "id"
     case memo = "memo"
     case name = "name"
-    case ownerUserId = "ownerUserId"
     case regionId = "regionId"
     case statusValue = "statusValue"
+    case updatedAt = "updatedAt"
 }
 
 enum GroupDtoRelationships: String {
@@ -43,6 +45,16 @@ class _GroupDto: NSManagedObject {
     // MARK: - Properties
 
     @NSManaged
+    var createdAt: NSDate?
+
+    // func validateCreatedAt(value: AutoreleasingUnsafePointer<AnyObject>, error: NSErrorPointer) {}
+
+    @NSManaged
+    var id: NSNumber?
+
+    // func validateId(value: AutoreleasingUnsafePointer<AnyObject>, error: NSErrorPointer) {}
+
+    @NSManaged
     var memo: String?
 
     // func validateMemo(value: AutoreleasingUnsafePointer<AnyObject>, error: NSErrorPointer) {}
@@ -51,11 +63,6 @@ class _GroupDto: NSManagedObject {
     var name: String?
 
     // func validateName(value: AutoreleasingUnsafePointer<AnyObject>, error: NSErrorPointer) {}
-
-    @NSManaged
-    var ownerUserId: NSNumber?
-
-    // func validateOwnerUserId(value: AutoreleasingUnsafePointer<AnyObject>, error: NSErrorPointer) {}
 
     @NSManaged
     var regionId: NSNumber?
@@ -67,17 +74,73 @@ class _GroupDto: NSManagedObject {
 
     // func validateStatusValue(value: AutoreleasingUnsafePointer<AnyObject>, error: NSErrorPointer) {}
 
+    @NSManaged
+    var updatedAt: NSDate?
+
+    // func validateUpdatedAt(value: AutoreleasingUnsafePointer<AnyObject>, error: NSErrorPointer) {}
+
     // MARK: - Relationships
 
     @NSManaged
-    var groupBang: GroupBangDto?
-
-    // func validateGroupBang(value: AutoreleasingUnsafePointer<AnyObject>, error: NSErrorPointer) {}
+    var groupBang: NSOrderedSet
 
     @NSManaged
-    var groupUsers: GroupUserDto?
-
-    // func validateGroupUsers(value: AutoreleasingUnsafePointer<AnyObject>, error: NSErrorPointer) {}
+    var groupUsers: NSOrderedSet
 
 }
 
+extension _GroupDto {
+
+    func addGroupBang(objects: NSOrderedSet) {
+        let mutable = self.groupBang.mutableCopy() as! NSMutableOrderedSet
+        mutable.unionOrderedSet(objects)
+        self.groupBang = mutable.copy() as! NSOrderedSet
+    }
+
+    func removeGroupBang(objects: NSOrderedSet) {
+        let mutable = self.groupBang.mutableCopy() as! NSMutableOrderedSet
+        mutable.minusOrderedSet(objects)
+        self.groupBang = mutable.copy() as! NSOrderedSet
+    }
+
+    func addGroupBangObject(value: GroupBangDto!) {
+        let mutable = self.groupBang.mutableCopy() as! NSMutableOrderedSet
+        mutable.addObject(value)
+        self.groupBang = mutable.copy() as! NSOrderedSet
+    }
+
+    func removeGroupBangObject(value: GroupBangDto!) {
+        let mutable = self.groupBang.mutableCopy() as! NSMutableOrderedSet
+        mutable.removeObject(value)
+        self.groupBang = mutable.copy() as! NSOrderedSet
+    }
+
+}
+
+extension _GroupDto {
+
+    func addGroupUsers(objects: NSOrderedSet) {
+        let mutable = self.groupUsers.mutableCopy() as! NSMutableOrderedSet
+        mutable.unionOrderedSet(objects)
+        self.groupUsers = mutable.copy() as! NSOrderedSet
+    }
+
+    func removeGroupUsers(objects: NSOrderedSet) {
+        let mutable = self.groupUsers.mutableCopy() as! NSMutableOrderedSet
+        mutable.minusOrderedSet(objects)
+        self.groupUsers = mutable.copy() as! NSOrderedSet
+    }
+
+    func addGroupUsersObject(value: GroupUserDto!) {
+        let mutable = self.groupUsers.mutableCopy() as! NSMutableOrderedSet
+        mutable.addObject(value)
+        self.groupUsers = mutable.copy() as! NSOrderedSet
+    }
+
+    func removeGroupUsersObject(value: GroupUserDto!) {
+        let mutable = self.groupUsers.mutableCopy() as! NSMutableOrderedSet
+        mutable.removeObject(value)
+        self.groupUsers = mutable.copy() as! NSOrderedSet
+    }
+
+}

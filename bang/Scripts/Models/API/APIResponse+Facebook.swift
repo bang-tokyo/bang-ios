@@ -26,5 +26,17 @@ extension APIResponse {
                 ]
             }
         }
+        class FriendUser: MTLModel, MTLJSONSerializing {
+            var id: String!
+            var name: String!
+            var firstName: String!
+            var lastName: String!
+            class func JSONKeyPathsByPropertyKey() -> [NSObject : AnyObject]! {
+                return [
+                    "firstName": "first_name",
+                    "lastName": "last_name"
+                ]
+            }
+        }
     }
 }

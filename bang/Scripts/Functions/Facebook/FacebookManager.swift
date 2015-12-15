@@ -42,6 +42,22 @@ class FacebookManager: NSObject {
         return completionSource.task
     }
 
+    func requestUserFriends() -> BFTask {
+        let completionSource = BFTaskCompletionSource()
+
+        FBRequest.requestForMyFriends().startWithCompletionHandler {
+            (connection: FBRequestConnection!, result: AnyObject!, error: NSError!) -> Void in
+
+            if error != nil {
+                completionSource.setError(error)
+            } else {
+                completionSource.setResult(result)
+            }
+        }
+
+        return completionSource.task
+    }
+
     func closeFacebookSession() {
         FBSession.activeSession().closeAndClearTokenInformation()
     }

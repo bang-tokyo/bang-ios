@@ -11,7 +11,35 @@ import Bolts
 
 extension APIManager {
 
+    //グループbang一覧を要求する
     func searchGroup() -> BFTask {
-        return request(.GET, path: "/v1/groups/").APIErrorHandler()
+        return request(.GET, path: "/v1/groups/search").APIErrorHandler()
+    }
+
+    //自分の所属するグループを要求する
+    func requestMyGroups() -> BFTask {
+        return request(.GET, path: "/v1/groups/my").APIErrorHandler()
+    }
+
+    //グループ詳細を要求する
+    func requestGroupInfo(id:Int) -> BFTask {
+        return request(.GET, path: "/v1/groups/\(id)").APIErrorHandler()
+    }
+
+    //グループを作成する(自分がオーナー)
+    func createGroup(name:String, memo:String, regionId: Int) -> BFTask {
+        return request(.POST, path: "/v1/groups", parameters: [
+            "name": name,
+            "memo": memo,
+            "region_id": regionId
+        ]).APIErrorHandler()
+    }
+
+    //グループに招待する
+    func inviteGroupMember(facebookId: String,groupId: Int) -> BFTask {
+        return request(.POST, path: "/v1/groups/invite", parameters: [
+            "facebook_id": facebookId,
+            "group_id": groupId
+        ]).APIErrorHandler()
     }
 }
